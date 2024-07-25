@@ -20816,7 +20816,7 @@
         ],
         "summary": "Create a role",
         "description": "Use this API to create a new [role](https://support.zoom.us/hc/en-us/articles/4471054202253-Using-role-management). Admins can use the role management feature to control access to features and settings in the Zoom web portal. \n\n \n\n**Scopes:** `contact_center_role:write:admin`\n\n**Granular Scopes:** `contact_center:write:role:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "createRole",
+        "operationId": "createRoleZoomContactCenterAPISpec",
         "parameters": [],
         "requestBody": {
           "content": {
@@ -20984,7 +20984,7 @@
         ],
         "summary": "Delete a role",
         "description": "Use this API to delete a role. \n\n \n\n**Scopes:** `contact_center_role:write:admin`\n\n**Granular Scopes:** `contact_center:delete:role:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "deleteRole",
+        "operationId": "deleteRoleZoomContactCenterAPISpec",
         "parameters": [
           {
             "name": "roleId",
@@ -21043,7 +21043,7 @@
         ],
         "summary": "Update a role",
         "description": "Use this API to update a role. \n\n \n\n**Scopes:** `contact_center_role:write:admin`\n\n**Granular Scopes:** `contact_center:update:role:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "updateRole",
+        "operationId": "updateRoleZoomContactCenterAPISpec",
         "parameters": [
           {
             "name": "roleId",
@@ -23238,7 +23238,7 @@
         ],
         "summary": "List users' profiles",
         "description": "Returns a list of users and their information. \n\n \n\n**Scopes:** `contact_center_user:read:admin`\n\n**Granular Scopes:** `contact_center:read:list_users:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
-        "operationId": "users",
+        "operationId": "usersZoomContactCenterAPISpec",
         "parameters": [
           {
             "name": "search_key",
@@ -24463,7 +24463,7 @@
         ],
         "summary": "Delete a user's profile",
         "description": "Delete the specified user's profile. \n\n \n\n**Scopes:** `contact_center_user:write:admin`\n\n**Granular Scopes:** `contact_center:delete:user:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "userDelete",
+        "operationId": "userDeleteZoomContactCenterAPISpec",
         "parameters": [
           {
             "name": "userId",
@@ -24512,7 +24512,7 @@
         ],
         "summary": "Update a user's profile",
         "description": "Update information in a user's profile.\n\n**Scopes:** `contact_center_user:write:admin`\n\n**Granular Scopes:** `contact_center:update:user:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
-        "operationId": "userUpdate",
+        "operationId": "userUpdateZoomContactCenterAPISpec",
         "parameters": [
           {
             "name": "userId",

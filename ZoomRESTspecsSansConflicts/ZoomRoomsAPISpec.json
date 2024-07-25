@@ -8785,7 +8785,7 @@
         ],
         "summary": "Delete a Zoom Room user device",
         "description": "Deletes a Zoom Room device.  **Prerequisites:**     * Pro or a higher plan with [Zoom Room](https://zoom.us/zoomrooms) license.   * Account owner or admin permissions.\n\n**Scopes:** `room:write:admin`\n\n**Granular Scopes:** `zoom_rooms:delete:device:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
-        "operationId": "deleteDevice",
+        "operationId": "deleteDeviceZoomRoomsAPISpec",
         "parameters": [
           {
             "name": "roomId",

@@ -27,7 +27,7 @@
         ],
         "summary": "List recordings of an account",
         "description": "List **Video SDK Cloud Recordings** available on an Account.\n\n To access a password protected cloud recording, add an `access_token` parameter to the download URL and provide your [Video SDK API JWT](https://marketplace.zoom.us/docs/guides/build/video-sdk-app/#video-sdk-and-api-credentials) as the value of the `access_token`.\n  \n \n\n \n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
-        "operationId": "recordingsList",
+        "operationId": "recordingsListZoomVideoSDKAPISpec",
         "parameters": [
           {
             "name": "page_size",
@@ -387,7 +387,7 @@
         ],
         "summary": "List session's recordings",
         "description": "Get all the **recordings** from a session instance. The recording files can be downloaded via the `download_url` property listed in the response.\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
-        "operationId": "recordingGet",
+        "operationId": "recordingGetZoomVideoSDKAPISpec",
         "parameters": [
           {
             "name": "sessionId",
@@ -858,7 +858,7 @@
         ],
         "summary": "Delete session's recordings",
         "description": "Delete all recording files of a session.  \n   \n \n\n **Prerequisites**:\n* Cloud Recording should be enabled on the user's account.  \n \n\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "recordingDelete",
+        "operationId": "recordingDeleteZoomVideoSDKAPISpec",
         "parameters": [
           {
             "name": "sessionId",
@@ -922,7 +922,7 @@
         ],
         "summary": "Recover session's recordings",
         "description": "Zoom allows users to recover recordings from trash for up to 30 days from the deletion date.\n \n **Prerequisites**:  \n \n* Video SDK account with Cloud Recording enabled.\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "recordingStatusUpdate",
+        "operationId": "recordingStatusUpdateZoomVideoSDKAPISpec",
         "parameters": [
           {
             "name": "sessionId",
@@ -987,7 +987,7 @@
         ],
         "summary": "Delete session's recording file",
         "description": "Delete a specific recording file from a session. **Note:** To use this API, you must enable the **The host can delete cloud recordings** setting.\n\n\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "recordingDeleteOne",
+        "operationId": "recordingDeleteOneZoomVideoSDKAPISpec",
         "parameters": [
           {
             "name": "sessionId",
@@ -1061,7 +1061,7 @@
         ],
         "summary": "Recover a single recording",
         "description": "Zoom allows users to recover recordings from trash for up to 30 days from the deletion date. Use this API to recover a single recording file from the session.  \n \n \n \n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "recordingStatusUpdateOne",
+        "operationId": "recordingStatusUpdateOneZoomVideoSDKAPISpec",
         "parameters": [
           {
             "name": "sessionId",

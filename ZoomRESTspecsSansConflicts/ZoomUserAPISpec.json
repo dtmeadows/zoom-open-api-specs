@@ -8096,7 +8096,7 @@
         ],
         "summary": "List users",
         "description": "Retrieve a list your account's users. \n\n\n\n**Scopes:** `user:read`,`user:write`,`user:read:admin`,`user:write:admin`\n\n**Granular Scopes:** `user:read:list_users:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
-        "operationId": "users",
+        "operationId": "usersZoomUserAPISpec",
         "parameters": [
           {
             "name": "status",
@@ -9619,7 +9619,7 @@
         ],
         "summary": "Delete a user",
         "description": "**Disassociate** (unlink) a user or permanently **delete** a user.  \n\n**Disassociating** a user unlinks the user from the associated Zoom account and provides the user their own basic free Zoom account. The disassociated user can then purchase their own Zoom licenses. An account owner or account admin can transfer the user's meetings, webinars, and cloud recordings to another user before disassociation.\n\n\n**Deleting** a user permanently removes the user and their data from Zoom. Users can create a new Zoom account using the same email address. An account owner or an account admin can transfer meetings, webinars, and cloud recordings to another Zoom user account before deleting.\n\n\nFor user-level apps, pass [the `me` value](https://developers.zoom.us/docs/api/rest/using-zoom-apis/#the-me-keyword) instead of the `userId` parameter.\n\n**Note:** This API does not support the deletion requirements of a [Data Subject Access Request (DSAR)](https://dataprivacymanager.net/what-is-data-subject-access-request-dsar/). For a DSAR request, contact Zoom Support. \n\n\n\n\n**Scopes:** `user:write:admin`,`user:write`\n\n**Granular Scopes:** `user:delete:user`,`user:delete:user:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
-        "operationId": "userDelete",
+        "operationId": "userDeleteZoomUserAPISpec",
         "parameters": [
           {
             "name": "userId",
@@ -9750,7 +9750,7 @@
         ],
         "summary": "Update a user",
         "description": "Updates a user's [Zoom profile](https://support.zoom.us/hc/en-us/articles/201363203-My-Profile) information. \n\nFor user-level apps, pass [the `me` value](hhttps://developers.zoom.us/docs/api/rest/using-zoom-apis/#the-me-keyword) instead of the `userId` parameter.\n\n\n\n**Scopes:** `user:write:admin`,`user:write`\n\n**Granular Scopes:** `user:update:user`,`user:update:user:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
-        "operationId": "userUpdate",
+        "operationId": "userUpdateZoomUserAPISpec",
         "parameters": [
           {
             "name": "userId",

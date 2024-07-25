@@ -1086,7 +1086,7 @@
         ],
         "summary": "Get meeting recordings",
         "description": "Returns all of a meeting's [recordings](https://support.zoom.us/hc/en-us/articles/203741855-Cloud-Recording#h_7420acb5-1897-4061-87b4-5b76e99c03b4).\n\n Use the `download_url` property listed in the response to download the recording files.  To access a passcode-protected cloud recording, send the user's [OAuth access token](https://developers.zoom.us/docs/integrations/oauth/) as a Bearer token in the Authorization header. \n \n Example:  `curl -H 'Authorization: Bearer <ACCESS_TOKEN>' https://{{base-domain}}/rec/archive/download/xyz`  \n\n**Scopes:** `recording:read`,`phone_recording:read:admin`\n\n**Granular Scopes:** `cloud_recording:read:list_recording_files:admin`,`cloud_recording:read:list_recording_files`,`cloud_recording:read:list_recording_files:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
-        "operationId": "recordingGet",
+        "operationId": "recordingGetZoomMeetingAPISpec",
         "parameters": [
           {
             "name": "meetingId",
@@ -1496,7 +1496,7 @@
         ],
         "summary": "Delete meeting recordings",
         "description": "Delete all recording files of a meeting.  \n   \n \n\n**Prerequisites**:\n* Cloud Recording should be enabled on the user's account.  \n \n\n\n**Scopes:** `recording:write:admin`,`recording:write`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "recordingDelete",
+        "operationId": "recordingDeleteZoomMeetingAPISpec",
         "parameters": [
           {
             "name": "meetingId",
@@ -3097,7 +3097,7 @@
         ],
         "summary": "Delete a recording file for a meeting or webinar",
         "description": "Delete a specific recording file from a meeting or webinar. Note: To use this API, you must enable the **The host can delete cloud recordings** setting. Find this setting in the **Recording** tab of the **Settings** interface in the [Zoom web portal](https://zoom.us/).\n\n\n\n**Scopes:** `recording:write:admin`,`recording:write`\n\n**Granular Scopes:** `cloud_recording:delete:recording_file`,`cloud_recording:delete:recording_file:admin`,`cloud_recording:delete:recording_file:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
-        "operationId": "recordingDeleteOne",
+        "operationId": "recordingDeleteOneZoomMeetingAPISpec",
         "parameters": [
           {
             "name": "meetingId",
@@ -3180,7 +3180,7 @@
         ],
         "summary": "Recover a single recording",
         "description": "Zoom allows users to recover recordings from trash for up to 30 days from the deletion date. Use this API to recover a single recording file from the meeting.  \n \n\n\n**Scopes:** `recording:write:admin`,`recording:write`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "recordingStatusUpdateOne",
+        "operationId": "recordingStatusUpdateOneZoomMeetingAPISpec",
         "parameters": [
           {
             "name": "meetingId",
@@ -3260,7 +3260,7 @@
         ],
         "summary": "Recover meeting recordings",
         "description": "Zoom allows users to recover recordings from trash for up to 30 days from the deletion date. Use this API to recover all deleted [Cloud Recordings](https://support.zoom.us/hc/en-us/articles/203741855-Cloud-Recording) of a specific meeting.  \n   \n \n**Prerequisites**:  \n \n* A Pro user with Cloud Recording enabled.\n\n**Scopes:** `recording:write:admin`,`recording:write`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "recordingStatusUpdate",
+        "operationId": "recordingStatusUpdateZoomMeetingAPISpec",
         "parameters": [
           {
             "name": "meetingUUID",
@@ -3333,7 +3333,7 @@
         ],
         "summary": "List all recordings",
         "description": "Lists all [cloud recordings](https://support.zoom.us/hc/en-us/articles/203741855-Cloud-Recording) for a user.  \n\nFor user-level apps, pass the [`me` value](https://developers.zoom.us/docs/api/rest/using-zoom-apis/#the-me-keyword) instead of the `userId` parameter.  To access a user's passcode protected cloud recording, send the user's [OAuth access token](https://developers.zoom.us/docs/integrations/oauth/) as a bearer token in the authorization header.  \n\nExample:  `curl -H \"Authorization: Bearer <ACCESS_TOKEN>\" https://{{base-domain}}/rec/archive/download/xyz`  \n\n**Prerequisites:**  \n* Must have a Pro or a higher plan.  \n* Must enable Cloud Recording on the user's account.\n\n**Scopes:** `recording:read:admin`,`recording:read`\n\n**Granular Scopes:** `cloud_recording:read:list_user_recordings`,`cloud_recording:read:list_user_recordings:master`,`cloud_recording:read:list_user_recordings:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
-        "operationId": "recordingsList",
+        "operationId": "recordingsListZoomMeetingAPISpec",
         "parameters": [
           {
             "name": "userId",
@@ -4822,7 +4822,7 @@
         ],
         "summary": "Delete device",
         "description": "Delete a device from a Zoom account. \n\n**Prerequisites:**\n* Device must be enrolled in ZMD (Zoom Device Management)\n\n**Scopes:** `device:write:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
-        "operationId": "deleteDevice",
+        "operationId": "deleteDeviceZoomMeetingAPISpec",
         "parameters": [
           {
             "name": "deviceId",

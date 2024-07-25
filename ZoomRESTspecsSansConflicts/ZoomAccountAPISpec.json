@@ -19169,7 +19169,7 @@
         ],
         "summary": "Create a role",
         "description": "Each Zoom user automatically has a role which can either be owner, administrator, or member. \n\n**Pre-requisites**  \n \n* Pro or higher plan.\n* To set the initial role, you must be the account owner.  \n \n* For subsequent role management, you must be either the account owner or user with role management permissions.  \n \n\n\n**Scopes:** `role:write:admin`\n\n**Granular Scopes:** `role:write:role`,`role:write:role:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "createRole",
+        "operationId": "createRoleZoomAccountAPISpec",
         "requestBody": {
           "content": {
             "application/json": {
@@ -19352,7 +19352,7 @@
         ],
         "summary": "Delete a role",
         "description": "Each Zoom user automatically has a role which can either be owner, administrator, or a member. Account Owners and users with edit privileges for Role management can add customized roles with a list.\n\nUse this API to delete a role.  \n \n**Pre-requisite:**  \n \n* A Pro or higher plan.  \n \n* For role management and updates, you must be the Account Owner or user with role management permissions.\n\n\n\n**Scopes:** `role:write:admin`\n\n**Granular Scopes:** `role:delete:role`,`role:delete:role:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "deleteRole",
+        "operationId": "deleteRoleZoomAccountAPISpec",
         "parameters": [
           {
             "name": "roleId",
@@ -19402,7 +19402,7 @@
         ],
         "summary": "Update role information",
         "description": "Each Zoom user automatically has a [role](https://support.zoom.us/hc/en-us/articles/115001078646-Role-Based-Access-Control) which can either be owner, administrator, or a member. Account Owners and users with edit privileges for Role management can add customized roles with a list.\n\nUse this API to change the privileges, name and description of a specific role.  \n \n**Pre-requisite:**  \n \n* A Pro or higher plan.  \n \n* For role management and updates, you must be the Account Owner or user with role management permissions.  \n \n\n**Scopes:** `role:write:admin`\n\n**Granular Scopes:** `role:update:role`,`role:update:role:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "updateRole",
+        "operationId": "updateRoleZoomAccountAPISpec",
         "parameters": [
           {
             "name": "roleId",
