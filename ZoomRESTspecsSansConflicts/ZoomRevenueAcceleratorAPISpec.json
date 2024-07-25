@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us/v2"
+    }
+  ],
   "paths": {
     "/iq/settings/indicators": {
       "get": {
-        "tags": ["Accounts"],
+        "tags": [
+          "Accounts"
+        ],
         "summary": "Get indicators settings [Deprecated]",
         "description": "Get the account's indicators settings. \n\n **Prerequisites:** \n* The account must be a paid account.\n\n**Scopes:** `account:read:admin`,`account:write:admin`,`iq_account:read:admin`\n\n**Granular Scopes:** `zra:read:indicator`,`zra:read:indicator:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "accountSettingsIndicatorsDeprecated",
@@ -28,7 +34,10 @@
             "in": "query",
             "description": "The category id of indicators:",
             "required": false,
-            "schema": { "type": "string", "example": "KYjRY564SzGoUsGFG7zTTw" }
+            "schema": {
+              "type": "string",
+              "example": "KYjRY564SzGoUsGFG7zTTw"
+            }
           },
           {
             "name": "type",
@@ -38,7 +47,11 @@
             "schema": {
               "type": "string",
               "example": "basic",
-              "enum": ["basic", "advanced", "guiding_sentences"]
+              "enum": [
+                "basic",
+                "advanced",
+                "guiding_sentences"
+              ]
             }
           },
           {
@@ -136,7 +149,11 @@
                                 "type": "string",
                                 "description": "Identify when Mentioned by.",
                                 "example": "anyone",
-                                "enum": ["anyone", "reps", "prospects"]
+                                "enum": [
+                                  "anyone",
+                                  "reps",
+                                  "prospects"
+                                ]
                               },
                               "enabled": {
                                 "type": "boolean",
@@ -208,7 +225,9 @@
     },
     "/zra/settings/indicators": {
       "get": {
-        "tags": ["Accounts"],
+        "tags": [
+          "Accounts"
+        ],
         "summary": "Get indicators settings",
         "description": "Get the account's indicators settings. \n\n **Prerequisites:** \n* The account must be a paid account.\n\n\n\n**Scopes:** `account:read:admin`,`account:write:admin`,`iq_account:read:admin`\n\n**Granular Scopes:** `zra:read:indicator`,`zra:read:indicator:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "accountIndicatorsSettings",
@@ -218,7 +237,10 @@
             "in": "query",
             "description": "The category id of indicators:",
             "required": false,
-            "schema": { "type": "string", "example": "KYjRY564SzGoUsGFG7zTTw" }
+            "schema": {
+              "type": "string",
+              "example": "KYjRY564SzGoUsGFG7zTTw"
+            }
           },
           {
             "name": "type",
@@ -228,7 +250,11 @@
             "schema": {
               "type": "string",
               "example": "basic",
-              "enum": ["basic", "advanced", "guiding_sentences"]
+              "enum": [
+                "basic",
+                "advanced",
+                "guiding_sentences"
+              ]
             }
           },
           {
@@ -326,7 +352,11 @@
                                 "type": "string",
                                 "description": "Identify when Mentioned by.",
                                 "example": "anyone",
-                                "enum": ["anyone", "reps", "prospects"]
+                                "enum": [
+                                  "anyone",
+                                  "reps",
+                                  "prospects"
+                                ]
                               },
                               "enabled": {
                                 "type": "boolean",
@@ -382,7 +412,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
-          "x-permissions": ["IQAccountSetting:Read"],
+          "x-permissions": [
+            "IQAccountSetting:Read"
+          ],
           "x-macro-scopes": [
             "account:read:admin",
             "account:write:admin",
@@ -397,7 +429,9 @@
     },
     "/iq/conversations": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "List conversations [Deprecated]",
         "description": "List all conversations. \n\n\n\n**Scopes:** `iq_conversation:read`,`iq_conversation:write`,`iq_conversation:read:admin`,`iq_conversation:write:admin`\n\n**Granular Scopes:** `zra:read:list_conversations`,`zra:read:list_conversations:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "listConversationsDeprecated",
@@ -407,28 +441,40 @@
             "in": "query",
             "description": "The host user ID to query.",
             "required": false,
-            "schema": { "type": "string", "example": "IGTRVt3gQ2i-WjoUIjeZxw" }
+            "schema": {
+              "type": "string",
+              "example": "IGTRVt3gQ2i-WjoUIjeZxw"
+            }
           },
           {
             "name": "participant_id",
             "in": "query",
             "description": "The internal participant ID to query.",
             "required": false,
-            "schema": { "type": "string", "example": "IGTRVt3gQ2i-WjoUIjeZxw" }
+            "schema": {
+              "type": "string",
+              "example": "IGTRVt3gQ2i-WjoUIjeZxw"
+            }
           },
           {
             "name": "team_id",
             "in": "query",
             "description": "The Zoom specific team ID to query.",
             "required": false,
-            "schema": { "type": "string", "example": "IGTRVt3gQ2i-WjoUIjeZxw" }
+            "schema": {
+              "type": "string",
+              "example": "IGTRVt3gQ2i-WjoUIjeZxw"
+            }
           },
           {
             "name": "deal_id",
             "in": "query",
             "description": "The Zoom specific deal ID to query.",
             "required": false,
-            "schema": { "type": "string", "example": "IGTRVt3gQ2i-WjoUIjeZxw" }
+            "schema": {
+              "type": "string",
+              "example": "IGTRVt3gQ2i-WjoUIjeZxw"
+            }
           },
           {
             "name": "period_type",
@@ -439,7 +485,10 @@
               "type": "string",
               "example": "meetingStartTime",
               "default": "meetingStartTime",
-              "enum": ["meetingStartTime", "iqProcessedTime"]
+              "enum": [
+                "meetingStartTime",
+                "iqProcessedTime"
+              ]
             }
           },
           {
@@ -447,14 +496,20 @@
             "in": "query",
             "description": "The start date in `yyyy-MM-dd'T'HH:mm:ss'Z'` format.",
             "required": false,
-            "schema": { "type": "string", "example": "2020-05-01T19:13:02Z" }
+            "schema": {
+              "type": "string",
+              "example": "2020-05-01T19:13:02Z"
+            }
           },
           {
             "name": "to",
             "in": "query",
             "description": "The end date in `yyyy-MM-dd'T'HH:mm:ss'Z'` format.",
             "required": false,
-            "schema": { "type": "string", "example": "2020-05-02T19:13:05Z" }
+            "schema": {
+              "type": "string",
+              "example": "2020-05-02T19:13:05Z"
+            }
           },
           {
             "name": "conversation_type",
@@ -465,7 +520,11 @@
               "type": "string",
               "example": "meeting",
               "default": "all",
-              "enum": ["all", "meeting", "phone"]
+              "enum": [
+                "all",
+                "meeting",
+                "phone"
+              ]
             }
           },
           {
@@ -476,7 +535,10 @@
             "schema": {
               "type": "string",
               "example": "engagingQuestions",
-              "enum": ["engagingQuestions", "nextSteps"]
+              "enum": [
+                "engagingQuestions",
+                "nextSteps"
+              ]
             }
           },
           {
@@ -484,21 +546,30 @@
             "in": "query",
             "description": "The indicator id to query.",
             "required": false,
-            "schema": { "type": "string", "example": "nZ2G0anOQfGECmsb4W0hxA" }
+            "schema": {
+              "type": "string",
+              "example": "nZ2G0anOQfGECmsb4W0hxA"
+            }
           },
           {
             "name": "mentioned_topic_id",
             "in": "query",
             "description": "The mentioned topic id to query.",
             "required": false,
-            "schema": { "type": "string", "example": "user_requirements" }
+            "schema": {
+              "type": "string",
+              "example": "user_requirements"
+            }
           },
           {
             "name": "scored",
             "in": "query",
             "description": "Set to `true` to return scored conversations from the conversation list.",
             "required": false,
-            "schema": { "type": "boolean", "example": true }
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           },
           {
             "name": "page_size",
@@ -676,7 +747,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
-          "x-permissions": ["AllConversations:Read"],
+          "x-permissions": [
+            "AllConversations:Read"
+          ],
           "x-macro-scopes": [
             "iq_conversation:read",
             "iq_conversation:write",
@@ -690,7 +763,9 @@
         }
       },
       "post": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Add conversation by file id or download url. [Deprecated]",
         "description": "Add conversation by file ID or third party download URL.\n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:write:conversation`,`zra:write:conversation:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "AddConversationByFileIdOrDownloadUrlDeprecated",
@@ -698,7 +773,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["conversation_type", "meeting_start_time"],
+                "required": [
+                  "conversation_type",
+                  "meeting_start_time"
+                ],
                 "type": "object",
                 "properties": {
                   "host_id": {
@@ -725,7 +803,10 @@
                     "type": "string",
                     "description": "The conversation type: \n* `meeting` - Meeting conversations. \n* `phone` - Phone conversations.",
                     "example": "meeting",
-                    "enum": ["meeting", "phone"]
+                    "enum": [
+                      "meeting",
+                      "phone"
+                    ]
                   },
                   "deal_id": {
                     "type": "string",
@@ -772,7 +853,9 @@
                     "type": "array",
                     "description": "A list of the participants. up to a maximum of 200 participants. For external users, only need to pass display name.",
                     "items": {
-                      "required": ["display_name"],
+                      "required": [
+                        "display_name"
+                      ],
                       "type": "object",
                       "properties": {
                         "display_name": {
@@ -792,7 +875,10 @@
                     "type": "array",
                     "description": "The speech timeline, who spoke when",
                     "items": {
-                      "required": ["participants", "start_time_in_recording"],
+                      "required": [
+                        "participants",
+                        "start_time_in_recording"
+                      ],
                       "type": "object",
                       "properties": {
                         "start_time_in_recording": {
@@ -804,7 +890,9 @@
                           "type": "array",
                           "description": "A list of the users.For external users, only need to pass display name.",
                           "items": {
-                            "required": ["display_name"],
+                            "required": [
+                              "display_name"
+                            ],
                             "type": "object",
                             "properties": {
                               "display_name": {
@@ -878,7 +966,9 @@
     },
     "/iq/conversations/{conversationId}": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Get conversation information [Deprecated]",
         "description": "Get information for a specific conversation. \n\n\n\n**Scopes:** `iq_conversation:read`,`iq_conversation:write`,`iq_conversation:read:admin`,`iq_conversation:write:admin`\n\n**Granular Scopes:** `zra:read:conversations:admin`,`zra:read:conversations`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getConversationInfoDeprecated",
@@ -1047,7 +1137,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
-          "x-permissions": ["AllConversations:Read"],
+          "x-permissions": [
+            "AllConversations:Read"
+          ],
           "x-macro-scopes": [
             "iq_conversation:read",
             "iq_conversation:write",
@@ -1061,7 +1153,9 @@
         }
       },
       "delete": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Delete conversation by conversation ID [Deprecated]",
         "description": "Delete conversation by conversation ID. \n\n\n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:delete:conversations`,`zra:delete:conversations:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "deleteConversationDeprecated",
@@ -1119,7 +1213,9 @@
     },
     "/iq/conversations/{conversationId}/comments": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Get conversation comments [Deprecated]",
         "description": "Get comments for a specific conversation. \n\n\n\n**Scopes:** `iq_comment:read`,`iq_comment:write`,`iq_comment:read:admin`,`iq_comment:write:admin`\n\n**Granular Scopes:** `zra:read:list_conversation_comments`,`zra:read:list_conversation_comments:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getConversationCommentsDeprecated",
@@ -1320,7 +1416,9 @@
         }
       },
       "post": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Add new comments to the conversation [Deprecated]",
         "description": "Add new comments to a specific conversation. \n\n\n\n**Scopes:** `iq_comment:write`,`iq_comment:write:admin`\n\n**Granular Scopes:** `zra:write:conversation_comment`,`zra:write:conversation_comment:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "addConversationCommentDeprecated",
@@ -1340,7 +1438,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["comment"],
+                "required": [
+                  "comment"
+                ],
                 "type": "object",
                 "properties": {
                   "parent_comment_id": {
@@ -1503,7 +1603,10 @@
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_comment:write", "iq_comment:write:admin"],
+          "x-macro-scopes": [
+            "iq_comment:write",
+            "iq_comment:write:admin"
+          ],
           "x-granular-scopes": [
             "zra:write:conversation_comment",
             "zra:write:conversation_comment:admin"
@@ -1513,7 +1616,9 @@
     },
     "/iq/conversations/{conversationId}/comments/{commentId}": {
       "delete": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Delete conversation's comment [Deprecated]",
         "description": "Delete comment from a specific conversation. \n\n**Scopes:** `iq_comment:write`,`iq_comment:write:admin`\n\n**Granular Scopes:** `zra:delete:conversation_comment`,`zra:delete:conversation_comment:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "deleteConversationCommentDeprecated",
@@ -1562,7 +1667,10 @@
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_comment:write", "iq_comment:write:admin"],
+          "x-macro-scopes": [
+            "iq_comment:write",
+            "iq_comment:write:admin"
+          ],
           "x-granular-scopes": [
             "zra:delete:conversation_comment",
             "zra:delete:conversation_comment:admin"
@@ -1570,7 +1678,9 @@
         }
       },
       "patch": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Edit conversation comment [Deprecated]",
         "description": "Edit a comment for a specific conversation. \n\n\n\n**Scopes:** `iq_comment:write`,`iq_comment:write:admin`\n\n**Granular Scopes:** `zra:update:conversation_comment`,`zra:update:conversation_comment:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "editConversationCommentDeprecated",
@@ -1658,7 +1768,10 @@
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_comment:write", "iq_comment:write:admin"],
+          "x-macro-scopes": [
+            "iq_comment:write",
+            "iq_comment:write:admin"
+          ],
           "x-granular-scopes": [
             "zra:update:conversation_comment",
             "zra:update:conversation_comment:admin"
@@ -1668,7 +1781,9 @@
     },
     "/iq/conversations/{conversationId}/content_analysis": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Get conversation content analysis [Deprecated]",
         "description": "Get the content analysis for a specific conversation. \n\n\n\n**Scopes:** `iq_conversation:read`,`iq_conversation:write`,`iq_conversation:read:admin`,`iq_conversation:write:admin`\n\n**Granular Scopes:** `zra:read:conversation_analysis`,`zra:read:conversation_analysis:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getConversationContentAnalysisDeprecated",
@@ -1910,7 +2025,9 @@
     },
     "/iq/conversations/{conversationId}/interactions": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Get conversation interactions [Deprecated]",
         "description": "Get interactions for a specific conversation. \n\n\n\n**Scopes:** `iq_conversation:read`,`iq_conversation:write`,`iq_conversation:read:admin`,`iq_conversation:write:admin`\n\n**Granular Scopes:** `zra:read:conversation_participants`,`zra:read:conversation_participants:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getConversationInteractionsDeprecated",
@@ -2000,7 +2117,10 @@
                                 "type": "string",
                                 "description": "The type of the speaker.",
                                 "example": "rep",
-                                "enum": ["rep", "customer"]
+                                "enum": [
+                                  "rep",
+                                  "customer"
+                                ]
                               },
                               "transcripts": {
                                 "type": "array",
@@ -2108,7 +2228,9 @@
     },
     "/iq/conversations/{conversationId}/scorecards": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Get conversation scorecards [Deprecated]",
         "description": "Get scorecards for a specific conversation. \n\n\n\n**Scopes:** `iq_coaching:read:admin`,`iq_coaching:read`\n\n**Granular Scopes:** `zra:read:conversation_scorecards`,`zra:read:conversation_scorecards:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getConversationScorecardsDeprecated",
@@ -2306,7 +2428,10 @@
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_coaching:read:admin", "iq_coaching:read"],
+          "x-macro-scopes": [
+            "iq_coaching:read:admin",
+            "iq_coaching:read"
+          ],
           "x-granular-scopes": [
             "zra:read:conversation_scorecards",
             "zra:read:conversation_scorecards:admin"
@@ -2316,7 +2441,9 @@
     },
     "/iq/conversations/{conversationId}/update_host": {
       "patch": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Update conversation host id to new host id by conversation id [Deprecated]",
         "description": "Update the conversation host id.\r\n\r\n**Prerequisite**: \r\nYou must have either `iq_conversation:write:admin` or `iq_conversation:write` permissions.\n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:update:conversation_host`,`zra:update:conversation_host:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "UpdateconversationhostidtonewhostidbyconversationidDeprecated",
@@ -2325,7 +2452,9 @@
             "name": "conversationId",
             "in": "path",
             "required": false,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -2383,7 +2512,9 @@
     },
     "/iq/files": {
       "post": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Upload IQ file [Deprecated]",
         "description": "Upload a file to Zoom Revenue Acclerator. \n\n **Prerequisite:**  \n The caller must be a Zoom Revenue Acclerator-licensed user.\n\n **Note:**  \n* Base URL: `https://fileapi.zoom.us/v2/`.  \n* Rate limit: 20 requests per second per user or 2000 requests per second per IP address. \n* The caller must support HTTP 30x redirects. \n* The caller must retain the Authorization header when redirected to a different hostname. \n\n* Supported video formats: `.mov`, `.mp4`, `.avi`, `.wmv` or `H.264`.\n* Supported transcript and file attachment format: `.json` .  The `fileName` must end with `transcript.json`.\n* Supported metadata and file attachment format: `.json`. The fileName must end with `metadata.json`.\n* Required file upload sequence: main file, transcript file (if necessary), metadata file (if necessary).\n* When your object size reaches 2 GB, you should use multipart uploads instead of uploading the object in a single operation.\n* For an **account-level** [OAuth app](https://developers.zoom.us/docs/integrations/create/), this API can only be used on behalf of a user who is assigned with a [role](https://support.zoom.us/hc/en-us/articles/115001078646-Using-role-management#:~:text=Each%20user%20in%20a%20Zoom,owner%2C%20administrator%2C%20or%20member.&amp;text=Role%2Dbased%20access%20control%20enables,needs%20to%20view%20or%20edit.) with **Edit** permission for **All Conversations**.\n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:write:file`,`zra:write:file:admin`",
         "operationId": "UploadIQFileDeprecated",
@@ -2391,7 +2522,9 @@
           "content": {
             "multipart/form-data": {
               "schema": {
-                "required": ["file"],
+                "required": [
+                  "file"
+                ],
                 "type": "object",
                 "properties": {
                   "file": {
@@ -2458,13 +2591,18 @@
             "iq_conversation:write:admin",
             "iq_conversation:write"
           ],
-          "x-granular-scopes": ["zra:write:file", "zra:write:file:admin"]
+          "x-granular-scopes": [
+            "zra:write:file",
+            "zra:write:file:admin"
+          ]
         }
       }
     },
     "/iq/files/multipart": {
       "post": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Upload iq multipart file. [Deprecated]",
         "description": "Use this API to upload a multipart file. \n\n **Note:** \n* The base URL for this API is `https://fileapi.zoom.us/v2/`. \n* The rate limit of this API is 20 requests per second or 2000 requests per day per IP address. \n* The caller must support HTTP 30x redirects. \n* The caller must retain the authorization header when redirected to a different hostname. \n* Video can be in `.mov`, `.mp4`, `.avi`, `.wmv` or `H.264` format.\n* Transcript can be in `.vtt`, `.json` format.\n* In general, when your object size reaches 2 GB, you should use multipart uploads instead of uploading the object in a single operation.\n* The caller must be a iq_listened user.\n* For an **account-level** [OAuth app](https://marketplace.zoom.us/docs/guides/getting-started/app-types/create-oauth-app), this API can only be used on behalf of a user who is assigned with a [role](https://support.zoom.us/hc/en-us/articles/115001078646-Using-role-management#:~:text=Each%20user%20in%20a%20Zoom,owner%2C%20administrator%2C%20or%20member.&amp;text=Role%2Dbased%20access%20control%20enables,needs%20to%20view%20or%20edit.) that has the **Edit** permission for **All Conversations**. \n*  \n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:write:file`,`zra:write:file:admin`",
         "operationId": "UploadIqMultipartFileDeprecated",
@@ -2472,7 +2610,11 @@
           "content": {
             "multipart/form-data": {
               "schema": {
-                "required": ["file", "part_number", "upload_context"],
+                "required": [
+                  "file",
+                  "part_number",
+                  "upload_context"
+                ],
                 "type": "object",
                 "properties": {
                   "file": {
@@ -2550,13 +2692,18 @@
             "iq_conversation:write:admin",
             "iq_conversation:write"
           ],
-          "x-granular-scopes": ["zra:write:file", "zra:write:file:admin"]
+          "x-granular-scopes": [
+            "zra:write:file",
+            "zra:write:file:admin"
+          ]
         }
       }
     },
     "/iq/files/multipart/upload_events": {
       "post": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Initiate and complete a multipart upload. [Deprecated]",
         "description": "Initiate or complete a multipart upload. \n\n **Note:** \n* The base URL for this API is `https://fileapi.zoom.us/v2/`. \n* The rate limit is 20 requests per second or 2000 requests per day per IP address.\n* The caller must support HTTP 30x redirects. \n* The caller must retain the authorization header when redirected to a different hostname. \n* Once initiated the multipart upload must complete within 7 days. \n* The caller must be an iq_listened user. \n* For **account-level** [OAuth apps](https://marketplace.zoom.us/docs/guides/getting-started/app-types/create-oauth-app), this API can only be used on behalf of a user who is assigned with a [role](https://support.zoom.us/hc/en-us/articles/115001078646-Using-role-management#:~:text=Each%20user%20in%20a%20Zoom,owner%2C%20administrator%2C%20or%20member.&amp;text=Role%2Dbased%20access%20control%20enables,needs%20to%20view%20or%20edit.) with **Edit** permission for **All Conversations**.\n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:write:file`,`zra:write:file:admin`",
         "operationId": "InitiateAndCompleteAMultipartUpload. [Deprecated]",
@@ -2564,14 +2711,19 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["method"],
+                "required": [
+                  "method"
+                ],
                 "type": "object",
                 "properties": {
                   "method": {
                     "type": "string",
                     "description": "The method to upload events: \n* `CreateMultipartUpload` — Create a multipart upload. \n* `CompleteMultipartUpload` — Complete a multipart upload.",
                     "example": "CreateMultipartUpload",
-                    "enum": ["CreateMultipartUpload", "CompleteMultipartUpload"]
+                    "enum": [
+                      "CreateMultipartUpload",
+                      "CompleteMultipartUpload"
+                    ]
                   },
                   "params": {
                     "type": "object",
@@ -2667,13 +2819,18 @@
             "iq_conversation:write:admin",
             "iq_conversation:write"
           ],
-          "x-granular-scopes": ["zra:write:file", "zra:write:file:admin"]
+          "x-granular-scopes": [
+            "zra:write:file",
+            "zra:write:file:admin"
+          ]
         }
       }
     },
     "/iq/users/{userId}/conversations": {
       "post": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Add conversation by meeting record url or meeting UUID. [Deprecated]",
         "description": "Add new conversation by meeting recording URL or meeting UUID. If both recording URL and meeting UUID are passed in the request but refer to different meetings, we use the recording URL and ignore the meeting UUID.\n\n\n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:write:conversation`,`zra:write:conversation:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "addConversationDeprecated",
@@ -2683,7 +2840,9 @@
             "in": "path",
             "description": "The user ID or email address of the user, or the text 'me' for the current user.",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -2764,7 +2923,9 @@
     },
     "/iq/users/{userId}/conversations/playlists": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Get a user's playlist [Deprecated]",
         "description": "Get all playlists for a user. \n\n\n\n**Scopes:** `iq_playlist:read`,`iq_playlist:read:admin`\n\n**Granular Scopes:** `zra:read:list_conversation_playlists`,`zra:read:list_conversation_playlists`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getUserPlaylistDeprecated",
@@ -2774,7 +2935,9 @@
             "in": "path",
             "description": "The user ID or email address of the user.",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "page_size",
@@ -2807,7 +2970,12 @@
               "type": "string",
               "example": "Normal",
               "default": "All",
-              "enum": ["All", "Normal", "Smart", "Favorite"]
+              "enum": [
+                "All",
+                "Normal",
+                "Smart",
+                "Favorite"
+              ]
             }
           },
           {
@@ -2815,14 +2983,22 @@
             "in": "query",
             "description": "Whether to see Following only.",
             "required": false,
-            "schema": { "type": "boolean", "example": true, "default": false }
+            "schema": {
+              "type": "boolean",
+              "example": true,
+              "default": false
+            }
           },
           {
             "name": "create_by_self",
             "in": "query",
             "description": "Whether to see playlist created by self.",
             "required": false,
-            "schema": { "type": "boolean", "example": true, "default": false }
+            "schema": {
+              "type": "boolean",
+              "example": true,
+              "default": false
+            }
           }
         ],
         "responses": {
@@ -2923,7 +3099,10 @@
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_playlist:read", "iq_playlist:read:admin"],
+          "x-macro-scopes": [
+            "iq_playlist:read",
+            "iq_playlist:read:admin"
+          ],
           "x-granular-scopes": [
             "zra:read:list_conversation_playlists",
             "zra:read:list_conversation_playlists"
@@ -2933,7 +3112,9 @@
     },
     "/zra/conversations": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "List conversations",
         "description": "List all conversations. \n\n\n\n\n\n**Scopes:** `iq_conversation:read`,`iq_conversation:write`,`iq_conversation:read:admin`,`iq_conversation:write:admin`\n\n**Granular Scopes:** `zra:read:list_conversations`,`zra:read:list_conversations:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "listAllConversations",
@@ -2943,28 +3124,40 @@
             "in": "query",
             "description": "The host user ID to query.",
             "required": false,
-            "schema": { "type": "string", "example": "IGTRVt3gQ2i-WjoUIjeZxw" }
+            "schema": {
+              "type": "string",
+              "example": "IGTRVt3gQ2i-WjoUIjeZxw"
+            }
           },
           {
             "name": "participant_id",
             "in": "query",
             "description": "The internal participant ID to query.",
             "required": false,
-            "schema": { "type": "string", "example": "IGTRVt3gQ2i-WjoUIjeZxw" }
+            "schema": {
+              "type": "string",
+              "example": "IGTRVt3gQ2i-WjoUIjeZxw"
+            }
           },
           {
             "name": "team_id",
             "in": "query",
             "description": "The Zoom specific team ID to query.",
             "required": false,
-            "schema": { "type": "string", "example": "IGTRVt3gQ2i-WjoUIjeZxw" }
+            "schema": {
+              "type": "string",
+              "example": "IGTRVt3gQ2i-WjoUIjeZxw"
+            }
           },
           {
             "name": "deal_id",
             "in": "query",
             "description": "The Zoom specific deal ID to query.",
             "required": false,
-            "schema": { "type": "string", "example": "IGTRVt3gQ2i-WjoUIjeZxw" }
+            "schema": {
+              "type": "string",
+              "example": "IGTRVt3gQ2i-WjoUIjeZxw"
+            }
           },
           {
             "name": "period_type",
@@ -2975,7 +3168,10 @@
               "type": "string",
               "example": "meetingStartTime",
               "default": "meetingStartTime",
-              "enum": ["meetingStartTime", "iqProcessedTime"]
+              "enum": [
+                "meetingStartTime",
+                "iqProcessedTime"
+              ]
             }
           },
           {
@@ -2983,14 +3179,20 @@
             "in": "query",
             "description": "The start date in `yyyy-MM-dd'T'HH:mm:ss'Z'` format.",
             "required": false,
-            "schema": { "type": "string", "example": "2020-05-01T19:13:02Z" }
+            "schema": {
+              "type": "string",
+              "example": "2020-05-01T19:13:02Z"
+            }
           },
           {
             "name": "to",
             "in": "query",
             "description": "The end date in `yyyy-MM-dd'T'HH:mm:ss'Z'` format.",
             "required": false,
-            "schema": { "type": "string", "example": "2020-05-02T19:13:05Z" }
+            "schema": {
+              "type": "string",
+              "example": "2020-05-02T19:13:05Z"
+            }
           },
           {
             "name": "conversation_type",
@@ -3001,7 +3203,11 @@
               "type": "string",
               "example": "meeting",
               "default": "all",
-              "enum": ["all", "meeting", "phone"]
+              "enum": [
+                "all",
+                "meeting",
+                "phone"
+              ]
             }
           },
           {
@@ -3012,7 +3218,10 @@
             "schema": {
               "type": "string",
               "example": "engagingQuestions",
-              "enum": ["engagingQuestions", "nextSteps"]
+              "enum": [
+                "engagingQuestions",
+                "nextSteps"
+              ]
             }
           },
           {
@@ -3020,21 +3229,30 @@
             "in": "query",
             "description": "The indicator id to query.",
             "required": false,
-            "schema": { "type": "string", "example": "nZ2G0anOQfGECmsb4W0hxA" }
+            "schema": {
+              "type": "string",
+              "example": "nZ2G0anOQfGECmsb4W0hxA"
+            }
           },
           {
             "name": "mentioned_topic_id",
             "in": "query",
             "description": "The mentioned topic id to query.",
             "required": false,
-            "schema": { "type": "string", "example": "user_requirements" }
+            "schema": {
+              "type": "string",
+              "example": "user_requirements"
+            }
           },
           {
             "name": "scored",
             "in": "query",
             "description": "Set to `true` to return scored conversations from the conversation list.",
             "required": false,
-            "schema": { "type": "boolean", "example": true }
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           },
           {
             "name": "page_size",
@@ -3211,7 +3429,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
-          "x-permissions": ["AllConversations:Read"],
+          "x-permissions": [
+            "AllConversations:Read"
+          ],
           "x-macro-scopes": [
             "iq_conversation:read",
             "iq_conversation:write",
@@ -3225,7 +3445,9 @@
         }
       },
       "post": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Add conversation by file id or download url.",
         "description": "Add conversation by file ID or third party download URL.\n\n\n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:write:conversation`,`zra:write:conversation:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "AddConversationByFileIdOrDownloadUrl",
@@ -3233,7 +3455,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["conversation_type", "meeting_start_time"],
+                "required": [
+                  "conversation_type",
+                  "meeting_start_time"
+                ],
                 "type": "object",
                 "properties": {
                   "host_id": {
@@ -3260,7 +3485,10 @@
                     "type": "string",
                     "description": "The conversation type: \n* `meeting` - Meeting conversations. \n* `phone` - Phone conversations.",
                     "example": "meeting",
-                    "enum": ["meeting", "phone"]
+                    "enum": [
+                      "meeting",
+                      "phone"
+                    ]
                   },
                   "deal_id": {
                     "type": "string",
@@ -3307,7 +3535,9 @@
                     "type": "array",
                     "description": "A list of the participants. up to a maximum of 200 participants. For external users, only need to pass display name.",
                     "items": {
-                      "required": ["display_name"],
+                      "required": [
+                        "display_name"
+                      ],
                       "type": "object",
                       "properties": {
                         "display_name": {
@@ -3327,7 +3557,10 @@
                     "type": "array",
                     "description": "The speech timeline, who spoke when",
                     "items": {
-                      "required": ["participants", "start_time_in_recording"],
+                      "required": [
+                        "participants",
+                        "start_time_in_recording"
+                      ],
                       "type": "object",
                       "properties": {
                         "start_time_in_recording": {
@@ -3339,7 +3572,9 @@
                           "type": "array",
                           "description": "A list of the users.For external users, only need to pass display name.",
                           "items": {
-                            "required": ["display_name"],
+                            "required": [
+                              "display_name"
+                            ],
                             "type": "object",
                             "properties": {
                               "display_name": {
@@ -3412,7 +3647,9 @@
     },
     "/zra/conversations/{conversationId}": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Get conversation information",
         "description": "Get information for a specific conversation. \n\n\n\n\n\n**Scopes:** `iq_conversation:read`,`iq_conversation:write`,`iq_conversation:read:admin`,`iq_conversation:write:admin`\n\n**Granular Scopes:** `zra:read:conversations:admin`,`zra:read:conversations`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getConversationDetail",
@@ -3590,7 +3827,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZRA-QM-20240718",
-          "x-permissions": ["AllConversations:Read"],
+          "x-permissions": [
+            "AllConversations:Read"
+          ],
           "x-macro-scopes": [
             "iq_conversation:read",
             "iq_conversation:write",
@@ -3604,7 +3843,9 @@
         }
       },
       "delete": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Delete conversation by conversation ID",
         "description": "Delete conversation by conversation ID. \n\n\n\n\n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:delete:conversations`,`zra:delete:conversations:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "deleteConversationById",
@@ -3661,7 +3902,9 @@
     },
     "/zra/conversations/{conversationId}/comments": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Get conversation comments",
         "description": "Get comments for a specific conversation. \n\n\n\n\n\n**Scopes:** `iq_comment:read`,`iq_comment:write`,`iq_comment:read:admin`,`iq_comment:write:admin`\n\n**Granular Scopes:** `zra:read:list_conversation_comments`,`zra:read:list_conversation_comments:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getConversationCommentsById",
@@ -3861,7 +4104,9 @@
         }
       },
       "post": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Add new comments to the conversation",
         "description": "Add new comments to a specific conversation. \n\n\n\n\n\n**Scopes:** `iq_comment:write`,`iq_comment:write:admin`\n\n**Granular Scopes:** `zra:read:list_conversation_comments`,`zra:read:list_conversation_comments:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "addConversationComments",
@@ -3881,7 +4126,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["comment"],
+                "required": [
+                  "comment"
+                ],
                 "type": "object",
                 "properties": {
                   "parent_comment_id": {
@@ -4043,7 +4290,10 @@
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_comment:write", "iq_comment:write:admin"],
+          "x-macro-scopes": [
+            "iq_comment:write",
+            "iq_comment:write:admin"
+          ],
           "x-granular-scopes": [
             "zra:read:list_conversation_comments",
             "zra:read:list_conversation_comments:admin"
@@ -4053,7 +4303,9 @@
     },
     "/zra/conversations/{conversationId}/comments/{commentId}": {
       "delete": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Delete conversation's comment",
         "description": "Delete comment from a specific conversation. \n\n\n\n**Scopes:** `iq_comment:write`,`iq_comment:write:admin`\n\n**Granular Scopes:** `zra:delete:conversation_comment`,`zra:delete:conversation_comment:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "deleteConversationCommentById",
@@ -4101,7 +4353,10 @@
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_comment:write", "iq_comment:write:admin"],
+          "x-macro-scopes": [
+            "iq_comment:write",
+            "iq_comment:write:admin"
+          ],
           "x-granular-scopes": [
             "zra:delete:conversation_comment",
             "zra:delete:conversation_comment:admin"
@@ -4109,7 +4364,9 @@
         }
       },
       "patch": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Edit conversation comment",
         "description": "Edit a comment for a specific conversation. \n\n\n\n\n\n**Scopes:** `iq_comment:write`,`iq_comment:write:admin`\n\n**Granular Scopes:** `zra:update:conversation_comment`,`zra:update:conversation_comment:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "editConversationCommentById",
@@ -4196,7 +4453,10 @@
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_comment:write", "iq_comment:write:admin"],
+          "x-macro-scopes": [
+            "iq_comment:write",
+            "iq_comment:write:admin"
+          ],
           "x-granular-scopes": [
             "zra:update:conversation_comment",
             "zra:update:conversation_comment:admin"
@@ -4206,7 +4466,9 @@
     },
     "/zra/conversations/{conversationId}/content_analysis": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Get conversation content analysis",
         "description": "Get the content analysis for a specific conversation. \n\n\n\n\n\n**Scopes:** `iq_conversation:read`,`iq_conversation:write`,`iq_conversation:read:admin`,`iq_conversation:write:admin`\n\n**Granular Scopes:** `zra:read:conversation_analysis`,`zra:read:conversation_analysis:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getConversationContentAnalysisById",
@@ -4431,7 +4693,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
-          "x-permissions": ["AllConversations:Read"],
+          "x-permissions": [
+            "AllConversations:Read"
+          ],
           "x-macro-scopes": [
             "iq_conversation:read",
             "iq_conversation:write",
@@ -4447,7 +4711,9 @@
     },
     "/zra/conversations/{conversationId}/interactions": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Get conversation interactions",
         "description": "Get interactions for a specific conversation. \n\n\n\n\n\n**Scopes:** `iq_conversation:read`,`iq_conversation:write`,`iq_conversation:read:admin`,`iq_conversation:write:admin`\n\n**Granular Scopes:** `zra:read:conversation_participants`,`zra:read:conversation_participants:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getConversationInteraction",
@@ -4537,7 +4803,10 @@
                                 "type": "string",
                                 "description": "The type of the speaker.",
                                 "example": "rep",
-                                "enum": ["rep", "customer"]
+                                "enum": [
+                                  "rep",
+                                  "customer"
+                                ]
                               },
                               "transcripts": {
                                 "type": "array",
@@ -4628,7 +4897,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
-          "x-permissions": ["AllConversations:Read"],
+          "x-permissions": [
+            "AllConversations:Read"
+          ],
           "x-macro-scopes": [
             "iq_conversation:read",
             "iq_conversation:write",
@@ -4644,7 +4915,9 @@
     },
     "/zra/conversations/{conversationId}/scorecards": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Get conversation scorecards",
         "description": "Get scorecards for a specific conversation. \n\n\n\n\n\n**Scopes:** `iq_coaching:read:admin`,`iq_coaching:read`\n\n**Granular Scopes:** `zra:read:conversation_scorecards`,`zra:read:conversation_scorecards:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getConversationScorecardsById",
@@ -4841,7 +5114,10 @@
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_coaching:read:admin", "iq_coaching:read"],
+          "x-macro-scopes": [
+            "iq_coaching:read:admin",
+            "iq_coaching:read"
+          ],
           "x-granular-scopes": [
             "zra:read:conversation_scorecards",
             "zra:read:conversation_scorecards:admin"
@@ -4851,7 +5127,9 @@
     },
     "/zra/conversations/{conversationId}/update_host": {
       "patch": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Update conversation host id",
         "description": "Update the conversation host id to a new host id by conversation id.\r\n\r\n**Prerequisite**: \r\nYou must have either `iq_conversation:write:admin` or `iq_conversation:write` permissions.\r\n\r\n\n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:update:conversation_host`,`zra:update:conversation_host:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "UpdateConversationhostid2NewHostidByConversationId",
@@ -4860,7 +5138,9 @@
             "name": "conversationId",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -4917,7 +5197,9 @@
     },
     "/zra/files": {
       "post": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Upload IQ file",
         "description": "Upload a file to Zoom Revenue Acclerator. \n\n **Prerequisite:**  \n The caller must be a Zoom Revenue Acclerator-licensed user.\n\n **Note:**  \n* Base URL: `https://fileapi.zoom.us/v2/`.  \n* Rate limit: 20 requests per second per user or 2000 requests per second per IP address. \n* The caller must support HTTP 30x redirects. \n* The caller must retain the Authorization header when redirected to a different hostname. \n\n* Supported video formats: `.mov`, `.mp4`, `.avi`, `.wmv` or `H.264`.\n* Supported transcript and file attachment format: `.json` .  The `fileName` must end with `transcript.json`.\n* Supported metadata and file attachment format: `.json`. The fileName must end with `metadata.json`.\n* Required file upload sequence: main file, transcript file (if necessary), metadata file (if necessary).\n* When your object size reaches 2 GB, you should use multipart uploads instead of uploading the object in a single operation.\n* For an **account-level** [OAuth app](https://developers.zoom.us/docs/integrations/create/), this API can only be used on behalf of a user who is assigned with a [role](https://support.zoom.us/hc/en-us/articles/115001078646-Using-role-management#:~:text=Each%20user%20in%20a%20Zoom,owner%2C%20administrator%2C%20or%20member.&amp;text=Role%2Dbased%20access%20control%20enables,needs%20to%20view%20or%20edit.) with **Edit** permission for **All Conversations**.\n\n\n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:write:file`,`zra:write:file:admin`",
         "operationId": "UploadZraFile",
@@ -4925,7 +5207,9 @@
           "content": {
             "multipart/form-data": {
               "schema": {
-                "required": ["file"],
+                "required": [
+                  "file"
+                ],
                 "type": "object",
                 "properties": {
                   "file": {
@@ -4991,13 +5275,18 @@
             "iq_conversation:write:admin",
             "iq_conversation:write"
           ],
-          "x-granular-scopes": ["zra:write:file", "zra:write:file:admin"]
+          "x-granular-scopes": [
+            "zra:write:file",
+            "zra:write:file:admin"
+          ]
         }
       }
     },
     "/zra/files/multipart": {
       "post": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Upload iq multipart file.",
         "description": "Use this API to upload a multipart file. \n\n **Note:** \n* The base URL for this API is `https://fileapi.zoom.us/v2/`. \n* The rate limit of this API is 20 requests per second or 2000 requests per day per IP address. \n* The caller must support HTTP 30x redirects. \n* The caller must retain the authorization header when redirected to a different hostname. \n* Video can be in `.mov`, `.mp4`, `.avi`, `.wmv` or `H.264` format.\n* Transcript can be in `.vtt`, `.json` format.\n* In general, when your object size reaches 2 GB, you should use multipart uploads instead of uploading the object in a single operation.\n* The caller must be a iq_listened user.\n* For an **account-level** [OAuth app](https://marketplace.zoom.us/docs/guides/getting-started/app-types/create-oauth-app), this API can only be used on behalf of a user who is assigned with a [role](https://support.zoom.us/hc/en-us/articles/115001078646-Using-role-management#:~:text=Each%20user%20in%20a%20Zoom,owner%2C%20administrator%2C%20or%20member.&amp;text=Role%2Dbased%20access%20control%20enables,needs%20to%20view%20or%20edit.) that has the **Edit** permission for **All Conversations**. \n*  \n\n\n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:write:file`,`zra:write:file:admin`",
         "operationId": "UploadZraMultipartFile.",
@@ -5005,7 +5294,11 @@
           "content": {
             "multipart/form-data": {
               "schema": {
-                "required": ["file", "part_number", "upload_context"],
+                "required": [
+                  "file",
+                  "part_number",
+                  "upload_context"
+                ],
                 "type": "object",
                 "properties": {
                   "file": {
@@ -5082,13 +5375,18 @@
             "iq_conversation:write:admin",
             "iq_conversation:write"
           ],
-          "x-granular-scopes": ["zra:write:file", "zra:write:file:admin"]
+          "x-granular-scopes": [
+            "zra:write:file",
+            "zra:write:file:admin"
+          ]
         }
       }
     },
     "/zra/files/multipart/upload_events": {
       "post": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Initiate and complete a multipart upload.",
         "description": "Initiate or complete a multipart upload. \n\n **Note:** \n* The base URL for this API is `https://fileapi.zoom.us/v2/`. \n* The rate limit is 20 requests per second or 2000 requests per day per IP address.\n* The caller must support HTTP 30x redirects. \n* The caller must retain the authorization header when redirected to a different hostname. \n* Once initiated the multipart upload must complete within 7 days. \n* The caller must be an iq_listened user. \n* For **account-level** [OAuth apps](https://marketplace.zoom.us/docs/guides/getting-started/app-types/create-oauth-app), this API can only be used on behalf of a user who is assigned with a [role](https://support.zoom.us/hc/en-us/articles/115001078646-Using-role-management#:~:text=Each%20user%20in%20a%20Zoom,owner%2C%20administrator%2C%20or%20member.&amp;text=Role%2Dbased%20access%20control%20enables,needs%20to%20view%20or%20edit.) with **Edit** permission for **All Conversations**.\n\n\n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:write:file`,`zra:write:file:admin`",
         "operationId": "InitiateAndCompleteAMultipartUpload",
@@ -5096,14 +5394,19 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["method"],
+                "required": [
+                  "method"
+                ],
                 "type": "object",
                 "properties": {
                   "method": {
                     "type": "string",
                     "description": "The method to upload events: \n* `CreateMultipartUpload` — Create a multipart upload. \n* `CompleteMultipartUpload` — Complete a multipart upload.",
                     "example": "CreateMultipartUpload",
-                    "enum": ["CreateMultipartUpload", "CompleteMultipartUpload"]
+                    "enum": [
+                      "CreateMultipartUpload",
+                      "CompleteMultipartUpload"
+                    ]
                   },
                   "params": {
                     "type": "object",
@@ -5198,13 +5501,18 @@
             "iq_conversation:write:admin",
             "iq_conversation:write"
           ],
-          "x-granular-scopes": ["zra:write:file", "zra:write:file:admin"]
+          "x-granular-scopes": [
+            "zra:write:file",
+            "zra:write:file:admin"
+          ]
         }
       }
     },
     "/zra/users/{userId}/conversations": {
       "post": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Add conversation by meeting record url or meeting UUID.",
         "description": "Add new conversations by meeting record URL or meeting UUID. If both recording URL and meeting UUID are passed in the request and refer to different meetings, we ignore meeting UUID.\n\n**Scopes:** `iq_conversation:write:admin`,`iq_conversation:write`\n\n**Granular Scopes:** `zra:write:conversation`,`zra:write:conversation:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "addConversationByRecord",
@@ -5214,7 +5522,9 @@
             "in": "path",
             "description": "The user ID or email address of the user, The user's user ID or email address, or the text 'me' for the current user",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -5294,7 +5604,9 @@
     },
     "/zra/users/{userId}/conversations/playlists": {
       "get": {
-        "tags": ["Conversations"],
+        "tags": [
+          "Conversations"
+        ],
         "summary": "Get a user's playlist",
         "description": "Get all playlists for a user. \n\n\n\n\n\n**Scopes:** `iq_playlist:read`,`iq_playlist:read:admin`\n\n**Granular Scopes:** `zra:read:list_conversation_playlists`,`zra:read:list_conversation_playlists`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getUserPlaylists",
@@ -5304,7 +5616,9 @@
             "in": "path",
             "description": "The user ID or email address of the user.",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "page_size",
@@ -5337,7 +5651,12 @@
               "type": "string",
               "example": "Normal",
               "default": "All",
-              "enum": ["All", "Normal", "Smart", "Favorite"]
+              "enum": [
+                "All",
+                "Normal",
+                "Smart",
+                "Favorite"
+              ]
             }
           },
           {
@@ -5345,14 +5664,22 @@
             "in": "query",
             "description": "Whether to see Following only.",
             "required": false,
-            "schema": { "type": "boolean", "example": true, "default": false }
+            "schema": {
+              "type": "boolean",
+              "example": true,
+              "default": false
+            }
           },
           {
             "name": "create_by_self",
             "in": "query",
             "description": "Whether to see playlist created by self.",
             "required": false,
-            "schema": { "type": "boolean", "example": true, "default": false }
+            "schema": {
+              "type": "boolean",
+              "example": true,
+              "default": false
+            }
           }
         ],
         "responses": {
@@ -5452,7 +5779,10 @@
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_playlist:read", "iq_playlist:read:admin"],
+          "x-macro-scopes": [
+            "iq_playlist:read",
+            "iq_playlist:read:admin"
+          ],
           "x-granular-scopes": [
             "zra:read:list_conversation_playlists",
             "zra:read:list_conversation_playlists"
@@ -5462,7 +5792,9 @@
     },
     "/iq/deals": {
       "get": {
-        "tags": ["Deals"],
+        "tags": [
+          "Deals"
+        ],
         "summary": "List deals [Deprecated]",
         "description": "List all deals.\n\n**Scopes:** `iq_deal:read`,`iq_deal:read:admin`,`iq_deal:write`,`iq_deal:write:admin`\n\n**Granular Scopes:** `zra:read:list_deals`,`zra:read:list_deals:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "listDealsDeprecated",
@@ -5472,49 +5804,70 @@
             "in": "query",
             "description": "The deal name",
             "required": false,
-            "schema": { "type": "string", "example": "Good deal" }
+            "schema": {
+              "type": "string",
+              "example": "Good deal"
+            }
           },
           {
             "name": "only_show_with_analytics",
             "in": "query",
             "description": "Set to `true` to return deals with analytics.",
             "required": false,
-            "schema": { "type": "boolean", "example": true }
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           },
           {
             "name": "from",
             "in": "query",
             "description": "The start date in `yyyy-MM-dd'T'HH:mm:ss'Z'` format.",
             "required": false,
-            "schema": { "type": "string", "example": "2020-05-01T19:13:02Z" }
+            "schema": {
+              "type": "string",
+              "example": "2020-05-01T19:13:02Z"
+            }
           },
           {
             "name": "to",
             "in": "query",
             "description": "The end date in `yyyy-MM-dd'T'HH:mm:ss'Z'` format.",
             "required": false,
-            "schema": { "type": "string", "example": "2020-05-02T19:13:05Z" }
+            "schema": {
+              "type": "string",
+              "example": "2020-05-02T19:13:05Z"
+            }
           },
           {
             "name": "team_id",
             "in": "query",
             "description": "The Zoom specific team ID to query.",
             "required": false,
-            "schema": { "type": "string", "example": "IGTRVt3gQ2i-WjoUIjeZxw" }
+            "schema": {
+              "type": "string",
+              "example": "IGTRVt3gQ2i-WjoUIjeZxw"
+            }
           },
           {
             "name": "deal_stage",
             "in": "query",
             "description": "The stage of the deal.",
             "required": false,
-            "schema": { "type": "string", "example": "Needs Analysis" }
+            "schema": {
+              "type": "string",
+              "example": "Needs Analysis"
+            }
           },
           {
             "name": "owner_id",
             "in": "query",
             "description": "The Zoom specific user ID to query.",
             "required": false,
-            "schema": { "type": "string", "example": "IGTRVt3gQ2i-WjoUIjeZxw" }
+            "schema": {
+              "type": "string",
+              "example": "IGTRVt3gQ2i-WjoUIjeZxw"
+            }
           },
           {
             "name": "page_size",
@@ -5543,14 +5896,20 @@
             "in": "query",
             "description": "The maximum deal amount to query.",
             "required": false,
-            "schema": { "type": "integer", "example": 1000 }
+            "schema": {
+              "type": "integer",
+              "example": 1000
+            }
           },
           {
             "name": "min_deal_amount",
             "in": "query",
             "description": "The minimum deal amount to query.",
             "required": false,
-            "schema": { "type": "string", "example": "100.0" }
+            "schema": {
+              "type": "string",
+              "example": "100.0"
+            }
           }
         ],
         "responses": {
@@ -5727,7 +6086,9 @@
     },
     "/iq/deals/{dealId}": {
       "get": {
-        "tags": ["Deals"],
+        "tags": [
+          "Deals"
+        ],
         "summary": "Get deal information [Deprecated]",
         "description": "Get information for a specific deal. (deprecated)\n\n**Scopes:** `iq_deal:read`,`iq_deal:read:admin`,`iq_deal:write`,`iq_deal:write:admin`\n\n**Granular Scopes:** `zra:read:deal`,`zra:read:deal:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getDealInfoDeprecated",
@@ -5737,7 +6098,10 @@
             "in": "path",
             "description": "The deal's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "0065g00000N3Xz6AAF" }
+            "schema": {
+              "type": "string",
+              "example": "0065g00000N3Xz6AAF"
+            }
           }
         ],
         "responses": {
@@ -5884,13 +6248,18 @@
             "iq_deal:write",
             "iq_deal:write:admin"
           ],
-          "x-granular-scopes": ["zra:read:deal", "zra:read:deal:admin"]
+          "x-granular-scopes": [
+            "zra:read:deal",
+            "zra:read:deal:admin"
+          ]
         }
       }
     },
     "/iq/deals/{dealId}/activities": {
       "get": {
-        "tags": ["Deals"],
+        "tags": [
+          "Deals"
+        ],
         "summary": "Get deal activities [Deprecated]",
         "description": "Get activities for a specific deal. (deprecated)\n\n**Scopes:** `iq_deal:read`,`iq_deal:read:admin`,`iq_deal:write`,`iq_deal:write:admin`\n\n**Granular Scopes:** `zra:read:list_deal_activities`,`zra:read:list_deal_activities:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getDealActivitiesDeprecated",
@@ -5900,14 +6269,20 @@
             "in": "path",
             "description": "The deal's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "0065g00000N3Xz6AAF" }
+            "schema": {
+              "type": "string",
+              "example": "0065g00000N3Xz6AAF"
+            }
           },
           {
             "name": "conversation_topic",
             "in": "query",
             "description": "The conversation topic",
             "required": false,
-            "schema": { "type": "string", "example": "Good deal" }
+            "schema": {
+              "type": "string",
+              "example": "Good deal"
+            }
           },
           {
             "name": "callout_type",
@@ -5917,7 +6292,10 @@
             "schema": {
               "type": "string",
               "example": "engagingQuestions",
-              "enum": ["engagingQuestions", "nextSteps"]
+              "enum": [
+                "engagingQuestions",
+                "nextSteps"
+              ]
             }
           },
           {
@@ -5925,14 +6303,20 @@
             "in": "query",
             "description": "The indicator id to query.",
             "required": false,
-            "schema": { "type": "string", "example": "nZ2G0anOQfGECmsb4W0hxA" }
+            "schema": {
+              "type": "string",
+              "example": "nZ2G0anOQfGECmsb4W0hxA"
+            }
           },
           {
             "name": "mentioned_topic_id",
             "in": "query",
             "description": "The mentioned topic id to query.",
             "required": false,
-            "schema": { "type": "string", "example": "user_requirements" }
+            "schema": {
+              "type": "string",
+              "example": "user_requirements"
+            }
           },
           {
             "name": "page_size",
@@ -6102,7 +6486,9 @@
         }
       },
       "delete": {
-        "tags": ["Deals"],
+        "tags": [
+          "Deals"
+        ],
         "summary": "Delete activity from the deal [Deprecated]",
         "description": "Delete specific activity from the deal. Either <b>conversation_id</b> or <b>message_id</b> would be required.\n\n**Scopes:** `iq_deal:write:admin`,`iq_deal:write`\n\n**Granular Scopes:** `zra:delete:deal_activity`,`zra:delete:deal_activity:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "DeleteActivityFromTheDealDeprecated",
@@ -6112,7 +6498,10 @@
             "in": "path",
             "description": "The deal's ID.",
             "required": false,
-            "schema": { "type": "string", "example": "0065g00000N3Xz6AAF" }
+            "schema": {
+              "type": "string",
+              "example": "0065g00000N3Xz6AAF"
+            }
           },
           {
             "name": "conversation_id",
@@ -6136,7 +6525,9 @@
           }
         ],
         "responses": {
-          "204": { "description": "No Content" },
+          "204": {
+            "description": "No Content"
+          },
           "404": {
             "description": "**HTTP Status Code:** `404` <br>\n Not Found \n\n **Error Code:** `1005` <br>\n Deal does not exist: {dealId}. <br>\n**Error Code:** `1005` <br>\n Activity does not exists: {id}. <br>\n"
           }
@@ -6156,7 +6547,10 @@
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_deal:write:admin", "iq_deal:write"],
+          "x-macro-scopes": [
+            "iq_deal:write:admin",
+            "iq_deal:write"
+          ],
           "x-granular-scopes": [
             "zra:delete:deal_activity",
             "zra:delete:deal_activity:admin"
@@ -6166,7 +6560,9 @@
     },
     "/zra/deals": {
       "get": {
-        "tags": ["Deals"],
+        "tags": [
+          "Deals"
+        ],
         "summary": "List deals",
         "description": "List all deals.\n\n\n\n**Scopes:** `iq_deal:read`,`iq_deal:read:admin`,`iq_deal:write`,`iq_deal:write:admin`\n\n**Granular Scopes:** `zra:read:list_deals`,`zra:read:list_deals:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "listAllDeals",
@@ -6176,49 +6572,70 @@
             "in": "query",
             "description": "The deal name",
             "required": false,
-            "schema": { "type": "string", "example": "Good deal" }
+            "schema": {
+              "type": "string",
+              "example": "Good deal"
+            }
           },
           {
             "name": "only_show_with_analytics",
             "in": "query",
             "description": "Set to `true` to return deals with analytics.",
             "required": false,
-            "schema": { "type": "boolean", "example": true }
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           },
           {
             "name": "from",
             "in": "query",
             "description": "The start date in `yyyy-MM-dd'T'HH:mm:ss'Z'` format.",
             "required": false,
-            "schema": { "type": "string", "example": "2020-05-01T19:13:02Z" }
+            "schema": {
+              "type": "string",
+              "example": "2020-05-01T19:13:02Z"
+            }
           },
           {
             "name": "to",
             "in": "query",
             "description": "The end date in `yyyy-MM-dd'T'HH:mm:ss'Z'` format.",
             "required": false,
-            "schema": { "type": "string", "example": "2020-05-02T19:13:05Z" }
+            "schema": {
+              "type": "string",
+              "example": "2020-05-02T19:13:05Z"
+            }
           },
           {
             "name": "team_id",
             "in": "query",
             "description": "The Zoom specific team ID to query.",
             "required": false,
-            "schema": { "type": "string", "example": "IGTRVt3gQ2i-WjoUIjeZxw" }
+            "schema": {
+              "type": "string",
+              "example": "IGTRVt3gQ2i-WjoUIjeZxw"
+            }
           },
           {
             "name": "deal_stage",
             "in": "query",
             "description": "The stage of the deal.",
             "required": false,
-            "schema": { "type": "string", "example": "Needs Analysis" }
+            "schema": {
+              "type": "string",
+              "example": "Needs Analysis"
+            }
           },
           {
             "name": "owner_id",
             "in": "query",
             "description": "The Zoom specific user ID to query.",
             "required": false,
-            "schema": { "type": "string", "example": "IGTRVt3gQ2i-WjoUIjeZxw" }
+            "schema": {
+              "type": "string",
+              "example": "IGTRVt3gQ2i-WjoUIjeZxw"
+            }
           },
           {
             "name": "page_size",
@@ -6247,14 +6664,20 @@
             "in": "query",
             "description": "The maximum deal amount to query.",
             "required": false,
-            "schema": { "type": "integer", "example": 1000 }
+            "schema": {
+              "type": "integer",
+              "example": 1000
+            }
           },
           {
             "name": "min_deal_amount",
             "in": "query",
             "description": "The minimum deal amount to query.",
             "required": false,
-            "schema": { "type": "string", "example": "100.0" }
+            "schema": {
+              "type": "string",
+              "example": "100.0"
+            }
           }
         ],
         "responses": {
@@ -6430,7 +6853,9 @@
     },
     "/zra/deals/{dealId}": {
       "get": {
-        "tags": ["Deals"],
+        "tags": [
+          "Deals"
+        ],
         "summary": "Get deal information",
         "description": "Get information for a specific deal.\n\n\n\n**Scopes:** `iq_deal:read`,`iq_deal:read:admin`,`iq_deal:write`,`iq_deal:write:admin`\n\n**Granular Scopes:** `zra:read:deal`,`zra:read:deal:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getDealDetail",
@@ -6440,7 +6865,10 @@
             "in": "path",
             "description": "The deal's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "0065g00000N3Xz6AAF" }
+            "schema": {
+              "type": "string",
+              "example": "0065g00000N3Xz6AAF"
+            }
           }
         ],
         "responses": {
@@ -6586,13 +7014,18 @@
             "iq_deal:write",
             "iq_deal:write:admin"
           ],
-          "x-granular-scopes": ["zra:read:deal", "zra:read:deal:admin"]
+          "x-granular-scopes": [
+            "zra:read:deal",
+            "zra:read:deal:admin"
+          ]
         }
       }
     },
     "/zra/deals/{dealId}/activities": {
       "get": {
-        "tags": ["Deals"],
+        "tags": [
+          "Deals"
+        ],
         "summary": "Get deal activities",
         "description": "Get activities for a specific deal.\n\n\n\n**Scopes:** `iq_deal:read`,`iq_deal:read:admin`,`iq_deal:write`,`iq_deal:write:admin`\n\n**Granular Scopes:** `zra:read:list_deal_activities`,`zra:read:list_deal_activities:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "geAllActivitiesFromDeal",
@@ -6602,14 +7035,20 @@
             "in": "path",
             "description": "The deal's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "0065g00000N3Xz6AAF" }
+            "schema": {
+              "type": "string",
+              "example": "0065g00000N3Xz6AAF"
+            }
           },
           {
             "name": "conversation_topic",
             "in": "query",
             "description": "The conversation topic",
             "required": false,
-            "schema": { "type": "string", "example": "Good deal" }
+            "schema": {
+              "type": "string",
+              "example": "Good deal"
+            }
           },
           {
             "name": "callout_type",
@@ -6619,7 +7058,10 @@
             "schema": {
               "type": "string",
               "example": "engagingQuestions",
-              "enum": ["engagingQuestions", "nextSteps"]
+              "enum": [
+                "engagingQuestions",
+                "nextSteps"
+              ]
             }
           },
           {
@@ -6627,14 +7069,20 @@
             "in": "query",
             "description": "The indicator id to query.",
             "required": false,
-            "schema": { "type": "string", "example": "nZ2G0anOQfGECmsb4W0hxA" }
+            "schema": {
+              "type": "string",
+              "example": "nZ2G0anOQfGECmsb4W0hxA"
+            }
           },
           {
             "name": "mentioned_topic_id",
             "in": "query",
             "description": "The mentioned topic id to query.",
             "required": false,
-            "schema": { "type": "string", "example": "user_requirements" }
+            "schema": {
+              "type": "string",
+              "example": "user_requirements"
+            }
           },
           {
             "name": "page_size",
@@ -6803,7 +7251,9 @@
         }
       },
       "delete": {
-        "tags": ["Deals"],
+        "tags": [
+          "Deals"
+        ],
         "summary": "Delete activity from the deal",
         "description": "Delete specific activity from a deal. Use either <b>conversation_id</b> or <b>message_id</b>.\n\n\n\n**Scopes:** `iq_deal:write:admin`,`iq_deal:write`\n\n**Granular Scopes:** `zra:delete:deal_activity`,`zra:delete:deal_activity:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "DeleteActivityFromDeal",
@@ -6813,7 +7263,10 @@
             "in": "path",
             "description": "The deal's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "0065g00000N3Xz6AAF" }
+            "schema": {
+              "type": "string",
+              "example": "0065g00000N3Xz6AAF"
+            }
           },
           {
             "name": "conversation_id",
@@ -6837,7 +7290,9 @@
           }
         ],
         "responses": {
-          "204": { "description": "No Content" },
+          "204": {
+            "description": "No Content"
+          },
           "404": {
             "description": "**HTTP Status Code:** `404` <br>\n Not Found \n\n **Error Code:** `1005` <br>\n Deal does not exist: {dealId}. <br> <br>\n**Error Code:** `1005` <br>\n Activity does not exists: {id}. <br> <br>\n"
           }
@@ -6855,8 +7310,13 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
-          "x-permissions": ["AllDeals:Edit"],
-          "x-macro-scopes": ["iq_deal:write:admin", "iq_deal:write"],
+          "x-permissions": [
+            "AllDeals:Edit"
+          ],
+          "x-macro-scopes": [
+            "iq_deal:write:admin",
+            "iq_deal:write"
+          ],
           "x-granular-scopes": [
             "zra:delete:deal_activity",
             "zra:delete:deal_activity:admin"
@@ -6866,7 +7326,9 @@
     },
     "/iq/teams": {
       "get": {
-        "tags": ["Teams"],
+        "tags": [
+          "Teams"
+        ],
         "summary": "List Account Teams [Deprecated]",
         "description": "List account teams. Filter by parent team ID or team name.\n\n**Scopes:** `iq_team:read`,`iq_team:read:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "ListAccountTeamsDeprecated",
@@ -6876,14 +7338,20 @@
             "in": "query",
             "description": "parent team  id",
             "required": false,
-            "schema": { "type": "string", "example": "aO1RVNBSRC2klMMdco14_g" }
+            "schema": {
+              "type": "string",
+              "example": "aO1RVNBSRC2klMMdco14_g"
+            }
           },
           {
             "name": "team_name",
             "in": "query",
             "description": "the name of team",
             "required": false,
-            "schema": { "type": "string", "example": "team1-1" }
+            "schema": {
+              "type": "string",
+              "example": "team1-1"
+            }
           },
           {
             "name": "page_size",
@@ -6918,7 +7386,10 @@
                     "teams": {
                       "type": "array",
                       "items": {
-                        "required": ["name", "team_id"],
+                        "required": [
+                          "name",
+                          "team_id"
+                        ],
                         "type": "object",
                         "properties": {
                           "team_id": {
@@ -6940,7 +7411,10 @@
                             "type": "string",
                             "description": "the structure type of team",
                             "example": "hierarchical team",
-                            "enum": ["flat team", "hierarchical team"]
+                            "enum": [
+                              "flat team",
+                              "hierarchical team"
+                            ]
                           },
                           "member_size": {
                             "type": "integer",
@@ -7011,20 +7485,28 @@
         "deprecated": true,
         "security": [
           {
-            "openapi_oauth": ["iq_team:read", "iq_team:read:admin"],
+            "openapi_oauth": [
+              "iq_team:read",
+              "iq_team:read:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "ZoomIQ-Web-20240123",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_team:read", "iq_team:read:admin"]
+          "x-macro-scopes": [
+            "iq_team:read",
+            "iq_team:read:admin"
+          ]
         }
       }
     },
     "/zra/team": {
       "post": {
-        "tags": ["Teams"],
+        "tags": [
+          "Teams"
+        ],
         "summary": "Create Team",
         "description": "Please create team one by one, if your account enable hierarchical structure team. We currently do not support concurrent hierarchical team creation\n\n**Scopes:** `iq_team:write:admin`\n\n**Granular Scopes:** `zra:write:team:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "CreateTeam",
@@ -7032,7 +7514,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["team_name"],
+                "required": [
+                  "team_name"
+                ],
                 "type": "object",
                 "properties": {
                   "team_name": {
@@ -7057,7 +7541,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["added_at", "added_team_id"],
+                  "required": [
+                    "added_at",
+                    "added_team_id"
+                  ],
                   "type": "object",
                   "properties": {
                     "added_at": {
@@ -7087,21 +7574,32 @@
         },
         "security": [
           {
-            "openapi_oauth": ["iq_team:write:admin", "zra:write:team:admin"],
+            "openapi_oauth": [
+              "iq_team:write:admin",
+              "zra:write:team:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Team-2024-Jun",
-          "x-permissions": ["TeamManagement:Edit"],
-          "x-macro-scopes": ["iq_team:write:admin"],
-          "x-granular-scopes": ["zra:write:team:admin"]
+          "x-permissions": [
+            "TeamManagement:Edit"
+          ],
+          "x-macro-scopes": [
+            "iq_team:write:admin"
+          ],
+          "x-granular-scopes": [
+            "zra:write:team:admin"
+          ]
         }
       }
     },
     "/zra/team/{teamId}": {
       "get": {
-        "tags": ["Teams"],
+        "tags": [
+          "Teams"
+        ],
         "summary": "Get Team Detail",
         "description": "Get team detail, such as team name, team description, team member size and etc.\n\n**Scopes:** `iq_team:read:admin`\n\n**Granular Scopes:** `zra:read:team:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "GetTeamDetail",
@@ -7111,7 +7609,10 @@
             "in": "path",
             "description": "The Zoom specific team ID to query. Retrieve by calling the [**List Account Teams**](/docs/api/rest/reference/iq/methods/#operation/ListAccountTeams) API.",
             "required": true,
-            "schema": { "type": "string", "example": "N5nHB8FTSnG56_hyOFPovQ" }
+            "schema": {
+              "type": "string",
+              "example": "N5nHB8FTSnG56_hyOFPovQ"
+            }
           }
         ],
         "responses": {
@@ -7120,7 +7621,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["name", "team_id"],
+                  "required": [
+                    "name",
+                    "team_id"
+                  ],
                   "type": "object",
                   "properties": {
                     "team_id": {
@@ -7178,19 +7682,28 @@
         },
         "security": [
           {
-            "openapi_oauth": ["iq_team:read:admin", "zra:read:team:admin"],
+            "openapi_oauth": [
+              "iq_team:read:admin",
+              "zra:read:team:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Team-2024-Jun",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_team:read:admin"],
-          "x-granular-scopes": ["zra:read:team:admin"]
+          "x-macro-scopes": [
+            "iq_team:read:admin"
+          ],
+          "x-granular-scopes": [
+            "zra:read:team:admin"
+          ]
         }
       },
       "delete": {
-        "tags": ["Teams"],
+        "tags": [
+          "Teams"
+        ],
         "summary": "Delete Team",
         "description": "Please delete team one by one, if your account enable hierarchical structure team. We currently do not support concurrent hierarchical team deletion.\r\nAnd if you want to delete flat team, you should make sure that the team members of the target team are empty.\n\n**Scopes:** `iq_team:write:admin`\n\n**Granular Scopes:** `zra:delete:team:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "DeleteTeam",
@@ -7200,11 +7713,16 @@
             "in": "path",
             "description": "The Zoom specific team ID to query. Retrieve by calling the [**List Account Teams**](/docs/api/rest/reference/iq/methods/#operation/ListAccountTeams) API.",
             "required": true,
-            "schema": { "type": "string", "example": "N5nHB8FTSnG56_hyOFPovQ" }
+            "schema": {
+              "type": "string",
+              "example": "N5nHB8FTSnG56_hyOFPovQ"
+            }
           }
         ],
         "responses": {
-          "204": { "description": "Successfully delete team" },
+          "204": {
+            "description": "Successfully delete team"
+          },
           "400": {
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request  \n\n **Error Code:** `5002` <br>\n Invalid parameters. <br>\n**Error Code:** `5006` <br>\n Can not delete team, because team members are not null. <br>\n**Error Code:** `5004` <br>\n Other admins are editing team structure, please wait. <br>\n"
           },
@@ -7220,21 +7738,32 @@
         },
         "security": [
           {
-            "openapi_oauth": ["iq_team:write:admin", "zra:delete:team:admin"],
+            "openapi_oauth": [
+              "iq_team:write:admin",
+              "zra:delete:team:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Team-2024-Jun",
-          "x-permissions": ["TeamManagement:Edit"],
-          "x-macro-scopes": ["iq_team:write:admin"],
-          "x-granular-scopes": ["zra:delete:team:admin"]
+          "x-permissions": [
+            "TeamManagement:Edit"
+          ],
+          "x-macro-scopes": [
+            "iq_team:write:admin"
+          ],
+          "x-granular-scopes": [
+            "zra:delete:team:admin"
+          ]
         }
       }
     },
     "/zra/team/{teamId}/team_managers": {
       "post": {
-        "tags": ["Teams"],
+        "tags": [
+          "Teams"
+        ],
         "summary": "Assign Team Managers",
         "description": "Add team managers. Make sure your account support hierarchical structure team.\n\n**Scopes:** `iq_team:write:admin`\n\n**Granular Scopes:** `zra:write:team_manages:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "AssignTeamManagers",
@@ -7244,7 +7773,10 @@
             "in": "path",
             "description": "The Zoom specific team ID to query. Retrieve by calling the [**List Account Teams**](/docs/api/rest/reference/iq/methods/#operation/ListAccountTeams) API.",
             "required": true,
-            "schema": { "type": "string", "example": "Ur7FSzS3QPerlRhHJvj3HA" }
+            "schema": {
+              "type": "string",
+              "example": "Ur7FSzS3QPerlRhHJvj3HA"
+            }
           }
         ],
         "requestBody": {
@@ -7311,13 +7843,21 @@
         ],
         "x-extensions": {
           "x-fixVersion": "Team-2024-Jun",
-          "x-permissions": ["TeamManagement:Edit"],
-          "x-macro-scopes": ["iq_team:write:admin"],
-          "x-granular-scopes": ["zra:write:team_manages:admin"]
+          "x-permissions": [
+            "TeamManagement:Edit"
+          ],
+          "x-macro-scopes": [
+            "iq_team:write:admin"
+          ],
+          "x-granular-scopes": [
+            "zra:write:team_manages:admin"
+          ]
         }
       },
       "delete": {
-        "tags": ["Teams"],
+        "tags": [
+          "Teams"
+        ],
         "summary": "Unassign Team Managers",
         "description": "Delete team managers. Make sure your account support hierarchical structure team.\n\n**Scopes:** `iq_team:write:admin`\n\n**Granular Scopes:** `zra:delete:team_managers:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "UnassignTeamManagers",
@@ -7327,7 +7867,10 @@
             "in": "path",
             "description": "The Zoom specific team ID to query. Retrieve by calling the [**List Account Teams**](/docs/api/rest/reference/iq/methods/#operation/ListAccountTeams) API.",
             "required": true,
-            "schema": { "type": "string", "example": "_avENaWhQniWMRqXpusIdw" }
+            "schema": {
+              "type": "string",
+              "example": "_avENaWhQniWMRqXpusIdw"
+            }
           },
           {
             "name": "user_ids",
@@ -7343,7 +7886,9 @@
           }
         ],
         "responses": {
-          "204": { "description": "Delete team managers successfully" },
+          "204": {
+            "description": "Delete team managers successfully"
+          },
           "400": {
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request  \n\n **Error Code:** `5002` <br>\n Invalid parameters. <br>\n**Error Code:** `5008` <br>\n Please don't delete more than the limited number of supervisors at one time. <br>\n**Error Code:** `5006` <br>\n Unassigning supervisor in flat team is not supported. <br>\n"
           },
@@ -7368,15 +7913,23 @@
         ],
         "x-extensions": {
           "x-fixVersion": "Team-2024-Jun",
-          "x-permissions": ["TeamManagement:Edit"],
-          "x-macro-scopes": ["iq_team:write:admin"],
-          "x-granular-scopes": ["zra:delete:team_managers:admin"]
+          "x-permissions": [
+            "TeamManagement:Edit"
+          ],
+          "x-macro-scopes": [
+            "iq_team:write:admin"
+          ],
+          "x-granular-scopes": [
+            "zra:delete:team_managers:admin"
+          ]
         }
       }
     },
     "/zra/team/{teamId}/team_members": {
       "post": {
-        "tags": ["Teams"],
+        "tags": [
+          "Teams"
+        ],
         "summary": "Assign Team Members",
         "description": "Add one or more users to a team.\n\n**Scopes:** `iq_team:write:admin`\n\n**Granular Scopes:** `zra:write:team_members:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "AssignTeamMembers",
@@ -7386,7 +7939,10 @@
             "in": "path",
             "description": "The Zoom specific team ID to query.\r\nRetrieve by calling the [**List Account Teams**](/docs/api/rest/reference/iq/methods/#operation/ListAccountTeams) API.",
             "required": true,
-            "schema": { "type": "string", "example": "aO1RVNBSRC2klMMdco14_g" }
+            "schema": {
+              "type": "string",
+              "example": "aO1RVNBSRC2klMMdco14_g"
+            }
           }
         ],
         "requestBody": {
@@ -7463,13 +8019,21 @@
         ],
         "x-extensions": {
           "x-fixVersion": "Team-2024-Jun",
-          "x-permissions": ["TeamManagement:Edit"],
-          "x-macro-scopes": ["iq_team:write:admin"],
-          "x-granular-scopes": ["zra:write:team_members:admin"]
+          "x-permissions": [
+            "TeamManagement:Edit"
+          ],
+          "x-macro-scopes": [
+            "iq_team:write:admin"
+          ],
+          "x-granular-scopes": [
+            "zra:write:team_members:admin"
+          ]
         }
       },
       "delete": {
-        "tags": ["Teams"],
+        "tags": [
+          "Teams"
+        ],
         "summary": "Unassign Team Members",
         "description": "Delete members of the team. Make sure to delete less than 30 users at one time.\n\n**Scopes:** `iq_team:write:admin`\n\n**Granular Scopes:** `zra:delete:team_members:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "UnassignTeamMembers",
@@ -7479,7 +8043,10 @@
             "in": "path",
             "description": "The Zoom specific team ID to query. Retrieve by calling the [**List Account Teams**](/docs/api/rest/reference/iq/methods/#operation/ListAccountTeams) API.",
             "required": true,
-            "schema": { "type": "string", "example": "_avENaWhQniWMRqXpusIdw" }
+            "schema": {
+              "type": "string",
+              "example": "_avENaWhQniWMRqXpusIdw"
+            }
           },
           {
             "name": "user_ids",
@@ -7495,7 +8062,9 @@
           }
         ],
         "responses": {
-          "204": { "description": "Delete Success" },
+          "204": {
+            "description": "Delete Success"
+          },
           "400": {
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request  \n\n **Error Code:** `5002` <br>\n Invalid parameters. <br>\n**Error Code:** `5008` <br>\n Please don't delete more than 30 agents at one time. <br>\n"
           },
@@ -7520,15 +8089,23 @@
         ],
         "x-extensions": {
           "x-fixVersion": "Team-2024-Jun",
-          "x-permissions": ["TeamManagement:Edit"],
-          "x-macro-scopes": ["iq_team:write:admin"],
-          "x-granular-scopes": ["zra:delete:team_members:admin"]
+          "x-permissions": [
+            "TeamManagement:Edit"
+          ],
+          "x-macro-scopes": [
+            "iq_team:write:admin"
+          ],
+          "x-granular-scopes": [
+            "zra:delete:team_members:admin"
+          ]
         }
       }
     },
     "/zra/teams": {
       "get": {
-        "tags": ["Teams"],
+        "tags": [
+          "Teams"
+        ],
         "summary": "List Account Teams",
         "description": "List account teams. Filter by parent team ID or team name.\n\n\n\n**Scopes:** `iq_team:read:admin`,`iq_team:read`\n\n**Granular Scopes:** `zra:read:team_list:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "ListTeams",
@@ -7538,14 +8115,20 @@
             "in": "query",
             "description": "parent team  id",
             "required": false,
-            "schema": { "type": "string", "example": "aO1RVNBSRC2klMMdco14_g" }
+            "schema": {
+              "type": "string",
+              "example": "aO1RVNBSRC2klMMdco14_g"
+            }
           },
           {
             "name": "team_name",
             "in": "query",
             "description": "the name of team",
             "required": false,
-            "schema": { "type": "string", "example": "team1-1" }
+            "schema": {
+              "type": "string",
+              "example": "team1-1"
+            }
           },
           {
             "name": "page_size",
@@ -7580,7 +8163,10 @@
                     "teams": {
                       "type": "array",
                       "items": {
-                        "required": ["name", "team_id"],
+                        "required": [
+                          "name",
+                          "team_id"
+                        ],
                         "type": "object",
                         "properties": {
                           "team_id": {
@@ -7602,7 +8188,10 @@
                             "type": "string",
                             "description": "the structure type of team",
                             "example": "hierarchical team",
-                            "enum": ["flat team", "hierarchical team"]
+                            "enum": [
+                              "flat team",
+                              "hierarchical team"
+                            ]
                           },
                           "member_size": {
                             "type": "integer",
@@ -7683,98 +8272,16 @@
         "x-extensions": {
           "x-fixVersion": "Team-2024-Jun",
           "x-permissions": [],
-          "x-macro-scopes": ["iq_team:read:admin", "iq_team:read"],
-          "x-granular-scopes": ["zra:read:team_list:admin"]
+          "x-macro-scopes": [
+            "iq_team:read:admin",
+            "iq_team:read"
+          ],
+          "x-granular-scopes": [
+            "zra:read:team_list:admin"
+          ]
         }
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": {
-              "account:read:admin": "account:read:admin",
-              "account:write:admin": "account:write:admin",
-              "iq_account:read:admin": "iq_account:read:admin",
-              "zra:read:indicator": "zra:read:indicator",
-              "zra:read:indicator:admin": "zra:read:indicator:admin",
-              "iq_conversation:read": "iq_conversation:read",
-              "iq_conversation:write": "iq_conversation:write",
-              "iq_conversation:read:admin": "iq_conversation:read:admin",
-              "iq_conversation:write:admin": "iq_conversation:write:admin",
-              "zra:read:list_conversations": "zra:read:list_conversations",
-              "zra:read:list_conversations:admin": "zra:read:list_conversations:admin",
-              "zra:write:conversation": "zra:write:conversation",
-              "zra:write:conversation:admin": "zra:write:conversation:admin",
-              "zra:read:conversations:admin": "zra:read:conversations:admin",
-              "zra:read:conversations": "zra:read:conversations",
-              "zra:delete:conversations": "zra:delete:conversations",
-              "zra:delete:conversations:admin": "zra:delete:conversations:admin",
-              "iq_comment:read": "iq_comment:read",
-              "iq_comment:write": "iq_comment:write",
-              "iq_comment:read:admin": "iq_comment:read:admin",
-              "iq_comment:write:admin": "iq_comment:write:admin",
-              "zra:read:list_conversation_comments": "zra:read:list_conversation_comments",
-              "zra:read:list_conversation_comments:admin": "zra:read:list_conversation_comments:admin",
-              "zra:write:conversation_comment": "zra:write:conversation_comment",
-              "zra:write:conversation_comment:admin": "zra:write:conversation_comment:admin",
-              "zra:delete:conversation_comment": "zra:delete:conversation_comment",
-              "zra:delete:conversation_comment:admin": "zra:delete:conversation_comment:admin",
-              "zra:update:conversation_comment": "zra:update:conversation_comment",
-              "zra:update:conversation_comment:admin": "zra:update:conversation_comment:admin",
-              "zra:read:conversation_analysis": "zra:read:conversation_analysis",
-              "zra:read:conversation_analysis:admin": "zra:read:conversation_analysis:admin",
-              "zra:read:conversation_participants": "zra:read:conversation_participants",
-              "zra:read:conversation_participants:admin": "zra:read:conversation_participants:admin",
-              "iq_coaching:read:admin": "iq_coaching:read:admin",
-              "iq_coaching:read": "iq_coaching:read",
-              "zra:read:conversation_scorecards": "zra:read:conversation_scorecards",
-              "zra:read:conversation_scorecards:admin": "zra:read:conversation_scorecards:admin",
-              "zra:update:conversation_host": "zra:update:conversation_host",
-              "zra:update:conversation_host:admin": "zra:update:conversation_host:admin",
-              "zra:write:file": "zra:write:file",
-              "zra:write:file:admin": "zra:write:file:admin",
-              "iq_playlist:read": "iq_playlist:read",
-              "iq_playlist:read:admin": "iq_playlist:read:admin",
-              "zra:read:list_conversation_playlists": "zra:read:list_conversation_playlists",
-              "iq_deal:read": "iq_deal:read",
-              "iq_deal:read:admin": "iq_deal:read:admin",
-              "iq_deal:write": "iq_deal:write",
-              "iq_deal:write:admin": "iq_deal:write:admin",
-              "zra:read:list_deals": "zra:read:list_deals",
-              "zra:read:list_deals:admin": "zra:read:list_deals:admin",
-              "zra:read:deal": "zra:read:deal",
-              "zra:read:deal:admin": "zra:read:deal:admin",
-              "zra:delete:deal_activity": "zra:delete:deal_activity",
-              "zra:delete:deal_activity:admin": "zra:delete:deal_activity:admin",
-              "zra:read:list_deal_activities": "zra:read:list_deal_activities",
-              "zra:read:list_deal_activities:admin": "zra:read:list_deal_activities:admin",
-              "iq_team:read": "iq_team:read",
-              "iq_team:read:admin": "iq_team:read:admin",
-              "iq_team:write:admin": "iq_team:write:admin",
-              "zra:write:team:admin": "zra:write:team:admin",
-              "zra:delete:team:admin": "zra:delete:team:admin",
-              "zra:read:team:admin": "zra:read:team:admin",
-              "zra:write:team_manages:admin": "zra:write:team_manages:admin",
-              "zra:delete:team_managers:admin": "zra:delete:team_managers:admin",
-              "zra:write:team_members:admin": "zra:write:team_members:admin",
-              "zra:delete:team_members:admin": "zra:delete:team_members:admin",
-              "zra:read:team_list:admin": "zra:read:team_list:admin"
-            }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

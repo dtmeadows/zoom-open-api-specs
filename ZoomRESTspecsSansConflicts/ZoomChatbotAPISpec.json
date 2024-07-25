@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us/v2"
+    }
+  ],
   "paths": {
     "/im/chat/messages": {
       "post": {
-        "tags": ["Chatbot Messages"],
+        "tags": [
+          "Chatbot Messages"
+        ],
         "summary": "Send Chatbot messages",
         "description": "Use this API to send messages from your Marketplace Chatbot app. \n\n **Authorization Flow:** Client Credentials Flow \n\n To authorize, make a POST request to the `/oauth/token` endpoint with the `client_credentials` grant type. Use the `https://api.zoom.us/oauth/token?grant_type=client_credentials` endpoint for the request. \n\n You will need to send your Client ID and Secret as a Basic Base64-encoded authorization header (for example, `Basic base64Encode({client_id}:{client_secret}`). Then, use the received `access_token` value as a Bearer token when you make the GET `/im/chat/users/{user_id}/messages/{message_id}` request. \n\n For more information about authorizing Chatbots, read the Chatbot [**Installation and Authentication**](https://developers.zoom.us/docs/team-chat-apps/installation-and-authentication/) documentation.\n\n**Scopes:** `imchat:bot`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "sendChatbot",
@@ -80,7 +86,10 @@
             "description": "**HTTP Status Code:** `200`   \n \n Message sent.",
             "content": {
               "application/json": {
-                "schema": { "type": "object", "properties": {} }
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
               }
             }
           },
@@ -98,18 +107,29 @@
           }
         },
         "security": [
-          { "openapi_oauth": ["imchat:bot"], "openapi_authorization": [] }
+          {
+            "openapi_oauth": [
+              "imchat:bot"
+            ],
+            "openapi_authorization": []
+          }
         ],
         "x-extensions": {
           "x-fixVersion": "Docfix-DEVELOPERS-4103",
-          "x-permissions": ["IMChatBot:Edit"],
-          "x-macro-scopes": ["imchat:bot"]
+          "x-permissions": [
+            "IMChatBot:Edit"
+          ],
+          "x-macro-scopes": [
+            "imchat:bot"
+          ]
         }
       }
     },
     "/im/chat/messages/{message_id}": {
       "put": {
-        "tags": ["Chatbot Messages"],
+        "tags": [
+          "Chatbot Messages"
+        ],
         "summary": "Edit a Chatbot message",
         "description": "Use this API to edit a message [sent](/api-reference/chatbot/methods#operation/sendChatbot) by your Chatbot app. \n\n After sending a message via the [**Send Chatbot message**](/api-reference/chatbot/methods#operation/sendChatbot) API, you must store the `messageId` value returned in the API response in order to make edits to the associated message using this API. \n\n **Authorization Flow:** Client Credentials Flow \n\n To authorize, make a POST request to the `/oauth/token` endpoint with the `client_credentials` grant type. Use the `https://api.zoom.us/oauth/token?grant_type=client_credentials` endpoint for the request. \n\n You will need to send your Client ID and Secret as a Basic Base64-encoded authorization header (for example, `Basic base64Encode({client_id}:{client_secret}`). Then, use the received `access_token` value as a Bearer token when you make the GET `/im/chat/users/{user_id}/messages/{message_id}` request. \n\n For more information about authorizing Chatbots, read the Chatbot [**Installation and Authentication**](https://developers.zoom.us/docs/team-chat-apps/installation-and-authentication/) documentation.\n\n**Scopes:** `imchat:bot`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "editChatbotMessage",
@@ -119,14 +139,21 @@
             "in": "path",
             "description": "The message ID. You can get this value from the [**Send Chatbot message**](/docs/api/rest/reference/chatbot/methods/#operation/sendChatbot) API.",
             "required": true,
-            "schema": { "type": "string", "example": "201910tryyRFjM_main" }
+            "schema": {
+              "type": "string",
+              "example": "201910tryyRFjM_main"
+            }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": ["account_id", "content", "robot_jid"],
+                "required": [
+                  "account_id",
+                  "content",
+                  "robot_jid"
+                ],
                 "type": "object",
                 "properties": {
                   "robot_jid": {
@@ -202,16 +229,27 @@
           }
         },
         "security": [
-          { "openapi_oauth": ["imchat:bot"], "openapi_authorization": [] }
+          {
+            "openapi_oauth": [
+              "imchat:bot"
+            ],
+            "openapi_authorization": []
+          }
         ],
         "x-extensions": {
           "x-fixVersion": "DocFix-DEVELOPERS-4759",
-          "x-permissions": ["IMChatBot:Edit"],
-          "x-macro-scopes": ["imchat:bot"]
+          "x-permissions": [
+            "IMChatBot:Edit"
+          ],
+          "x-macro-scopes": [
+            "imchat:bot"
+          ]
         }
       },
       "delete": {
-        "tags": ["Chatbot Messages"],
+        "tags": [
+          "Chatbot Messages"
+        ],
         "summary": "Delete a Chatbot message",
         "description": "Use this API to delete a message sent by your Chatbot app. \n\n **Authorization Flow:** Client Credentials Flow \n\n To authorize, make a POST request to the `/oauth/token` endpoint with the `client_credentials` grant type. Use the `https://api.zoom.us/oauth/token?grant_type=client_credentials` endpoint for the request. \n\n You will need to send your Client ID and Secret as a Basic Base64-encoded authorization header (for example, `Basic base64Encode({client_id}:{client_secret}`). Then, use the received `access_token` value as a Bearer token when you make the GET `/im/chat/users/{user_id}/messages/{message_id}` request. \n\n For more information about authorizing Chatbots, read the Chatbot [**Installation and Authentication**](https://developers.zoom.us/docs/team-chat-apps/installation-and-authentication/) documentation.\n\n**Scopes:** `imchat:bot`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "deleteAChatbotMessage",
@@ -221,21 +259,30 @@
             "in": "path",
             "description": "The message ID. You can get this value from the [**Send Chatbot message**](/docs/api/rest/reference/chatbot/methods/#operation/sendChatbot) API.",
             "required": true,
-            "schema": { "type": "string", "example": "201910tryyRFjM_main" }
+            "schema": {
+              "type": "string",
+              "example": "201910tryyRFjM_main"
+            }
           },
           {
             "name": "account_id",
             "in": "query",
             "description": "The account ID to which the message was sent. You can get this value from the [Chatbot request sent to your server](/docs/team-chat-apps/send-edit-and-delete-messages/#send-messages).",
             "required": true,
-            "schema": { "type": "string", "example": "ABCDE12345" }
+            "schema": {
+              "type": "string",
+              "example": "ABCDE12345"
+            }
           },
           {
             "name": "user_jid",
             "in": "query",
             "description": "The JID of the user on whose behalf the message is being sent. This is used to prevent members of a channel from getting notifications that were set up by a user who has left the channel.",
             "required": false,
-            "schema": { "type": "string", "example": "jnrgfjp6w@xmpp.zoom.us" }
+            "schema": {
+              "type": "string",
+              "example": "jnrgfjp6w@xmpp.zoom.us"
+            }
           },
           {
             "name": "robot_jid",
@@ -291,18 +338,29 @@
           }
         },
         "security": [
-          { "openapi_oauth": ["imchat:bot"], "openapi_authorization": [] }
+          {
+            "openapi_oauth": [
+              "imchat:bot"
+            ],
+            "openapi_authorization": []
+          }
         ],
         "x-extensions": {
           "x-fixVersion": "Docfix-DEVELOPERS-4103",
-          "x-permissions": ["IMChatBot:Edit"],
-          "x-macro-scopes": ["imchat:bot"]
+          "x-permissions": [
+            "IMChatBot:Edit"
+          ],
+          "x-macro-scopes": [
+            "imchat:bot"
+          ]
         }
       }
     },
     "/im/chat/users/{userId}/unfurls/{triggerId}": {
       "post": {
-        "tags": ["Chatbot Messages"],
+        "tags": [
+          "Chatbot Messages"
+        ],
         "summary": "Link Unfurls",
         "description": "Unfurls a link with your Marketplace Chat app.  \n\n**Authorization Flow:** \nThe client credentials flow authorizes and  makes a POST request to the  `/oauth/token` endpoint with the `client_credentials` grant type. \n\n- Use the `https://api.zoom.us/oauth/token?grant_type=client_credentials` endpoint for the request.  \n\n- You must send your client ID and secret as a basic Base64-encoded authorization header. (For example, `Basic base64Encode({client_id}:{client_secret}`). \n\n- Use the received `access_token` value as a Bearer token when you make the GET `/im/chat/users/{user_id}/messages/{message_id}` request.  \n\nFor more information about authorizing Chatbots, see the Chatbot [**Authorization and installation**](https://developers.zoom.us/docs/team-chat-apps/installation-and-authentication/) documentation.\n\n**Scopes:** `imchat:bot`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "unfurlingLink",
@@ -312,21 +370,29 @@
             "in": "path",
             "description": "The unique identifier of the user.",
             "required": true,
-            "schema": { "type": "string", "example": "v4iyWT1LTfy8QvPG4GTvdg" }
+            "schema": {
+              "type": "string",
+              "example": "v4iyWT1LTfy8QvPG4GTvdg"
+            }
           },
           {
             "name": "triggerId",
             "in": "path",
             "description": "The unique identification of the unfurling request. It can come from the `team_chat.link_shared` webhook.",
             "required": true,
-            "schema": { "type": "string", "example": "1LTfy8QvPG4GTvdg" }
+            "schema": {
+              "type": "string",
+              "example": "1LTfy8QvPG4GTvdg"
+            }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": ["content"],
+                "required": [
+                  "content"
+                ],
                 "type": "object",
                 "properties": {
                   "content": {
@@ -352,34 +418,24 @@
           }
         },
         "security": [
-          { "openapi_oauth": ["imchat:bot"], "openapi_authorization": [] }
+          {
+            "openapi_oauth": [
+              "imchat:bot"
+            ],
+            "openapi_authorization": []
+          }
         ],
         "x-extensions": {
           "x-fixVersion": "BotService-2024-Apr",
-          "x-permissions": ["IMChatBot:Edit"],
-          "x-macro-scopes": ["imchat:bot"]
+          "x-permissions": [
+            "IMChatBot:Edit"
+          ],
+          "x-macro-scopes": [
+            "imchat:bot"
+          ]
         }
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": { "imchat:bot": "imchat:bot" }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

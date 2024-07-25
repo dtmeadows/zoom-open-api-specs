@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us/v2"
+    }
+  ],
   "paths": {
     "/emails/mailboxes/{email}/drafts": {
       "get": {
-        "tags": ["Drafts"],
+        "tags": [
+          "Drafts"
+        ],
         "summary": "List emails from draft folder",
         "description": "Lists the draft messages in the mailbox.\n\n**Scopes:** `mail:read`,`mail:read:admin`\n\n**Granular Scopes:** `email:read:list_drafts`,`email:read:list_drafts:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "list_draft_emails",
@@ -28,35 +34,50 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "includeSpamTrash",
             "in": "query",
             "description": "Include messages from SPAM and TRASH in the results. Value should be either \"true\" or \"false\".",
             "required": false,
-            "schema": { "type": "boolean", "example": true }
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           },
           {
             "name": "maxResults",
             "in": "query",
             "description": "Maximum number of drafts to return. This field defaults to 50. The maximum allowed value for this field is 500.",
             "required": false,
-            "schema": { "type": "integer", "example": 50 }
+            "schema": {
+              "type": "integer",
+              "example": 50
+            }
           },
           {
             "name": "pageToken",
             "in": "query",
             "description": "Page token to retrieve a specific page of results in the list.",
             "required": false,
-            "schema": { "type": "string", "example": "e856408d55352894" }
+            "schema": {
+              "type": "string",
+              "example": "e856408d55352894"
+            }
           },
           {
             "name": "q",
             "in": "query",
             "description": "Specify a server side elastic search query.",
             "required": false,
-            "schema": { "type": "string", "example": "{label:xxx label:yyy}" }
+            "schema": {
+              "type": "string",
+              "example": "{label:xxx label:yyy}"
+            }
           }
         ],
         "responses": {
@@ -135,7 +156,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read", "mail:read:admin"],
+          "x-macro-scopes": [
+            "mail:read",
+            "mail:read:admin"
+          ],
           "x-granular-scopes": [
             "email:read:list_drafts",
             "email:read:list_drafts:admin"
@@ -143,7 +167,9 @@
         }
       },
       "post": {
-        "tags": ["Drafts"],
+        "tags": [
+          "Drafts"
+        ],
         "summary": "Create a new draft email",
         "description": "Creates a new draft email message.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:write:draft`,`email:write:draft:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "create_draft_email",
@@ -153,7 +179,10 @@
             "in": "path",
             "description": "The mailbox's email address, or special value \"me\" to indicate the primary mailbox for the authenticated user.\n\n",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           }
         ],
         "requestBody": {
@@ -247,14 +276,22 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
-          "x-granular-scopes": ["email:write:draft", "email:write:draft:admin"]
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
+          "x-granular-scopes": [
+            "email:write:draft",
+            "email:write:draft:admin"
+          ]
         }
       }
     },
     "/emails/mailboxes/{email}/drafts/send": {
       "post": {
-        "tags": ["Drafts"],
+        "tags": [
+          "Drafts"
+        ],
         "summary": "Send out a draft email",
         "description": "Sends the specified draft. \n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:write:send_draft`,`email:write:send_draft:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "send_draft_email",
@@ -264,7 +301,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           }
         ],
         "requestBody": {
@@ -272,7 +312,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["id"],
+                "required": [
+                  "id"
+                ],
                 "type": "object",
                 "properties": {
                   "id": {
@@ -355,7 +397,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:write:send_draft",
             "email:write:send_draft:admin"
@@ -365,7 +410,9 @@
     },
     "/emails/mailboxes/{email}/drafts/{draftId}": {
       "get": {
-        "tags": ["Drafts"],
+        "tags": [
+          "Drafts"
+        ],
         "summary": "Get the specified draft email",
         "description": "Retrieves the specified draft.\n\n**Scopes:** `mail:read`,`mail:read:admin`\n\n**Granular Scopes:** `email:read:draft`,`email:read:draft:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "get_draft_email",
@@ -375,7 +422,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "draftId",
@@ -395,7 +445,12 @@
             "schema": {
               "type": "string",
               "example": "full",
-              "enum": ["full", "metadata", "raw", "minimal"]
+              "enum": [
+                "full",
+                "metadata",
+                "raw",
+                "minimal"
+              ]
             }
           }
         ],
@@ -751,12 +806,20 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read", "mail:read:admin"],
-          "x-granular-scopes": ["email:read:draft", "email:read:draft:admin"]
+          "x-macro-scopes": [
+            "mail:read",
+            "mail:read:admin"
+          ],
+          "x-granular-scopes": [
+            "email:read:draft",
+            "email:read:draft:admin"
+          ]
         }
       },
       "put": {
-        "tags": ["Drafts"],
+        "tags": [
+          "Drafts"
+        ],
         "summary": "Update the specified draft email",
         "description": "Replaces a draft email's content.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:update:draft`,`email:update:draft:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "update_draft_email",
@@ -766,7 +829,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "draftId",
@@ -784,7 +850,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["message"],
+                "required": [
+                  "message"
+                ],
                 "type": "object",
                 "properties": {
                   "message": {
@@ -871,7 +939,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:update:draft",
             "email:update:draft:admin"
@@ -879,7 +950,9 @@
         }
       },
       "delete": {
-        "tags": ["Drafts"],
+        "tags": [
+          "Drafts"
+        ],
         "summary": "Delete an existing draft email",
         "description": "Immediately and permanently deletes the specified draft.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:delete:draft`,`email:delete:draft:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "delete_draft_email",
@@ -889,7 +962,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "draftId",
@@ -903,7 +979,9 @@
           }
         ],
         "responses": {
-          "204": { "description": "The specified draft email is deleted. " },
+          "204": {
+            "description": "The specified draft email is deleted. "
+          },
           "401": {
             "description": "**HTTP Status Code:** `401` <br>\n Unauthorized  \n\n **Error Code:** `401` <br>\n Authorization Failure. <br>\n"
           },
@@ -928,7 +1006,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:delete:draft",
             "email:delete:draft:admin"
@@ -938,7 +1019,9 @@
     },
     "/emails/mailboxes/{email}/history": {
       "get": {
-        "tags": ["History"],
+        "tags": [
+          "History"
+        ],
         "summary": "List history of events for mailbox",
         "description": "Lists the history of the changes to the given mailbox.\n\n**Scopes:** `mail:read`,`mail:read:admin`\n\n**Granular Scopes:** `email:read:history`,`email:read:history:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "list_mailbox_history",
@@ -948,28 +1031,40 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "maxResults",
             "in": "query",
             "description": "Maximum number of history events to return. This field defaults to 50. The maximum allowed value is 500.",
             "required": false,
-            "schema": { "type": "integer", "example": 10 }
+            "schema": {
+              "type": "integer",
+              "example": 10
+            }
           },
           {
             "name": "pageToken",
             "in": "query",
             "description": "The page token to retrieve a specific page of results in the list.",
             "required": false,
-            "schema": { "type": "string", "example": "00000000000005e0" }
+            "schema": {
+              "type": "string",
+              "example": "00000000000005e0"
+            }
           },
           {
             "name": "startHistoryId",
             "in": "query",
             "description": "Returns history records after the specified `startHistoryId`. The supplied `startHistoryId` should be obtained from the `historyId` of a message, thread, or previous list response. History IDs increase chronologically but are not contiguous with random gaps in between. Supplying an invalid or out of date `startHistoryId` typically returns an HTTP 404 error code. A `historyId` is typically valid for at least a week, but in some rare circumstances may be valid for much shorter period. If you receive an HTTP 404 error response, your application should perform a full sync. If you receive no **nextPageToken** in the response, there are no updates to retrieve and you can store the returned `historyId` for a future request.",
             "required": true,
-            "schema": { "type": "string", "example": "10" }
+            "schema": {
+              "type": "string",
+              "example": "10"
+            }
           },
           {
             "name": "historyTypes",
@@ -1032,7 +1127,10 @@
             "in": "query",
             "description": "Only return messages with a label matching the ID.",
             "required": false,
-            "schema": { "type": "string", "example": "INBOX" }
+            "schema": {
+              "type": "string",
+              "example": "INBOX"
+            }
           }
         ],
         "responses": {
@@ -1506,7 +1604,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read", "mail:read:admin"],
+          "x-macro-scopes": [
+            "mail:read",
+            "mail:read:admin"
+          ],
           "x-granular-scopes": [
             "email:read:history",
             "email:read:history:admin"
@@ -1516,7 +1617,9 @@
     },
     "/emails/mailboxes/{email}/labels": {
       "get": {
-        "tags": ["Labels"],
+        "tags": [
+          "Labels"
+        ],
         "summary": "List labels in the mailbox",
         "description": "Lists all labels in the mailbox.\n\n**Scopes:** `mail:read`,`mail:read:admin`\n\n**Granular Scopes:** `email:read:list_labels`,`email:read:list_labels:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "list_labels_in_mailbox",
@@ -1526,7 +1629,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "format",
@@ -1537,7 +1643,11 @@
               "type": "string",
               "example": "basic",
               "default": "full",
-              "enum": ["full", "basic", "minimal"]
+              "enum": [
+                "full",
+                "basic",
+                "minimal"
+              ]
             }
           }
         ],
@@ -1579,7 +1689,10 @@
                             "type": "string",
                             "description": "The visibility of messages with this label in the message list in the Zoom Mail client.",
                             "example": "show",
-                            "enum": ["show", "hide"]
+                            "enum": [
+                              "show",
+                              "hide"
+                            ]
                           },
                           "labelListVisibility": {
                             "type": "string",
@@ -1631,7 +1744,10 @@
                             "type": "string",
                             "description": "enum value of label type. ",
                             "example": "user",
-                            "enum": ["system", "user"]
+                            "enum": [
+                              "system",
+                              "user"
+                            ]
                           }
                         },
                         "description": "One label object. "
@@ -1666,7 +1782,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read", "mail:read:admin"],
+          "x-macro-scopes": [
+            "mail:read",
+            "mail:read:admin"
+          ],
           "x-granular-scopes": [
             "email:read:list_labels",
             "email:read:list_labels:admin"
@@ -1674,7 +1793,9 @@
         }
       },
       "post": {
-        "tags": ["Labels"],
+        "tags": [
+          "Labels"
+        ],
         "summary": "Create a new label in mailbox",
         "description": "Creates a new label.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:write:label`,`email:write:label:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "create_label_in_mailbox",
@@ -1684,7 +1805,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           }
         ],
         "requestBody": {
@@ -1692,7 +1816,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["name", "parentId"],
+                "required": [
+                  "name",
+                  "parentId"
+                ],
                 "type": "object",
                 "properties": {
                   "name": {
@@ -1709,13 +1836,20 @@
                     "type": "string",
                     "description": "The visibility of messages with this label in the message list in the Zoom Mail client.",
                     "example": "show",
-                    "enum": ["show", "hide"]
+                    "enum": [
+                      "show",
+                      "hide"
+                    ]
                   },
                   "labelListVisibility": {
                     "type": "string",
                     "description": "The visibility of the label in the label list in the Zoom Mail Client.",
                     "example": "labelShow",
-                    "enum": ["labelShow", "labelHide", "labelShowIfUnread"]
+                    "enum": [
+                      "labelShow",
+                      "labelHide",
+                      "labelShowIfUnread"
+                    ]
                   },
                   "color": {
                     "type": "object",
@@ -1745,7 +1879,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["name", "parentId"],
+                  "required": [
+                    "name",
+                    "parentId"
+                  ],
                   "type": "object",
                   "properties": {
                     "id": {
@@ -1772,13 +1909,20 @@
                       "type": "string",
                       "description": "The visibility of messages with this label in the message list in the Zoom Mail Client.",
                       "example": "show",
-                      "enum": ["show", "hide"]
+                      "enum": [
+                        "show",
+                        "hide"
+                      ]
                     },
                     "labelListVisibility": {
                       "type": "string",
                       "description": "The visibility of the label in the label list in the Zoom Mail Client.",
                       "example": "labelShow",
-                      "enum": ["labelShow", "labelShowIfUnread", "labelHide"]
+                      "enum": [
+                        "labelShow",
+                        "labelShowIfUnread",
+                        "labelHide"
+                      ]
                     },
                     "color": {
                       "type": "object",
@@ -1828,14 +1972,22 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
-          "x-granular-scopes": ["email:write:label", "email:write:label:admin"]
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
+          "x-granular-scopes": [
+            "email:write:label",
+            "email:write:label:admin"
+          ]
         }
       }
     },
     "/emails/mailboxes/{email}/labels/{labelId}": {
       "get": {
-        "tags": ["Labels"],
+        "tags": [
+          "Labels"
+        ],
         "summary": "Get the specified label in mailbox",
         "description": "Retrieves the specified label.\n\n**Scopes:** `mail:read`,`mail:read:admin`\n\n**Granular Scopes:** `email:read:label`,`email:read:label:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "get_label_in_mailbox",
@@ -1845,14 +1997,20 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "labelId",
             "in": "path",
             "description": "The ID of the label to retrieve.",
             "required": true,
-            "schema": { "type": "string", "example": "INBOX" }
+            "schema": {
+              "type": "string",
+              "example": "INBOX"
+            }
           }
         ],
         "responses": {
@@ -1887,13 +2045,20 @@
                       "type": "string",
                       "description": "The visibility of messages with this label in the message list in the Zoom Mail Client.",
                       "example": "show",
-                      "enum": ["show", "hide"]
+                      "enum": [
+                        "show",
+                        "hide"
+                      ]
                     },
                     "labelListVisibility": {
                       "type": "string",
                       "description": "The visibility of the label in the label list in the Zoom Mail Client.",
                       "example": "labelShow",
-                      "enum": ["labelShow", "labelShowIfUnread", "labelHide"]
+                      "enum": [
+                        "labelShow",
+                        "labelShowIfUnread",
+                        "labelHide"
+                      ]
                     },
                     "messagesTotal": {
                       "type": "integer",
@@ -1935,7 +2100,10 @@
                       "type": "string",
                       "description": "Enum value of label type.",
                       "example": "user",
-                      "enum": ["system", "user"]
+                      "enum": [
+                        "system",
+                        "user"
+                      ]
                     }
                   }
                 }
@@ -1969,12 +2137,20 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read", "mail:read:admin"],
-          "x-granular-scopes": ["email:read:label", "email:read:label:admin"]
+          "x-macro-scopes": [
+            "mail:read",
+            "mail:read:admin"
+          ],
+          "x-granular-scopes": [
+            "email:read:label",
+            "email:read:label:admin"
+          ]
         }
       },
       "put": {
-        "tags": ["Labels"],
+        "tags": [
+          "Labels"
+        ],
         "summary": "Update the specified label in mailbox",
         "description": "Updates the specified label.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:update:label`,`email:update:label:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "update_label_in_mailbox",
@@ -1984,14 +2160,20 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "labelId",
             "in": "path",
             "description": "The ID of the label to update.",
             "required": true,
-            "schema": { "type": "string", "example": "Label_12" }
+            "schema": {
+              "type": "string",
+              "example": "Label_12"
+            }
           }
         ],
         "requestBody": {
@@ -1999,7 +2181,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["name", "parentld"],
+                "required": [
+                  "name",
+                  "parentld"
+                ],
                 "type": "object",
                 "properties": {
                   "name": {
@@ -2016,13 +2201,20 @@
                     "type": "string",
                     "description": "The visibility of messages with this label in the message list in the Zoom Mail Client.",
                     "example": "show",
-                    "enum": ["show", "hide"]
+                    "enum": [
+                      "show",
+                      "hide"
+                    ]
                   },
                   "labelListVisibility": {
                     "type": "string",
                     "description": "The visibility of the label in the label list in the Zoom Mail Client.",
                     "example": "labelShow",
-                    "enum": ["labelShow", "labelHide", "labelShowIfUnread"]
+                    "enum": [
+                      "labelShow",
+                      "labelHide",
+                      "labelShowIfUnread"
+                    ]
                   },
                   "color": {
                     "type": "object",
@@ -2052,7 +2244,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["name", "parentId"],
+                  "required": [
+                    "name",
+                    "parentId"
+                  ],
                   "type": "object",
                   "properties": {
                     "id": {
@@ -2079,13 +2274,20 @@
                       "type": "string",
                       "description": "The visibility of messages with this label in the message list in the Zoom Mail Client.",
                       "example": "show",
-                      "enum": ["show", "hide"]
+                      "enum": [
+                        "show",
+                        "hide"
+                      ]
                     },
                     "labelListVisibility": {
                       "type": "string",
                       "description": "The visibility of the label in the label list in the Zoom Mail Client.",
                       "example": "labelShow",
-                      "enum": ["labelShow", "labelShowIfUnread", "labelHide"]
+                      "enum": [
+                        "labelShow",
+                        "labelShowIfUnread",
+                        "labelHide"
+                      ]
                     },
                     "color": {
                       "type": "object",
@@ -2132,7 +2334,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:update:label",
             "email:update:label:admin"
@@ -2140,7 +2345,9 @@
         }
       },
       "delete": {
-        "tags": ["Labels"],
+        "tags": [
+          "Labels"
+        ],
         "summary": "Delete an existing label from mailbox",
         "description": "Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:delete:label`,`email:delete:label:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "delete_label_from_mailbox",
@@ -2150,18 +2357,26 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "labelId",
             "in": "path",
             "description": "The ID of the label to delete.",
             "required": true,
-            "schema": { "type": "string", "example": "Label_1" }
+            "schema": {
+              "type": "string",
+              "example": "Label_1"
+            }
           }
         ],
         "responses": {
-          "204": { "description": "The specified label is deleted." },
+          "204": {
+            "description": "The specified label is deleted."
+          },
           "400": {
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request  \n\n **Error Code:** `400` <br>\n Invalid Request. <br>\n"
           },
@@ -2189,7 +2404,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:delete:label",
             "email:delete:label:admin"
@@ -2197,7 +2415,9 @@
         }
       },
       "patch": {
-        "tags": ["Labels"],
+        "tags": [
+          "Labels"
+        ],
         "summary": "Patch the specified label in mailbox",
         "description": "Patch the specified label.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:update:label`,`email:update:label:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "patch_label_in_mailbox",
@@ -2207,14 +2427,20 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "labelId",
             "in": "path",
             "description": "The ID of the label to patch.",
             "required": true,
-            "schema": { "type": "string", "example": "Label_1" }
+            "schema": {
+              "type": "string",
+              "example": "Label_1"
+            }
           }
         ],
         "requestBody": {
@@ -2222,7 +2448,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["name", "parentId"],
+                "required": [
+                  "name",
+                  "parentId"
+                ],
                 "type": "object",
                 "properties": {
                   "name": {
@@ -2239,13 +2468,20 @@
                     "type": "string",
                     "description": "The visibility of messages with this label in the message list in the Zoom Mail Client.",
                     "example": "show",
-                    "enum": ["show", "hide"]
+                    "enum": [
+                      "show",
+                      "hide"
+                    ]
                   },
                   "labelListVisibility": {
                     "type": "string",
                     "description": "The visibility of the label in the label list in the Zoom Mail Client.",
                     "example": "labelShow",
-                    "enum": ["labelShow", "labelHide", "labelShowIfUnread"]
+                    "enum": [
+                      "labelShow",
+                      "labelHide",
+                      "labelShowIfUnread"
+                    ]
                   },
                   "color": {
                     "type": "object",
@@ -2301,13 +2537,20 @@
                       "type": "string",
                       "description": "The visibility of messages with this label in the message list in the Zoom Mail client.",
                       "example": "show",
-                      "enum": ["show", "hide"]
+                      "enum": [
+                        "show",
+                        "hide"
+                      ]
                     },
                     "labelListVisibility": {
                       "type": "string",
                       "description": "The visibility of the label in the label list in the Zoom Mail client.",
                       "example": "labelShow",
-                      "enum": ["labelShow", "labelShowIfUnread", "labelHide"]
+                      "enum": [
+                        "labelShow",
+                        "labelShowIfUnread",
+                        "labelHide"
+                      ]
                     },
                     "color": {
                       "type": "object",
@@ -2354,7 +2597,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:update:label",
             "email:update:label:admin"
@@ -2364,7 +2610,9 @@
     },
     "/emails/mailboxes/{email}/profile": {
       "get": {
-        "tags": ["Mailbox"],
+        "tags": [
+          "Mailbox"
+        ],
         "summary": "Get the mailbox profile",
         "description": "Get the mailbox profile.\n\n**Scopes:** `mail:read`,`mail:read:admin`\n\n**Granular Scopes:** `email:read:profile`,`email:read:profile:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "get_mailbox_profile",
@@ -2374,7 +2622,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           }
         ],
         "responses": {
@@ -2478,7 +2729,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read", "mail:read:admin"],
+          "x-macro-scopes": [
+            "mail:read",
+            "mail:read:admin"
+          ],
           "x-granular-scopes": [
             "email:read:profile",
             "email:read:profile:admin"
@@ -2488,7 +2742,9 @@
     },
     "/emails/mailboxes/{email}/messages": {
       "get": {
-        "tags": ["Messages"],
+        "tags": [
+          "Messages"
+        ],
         "summary": "List emails from the mailbox",
         "description": "Lists the messages in the user's mailbox.\n\n**Scopes:** `mail:read`,`mail:read:admin`\n\n**Granular Scopes:** `email:read:list_msgs`,`email:read:list_msgs:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "list_emails",
@@ -2498,28 +2754,40 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "maxResults",
             "in": "query",
             "description": "Maximum number of messages to return. This field defaults to 50. The maximum allowed value for this field is 500.",
             "required": false,
-            "schema": { "type": "string", "example": "20" }
+            "schema": {
+              "type": "string",
+              "example": "20"
+            }
           },
           {
             "name": "pageToken",
             "in": "query",
             "description": "Page token to retrieve a specific page of results in the list.",
             "required": false,
-            "schema": { "type": "string", "example": "e8580fc3bd75077c" }
+            "schema": {
+              "type": "string",
+              "example": "e8580fc3bd75077c"
+            }
           },
           {
             "name": "labelIds",
             "in": "query",
             "description": "Only return messages with labels that match all of the specified label IDs in this query parameter.",
             "required": false,
-            "schema": { "type": "string", "example": "INBOX" }
+            "schema": {
+              "type": "string",
+              "example": "INBOX"
+            }
           },
           {
             "name": "q",
@@ -2536,7 +2804,10 @@
             "in": "query",
             "description": "Whether to include messages from SPAM and TRASH in the results.",
             "required": false,
-            "schema": { "type": "boolean", "example": true }
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           }
         ],
         "responses": {
@@ -2605,7 +2876,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read", "mail:read:admin"],
+          "x-macro-scopes": [
+            "mail:read",
+            "mail:read:admin"
+          ],
           "x-granular-scopes": [
             "email:read:list_msgs",
             "email:read:list_msgs:admin"
@@ -2613,7 +2887,9 @@
         }
       },
       "post": {
-        "tags": ["Messages"],
+        "tags": [
+          "Messages"
+        ],
         "summary": "Create a new email",
         "description": "Directly inserts a message into this mailbox. \n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:write:msg`,`email:write:msg:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "create_email",
@@ -2623,14 +2899,20 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "deleted",
             "in": "query",
             "description": "Mark the inserting email directly as TRASH if this query parameter is set to true.",
             "required": false,
-            "schema": { "type": "boolean", "example": true }
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           }
         ],
         "requestBody": {
@@ -2638,7 +2920,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["raw"],
+                "required": [
+                  "raw"
+                ],
                 "type": "object",
                 "properties": {
                   "labelIds": {
@@ -2716,14 +3000,22 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
-          "x-granular-scopes": ["email:write:msg", "email:write:msg:admin"]
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
+          "x-granular-scopes": [
+            "email:write:msg",
+            "email:write:msg:admin"
+          ]
         }
       }
     },
     "/emails/mailboxes/{email}/messages/batchDelete": {
       "post": {
-        "tags": ["Messages"],
+        "tags": [
+          "Messages"
+        ],
         "summary": "Batch delete the specified emails",
         "description": "Delete multiple messages specified in request body.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:write:batch_delete_msgs`,`email:write:batch_delete_msgs:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "batch_delete_emails",
@@ -2733,7 +3025,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           }
         ],
         "requestBody": {
@@ -2741,7 +3036,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["ids"],
+                "required": [
+                  "ids"
+                ],
                 "type": "object",
                 "properties": {
                   "ids": {
@@ -2759,7 +3056,9 @@
           }
         },
         "responses": {
-          "204": { "description": "The specified messages are all deleted." },
+          "204": {
+            "description": "The specified messages are all deleted."
+          },
           "400": {
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request  \n\n **Error Code:** `400` <br>\n Invalid Request. <br>\n"
           },
@@ -2784,7 +3083,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:write:batch_delete_msgs",
             "email:write:batch_delete_msgs:admin"
@@ -2794,7 +3096,9 @@
     },
     "/emails/mailboxes/{email}/messages/batchModify": {
       "post": {
-        "tags": ["Messages"],
+        "tags": [
+          "Messages"
+        ],
         "summary": "Batch modify the specified emails",
         "description": "Modifies the labels on the specified messages.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:write:batch_modify_msgs`,`email:write:batch_modify_msgs:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`\n\n**Not supported in Gov cluster** ",
         "operationId": "batch_modify_emails",
@@ -2804,7 +3108,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           }
         ],
         "requestBody": {
@@ -2812,7 +3119,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["ids"],
+                "required": [
+                  "ids"
+                ],
                 "type": "object",
                 "properties": {
                   "ids": {
@@ -2849,7 +3158,9 @@
           }
         },
         "responses": {
-          "204": { "description": "The specified messages are all modified." },
+          "204": {
+            "description": "The specified messages are all modified."
+          },
           "400": {
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request  \n\n **Error Code:** `400` <br>\n Invalid Request. <br>\n"
           },
@@ -2874,7 +3185,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:write:batch_modify_msgs",
             "email:write:batch_modify_msgs:admin"
@@ -2884,7 +3198,9 @@
     },
     "/emails/mailboxes/{email}/messages/send": {
       "post": {
-        "tags": ["Messages"],
+        "tags": [
+          "Messages"
+        ],
         "summary": "Send out an email",
         "description": "Sends the specified message to the recipients as specified in the email.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:write:send_msg`,`email:write:send_msg:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "send_email",
@@ -2894,7 +3210,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "jane.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "jane.doe@example.com"
+            }
           }
         ],
         "requestBody": {
@@ -2902,7 +3221,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["raw"],
+                "required": [
+                  "raw"
+                ],
                 "type": "object",
                 "properties": {
                   "raw": {
@@ -2985,7 +3306,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:write:send_msg",
             "email:write:send_msg:admin"
@@ -2995,7 +3319,9 @@
     },
     "/emails/mailboxes/{email}/messages/{messageId}": {
       "get": {
-        "tags": ["Messages"],
+        "tags": [
+          "Messages"
+        ],
         "summary": "Get the specified email",
         "description": "Retrieves the specified message.\n\n**Scopes:** `mail:read`,`mail:read:admin`\n\n**Granular Scopes:** `email:read:msg`,`email:read:msg:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "get_email",
@@ -3005,7 +3331,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "messageId",
@@ -3025,7 +3354,12 @@
             "schema": {
               "type": "string",
               "example": "full",
-              "enum": ["full", "minimal", "metadata", "raw"]
+              "enum": [
+                "full",
+                "minimal",
+                "metadata",
+                "raw"
+              ]
             }
           },
           {
@@ -3033,7 +3367,10 @@
             "in": "query",
             "description": "When requested format is metadata, only include headers specified in this query parameter.",
             "required": false,
-            "schema": { "type": "string", "example": "From" }
+            "schema": {
+              "type": "string",
+              "example": "From"
+            }
           }
         ],
         "responses": {
@@ -3406,12 +3743,20 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read", "mail:read:admin"],
-          "x-granular-scopes": ["email:read:msg", "email:read:msg:admin"]
+          "x-macro-scopes": [
+            "mail:read",
+            "mail:read:admin"
+          ],
+          "x-granular-scopes": [
+            "email:read:msg",
+            "email:read:msg:admin"
+          ]
         }
       },
       "delete": {
-        "tags": ["Messages"],
+        "tags": [
+          "Messages"
+        ],
         "summary": "Delete an existing email",
         "description": "Immediately and permanently deletes the specified message. \n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:delete:msg`,`email:delete:msg:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "delete_email",
@@ -3421,7 +3766,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "messageId",
@@ -3435,7 +3783,9 @@
           }
         ],
         "responses": {
-          "204": { "description": "The specified email is deleted." },
+          "204": {
+            "description": "The specified email is deleted."
+          },
           "401": {
             "description": "**HTTP Status Code:** `401` <br>\n Unauthorized  \n\n **Error Code:** `401` <br>\n Authorization Failure. <br>\n"
           },
@@ -3460,14 +3810,22 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
-          "x-granular-scopes": ["email:delete:msg", "email:delete:msg:admin"]
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
+          "x-granular-scopes": [
+            "email:delete:msg",
+            "email:delete:msg:admin"
+          ]
         }
       }
     },
     "/emails/mailboxes/{email}/messages/{messageId}/modify": {
       "post": {
-        "tags": ["Messages"],
+        "tags": [
+          "Messages"
+        ],
         "summary": "Update the specified email",
         "description": "Modifies the labels on the specified message.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:write:modify_msg`,`email:write:modify_msg:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "update_email",
@@ -3477,7 +3835,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "messageId",
@@ -3577,7 +3938,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:write:modify_msg",
             "email:write:modify_msg:admin"
@@ -3587,7 +3951,9 @@
     },
     "/emails/mailboxes/{email}/messages/{messageId}/trash": {
       "post": {
-        "tags": ["Messages"],
+        "tags": [
+          "Messages"
+        ],
         "summary": "Move the specified email to TRASH folder",
         "description": "Moves the specified message to the TRASH folder.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:write:trash_msg`,`email:write:trash_msg:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "trash_email",
@@ -3671,7 +4037,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:write:trash_msg",
             "email:write:trash_msg:admin"
@@ -3681,7 +4050,9 @@
     },
     "/emails/mailboxes/{email}/messages/{messageId}/untrash": {
       "post": {
-        "tags": ["Messages"],
+        "tags": [
+          "Messages"
+        ],
         "summary": "Move the specified email out of TRASH folder",
         "description": "Move a message out of TRASH folder.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:write:untrash_msg`,`email:write:untrash_msg:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "untrash_email",
@@ -3691,7 +4062,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "messageId",
@@ -3760,7 +4134,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:write:untrash_msg",
             "email:write:untrash_msg:admin"
@@ -3770,7 +4147,9 @@
     },
     "/emails/mailboxes/{email}/messages/{messageId}/attachments/{attachmentId}": {
       "get": {
-        "tags": ["Messages.Attachments"],
+        "tags": [
+          "Messages.Attachments"
+        ],
         "summary": "Get the specified attachment for an email",
         "description": "Retrieves the specified message attachment.\n\n**Scopes:** `mail:read`,`mail:read:admin`\n\n**Granular Scopes:** `email:read:attachment`,`email:read:attachment:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "get_email_attachment",
@@ -3780,7 +4159,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "messageId",
@@ -3864,7 +4246,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read", "mail:read:admin"],
+          "x-macro-scopes": [
+            "mail:read",
+            "mail:read:admin"
+          ],
           "x-granular-scopes": [
             "email:read:attachment",
             "email:read:attachment:admin"
@@ -3874,7 +4259,9 @@
     },
     "/emails/mailboxes/{email}/settings/vacation": {
       "get": {
-        "tags": ["Settings"],
+        "tags": [
+          "Settings"
+        ],
         "summary": "Get mailbox vacation response setting",
         "description": "Gets vacation respondes settings.\n\n**Scopes:** `mail:read`\n\n**Granular Scopes:** `email:read:setting_vacation`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "get_mail_vacation_response_setting",
@@ -3884,7 +4271,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           }
         ],
         "responses": {
@@ -3967,19 +4357,28 @@
         },
         "security": [
           {
-            "openapi_oauth": ["mail:read", "email:read:setting_vacation"],
+            "openapi_oauth": [
+              "mail:read",
+              "email:read:setting_vacation"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read"],
-          "x-granular-scopes": ["email:read:setting_vacation"]
+          "x-macro-scopes": [
+            "mail:read"
+          ],
+          "x-granular-scopes": [
+            "email:read:setting_vacation"
+          ]
         }
       },
       "put": {
-        "tags": ["Settings"],
+        "tags": [
+          "Settings"
+        ],
         "summary": "Update mailbox vacation response setting",
         "description": "Updates vacation responder settings.\n\n**Scopes:** `mail:write`\n\n**Granular Scopes:** `email:update:setting_vacation`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "update_mailbox_vacation_response_setting",
@@ -3989,7 +4388,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           }
         ],
         "requestBody": {
@@ -3997,7 +4399,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["enableAutoReply"],
+                "required": [
+                  "enableAutoReply"
+                ],
                 "type": "object",
                 "properties": {
                   "enableAutoReply": {
@@ -4141,21 +4545,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["mail:write", "email:update:setting_vacation"],
+            "openapi_oauth": [
+              "mail:write",
+              "email:update:setting_vacation"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write"],
-          "x-granular-scopes": ["email:update:setting_vacation"]
+          "x-macro-scopes": [
+            "mail:write"
+          ],
+          "x-granular-scopes": [
+            "email:update:setting_vacation"
+          ]
         }
       }
     },
     "/emails/mailboxes/{email}/settings/delegates": {
       "get": {
-        "tags": ["Settings.Delegates"],
+        "tags": [
+          "Settings.Delegates"
+        ],
         "summary": "List delegates on the mailbox",
         "description": "Lists the delegates on the mailbox.  Managing delegate operations must be done by the mailbox owner.\n\n**Scopes:** `mail:read`\n\n**Granular Scopes:** `email:read:list_setting_delegates`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "list_mailbox_delegates",
@@ -4165,7 +4578,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           }
         ],
         "responses": {
@@ -4203,7 +4619,11 @@
                             "type": "string",
                             "description": "Indicates the access right for the delegate.",
                             "example": "dlgreviewer",
-                            "enum": ["dlgreviewer", "dlgauthor", "dlgeditor"]
+                            "enum": [
+                              "dlgreviewer",
+                              "dlgauthor",
+                              "dlgeditor"
+                            ]
                           },
                           "accessTime": {
                             "type": "string",
@@ -4235,19 +4655,28 @@
         },
         "security": [
           {
-            "openapi_oauth": ["mail:read", "email:read:list_setting_delegates"],
+            "openapi_oauth": [
+              "mail:read",
+              "email:read:list_setting_delegates"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read"],
-          "x-granular-scopes": ["email:read:list_setting_delegates"]
+          "x-macro-scopes": [
+            "mail:read"
+          ],
+          "x-granular-scopes": [
+            "email:read:list_setting_delegates"
+          ]
         }
       },
       "post": {
-        "tags": ["Settings.Delegates"],
+        "tags": [
+          "Settings.Delegates"
+        ],
         "summary": "Grant a new delegate access on the mailbox",
         "description": "Creates a delegate on the mailbox.  Managing delegate operations must be done by the mailbox owner.\n\n**Scopes:** `mail:write`\n\n**Granular Scopes:** `email:write:setting_delegate`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "grant_mailbox_delegate",
@@ -4257,7 +4686,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           }
         ],
         "requestBody": {
@@ -4265,7 +4697,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["delegateEmail"],
+                "required": [
+                  "delegateEmail"
+                ],
                 "type": "object",
                 "properties": {
                   "delegateEmail": {
@@ -4277,7 +4711,11 @@
                     "type": "string",
                     "description": "Indicates the access level for the delegate.  Default to dlgeditor.",
                     "example": "dlgreviewer",
-                    "enum": ["dlgreviewer", "dlgauthor", "dlgeditor"]
+                    "enum": [
+                      "dlgreviewer",
+                      "dlgauthor",
+                      "dlgeditor"
+                    ]
                   }
                 }
               }
@@ -4313,7 +4751,11 @@
                       "type": "string",
                       "description": "Indicates the access level for the delegate.",
                       "example": "dlgreviewer",
-                      "enum": ["dlgreviewer", "dlgauthor", "dlgeditor"]
+                      "enum": [
+                        "dlgreviewer",
+                        "dlgauthor",
+                        "dlgeditor"
+                      ]
                     },
                     "accessTime": {
                       "type": "string",
@@ -4344,21 +4786,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["mail:write", "email:write:setting_delegate"],
+            "openapi_oauth": [
+              "mail:write",
+              "email:write:setting_delegate"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write"],
-          "x-granular-scopes": ["email:write:setting_delegate"]
+          "x-macro-scopes": [
+            "mail:write"
+          ],
+          "x-granular-scopes": [
+            "email:write:setting_delegate"
+          ]
         }
       }
     },
     "/emails/mailboxes/{email}/settings/delegates/{delegateEmail}": {
       "get": {
-        "tags": ["Settings.Delegates"],
+        "tags": [
+          "Settings.Delegates"
+        ],
         "summary": "Get the specified delegate on the mailbox",
         "description": "Retrieves the specified delegate.  Managing delegate operations must be done by the mailbox owner.\n\n**Scopes:** `mail:read`\n\n**Granular Scopes:** `email:read:setting_delegate`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "get_mailbox_delegate",
@@ -4368,14 +4819,20 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "delegateEmail",
             "in": "path",
             "description": "The delegate email address.",
             "required": true,
-            "schema": { "type": "string", "example": "john.smith@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.smith@example.com"
+            }
           }
         ],
         "responses": {
@@ -4407,7 +4864,11 @@
                       "type": "string",
                       "description": "Indicates the access right for the delegate.",
                       "example": "dlgreviewer",
-                      "enum": ["dlgreviewer", "dlgauthor", "dlgeditor"]
+                      "enum": [
+                        "dlgreviewer",
+                        "dlgauthor",
+                        "dlgeditor"
+                      ]
                     },
                     "accessTime": {
                       "type": "string",
@@ -4438,19 +4899,28 @@
         },
         "security": [
           {
-            "openapi_oauth": ["mail:read", "email:read:setting_delegate"],
+            "openapi_oauth": [
+              "mail:read",
+              "email:read:setting_delegate"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read"],
-          "x-granular-scopes": ["email:read:setting_delegate"]
+          "x-macro-scopes": [
+            "mail:read"
+          ],
+          "x-granular-scopes": [
+            "email:read:setting_delegate"
+          ]
         }
       },
       "delete": {
-        "tags": ["Settings.Delegates"],
+        "tags": [
+          "Settings.Delegates"
+        ],
         "summary": "Revoke an existing delegate access from the mailbox",
         "description": "Removes the specified delegate.  Managing delegate operations must be done by the mailbox owner.\n\n**Scopes:** `mail:write`\n\n**Granular Scopes:** `email:delete:setting_delegate`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "revoke_mailbox_delegate",
@@ -4460,18 +4930,26 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "delegateEmail",
             "in": "path",
             "description": "The delegate user's email address.",
             "required": true,
-            "schema": { "type": "string", "example": "john.smith@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.smith@example.com"
+            }
           }
         ],
         "responses": {
-          "204": { "description": "The delegate access has been removed." },
+          "204": {
+            "description": "The delegate access has been removed."
+          },
           "400": {
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request  \n\n **Error Code:** `400` <br>\n Invalid Request. <br>\n"
           },
@@ -4484,21 +4962,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["mail:write", "email:delete:setting_delegate"],
+            "openapi_oauth": [
+              "mail:write",
+              "email:delete:setting_delegate"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write"],
-          "x-granular-scopes": ["email:delete:setting_delegate"]
+          "x-macro-scopes": [
+            "mail:write"
+          ],
+          "x-granular-scopes": [
+            "email:delete:setting_delegate"
+          ]
         }
       }
     },
     "/emails/mailboxes/{email}/settings/filters": {
       "get": {
-        "tags": ["Settings.Filters"],
+        "tags": [
+          "Settings.Filters"
+        ],
         "summary": "List email filters",
         "description": "Lists the message filters of a mailbox.\n\n**Scopes:** `mail:read`\n\n**Granular Scopes:** `email:read:list_setting_filters`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "list_email_filters",
@@ -4508,7 +4995,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           }
         ],
         "responses": {
@@ -4572,7 +5062,11 @@
                                 "type": "string",
                                 "description": "How the message size in bytes should be in relation to the size field.",
                                 "example": "smaller",
-                                "enum": ["unspecifield", "smaller", "larger"]
+                                "enum": [
+                                  "unspecifield",
+                                  "smaller",
+                                  "larger"
+                                ]
                               }
                             },
                             "description": "Matching criteria for the filter."
@@ -4627,19 +5121,28 @@
         },
         "security": [
           {
-            "openapi_oauth": ["mail:read", "email:read:list_setting_filters"],
+            "openapi_oauth": [
+              "mail:read",
+              "email:read:list_setting_filters"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read"],
-          "x-granular-scopes": ["email:read:list_setting_filters"]
+          "x-macro-scopes": [
+            "mail:read"
+          ],
+          "x-granular-scopes": [
+            "email:read:list_setting_filters"
+          ]
         }
       },
       "post": {
-        "tags": ["Settings.Filters"],
+        "tags": [
+          "Settings.Filters"
+        ],
         "summary": "Create an email filter",
         "description": "Creates a message filter.\n\n**Scopes:** `mail:write`\n\n**Granular Scopes:** `email:write:setting_filter`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "create_email_filter",
@@ -4649,7 +5152,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           }
         ],
         "requestBody": {
@@ -4657,7 +5163,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["action", "criteria"],
+                "required": [
+                  "action",
+                  "criteria"
+                ],
                 "type": "object",
                 "properties": {
                   "criteria": {
@@ -4702,7 +5211,11 @@
                         "type": "string",
                         "description": "How the message size in bytes should be in relation to the size field.",
                         "example": "smaller",
-                        "enum": ["unspecifield", "smaller", "larger"]
+                        "enum": [
+                          "unspecifield",
+                          "smaller",
+                          "larger"
+                        ]
                       }
                     },
                     "description": "Matching criteria of the filter."
@@ -4795,7 +5308,11 @@
                           "type": "string",
                           "description": "How the message size in bytes should be in relation to the size field.",
                           "example": "smaller",
-                          "enum": ["unspecifield", "smaller", "larger"]
+                          "enum": [
+                            "unspecifield",
+                            "smaller",
+                            "larger"
+                          ]
                         }
                       },
                       "description": "Matching criteria for the filter."
@@ -4846,21 +5363,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["mail:write", "email:write:setting_filter"],
+            "openapi_oauth": [
+              "mail:write",
+              "email:write:setting_filter"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write"],
-          "x-granular-scopes": ["email:write:setting_filter"]
+          "x-macro-scopes": [
+            "mail:write"
+          ],
+          "x-granular-scopes": [
+            "email:write:setting_filter"
+          ]
         }
       }
     },
     "/emails/mailboxes/{email}/settings/filters/{filterId}": {
       "get": {
-        "tags": ["Settings.Filters"],
+        "tags": [
+          "Settings.Filters"
+        ],
         "summary": "Get the specified email filter",
         "description": "Retrieves the specified filter.\n\n**Scopes:** `mail:read`\n\n**Granular Scopes:** `email:read:setting_filter`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "get_email_filter",
@@ -4870,14 +5396,20 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "filterId",
             "in": "path",
             "description": "The ID of the filter to be fetched.",
             "required": true,
-            "schema": { "type": "string", "example": "e855dc45fb539ebe" }
+            "schema": {
+              "type": "string",
+              "example": "e855dc45fb539ebe"
+            }
           }
         ],
         "responses": {
@@ -4934,7 +5466,11 @@
                           "type": "string",
                           "description": "How the message size in bytes should be in relation to the size field.",
                           "example": "smaller",
-                          "enum": ["unspecifield", "smaller", "larger"]
+                          "enum": [
+                            "unspecifield",
+                            "smaller",
+                            "larger"
+                          ]
                         }
                       },
                       "description": "Matching criteria for the filter."
@@ -4988,19 +5524,28 @@
         },
         "security": [
           {
-            "openapi_oauth": ["mail:read", "email:read:setting_filter"],
+            "openapi_oauth": [
+              "mail:read",
+              "email:read:setting_filter"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read"],
-          "x-granular-scopes": ["email:read:setting_filter"]
+          "x-macro-scopes": [
+            "mail:read"
+          ],
+          "x-granular-scopes": [
+            "email:read:setting_filter"
+          ]
         }
       },
       "delete": {
-        "tags": ["Settings.Filters"],
+        "tags": [
+          "Settings.Filters"
+        ],
         "summary": "Delete the specified email filter",
         "description": "Immediately and permanently deletes the specified filter.\n\n**Scopes:** `mail:write`\n\n**Granular Scopes:** `email:delete:setting_filter`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "delete_email_filter",
@@ -5021,11 +5566,16 @@
             "in": "path",
             "description": "The ID of the filter to be deleted.",
             "required": true,
-            "schema": { "type": "string", "example": "e855dc45fb539ebe" }
+            "schema": {
+              "type": "string",
+              "example": "e855dc45fb539ebe"
+            }
           }
         ],
         "responses": {
-          "204": { "description": "The specified email filter is deleted." },
+          "204": {
+            "description": "The specified email filter is deleted."
+          },
           "400": {
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request  \n\n **Error Code:** `400` <br>\n Invalid Request <br>\n"
           },
@@ -5041,21 +5591,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["mail:write", "email:delete:setting_filter"],
+            "openapi_oauth": [
+              "mail:write",
+              "email:delete:setting_filter"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write"],
-          "x-granular-scopes": ["email:delete:setting_filter"]
+          "x-macro-scopes": [
+            "mail:write"
+          ],
+          "x-granular-scopes": [
+            "email:delete:setting_filter"
+          ]
         }
       }
     },
     "/emails/mailboxes/{email}/threads": {
       "get": {
-        "tags": ["Threads"],
+        "tags": [
+          "Threads"
+        ],
         "summary": "List email threads from the mailbox",
         "description": "Lists the threads in the mailbox.\n\n**Scopes:** `mail:read`,`mail:read:admin`\n\n**Granular Scopes:** `email:read:list_threads`,`email:read:list_threads:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "list_email_threads",
@@ -5065,7 +5624,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "includeSpamTrash",
@@ -5075,7 +5637,10 @@
             "schema": {
               "type": "string",
               "example": "false",
-              "enum": ["true", "false"]
+              "enum": [
+                "true",
+                "false"
+              ]
             }
           },
           {
@@ -5083,21 +5648,30 @@
             "in": "query",
             "description": "Only return threads with message labels that match all of the specified label IDs in this query parameter.",
             "required": false,
-            "schema": { "type": "string", "example": "IMPORTANT" }
+            "schema": {
+              "type": "string",
+              "example": "IMPORTANT"
+            }
           },
           {
             "name": "maxResults",
             "in": "query",
             "description": "Maximum number of threads to return.  It defaults to 50. The maximum allowed value for this parameter is 500.",
             "required": false,
-            "schema": { "type": "string", "example": "10" }
+            "schema": {
+              "type": "string",
+              "example": "10"
+            }
           },
           {
             "name": "pageToken",
             "in": "query",
             "description": "Page token to retrieve a specific page of results in the list.",
             "required": false,
-            "schema": { "type": "string", "example": "e8580fc3bd75077c" }
+            "schema": {
+              "type": "string",
+              "example": "e8580fc3bd75077c"
+            }
           },
           {
             "name": "q",
@@ -5148,7 +5722,10 @@
                             "type": "string",
                             "description": "Whether the thead should be ignored in display.",
                             "example": "normal",
-                            "enum": ["normal", "ignored"]
+                            "enum": [
+                              "normal",
+                              "ignored"
+                            ]
                           }
                         }
                       }
@@ -5192,7 +5769,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read", "mail:read:admin"],
+          "x-macro-scopes": [
+            "mail:read",
+            "mail:read:admin"
+          ],
           "x-granular-scopes": [
             "email:read:list_threads",
             "email:read:list_threads:admin"
@@ -5202,7 +5782,9 @@
     },
     "/emails/mailboxes/{email}/threads/{threadId}": {
       "get": {
-        "tags": ["Threads"],
+        "tags": [
+          "Threads"
+        ],
         "summary": "Get the specified email thread",
         "description": "Retrieves the specified thread.\n\n**Scopes:** `mail:read`,`mail:read:admin`\n\n**Granular Scopes:** `email:read:thread`,`email:read:thread:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`\n\n**Not supported in Gov cluster** ",
         "operationId": "get_email_thread",
@@ -5212,7 +5794,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "threadId",
@@ -5233,7 +5818,11 @@
               "type": "string",
               "example": "full",
               "default": "full",
-              "enum": ["full", "metadata", "minimal"]
+              "enum": [
+                "full",
+                "metadata",
+                "minimal"
+              ]
             }
           },
           {
@@ -5241,21 +5830,30 @@
             "in": "query",
             "description": "When requested format is metadata, only include headers specified in this query parameter.",
             "required": false,
-            "schema": { "type": "string", "example": "To" }
+            "schema": {
+              "type": "string",
+              "example": "To"
+            }
           },
           {
             "name": "maxResults",
             "in": "query",
             "description": "Maximum number of thread messages to return. This field defaults to 50. The maximum allowed value for this field is 500.",
             "required": false,
-            "schema": { "type": "string", "example": "10" }
+            "schema": {
+              "type": "string",
+              "example": "10"
+            }
           },
           {
             "name": "pageToken",
             "in": "query",
             "description": "Page token to retrieve a specific page of results in the list.",
             "required": false,
-            "schema": { "type": "string", "example": "e8580fc3bd75077c" }
+            "schema": {
+              "type": "string",
+              "example": "e8580fc3bd75077c"
+            }
           }
         ],
         "responses": {
@@ -5285,7 +5883,10 @@
                       "type": "string",
                       "description": "Whether the thead should be ignored in display.",
                       "example": "normal",
-                      "enum": ["normal", "ignored"]
+                      "enum": [
+                        "normal",
+                        "ignored"
+                      ]
                     },
                     "messages": {
                       "type": "array",
@@ -5647,12 +6248,20 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:read", "mail:read:admin"],
-          "x-granular-scopes": ["email:read:thread", "email:read:thread:admin"]
+          "x-macro-scopes": [
+            "mail:read",
+            "mail:read:admin"
+          ],
+          "x-granular-scopes": [
+            "email:read:thread",
+            "email:read:thread:admin"
+          ]
         }
       },
       "delete": {
-        "tags": ["Threads"],
+        "tags": [
+          "Threads"
+        ],
         "summary": "Delete an existing email thread",
         "description": "Immediately and permanently deletes the specified thread. Any messages that belong to the thread are also deleted. This operation cannot be undone.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:delete:thread`,`email:delete:thread:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "delete_email_thread",
@@ -5662,7 +6271,10 @@
             "in": "path",
             "description": "The user's email address, or special value \"me\" to indicate the authenticated user from the access token.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "threadId",
@@ -5706,7 +6318,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:delete:thread",
             "email:delete:thread:admin"
@@ -5716,7 +6331,9 @@
     },
     "/emails/mailboxes/{email}/threads/{threadId}/modify": {
       "post": {
-        "tags": ["Threads"],
+        "tags": [
+          "Threads"
+        ],
         "summary": "Update the specified thread",
         "description": "Modifies the labels applied to the thread. This applies to all messages in the thread.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:write:thread`,`email:write:thread:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "update_email_thread",
@@ -5726,7 +6343,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "threadId",
@@ -5843,7 +6463,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:write:thread",
             "email:write:thread:admin"
@@ -5853,7 +6476,9 @@
     },
     "/emails/mailboxes/{email}/threads/{threadId}/trash": {
       "post": {
-        "tags": ["Threads"],
+        "tags": [
+          "Threads"
+        ],
         "summary": "Move the specified thread to TRASH folder",
         "description": "Moves the specified thread to the trash. Any messages that belong to the thread are also moved to the trash.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:write:trash_thread`,`email:write:trash_thread:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "trash_email_thread",
@@ -5863,7 +6488,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "threadId",
@@ -5948,7 +6576,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:write:trash_thread",
             "email:write:trash_thread:admin"
@@ -5958,7 +6589,9 @@
     },
     "/emails/mailboxes/{email}/threads/{threadId}/untrash": {
       "post": {
-        "tags": ["Threads"],
+        "tags": [
+          "Threads"
+        ],
         "summary": "Move the specified thread out of TRASH folder",
         "description": "Move the specified thread out of the trash folder. Any messages that belong to the thread are also removed from the trash.\n\n**Scopes:** `mail:write`,`mail:write:admin`\n\n**Granular Scopes:** `email:write:untrash_thread`,`email:write:untrash_thread:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`\n\n**Not supported in Gov cluster** ",
         "operationId": "untrash_email_thread",
@@ -5968,7 +6601,10 @@
             "in": "path",
             "description": "The mailbox address, or special value \"me\" to indicate the primary mailbox for the authenticated user.",
             "required": true,
-            "schema": { "type": "string", "example": "john.doe@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            }
           },
           {
             "name": "threadId",
@@ -6053,7 +6689,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.1",
           "x-permissions": [],
-          "x-macro-scopes": ["mail:write", "mail:write:admin"],
+          "x-macro-scopes": [
+            "mail:write",
+            "mail:write:admin"
+          ],
           "x-granular-scopes": [
             "email:write:untrash_thread",
             "email:write:untrash_thread:admin"
@@ -6062,99 +6701,5 @@
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": {
-              "mail:read": "mail:read",
-              "mail:read:admin": "mail:read:admin",
-              "email:read:list_drafts": "email:read:list_drafts",
-              "email:read:list_drafts:admin": "email:read:list_drafts:admin",
-              "mail:write": "mail:write",
-              "mail:write:admin": "mail:write:admin",
-              "email:write:draft": "email:write:draft",
-              "email:write:draft:admin": "email:write:draft:admin",
-              "email:write:send_draft": "email:write:send_draft",
-              "email:write:send_draft:admin": "email:write:send_draft:admin",
-              "email:read:draft": "email:read:draft",
-              "email:read:draft:admin": "email:read:draft:admin",
-              "email:update:draft": "email:update:draft",
-              "email:update:draft:admin": "email:update:draft:admin",
-              "email:delete:draft": "email:delete:draft",
-              "email:delete:draft:admin": "email:delete:draft:admin",
-              "email:read:history": "email:read:history",
-              "email:read:history:admin": "email:read:history:admin",
-              "email:read:list_labels": "email:read:list_labels",
-              "email:read:list_labels:admin": "email:read:list_labels:admin",
-              "email:write:label": "email:write:label",
-              "email:write:label:admin": "email:write:label:admin",
-              "email:read:label": "email:read:label",
-              "email:read:label:admin": "email:read:label:admin",
-              "email:delete:label": "email:delete:label",
-              "email:delete:label:admin": "email:delete:label:admin",
-              "email:update:label": "email:update:label",
-              "email:update:label:admin": "email:update:label:admin",
-              "email:read:profile": "email:read:profile",
-              "email:read:profile:admin": "email:read:profile:admin",
-              "email:write:msg": "email:write:msg",
-              "email:write:msg:admin": "email:write:msg:admin",
-              "email:read:list_msgs": "email:read:list_msgs",
-              "email:read:list_msgs:admin": "email:read:list_msgs:admin",
-              "email:write:batch_delete_msgs": "email:write:batch_delete_msgs",
-              "email:write:batch_delete_msgs:admin": "email:write:batch_delete_msgs:admin",
-              "email:write:batch_modify_msgs": "email:write:batch_modify_msgs",
-              "email:write:batch_modify_msgs:admin": "email:write:batch_modify_msgs:admin",
-              "email:write:send_msg": "email:write:send_msg",
-              "email:write:send_msg:admin": "email:write:send_msg:admin",
-              "email:delete:msg": "email:delete:msg",
-              "email:delete:msg:admin": "email:delete:msg:admin",
-              "email:read:msg": "email:read:msg",
-              "email:read:msg:admin": "email:read:msg:admin",
-              "email:write:modify_msg": "email:write:modify_msg",
-              "email:write:modify_msg:admin": "email:write:modify_msg:admin",
-              "email:write:trash_msg": "email:write:trash_msg",
-              "email:write:trash_msg:admin": "email:write:trash_msg:admin",
-              "email:write:untrash_msg": "email:write:untrash_msg",
-              "email:write:untrash_msg:admin": "email:write:untrash_msg:admin",
-              "email:read:attachment": "email:read:attachment",
-              "email:read:attachment:admin": "email:read:attachment:admin",
-              "email:read:setting_vacation": "email:read:setting_vacation",
-              "email:update:setting_vacation": "email:update:setting_vacation",
-              "email:write:setting_delegate": "email:write:setting_delegate",
-              "email:read:list_setting_delegates": "email:read:list_setting_delegates",
-              "email:delete:setting_delegate": "email:delete:setting_delegate",
-              "email:read:setting_delegate": "email:read:setting_delegate",
-              "email:read:list_setting_filters": "email:read:list_setting_filters",
-              "email:write:setting_filter": "email:write:setting_filter",
-              "email:delete:setting_filter": "email:delete:setting_filter",
-              "email:read:setting_filter": "email:read:setting_filter",
-              "email:read:list_threads": "email:read:list_threads",
-              "email:read:list_threads:admin": "email:read:list_threads:admin",
-              "email:read:thread": "email:read:thread",
-              "email:read:thread:admin": "email:read:thread:admin",
-              "email:delete:thread": "email:delete:thread",
-              "email:delete:thread:admin": "email:delete:thread:admin",
-              "email:write:thread": "email:write:thread",
-              "email:write:thread:admin": "email:write:thread:admin",
-              "email:write:trash_thread": "email:write:trash_thread",
-              "email:write:trash_thread:admin": "email:write:trash_thread:admin",
-              "email:write:untrash_thread": "email:write:untrash_thread",
-              "email:write:untrash_thread:admin": "email:write:untrash_thread:admin"
-            }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

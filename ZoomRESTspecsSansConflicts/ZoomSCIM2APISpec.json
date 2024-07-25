@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us"
+    }
+  ],
   "paths": {
     "/scim2/Groups": {
       "get": {
-        "tags": ["Group"],
+        "tags": [
+          "Group"
+        ],
         "summary": "List groups",
         "description": "List all groups. Use additional query parameters to filter specific groups.\n\n**Scopes:** `scim2`\n\n**Granular Scopes:** `scim2:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "groupSCIM2List",
@@ -28,7 +34,11 @@
             "in": "query",
             "description": "The start index of the records to be returned.",
             "required": false,
-            "schema": { "type": "integer", "example": 1, "default": 1 }
+            "schema": {
+              "type": "integer",
+              "example": 1,
+              "default": 1
+            }
           },
           {
             "name": "count",
@@ -48,7 +58,10 @@
             "in": "query",
             "description": "The type of query: \n* `displayName eq {groupName}` — Provide the group's name to filter the response to a specific group.",
             "required": false,
-            "schema": { "type": "string", "example": "displayName eq G1" }
+            "schema": {
+              "type": "string",
+              "example": "displayName eq G1"
+            }
           }
         ],
         "responses": {
@@ -171,19 +184,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["scim2", "scim2:admin"],
+            "openapi_oauth": [
+              "scim2",
+              "scim2:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jun",
-          "x-permissions": ["Group:Read"],
-          "x-macro-scopes": ["scim2"],
-          "x-granular-scopes": ["scim2:admin"]
+          "x-permissions": [
+            "Group:Read"
+          ],
+          "x-macro-scopes": [
+            "scim2"
+          ],
+          "x-granular-scopes": [
+            "scim2:admin"
+          ]
         }
       },
       "post": {
-        "tags": ["Group"],
+        "tags": [
+          "Group"
+        ],
         "summary": "Create a group",
         "description": "Create a new group.\n\n**Scopes:** `scim2`\n\n**Granular Scopes:** `scim2:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "groupScim2Create",
@@ -196,7 +220,9 @@
                   "schemas": {
                     "type": "array",
                     "description": "A list of schemas.",
-                    "example": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
+                    "example": [
+                      "urn:ietf:params:scim:schemas:core:2.0:Group"
+                    ],
                     "items": {
                       "type": "string",
                       "example": "urn:ietf:params:scim:schemas:core:2.0:Group"
@@ -310,21 +336,32 @@
         },
         "security": [
           {
-            "openapi_oauth": ["scim2", "scim2:admin"],
+            "openapi_oauth": [
+              "scim2",
+              "scim2:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jun",
-          "x-permissions": ["Group:Edit"],
-          "x-macro-scopes": ["scim2"],
-          "x-granular-scopes": ["scim2:admin"]
+          "x-permissions": [
+            "Group:Edit"
+          ],
+          "x-macro-scopes": [
+            "scim2"
+          ],
+          "x-granular-scopes": [
+            "scim2:admin"
+          ]
         }
       }
     },
     "/scim2/Groups/{groupId}": {
       "get": {
-        "tags": ["Group"],
+        "tags": [
+          "Group"
+        ],
         "summary": "Get a group",
         "description": "Get the specific group's information.\n\n**Scopes:** `scim2`\n\n**Granular Scopes:** `scim2:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "groupSCIM2Get",
@@ -334,7 +371,10 @@
             "in": "path",
             "description": "The group's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "kuWhUCrrT4q9Xy17rSR8js" }
+            "schema": {
+              "type": "string",
+              "example": "kuWhUCrrT4q9Xy17rSR8js"
+            }
           }
         ],
         "responses": {
@@ -422,19 +462,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["scim2", "scim2:admin"],
+            "openapi_oauth": [
+              "scim2",
+              "scim2:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jun",
-          "x-permissions": ["Group:Read"],
-          "x-macro-scopes": ["scim2"],
-          "x-granular-scopes": ["scim2:admin"]
+          "x-permissions": [
+            "Group:Read"
+          ],
+          "x-macro-scopes": [
+            "scim2"
+          ],
+          "x-granular-scopes": [
+            "scim2:admin"
+          ]
         }
       },
       "delete": {
-        "tags": ["Group"],
+        "tags": [
+          "Group"
+        ],
         "summary": "Delete a group",
         "description": "Delete a group.\n\n**Scopes:** `scim2`\n\n**Granular Scopes:** `scim2:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "groupSCIM2Delete",
@@ -444,7 +495,10 @@
             "in": "path",
             "description": "The group's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "kuWhUCrrT4q9Xy17rSR8js" }
+            "schema": {
+              "type": "string",
+              "example": "kuWhUCrrT4q9Xy17rSR8js"
+            }
           }
         ],
         "responses": {
@@ -463,19 +517,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["scim2", "scim2:admin"],
+            "openapi_oauth": [
+              "scim2",
+              "scim2:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jun",
-          "x-permissions": ["Group:Edit"],
-          "x-macro-scopes": ["scim2"],
-          "x-granular-scopes": ["scim2:admin"]
+          "x-permissions": [
+            "Group:Edit"
+          ],
+          "x-macro-scopes": [
+            "scim2"
+          ],
+          "x-granular-scopes": [
+            "scim2:admin"
+          ]
         }
       },
       "patch": {
-        "tags": ["Group"],
+        "tags": [
+          "Group"
+        ],
         "summary": "Update a group",
         "description": "Update a group's information.\n\n**Scopes:** `scim2`\n\n**Granular Scopes:** `scim2:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "groupSCIM2Update",
@@ -485,7 +550,10 @@
             "in": "path",
             "description": "The group's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "kuWhUCrrT4q9Xy17rSR8js" }
+            "schema": {
+              "type": "string",
+              "example": "kuWhUCrrT4q9Xy17rSR8js"
+            }
           }
         ],
         "requestBody": {
@@ -724,21 +792,32 @@
         },
         "security": [
           {
-            "openapi_oauth": ["scim2", "scim2:admin"],
+            "openapi_oauth": [
+              "scim2",
+              "scim2:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jun",
-          "x-permissions": ["Group:Edit"],
-          "x-macro-scopes": ["scim2"],
-          "x-granular-scopes": ["scim2:admin"]
+          "x-permissions": [
+            "Group:Edit"
+          ],
+          "x-macro-scopes": [
+            "scim2"
+          ],
+          "x-granular-scopes": [
+            "scim2:admin"
+          ]
         }
       }
     },
     "/scim2/Users": {
       "get": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "List users",
         "description": "Lists all users. You can use additional query parameters to filter specific users.\n\n**Scopes:** `scim2`\n\n**Granular Scopes:** `scim2:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "userSCIM2List",
@@ -748,7 +827,11 @@
             "in": "query",
             "description": "The start index of records to be returned.",
             "required": false,
-            "schema": { "type": "integer", "example": 1, "default": 1 }
+            "schema": {
+              "type": "integer",
+              "example": 1,
+              "default": 1
+            }
           },
           {
             "name": "count",
@@ -768,7 +851,10 @@
             "in": "query",
             "description": "The query type: \n* `userName eq {userEmail}` — Provide the user's email address to filter the response to a specific user. \n* `externalId eq {userId}` — Filter the response by the user's ID (`userId`).",
             "required": false,
-            "schema": { "type": "string", "example": "externalId eq ABCD1345" }
+            "schema": {
+              "type": "string",
+              "example": "externalId eq ABCD1345"
+            }
           }
         ],
         "responses": {
@@ -913,7 +999,11 @@
                             "type": "string",
                             "description": "The user type: \n* `Basic` \n* `Licensed` \n* `On-Prem`",
                             "example": "On-Prem",
-                            "enum": ["Basic", "Licensed", "On-Prem"]
+                            "enum": [
+                              "Basic",
+                              "Licensed",
+                              "On-Prem"
+                            ]
                           },
                           "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
                             "type": "object",
@@ -963,19 +1053,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["scim2", "scim2:admin"],
+            "openapi_oauth": [
+              "scim2",
+              "scim2:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jun",
-          "x-permissions": ["User:Read"],
-          "x-macro-scopes": ["scim2"],
-          "x-granular-scopes": ["scim2:admin"]
+          "x-permissions": [
+            "User:Read"
+          ],
+          "x-macro-scopes": [
+            "scim2"
+          ],
+          "x-granular-scopes": [
+            "scim2:admin"
+          ]
         }
       },
       "post": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Create a user",
         "description": "Creates a new user.\n\n**Scopes:** `scim2`\n\n**Granular Scopes:** `scim2:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "userScim2Create",
@@ -1003,7 +1104,11 @@
                     "type": "string",
                     "description": "The user type: \n* `Basic` \n* `Licensed` \n* `On-Prem`",
                     "example": "On-Prem",
-                    "enum": ["Basic", "Licensed", "On-Prem"]
+                    "enum": [
+                      "Basic",
+                      "Licensed",
+                      "On-Prem"
+                    ]
                   },
                   "name": {
                     "type": "object",
@@ -1047,7 +1152,13 @@
                           "description": "The phone number's label: \n* `mobile` \n* `office` \n* `home` \n* `fax` \n* `work` \n\nThis value defaults to `work`.",
                           "example": "work",
                           "default": "work",
-                          "enum": ["mobile", "office", "home", "fax", "work"]
+                          "enum": [
+                            "mobile",
+                            "office",
+                            "home",
+                            "fax",
+                            "work"
+                          ]
                         },
                         "value": {
                           "type": "string",
@@ -1211,7 +1322,13 @@
                         "type": "string",
                         "description": "The Zoom Workplace plan option.<br>`16` - Zoom Workplace Business Plus with US/CA Unlimited.<br>`32` - Zoom Workplace Business Plus with UK/IR Unlimited.<br>`64` - Zoom Workplace Business Plus with AU/NZ Unlimited.<br>`128` - Zoom Workplace Business Plus with Japan Unlimited.<br>`33554432` - Zoom Workplace Business Plus with Global Select.<br><br>The Zoom One plan option for Gov accounts:<br>`16` - Zoom One Business Plus.",
                         "example": "16",
-                        "enum": ["16", "32", "64", "128", "33554432"]
+                        "enum": [
+                          "16",
+                          "32",
+                          "64",
+                          "128",
+                          "33554432"
+                        ]
                       },
                       "zoomOneEdu": {
                         "type": "string",
@@ -1318,7 +1435,10 @@
                             "type": "string",
                             "description": "The Zoom Contact Center Plan to assign to the user. Empty value will not assign the user to Zoom Contact Center. The package option:  \n* `Essential` — Deprecated. \n* `Essentials` — Zoom Contact Center Package.",
                             "example": "Essentials",
-                            "enum": ["Essential", "Essentials"]
+                            "enum": [
+                              "Essential",
+                              "Essentials"
+                            ]
                           }
                         },
                         "description": "Zoom Contact Center Plan",
@@ -1328,13 +1448,19 @@
                         "type": "string",
                         "description": "The Zoom Contact Center Plan to assign to the user. An empty value will not assign the user to Zoom Contact Center. Package options: \n* `Essentials` — Zoom Contact Center Essentials Package. \n* `Premium` — Zoom Contact Center Premium Package. \n* `Elite` — Zoom Contact Center Elite Package.",
                         "example": "Essentials",
-                        "enum": ["Essentials", "Premium", "Elite"]
+                        "enum": [
+                          "Essentials",
+                          "Premium",
+                          "Elite"
+                        ]
                       },
                       "zoomContactCenterAddonsPlan": {
                         "type": "string",
                         "description": "This is an optional field. The Zoom Contact Center Plan to assign to the user. An empty value will not assign the user to a Zoom Contact Center Add-On package. Add-on package options: \n* `ai_expert_assist` — Zoom Contact Center AI Expert Assist Package.",
                         "example": "ai_expert_assist",
-                        "enum": ["ai_expert_assist"]
+                        "enum": [
+                          "ai_expert_assist"
+                        ]
                       },
                       "zoomContactCenterRole": {
                         "type": "string",
@@ -1467,7 +1593,11 @@
                       "type": "string",
                       "description": "The user type: \n* `Basic` \n* `Licensed` \n* `On-Prem`",
                       "example": "On-Prem",
-                      "enum": ["Basic", "Licensed", "On-Prem"]
+                      "enum": [
+                        "Basic",
+                        "Licensed",
+                        "On-Prem"
+                      ]
                     },
                     "title": {
                       "type": "string",
@@ -1490,7 +1620,13 @@
                             "description": "The phone number's label: \n* `mobile` \n* `office` \n* `home` \n* `fax` \n* `work` \n\nThis value defaults to `work`.",
                             "example": "work",
                             "default": "work",
-                            "enum": ["mobile", "office", "home", "fax", "work"]
+                            "enum": [
+                              "mobile",
+                              "office",
+                              "home",
+                              "fax",
+                              "work"
+                            ]
                           },
                           "value": {
                             "type": "string",
@@ -1711,21 +1847,32 @@
         },
         "security": [
           {
-            "openapi_oauth": ["scim2", "scim2:admin"],
+            "openapi_oauth": [
+              "scim2",
+              "scim2:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jun",
-          "x-permissions": ["User:Edit"],
-          "x-macro-scopes": ["scim2"],
-          "x-granular-scopes": ["scim2:admin"]
+          "x-permissions": [
+            "User:Edit"
+          ],
+          "x-macro-scopes": [
+            "scim2"
+          ],
+          "x-granular-scopes": [
+            "scim2:admin"
+          ]
         }
       }
     },
     "/scim2/Users/{userId}": {
       "get": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Get a user",
         "description": "Returns information about a specific user.\n\n**Scopes:** `scim2`\n\n**Granular Scopes:** `scim2:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "userSCIM2Get",
@@ -1735,7 +1882,10 @@
             "in": "path",
             "description": "The user's Zoom ID.",
             "required": true,
-            "schema": { "type": "string", "example": "k&KdKr6TLWuxdDtk0hjSzL" }
+            "schema": {
+              "type": "string",
+              "example": "k&KdKr6TLWuxdDtk0hjSzL"
+            }
           }
         ],
         "responses": {
@@ -1852,7 +2002,11 @@
                       "type": "string",
                       "description": "The user type: \n* `Basic` \n* `Licensed` \n* `On-Prem`",
                       "example": "On-Prem",
-                      "enum": ["Basic", "Licensed", "On-Prem"]
+                      "enum": [
+                        "Basic",
+                        "Licensed",
+                        "On-Prem"
+                      ]
                     },
                     "phoneNumbers": {
                       "type": "array",
@@ -1865,7 +2019,13 @@
                             "description": "The phone number's label: \n* `mobile` \n* `office` \n* `home` \n* `fax` \n* `work` \n\nThis value defaults to `work`.",
                             "example": "work",
                             "default": "work",
-                            "enum": ["mobile", "office", "home", "fax", "work"]
+                            "enum": [
+                              "mobile",
+                              "office",
+                              "home",
+                              "fax",
+                              "work"
+                            ]
                           },
                           "value": {
                             "type": "string",
@@ -2088,19 +2248,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["scim2", "scim2:admin"],
+            "openapi_oauth": [
+              "scim2",
+              "scim2:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jun",
-          "x-permissions": ["User:Read"],
-          "x-macro-scopes": ["scim2"],
-          "x-granular-scopes": ["scim2:admin"]
+          "x-permissions": [
+            "User:Read"
+          ],
+          "x-macro-scopes": [
+            "scim2"
+          ],
+          "x-granular-scopes": [
+            "scim2:admin"
+          ]
         }
       },
       "put": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Update a user",
         "description": "Updates a user's information. \n\n**Scopes:** `scim2`\n\n**Granular Scopes:** `scim2:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "userSCIM2Update",
@@ -2110,7 +2281,10 @@
             "in": "path",
             "description": "The user's Zoom ID.",
             "required": true,
-            "schema": { "type": "string", "example": "k&KdKr6TLWuxdDtk0hjSzL" }
+            "schema": {
+              "type": "string",
+              "example": "k&KdKr6TLWuxdDtk0hjSzL"
+            }
           }
         ],
         "requestBody": {
@@ -2137,7 +2311,11 @@
                     "type": "string",
                     "description": "The user type: \n* `Basic` \n* `Licensed` \n* `On-Prem`",
                     "example": "On-Prem",
-                    "enum": ["Basic", "Licensed", "On-Prem"]
+                    "enum": [
+                      "Basic",
+                      "Licensed",
+                      "On-Prem"
+                    ]
                   },
                   "name": {
                     "type": "object",
@@ -2344,7 +2522,13 @@
                         "type": "string",
                         "description": "The Zoom Workplace plan option.<br>`16` - Zoom Workplace Business Plus with US/CA Unlimited.<br>`32` - Zoom Workplace Business Plus with UK/IR Unlimited.<br>`64` - Zoom Workplace Business Plus with AU/NZ Unlimited.<br>`128` - Zoom Workplace Business Plus with Japan Unlimited.<br>`33554432` - Zoom Workplace Business Plus with Global Select.<br><br>The Zoom One plan option for Gov accounts:<br>`16` - Zoom One Business Plus.",
                         "example": "16",
-                        "enum": ["16", "32", "64", "128", "33554432"]
+                        "enum": [
+                          "16",
+                          "32",
+                          "64",
+                          "128",
+                          "33554432"
+                        ]
                       },
                       "zoomOneEdu": {
                         "type": "string",
@@ -2451,7 +2635,10 @@
                             "type": "string",
                             "description": "Zoom Contact Center Plan to be assigned to the user. Empty value will result in no changes. The package option: \n* `Essential` — Deprecated. \n* `Essentials` — Zoom Contact Center Package.",
                             "example": "Essentials",
-                            "enum": ["Essential", "Essentials"]
+                            "enum": [
+                              "Essential",
+                              "Essentials"
+                            ]
                           }
                         },
                         "description": "Zoom Contact Center Plan",
@@ -2461,13 +2648,19 @@
                         "type": "string",
                         "description": "Zoom Contact Center Plan to be assigned to the user. Empty value will result in no changes. The package options are: \n* `Essentials` — Zoom Contact Center Essentials Package. \n* `Premium` — Zoom Contact Center Premium Package. \n* `Elite` — Zoom Contact Center Elite Package.",
                         "example": "Essentials",
-                        "enum": ["Essentials", "Premium", "Elite"]
+                        "enum": [
+                          "Essentials",
+                          "Premium",
+                          "Elite"
+                        ]
                       },
                       "zoomContactCenterAddonsPlan": {
                         "type": "string",
                         "description": "This is an optional field. The Zoom Contact Center Plan to assign to the user. Empty value will result in no changes. The add-on package option is: \n* `ai_expert_assist` — Zoom Contact Center AI Expert Assist Package.",
                         "example": "ai_expert_assist",
-                        "enum": ["ai_expert_assist"]
+                        "enum": [
+                          "ai_expert_assist"
+                        ]
                       },
                       "zoomContactCenterRole": {
                         "type": "string",
@@ -2622,7 +2815,11 @@
                       "type": "string",
                       "description": "The user type: \n* `Basic` \n* `Licensed` \n* `On-Prem`",
                       "example": "On-Prem",
-                      "enum": ["Basic", "Licensed", "On-Prem"]
+                      "enum": [
+                        "Basic",
+                        "Licensed",
+                        "On-Prem"
+                      ]
                     },
                     "title": {
                       "type": "string",
@@ -2644,7 +2841,13 @@
                             "type": "string",
                             "description": "The phone number's label: \n* `mobile` \n* `office` \n* `home` \n* `fax` \n* `work` \n\nThis value defaults to `work`.",
                             "example": "work",
-                            "enum": ["mobile", "office", "home", "fax", "work"]
+                            "enum": [
+                              "mobile",
+                              "office",
+                              "home",
+                              "fax",
+                              "work"
+                            ]
                           },
                           "value": {
                             "type": "string",
@@ -2850,19 +3053,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["scim2", "scim2:admin"],
+            "openapi_oauth": [
+              "scim2",
+              "scim2:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jun",
-          "x-permissions": ["User:Edit"],
-          "x-macro-scopes": ["scim2"],
-          "x-granular-scopes": ["scim2:admin"]
+          "x-permissions": [
+            "User:Edit"
+          ],
+          "x-macro-scopes": [
+            "scim2"
+          ],
+          "x-granular-scopes": [
+            "scim2:admin"
+          ]
         }
       },
       "delete": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Delete a user",
         "description": "Delete a user.\n\n**Scopes:** `scim2`\n\n**Granular Scopes:** `scim2:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "userSCIM2Delete",
@@ -2872,7 +3086,10 @@
             "in": "path",
             "description": "The user's Zoom ID.",
             "required": true,
-            "schema": { "type": "string", "example": "k&KdKr6TLWuxdDtk0hjSzL" }
+            "schema": {
+              "type": "string",
+              "example": "k&KdKr6TLWuxdDtk0hjSzL"
+            }
           }
         ],
         "responses": {
@@ -2891,19 +3108,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["scim2", "scim2:admin"],
+            "openapi_oauth": [
+              "scim2",
+              "scim2:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jun",
-          "x-permissions": ["User:Edit"],
-          "x-macro-scopes": ["scim2"],
-          "x-granular-scopes": ["scim2:admin"]
+          "x-permissions": [
+            "User:Edit"
+          ],
+          "x-macro-scopes": [
+            "scim2"
+          ],
+          "x-granular-scopes": [
+            "scim2:admin"
+          ]
         }
       },
       "patch": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Deactivate a user",
         "description": "Activate or deactivate a user.\n\n**Scopes:** `scim2`\n\n**Granular Scopes:** `scim2:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "userADSCIM2Deactivate",
@@ -2913,7 +3141,10 @@
             "in": "path",
             "description": "The user's Zoom ID.",
             "required": true,
-            "schema": { "type": "string", "example": "k&KdKr6TLWuxdDtk0hjSzL" }
+            "schema": {
+              "type": "string",
+              "example": "k&KdKr6TLWuxdDtk0hjSzL"
+            }
           }
         ],
         "requestBody": {
@@ -2940,7 +3171,9 @@
                           "type": "string",
                           "description": "The operation name. This value must be `replace`.",
                           "example": "replace",
-                          "enum": ["replace"]
+                          "enum": [
+                            "replace"
+                          ]
                         },
                         "value": {
                           "type": "object",
@@ -3074,7 +3307,11 @@
                       "type": "string",
                       "description": "The user type: \n* `Basic` \n* `Licensed` \n* `On-Prem`",
                       "example": "On-Prem",
-                      "enum": ["Basic", "Licensed", "On-Prem"]
+                      "enum": [
+                        "Basic",
+                        "Licensed",
+                        "On-Prem"
+                      ]
                     },
                     "title": {
                       "type": "string",
@@ -3096,7 +3333,13 @@
                             "type": "string",
                             "description": "The phone number's label: \n* `mobile` \n* `office` \n* `home` \n* `fax` \n* `work` \n\nThis value defaults to `work`.",
                             "example": "work",
-                            "enum": ["mobile", "office", "home", "fax", "work"]
+                            "enum": [
+                              "mobile",
+                              "office",
+                              "home",
+                              "fax",
+                              "work"
+                            ]
                           },
                           "value": {
                             "type": "string",
@@ -3299,37 +3542,27 @@
         },
         "security": [
           {
-            "openapi_oauth": ["scim2", "scim2:admin"],
+            "openapi_oauth": [
+              "scim2",
+              "scim2:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jun",
-          "x-permissions": ["User:Edit"],
-          "x-macro-scopes": ["scim2"],
-          "x-granular-scopes": ["scim2:admin"]
+          "x-permissions": [
+            "User:Edit"
+          ],
+          "x-macro-scopes": [
+            "scim2"
+          ],
+          "x-granular-scopes": [
+            "scim2:admin"
+          ]
         }
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": { "scim2": "scim2", "scim2:admin": "scim2:admin" }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

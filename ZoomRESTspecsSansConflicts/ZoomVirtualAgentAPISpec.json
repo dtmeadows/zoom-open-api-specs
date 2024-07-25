@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us/v2"
+    }
+  ],
   "paths": {
     "/km/kbs/{kbId}/articles": {
       "get": {
-        "tags": ["Knowledge Management"],
+        "tags": [
+          "Knowledge Management"
+        ],
         "summary": "Get Articles",
         "description": "Get multiple knowledge base articles.\n\n**Scopes:** `zva:read:km_kbs`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "GetArticles",
@@ -264,16 +270,25 @@
           }
         },
         "security": [
-          { "openapi_oauth": ["zva:read:km_kbs"], "openapi_authorization": [] }
+          {
+            "openapi_oauth": [
+              "zva:read:km_kbs"
+            ],
+            "openapi_authorization": []
+          }
         ],
         "x-extensions": {
           "x-fixVersion": "ZVA 1.6.0",
           "x-permissions": [],
-          "x-macro-scopes": ["zva:read:km_kbs"]
+          "x-macro-scopes": [
+            "zva:read:km_kbs"
+          ]
         }
       },
       "post": {
-        "tags": ["Knowledge Management"],
+        "tags": [
+          "Knowledge Management"
+        ],
         "summary": "Create Article",
         "description": "Create a knowledge base article.\n\n**Scopes:** `zva:write:km_kbs`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "CreateArticle",
@@ -294,7 +309,11 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["content", "exclude", "title"],
+                "required": [
+                  "content",
+                  "exclude",
+                  "title"
+                ],
                 "type": "object",
                 "properties": {
                   "category": {
@@ -477,18 +496,27 @@
           }
         },
         "security": [
-          { "openapi_oauth": ["zva:write:km_kbs"], "openapi_authorization": [] }
+          {
+            "openapi_oauth": [
+              "zva:write:km_kbs"
+            ],
+            "openapi_authorization": []
+          }
         ],
         "x-extensions": {
           "x-fixVersion": "ZVA 1.6.0",
           "x-permissions": [],
-          "x-macro-scopes": ["zva:write:km_kbs"]
+          "x-macro-scopes": [
+            "zva:write:km_kbs"
+          ]
         }
       }
     },
     "/km/kbs/{kbId}/articles/{articleId}": {
       "get": {
-        "tags": ["Knowledge Management"],
+        "tags": [
+          "Knowledge Management"
+        ],
         "summary": "Get Article",
         "description": "Get a knowledge base article\n\n**Scopes:** `zva:read:km_kbs`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "GetArticle",
@@ -622,16 +650,25 @@
           }
         },
         "security": [
-          { "openapi_oauth": ["zva:read:km_kbs"], "openapi_authorization": [] }
+          {
+            "openapi_oauth": [
+              "zva:read:km_kbs"
+            ],
+            "openapi_authorization": []
+          }
         ],
         "x-extensions": {
           "x-fixVersion": "ZVA 1.6.0",
           "x-permissions": [],
-          "x-macro-scopes": ["zva:read:km_kbs"]
+          "x-macro-scopes": [
+            "zva:read:km_kbs"
+          ]
         }
       },
       "put": {
-        "tags": ["Knowledge Management"],
+        "tags": [
+          "Knowledge Management"
+        ],
         "summary": "Update Article",
         "description": "Update a knowledge base article.\n\n**Scopes:** `zva:write:km_kbs`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "UpdateArticle",
@@ -662,7 +699,11 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["content", "exclude", "title"],
+                "required": [
+                  "content",
+                  "exclude",
+                  "title"
+                ],
                 "type": "object",
                 "properties": {
                   "category": {
@@ -845,16 +886,25 @@
           }
         },
         "security": [
-          { "openapi_oauth": ["zva:write:km_kbs"], "openapi_authorization": [] }
+          {
+            "openapi_oauth": [
+              "zva:write:km_kbs"
+            ],
+            "openapi_authorization": []
+          }
         ],
         "x-extensions": {
           "x-fixVersion": "ZVA 1.6.0",
           "x-permissions": [],
-          "x-macro-scopes": ["zva:write:km_kbs"]
+          "x-macro-scopes": [
+            "zva:write:km_kbs"
+          ]
         }
       },
       "delete": {
-        "tags": ["Knowledge Management"],
+        "tags": [
+          "Knowledge Management"
+        ],
         "summary": "Delete Article",
         "description": "Delete a knowledge base article.\n\n**Scopes:** `zva:write:km_kbs`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "DeleteArticle",
@@ -884,12 +934,17 @@
           "description": "Delete a knowledge base article.",
           "content": {
             "application/json": {
-              "schema": { "type": "object", "properties": {} }
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
             }
           }
         },
         "responses": {
-          "204": { "description": "The article was deleted" },
+          "204": {
+            "description": "The article was deleted"
+          },
           "400": {
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request \n\n **Error Code:** `33001` <br>\n Specified KB is not type Custom API <br>\n**Error Code:** `33005` <br>\n Validation failed <br>\n"
           },
@@ -898,18 +953,27 @@
           }
         },
         "security": [
-          { "openapi_oauth": ["zva:write:km_kbs"], "openapi_authorization": [] }
+          {
+            "openapi_oauth": [
+              "zva:write:km_kbs"
+            ],
+            "openapi_authorization": []
+          }
         ],
         "x-extensions": {
           "x-fixVersion": "ZVA 1.6.0",
           "x-permissions": [],
-          "x-macro-scopes": ["zva:write:km_kbs"]
+          "x-macro-scopes": [
+            "zva:write:km_kbs"
+          ]
         }
       }
     },
     "/virtual_agent/report/engagements": {
       "get": {
-        "tags": ["Report"],
+        "tags": [
+          "Report"
+        ],
         "summary": "Get ZVA engagements",
         "description": "Generates a list of ZVA engagements.\n\n**Scopes:** `zva_report:read`,`zva_report:read:admin`\n\n**Granular Scopes:** `zva:read:list_engagements:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "GetZVAEngagements",
@@ -941,7 +1005,10 @@
             "in": "query",
             "description": "The call's [timezone ID](https://marketplace.zoom.us/docs/api-reference/other-references/abbreviation-lists/#timezones). The default is **UTC**.",
             "required": false,
-            "schema": { "type": "string", "example": "UTC" }
+            "schema": {
+              "type": "string",
+              "example": "UTC"
+            }
           },
           {
             "name": "page_size",
@@ -970,7 +1037,10 @@
             "in": "query",
             "description": "Whether the engagement response includes query details.",
             "required": false,
-            "schema": { "type": "boolean", "example": false }
+            "schema": {
+              "type": "boolean",
+              "example": false
+            }
           }
         ],
         "responses": {
@@ -1417,14 +1487,21 @@
         "x-extensions": {
           "x-fixVersion": "ZVA 3.6.0",
           "x-permissions": [],
-          "x-macro-scopes": ["zva_report:read", "zva_report:read:admin"],
-          "x-granular-scopes": ["zva:read:list_engagements:admin"]
+          "x-macro-scopes": [
+            "zva_report:read",
+            "zva_report:read:admin"
+          ],
+          "x-granular-scopes": [
+            "zva:read:list_engagements:admin"
+          ]
         }
       }
     },
     "/virtual_agent/report/engagements/query_details": {
       "get": {
-        "tags": ["Report"],
+        "tags": [
+          "Report"
+        ],
         "summary": "Get ZVA query details",
         "description": "Returns a list of ZVA engagement query details.\n\n**Scopes:** `zva_report:read`,`zva_report:read:admin`\n\n**Granular Scopes:** `zva:read:list_queries:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "GetZVAQueryDetails",
@@ -1456,7 +1533,10 @@
             "in": "query",
             "description": "The call's [timezone ID](https://marketplace.zoom.us/docs/api-reference/other-references/abbreviation-lists/#timezones). The default is **UTC**.",
             "required": false,
-            "schema": { "type": "string", "example": "UTC" }
+            "schema": {
+              "type": "string",
+              "example": "UTC"
+            }
           },
           {
             "name": "page_size",
@@ -1753,37 +1833,16 @@
         "x-extensions": {
           "x-fixVersion": "ZVA 3.6.0",
           "x-permissions": [],
-          "x-macro-scopes": ["zva_report:read", "zva_report:read:admin"],
-          "x-granular-scopes": ["zva:read:list_queries:admin"]
+          "x-macro-scopes": [
+            "zva_report:read",
+            "zva_report:read:admin"
+          ],
+          "x-granular-scopes": [
+            "zva:read:list_queries:admin"
+          ]
         }
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": {
-              "zva:read:km_kbs": "zva:read:km_kbs",
-              "zva:write:km_kbs": "zva:write:km_kbs",
-              "zva_report:read": "zva_report:read",
-              "zva_report:read:admin": "zva_report:read:admin",
-              "zva:read:list_engagements:admin": "zva:read:list_engagements:admin",
-              "zva:read:list_queries:admin": "zva:read:list_queries:admin"
-            }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

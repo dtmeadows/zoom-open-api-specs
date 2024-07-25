@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us/v2"
+    }
+  ],
   "paths": {
     "/crc/api_connectors": {
       "get": {
-        "tags": ["Api Connector"],
+        "tags": [
+          "Api Connector"
+        ],
         "summary": "List API Connectors",
         "description": "Returns the Enhanced API Connectors for Cisco or Polycom Rooms.\n\n**Scopes:** `apiconnector:read:admin`\n\n**Granular Scopes:** `crc:read:list_apiconnectors:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "GetListAPIConnectors",
@@ -27,7 +33,10 @@
             "name": "page_size",
             "in": "query",
             "required": false,
-            "schema": { "type": "integer", "example": 1 }
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
           },
           {
             "name": "next_page_token",
@@ -121,13 +130,21 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZURM-2024-Mar",
-          "x-permissions": ["RoomConnector:Read"],
-          "x-macro-scopes": ["apiconnector:read:admin"],
-          "x-granular-scopes": ["crc:read:list_apiconnectors:admin"]
+          "x-permissions": [
+            "RoomConnector:Read"
+          ],
+          "x-macro-scopes": [
+            "apiconnector:read:admin"
+          ],
+          "x-granular-scopes": [
+            "crc:read:list_apiconnectors:admin"
+          ]
         }
       },
       "post": {
-        "tags": ["Api Connector"],
+        "tags": [
+          "Api Connector"
+        ],
         "summary": "Create an API Connector",
         "description": "Creates an Enhanced API Connector.\n\n**Scopes:** `apiconnector:write:admin`\n\n**Granular Scopes:** `crc:write:apiconnector:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "CreateAPIConnector",
@@ -198,15 +215,23 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZURM-2024-Mar",
-          "x-permissions": ["RoomConnector:Edit"],
-          "x-macro-scopes": ["apiconnector:write:admin"],
-          "x-granular-scopes": ["crc:write:apiconnector:admin"]
+          "x-permissions": [
+            "RoomConnector:Edit"
+          ],
+          "x-macro-scopes": [
+            "apiconnector:write:admin"
+          ],
+          "x-granular-scopes": [
+            "crc:write:apiconnector:admin"
+          ]
         }
       }
     },
     "/crc/api_connectors/{connectorId}": {
       "get": {
-        "tags": ["Api Connector"],
+        "tags": [
+          "Api Connector"
+        ],
         "summary": "Get an API Connector",
         "description": "Returns the details of an enhanced API connector.\n\n**Scopes:** `apiconnector:read:admin`\n\n**Granular Scopes:** `crc:read:apiconnector:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "GetAPIConnector",
@@ -297,13 +322,21 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZURM-OnD-2024-Jun",
-          "x-permissions": ["RoomConnector:Read"],
-          "x-macro-scopes": ["apiconnector:read:admin"],
-          "x-granular-scopes": ["crc:read:apiconnector:admin"]
+          "x-permissions": [
+            "RoomConnector:Read"
+          ],
+          "x-macro-scopes": [
+            "apiconnector:read:admin"
+          ],
+          "x-granular-scopes": [
+            "crc:read:apiconnector:admin"
+          ]
         }
       },
       "delete": {
-        "tags": ["Api Connector"],
+        "tags": [
+          "Api Connector"
+        ],
         "summary": "Delete an API Connector",
         "description": "Deletes an enhanced API connector.\n\n**Scopes:** `apiconnector:write:admin`\n\n**Granular Scopes:** `crc:delete:apiconnector:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "DeleteAPIConnector",
@@ -341,13 +374,21 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZURM-OnD-2024-Jun",
-          "x-permissions": ["RoomConnector:Edit"],
-          "x-macro-scopes": ["apiconnector:write:admin"],
-          "x-granular-scopes": ["crc:delete:apiconnector:admin"]
+          "x-permissions": [
+            "RoomConnector:Edit"
+          ],
+          "x-macro-scopes": [
+            "apiconnector:write:admin"
+          ],
+          "x-granular-scopes": [
+            "crc:delete:apiconnector:admin"
+          ]
         }
       },
       "patch": {
-        "tags": ["Api Connector"],
+        "tags": [
+          "Api Connector"
+        ],
         "summary": "Update an API Connector",
         "description": "Updates the settings of an Enhanced API Connector.\n\n**Scopes:** `apiconnector:write:admin`\n\n**Granular Scopes:** `crc:update:apiconnector:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "UpdateAPIConnector",
@@ -356,7 +397,9 @@
             "name": "connectorId",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -424,15 +467,23 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZURM-OnD-2024-Jun",
-          "x-permissions": ["RoomConnector:Edit"],
-          "x-macro-scopes": ["apiconnector:write:admin"],
-          "x-granular-scopes": ["crc:update:apiconnector:admin"]
+          "x-permissions": [
+            "RoomConnector:Edit"
+          ],
+          "x-macro-scopes": [
+            "apiconnector:write:admin"
+          ],
+          "x-granular-scopes": [
+            "crc:update:apiconnector:admin"
+          ]
         }
       }
     },
     "/crc/api_connectors/{connectorId}/private_key": {
       "get": {
-        "tags": ["Api Connector"],
+        "tags": [
+          "Api Connector"
+        ],
         "summary": "Get an API Connector's private key",
         "description": "Retrieves the private key of an Enhanced API Connector.\n\n**Scopes:** `apiconnector:read:admin`\n\n**Granular Scopes:** `crc:read:apiconnector_private_key:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "GetanAPIConnector'sprivatekey",
@@ -484,13 +535,21 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZURM-OnD-2024-Jun",
-          "x-permissions": ["RoomConnector:Read"],
-          "x-macro-scopes": ["apiconnector:read:admin"],
-          "x-granular-scopes": ["crc:read:apiconnector_private_key:admin"]
+          "x-permissions": [
+            "RoomConnector:Read"
+          ],
+          "x-macro-scopes": [
+            "apiconnector:read:admin"
+          ],
+          "x-granular-scopes": [
+            "crc:read:apiconnector_private_key:admin"
+          ]
         }
       },
       "patch": {
-        "tags": ["Api Connector"],
+        "tags": [
+          "Api Connector"
+        ],
         "summary": "Update an API Connector's private key",
         "description": "Regenerates the enhanced API connector's private key.\n\n**Scopes:** `apiconnector:write:admin`\n\n**Granular Scopes:** `crc:update:apiconnector_private_key:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "UpdateAPIConnectorPrivateKey",
@@ -539,15 +598,23 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZURM-OnD-2024-Jun",
-          "x-permissions": ["RoomConnector:Edit"],
-          "x-macro-scopes": ["apiconnector:write:admin"],
-          "x-granular-scopes": ["crc:update:apiconnector_private_key:admin"]
+          "x-permissions": [
+            "RoomConnector:Edit"
+          ],
+          "x-macro-scopes": [
+            "apiconnector:write:admin"
+          ],
+          "x-granular-scopes": [
+            "crc:update:apiconnector_private_key:admin"
+          ]
         }
       }
     },
     "/crc/participant_identifier_code": {
       "get": {
-        "tags": ["Participant"],
+        "tags": [
+          "Participant"
+        ],
         "summary": "Get participant identifier code",
         "description": "Authenticate CRC meetings.\n\n**Scopes:** `crc:read:admin`,`crc:master`\n\n**Granular Scopes:** `crc:read:participant_identifier_code:admin`,`crc:read:participant_identifier_code:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "get_participant_identifier_code",
@@ -600,7 +667,10 @@
         "x-extensions": {
           "x-fixVersion": "ZURM-2024-Mar",
           "x-permissions": [],
-          "x-macro-scopes": ["crc:read:admin", "crc:master"],
+          "x-macro-scopes": [
+            "crc:read:admin",
+            "crc:master"
+          ],
           "x-granular-scopes": [
             "crc:read:participant_identifier_code:admin",
             "crc:read:participant_identifier_code:master"
@@ -609,38 +679,5 @@
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": {
-              "apiconnector:read:admin": "apiconnector:read:admin",
-              "crc:read:list_apiconnectors:admin": "crc:read:list_apiconnectors:admin",
-              "apiconnector:write:admin": "apiconnector:write:admin",
-              "crc:write:apiconnector:admin": "crc:write:apiconnector:admin",
-              "crc:read:apiconnector:admin": "crc:read:apiconnector:admin",
-              "crc:delete:apiconnector:admin": "crc:delete:apiconnector:admin",
-              "crc:update:apiconnector:admin": "crc:update:apiconnector:admin",
-              "crc:update:apiconnector_private_key:admin": "crc:update:apiconnector_private_key:admin",
-              "crc:read:apiconnector_private_key:admin": "crc:read:apiconnector_private_key:admin",
-              "crc:read:admin": "crc:read:admin",
-              "crc:master": "crc:master",
-              "crc:read:participant_identifier_code:admin": "crc:read:participant_identifier_code:admin",
-              "crc:read:participant_identifier_code:master": "crc:read:participant_identifier_code:master"
-            }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

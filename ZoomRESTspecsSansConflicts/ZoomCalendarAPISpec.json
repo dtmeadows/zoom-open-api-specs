@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us/v2"
+    }
+  ],
   "paths": {
     "/calendars/{calId}/acl": {
       "get": {
-        "tags": ["acl"],
+        "tags": [
+          "acl"
+        ],
         "summary": "List ACL rules of specified calendar",
         "description": "Returns the rules in the access control list for the calendar.\n\n**Scopes:** `calendar:read`,`calendar:read:admin`\n\n**Granular Scopes:** `calendar:read:list_acl`,`calendar:read:list_acl:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Listacl",
@@ -28,28 +34,40 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs call, the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           },
           {
             "name": "maxResults",
             "in": "query",
             "description": "The maximum number of entries returned on one result page.",
             "required": false,
-            "schema": { "type": "integer", "example": 250 }
+            "schema": {
+              "type": "integer",
+              "example": 250
+            }
           },
           {
             "name": "showDeleted",
             "in": "query",
             "description": "Whether to include deleted ACLs in the result.",
             "required": false,
-            "schema": { "type": "boolean", "example": false }
+            "schema": {
+              "type": "boolean",
+              "example": false
+            }
           },
           {
             "name": "pageToken",
             "in": "query",
             "description": "The token that specifies which result page to return.",
             "required": false,
-            "schema": { "type": "string", "example": "user:abc@example.com!" }
+            "schema": {
+              "type": "string",
+              "example": "user:abc@example.com!"
+            }
           }
         ],
         "responses": {
@@ -79,14 +97,19 @@
                       "type": "array",
                       "description": "The list of rules for the access control list.",
                       "items": {
-                        "required": ["role", "scope"],
+                        "required": [
+                          "role",
+                          "scope"
+                        ],
                         "type": "object",
                         "properties": {
                           "kind": {
                             "type": "string",
                             "description": "The type of resource.",
                             "example": "calendar#aclRule",
-                            "enum": ["calendar#aclRule"]
+                            "enum": [
+                              "calendar#aclRule"
+                            ]
                           },
                           "etag": {
                             "type": "string",
@@ -108,7 +131,9 @@
                                     "type": "string",
                                     "description": "The type of scope.",
                                     "example": "default",
-                                    "enum": ["default"]
+                                    "enum": [
+                                      "default"
+                                    ]
                                   }
                                 }
                               },
@@ -119,7 +144,9 @@
                                     "type": "string",
                                     "description": "The type of scope.",
                                     "example": "domain",
-                                    "enum": ["domain"]
+                                    "enum": [
+                                      "domain"
+                                    ]
                                   },
                                   "value": {
                                     "type": "string",
@@ -136,7 +163,10 @@
                                     "type": "string",
                                     "description": "The type of scope.",
                                     "example": "user",
-                                    "enum": ["group", "user"]
+                                    "enum": [
+                                      "group",
+                                      "user"
+                                    ]
                                   },
                                   "value": {
                                     "type": "string",
@@ -196,7 +226,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:read", "calendar:read:admin"],
+          "x-macro-scopes": [
+            "calendar:read",
+            "calendar:read:admin"
+          ],
           "x-granular-scopes": [
             "calendar:read:list_acl",
             "calendar:read:list_acl:admin"
@@ -204,7 +237,9 @@
         }
       },
       "post": {
-        "tags": ["acl"],
+        "tags": [
+          "acl"
+        ],
         "summary": "Create a new ACL rule",
         "description": "Creates an access control list rule.\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:write:acl`,`calendar:write:acl:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "Insertacl",
@@ -214,40 +249,54 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs call, the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": ["role", "scope"],
+                "required": [
+                  "role",
+                  "scope"
+                ],
                 "type": "object",
                 "properties": {
                   "scope": {
                     "description": "The extent to which calendar access is granted by this ACL rule.",
                     "oneOf": [
                       {
-                        "required": ["type"],
+                        "required": [
+                          "type"
+                        ],
                         "type": "object",
                         "properties": {
                           "type": {
                             "type": "string",
                             "description": "The type of the scope.",
                             "example": "default",
-                            "enum": ["default"]
+                            "enum": [
+                              "default"
+                            ]
                           }
                         }
                       },
                       {
-                        "required": ["type"],
+                        "required": [
+                          "type"
+                        ],
                         "type": "object",
                         "properties": {
                           "type": {
                             "type": "string",
                             "description": "The type of the scope.",
                             "example": "domain",
-                            "enum": ["domain"]
+                            "enum": [
+                              "domain"
+                            ]
                           },
                           "value": {
                             "type": "string",
@@ -258,14 +307,19 @@
                         }
                       },
                       {
-                        "required": ["type"],
+                        "required": [
+                          "type"
+                        ],
                         "type": "object",
                         "properties": {
                           "type": {
                             "type": "string",
                             "description": "The type of the scope.",
                             "example": "user",
-                            "enum": ["group", "user"]
+                            "enum": [
+                              "group",
+                              "user"
+                            ]
                           },
                           "value": {
                             "type": "string",
@@ -300,14 +354,19 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["role", "scope"],
+                  "required": [
+                    "role",
+                    "scope"
+                  ],
                   "type": "object",
                   "properties": {
                     "kind": {
                       "type": "string",
                       "description": "The type of resource.",
                       "example": "calendar#aclRule",
-                      "enum": ["calendar#aclRule"]
+                      "enum": [
+                        "calendar#aclRule"
+                      ]
                     },
                     "etag": {
                       "type": "string",
@@ -323,26 +382,34 @@
                       "description": "The extent to which calendar access is granted by this ACL rule.",
                       "oneOf": [
                         {
-                          "required": ["type"],
+                          "required": [
+                            "type"
+                          ],
                           "type": "object",
                           "properties": {
                             "type": {
                               "type": "string",
                               "description": "The type of the scope.",
                               "example": "default",
-                              "enum": ["default"]
+                              "enum": [
+                                "default"
+                              ]
                             }
                           }
                         },
                         {
-                          "required": ["type"],
+                          "required": [
+                            "type"
+                          ],
                           "type": "object",
                           "properties": {
                             "type": {
                               "type": "string",
                               "description": "The type of scope.",
                               "example": "domain",
-                              "enum": ["domain"]
+                              "enum": [
+                                "domain"
+                              ]
                             },
                             "value": {
                               "type": "string",
@@ -353,14 +420,19 @@
                           }
                         },
                         {
-                          "required": ["type"],
+                          "required": [
+                            "type"
+                          ],
                           "type": "object",
                           "properties": {
                             "type": {
                               "type": "string",
                               "description": "The type of scope.",
                               "example": "user",
-                              "enum": ["group", "user"]
+                              "enum": [
+                                "group",
+                                "user"
+                              ]
                             },
                             "value": {
                               "type": "string",
@@ -419,7 +491,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
           "x-granular-scopes": [
             "calendar:write:acl",
             "calendar:write:acl:admin"
@@ -429,7 +504,9 @@
     },
     "/calendars/{calId}/acl/{aclId}": {
       "get": {
-        "tags": ["acl"],
+        "tags": [
+          "acl"
+        ],
         "summary": "Get the specified ACL rule",
         "description": "Returns an access control list (ACL) rule.\n\n**Scopes:** `calendar:read`,`calendar:read:admin`\n\n**Granular Scopes:** `calendar:read:acl`,`calendar:read:acl:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "Getacl",
@@ -439,14 +516,20 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           },
           {
             "name": "aclId",
             "in": "path",
             "description": "The ACL rule identifier.",
             "required": true,
-            "schema": { "type": "string", "example": "user:cba.fed@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "user:cba.fed@zoom.com"
+            }
           }
         ],
         "responses": {
@@ -455,14 +538,19 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["role", "scope"],
+                  "required": [
+                    "role",
+                    "scope"
+                  ],
                   "type": "object",
                   "properties": {
                     "kind": {
                       "type": "string",
                       "description": "The type of resource.",
                       "example": "calendar#aclRule",
-                      "enum": ["calendar#aclRule"]
+                      "enum": [
+                        "calendar#aclRule"
+                      ]
                     },
                     "etag": {
                       "type": "string",
@@ -484,7 +572,9 @@
                               "type": "string",
                               "description": "The type of scope.",
                               "example": "default",
-                              "enum": ["default"]
+                              "enum": [
+                                "default"
+                              ]
                             }
                           }
                         },
@@ -495,7 +585,9 @@
                               "type": "string",
                               "description": "The type of scope.",
                               "example": "domain",
-                              "enum": ["domain"]
+                              "enum": [
+                                "domain"
+                              ]
                             },
                             "value": {
                               "type": "string",
@@ -512,7 +604,10 @@
                               "type": "string",
                               "description": "The type of scope.",
                               "example": "user",
-                              "enum": ["group", "user"]
+                              "enum": [
+                                "group",
+                                "user"
+                              ]
                             },
                             "value": {
                               "type": "string",
@@ -568,12 +663,20 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:read", "calendar:read:admin"],
-          "x-granular-scopes": ["calendar:read:acl", "calendar:read:acl:admin"]
+          "x-macro-scopes": [
+            "calendar:read",
+            "calendar:read:admin"
+          ],
+          "x-granular-scopes": [
+            "calendar:read:acl",
+            "calendar:read:acl:admin"
+          ]
         }
       },
       "delete": {
-        "tags": ["acl"],
+        "tags": [
+          "acl"
+        ],
         "summary": "Delete an existing ACL rule",
         "description": "Deletes an access control list (ACL) rule.\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:delete:acl`,`calendar:delete:acl:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "Deleteacl",
@@ -583,14 +686,20 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           },
           {
             "name": "aclId",
             "in": "path",
             "description": "The ACL rule identifier.",
             "required": true,
-            "schema": { "type": "string", "example": "user:cba.fed@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "user:cba.fed@zoom.com"
+            }
           }
         ],
         "responses": {
@@ -624,7 +733,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
           "x-granular-scopes": [
             "calendar:delete:acl",
             "calendar:delete:acl:admin"
@@ -632,7 +744,9 @@
         }
       },
       "patch": {
-        "tags": ["acl"],
+        "tags": [
+          "acl"
+        ],
         "summary": "Update the specified ACL rule",
         "description": "Updates an access control list rule.\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:update:acl`,`calendar:update:acl:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "Patchacl",
@@ -642,14 +756,20 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           },
           {
             "name": "aclId",
             "in": "path",
             "description": "The ACL rule identifier.",
             "required": true,
-            "schema": { "type": "string", "example": "user:cba.fed@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "user:cba.fed@zoom.com"
+            }
           }
         ],
         "requestBody": {
@@ -657,7 +777,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["role", "scope"],
+                "required": [
+                  "role",
+                  "scope"
+                ],
                 "type": "object",
                 "properties": {
                   "scope": {
@@ -665,26 +788,34 @@
                     "description": "The extent to which calendar access is granted by this ACL rule.",
                     "oneOf": [
                       {
-                        "required": ["type"],
+                        "required": [
+                          "type"
+                        ],
                         "type": "object",
                         "properties": {
                           "type": {
                             "type": "string",
                             "description": "The type of the scope.",
                             "example": "default",
-                            "enum": ["default"]
+                            "enum": [
+                              "default"
+                            ]
                           }
                         }
                       },
                       {
-                        "required": ["type"],
+                        "required": [
+                          "type"
+                        ],
                         "type": "object",
                         "properties": {
                           "type": {
                             "type": "string",
                             "description": "The type of scope.",
                             "example": "domain",
-                            "enum": ["domain"]
+                            "enum": [
+                              "domain"
+                            ]
                           },
                           "value": {
                             "type": "string",
@@ -695,14 +826,19 @@
                         }
                       },
                       {
-                        "required": ["type"],
+                        "required": [
+                          "type"
+                        ],
                         "type": "object",
                         "properties": {
                           "type": {
                             "type": "string",
                             "description": "The type of scope.",
                             "example": "user",
-                            "enum": ["group", "user"]
+                            "enum": [
+                              "group",
+                              "user"
+                            ]
                           },
                           "value": {
                             "type": "string",
@@ -737,14 +873,19 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["role", "scope"],
+                  "required": [
+                    "role",
+                    "scope"
+                  ],
                   "type": "object",
                   "properties": {
                     "kind": {
                       "type": "string",
                       "description": "The type of resource.",
                       "example": "calendar#aclRule",
-                      "enum": ["calendar#aclRule"]
+                      "enum": [
+                        "calendar#aclRule"
+                      ]
                     },
                     "etag": {
                       "type": "string",
@@ -760,26 +901,34 @@
                       "description": "The extent to which calendar access is granted by this ACL rule.",
                       "oneOf": [
                         {
-                          "required": ["type"],
+                          "required": [
+                            "type"
+                          ],
                           "type": "object",
                           "properties": {
                             "type": {
                               "type": "string",
                               "description": "The type of scope.",
                               "example": "default",
-                              "enum": ["default"]
+                              "enum": [
+                                "default"
+                              ]
                             }
                           }
                         },
                         {
-                          "required": ["type"],
+                          "required": [
+                            "type"
+                          ],
                           "type": "object",
                           "properties": {
                             "type": {
                               "type": "string",
                               "description": "The type of scope.",
                               "example": "domain",
-                              "enum": ["domain"]
+                              "enum": [
+                                "domain"
+                              ]
                             },
                             "value": {
                               "type": "string",
@@ -790,14 +939,19 @@
                           }
                         },
                         {
-                          "required": ["type"],
+                          "required": [
+                            "type"
+                          ],
                           "type": "object",
                           "properties": {
                             "type": {
                               "type": "string",
                               "description": "The type of scope.",
                               "example": "user",
-                              "enum": ["group", "user"]
+                              "enum": [
+                                "group",
+                                "user"
+                              ]
                             },
                             "value": {
                               "type": "string",
@@ -856,7 +1010,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
           "x-granular-scopes": [
             "calendar:update:acl",
             "calendar:update:acl:admin"
@@ -866,7 +1023,9 @@
     },
     "/calendars/users/{userIdentifier}/calendarList": {
       "get": {
-        "tags": ["calendar list"],
+        "tags": [
+          "calendar list"
+        ],
         "summary": "List the calendars in the user's own calendarList",
         "description": "Returns the calendars in the user's calendar list.\n\n**Scopes:** `calendar:read`,`calendar:read:admin`\n\n**Granular Scopes:** `calendar:read:list_calendar_lists`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "ListcalendarList",
@@ -876,14 +1035,20 @@
             "in": "path",
             "description": "The user identifier. It identifies which user's calendarList to operate.",
             "required": true,
-            "schema": { "type": "string", "example": "me" }
+            "schema": {
+              "type": "string",
+              "example": "me"
+            }
           },
           {
             "name": "maxResults",
             "in": "query",
             "description": "The maximum number of entries returned on one result page.",
             "required": false,
-            "schema": { "type": "integer", "example": 250 }
+            "schema": {
+              "type": "integer",
+              "example": 250
+            }
           },
           {
             "name": "minAccessRole",
@@ -893,7 +1058,12 @@
             "schema": {
               "type": "string",
               "example": "reader",
-              "enum": ["freeBusyReader", "reader", "writer", "owner"]
+              "enum": [
+                "freeBusyReader",
+                "reader",
+                "writer",
+                "owner"
+              ]
             }
           },
           {
@@ -911,14 +1081,20 @@
             "in": "query",
             "description": "Whether to include deleted calendar list entries in the result.",
             "required": false,
-            "schema": { "type": "boolean", "example": false }
+            "schema": {
+              "type": "boolean",
+              "example": false
+            }
           },
           {
             "name": "showHidden",
             "in": "query",
             "description": "Whether to show hidden entries.",
             "required": false,
-            "schema": { "type": "boolean", "example": false }
+            "schema": {
+              "type": "boolean",
+              "example": false
+            }
           }
         ],
         "responses": {
@@ -948,7 +1124,9 @@
                       "type": "array",
                       "description": "The calendars in the user's calendar list.",
                       "items": {
-                        "required": ["id"],
+                        "required": [
+                          "id"
+                        ],
                         "type": "object",
                         "properties": {
                           "kind": {
@@ -1037,7 +1215,10 @@
                                   "type": "string",
                                   "description": "The method this reminder uses.",
                                   "example": "email",
-                                  "enum": ["email", "popup"]
+                                  "enum": [
+                                    "email",
+                                    "popup"
+                                  ]
                                 },
                                 "minutes": {
                                   "maximum": 40320,
@@ -1060,7 +1241,10 @@
                                   "type": "string",
                                   "description": "The method this reminder uses.",
                                   "example": "email",
-                                  "enum": ["email", "popup"]
+                                  "enum": [
+                                    "email",
+                                    "popup"
+                                  ]
                                 },
                                 "minutes": {
                                   "maximum": 40320,
@@ -1097,7 +1281,9 @@
                                       "type": "string",
                                       "description": "The method that delivers the notification.",
                                       "example": "email",
-                                      "enum": ["email"]
+                                      "enum": [
+                                        "email"
+                                      ]
                                     }
                                   }
                                 }
@@ -1149,12 +1335,19 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:read", "calendar:read:admin"],
-          "x-granular-scopes": ["calendar:read:list_calendar_lists"]
+          "x-macro-scopes": [
+            "calendar:read",
+            "calendar:read:admin"
+          ],
+          "x-granular-scopes": [
+            "calendar:read:list_calendar_lists"
+          ]
         }
       },
       "post": {
-        "tags": ["calendar list"],
+        "tags": [
+          "calendar list"
+        ],
         "summary": "Insert an existing calendar to the user's own calendarList",
         "description": "Inserts an existing calendar into the user's calendar list. The user can be `me` or a given calendar ID. \n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:write:calendar_list`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "InsertcalendarList",
@@ -1164,21 +1357,29 @@
             "in": "path",
             "description": "The user identifier. It indicates which user's calendarList to operate.",
             "required": true,
-            "schema": { "type": "string", "example": "me" }
+            "schema": {
+              "type": "string",
+              "example": "me"
+            }
           },
           {
             "name": "colorRgbFormat",
             "in": "query",
             "description": "This parameter must be set to true when the user wants to change the foreground or background color. ",
             "required": false,
-            "schema": { "type": "boolean", "example": true }
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": ["id"],
+                "required": [
+                  "id"
+                ],
                 "type": "object",
                 "properties": {
                   "id": {
@@ -1239,7 +1440,12 @@
                     "description": "The effective access role that the authenticated user has on the calendar.",
                     "readOnly": true,
                     "example": "freeBusyReader",
-                    "enum": ["freeBusyReader", "reader", "writer", "owner"]
+                    "enum": [
+                      "freeBusyReader",
+                      "reader",
+                      "writer",
+                      "owner"
+                    ]
                   },
                   "defaultReminders": {
                     "maxItems": 5,
@@ -1252,7 +1458,10 @@
                           "type": "string",
                           "description": "The method this reminder uses.",
                           "example": "email",
-                          "enum": ["email", "popup"]
+                          "enum": [
+                            "email",
+                            "popup"
+                          ]
                         },
                         "minutes": {
                           "maximum": 40320,
@@ -1275,7 +1484,10 @@
                           "type": "string",
                           "description": "The method this reminder uses.",
                           "example": "email",
-                          "enum": ["email", "popup"]
+                          "enum": [
+                            "email",
+                            "popup"
+                          ]
                         },
                         "minutes": {
                           "maximum": 40320,
@@ -1312,7 +1524,9 @@
                               "type": "string",
                               "description": "The method that delivers the notification.",
                               "example": "email",
-                              "enum": ["email"]
+                              "enum": [
+                                "email"
+                              ]
                             }
                           }
                         }
@@ -1346,7 +1560,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["id"],
+                  "required": [
+                    "id"
+                  ],
                   "type": "object",
                   "properties": {
                     "kind": {
@@ -1417,7 +1633,12 @@
                       "description": "The effective access role that the authenticated user has on the calendar.",
                       "readOnly": true,
                       "example": "freeBusyReader",
-                      "enum": ["freeBusyReader", "reader", "writer", "owner"]
+                      "enum": [
+                        "freeBusyReader",
+                        "reader",
+                        "writer",
+                        "owner"
+                      ]
                     },
                     "defaultReminders": {
                       "maxItems": 5,
@@ -1430,7 +1651,10 @@
                             "type": "string",
                             "description": "The method that this reminder uses.",
                             "example": "email",
-                            "enum": ["email", "popup"]
+                            "enum": [
+                              "email",
+                              "popup"
+                            ]
                           },
                           "minutes": {
                             "maximum": 40320,
@@ -1453,7 +1677,10 @@
                             "type": "string",
                             "description": "The method that this reminder uses.",
                             "example": "email",
-                            "enum": ["email", "popup"]
+                            "enum": [
+                              "email",
+                              "popup"
+                            ]
                           },
                           "minutes": {
                             "maximum": 40320,
@@ -1490,7 +1717,9 @@
                                 "type": "string",
                                 "description": "The method that delivers the notification.",
                                 "example": "email",
-                                "enum": ["email"]
+                                "enum": [
+                                  "email"
+                                ]
                               }
                             }
                           }
@@ -1541,14 +1770,21 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
-          "x-granular-scopes": ["calendar:write:calendar_list"]
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
+          "x-granular-scopes": [
+            "calendar:write:calendar_list"
+          ]
         }
       }
     },
     "/calendars/users/{userIdentifier}/calendarList/{calendarId}": {
       "get": {
-        "tags": ["calendar list"],
+        "tags": [
+          "calendar list"
+        ],
         "summary": "Get a specified calendar from the user's own calendarList",
         "description": "Returns a calendar from the user's calendar list. The user can be `me` or a given calendar ID. \n\n**Scopes:** `calendar:read`,`calendar:read:admin`\n\n**Granular Scopes:** `calendar:read:calendar_list`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "GetcalendarList",
@@ -1558,14 +1794,20 @@
             "in": "path",
             "description": "The user identifier. It indicates Which user's calendarList to operate.",
             "required": true,
-            "schema": { "type": "string", "example": "me" }
+            "schema": {
+              "type": "string",
+              "example": "me"
+            }
           },
           {
             "name": "calendarId",
             "in": "path",
             "description": "The calendar identifier. It specifies which calendarList entry in the user's calendarList to operate on. To retrieve calendar IDs, call the `List all calendars in a calendarlist` API.",
             "required": true,
-            "schema": { "type": "string", "example": "abc@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc@zoom.com"
+            }
           }
         ],
         "responses": {
@@ -1574,7 +1816,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["id"],
+                  "required": [
+                    "id"
+                  ],
                   "type": "object",
                   "properties": {
                     "kind": {
@@ -1645,7 +1889,12 @@
                       "description": "The effective access role that the authenticated user has on the calendar.",
                       "readOnly": true,
                       "example": "freeBusyReader",
-                      "enum": ["freeBusyReader", "reader", "writer", "owner"]
+                      "enum": [
+                        "freeBusyReader",
+                        "reader",
+                        "writer",
+                        "owner"
+                      ]
                     },
                     "defaultReminders": {
                       "maxItems": 5,
@@ -1658,7 +1907,10 @@
                             "type": "string",
                             "description": "The method this reminder uses.",
                             "example": "email",
-                            "enum": ["email", "popup"]
+                            "enum": [
+                              "email",
+                              "popup"
+                            ]
                           },
                           "minutes": {
                             "maximum": 40320,
@@ -1681,7 +1933,10 @@
                             "type": "string",
                             "description": "The method this reminder uses.",
                             "example": "email",
-                            "enum": ["email", "popup"]
+                            "enum": [
+                              "email",
+                              "popup"
+                            ]
                           },
                           "minutes": {
                             "maximum": 40320,
@@ -1718,7 +1973,9 @@
                                 "type": "string",
                                 "description": "The method that delivers the notification.",
                                 "example": "email",
-                                "enum": ["email"]
+                                "enum": [
+                                  "email"
+                                ]
                               }
                             }
                           }
@@ -1772,12 +2029,19 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:read", "calendar:read:admin"],
-          "x-granular-scopes": ["calendar:read:calendar_list"]
+          "x-macro-scopes": [
+            "calendar:read",
+            "calendar:read:admin"
+          ],
+          "x-granular-scopes": [
+            "calendar:read:calendar_list"
+          ]
         }
       },
       "delete": {
-        "tags": ["calendar list"],
+        "tags": [
+          "calendar list"
+        ],
         "summary": "Delete an existing calendar from the user's own calendarList",
         "description": "Removes a calendar from the user's calendar list. The user can be `me` or a given calendar ID. \n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:delete:calendar_list`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "DeletecalendarList",
@@ -1787,14 +2051,20 @@
             "in": "path",
             "description": "The user identifier.  It indicates which user's calendarList to operate.",
             "required": true,
-            "schema": { "type": "string", "example": "me" }
+            "schema": {
+              "type": "string",
+              "example": "me"
+            }
           },
           {
             "name": "calendarId",
             "in": "path",
             "description": "The calendar identifier. It specifies which calendarList entry in the user's calendarList to operate. To retrieve calendar IDs, call the `List all calendars in a calendarlist` API.",
             "required": true,
-            "schema": { "type": "string", "example": "abc@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc@zoom.com"
+            }
           }
         ],
         "responses": {
@@ -1827,12 +2097,19 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
-          "x-granular-scopes": ["calendar:delete:calendar_list"]
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
+          "x-granular-scopes": [
+            "calendar:delete:calendar_list"
+          ]
         }
       },
       "patch": {
-        "tags": ["calendar list"],
+        "tags": [
+          "calendar list"
+        ],
         "summary": "Update an existing calendar in the user's own calendarList",
         "description": "Updates an existing calendar on the user's calendar list.\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:update:calendar_list`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "PatchcalendarList",
@@ -1842,21 +2119,30 @@
             "in": "path",
             "description": "The user identifier. It indicates which user's calendarList to operate.",
             "required": true,
-            "schema": { "type": "string", "example": "me" }
+            "schema": {
+              "type": "string",
+              "example": "me"
+            }
           },
           {
             "name": "calendarId",
             "in": "path",
             "description": "The calendar identifier. It specifies which calendarList entry in the user's calendarList to operate. To retrieve the calendar ids, call the 'List all calendars in a calendarlist' API.",
             "required": true,
-            "schema": { "type": "string", "example": "abc@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc@zoom.com"
+            }
           },
           {
             "name": "colorRgbFormat",
             "in": "query",
             "description": "This parameter must be set to true when user wants to change the foreground or background color. ",
             "required": false,
-            "schema": { "type": "boolean", "example": true }
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           }
         ],
         "requestBody": {
@@ -1864,7 +2150,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["id"],
+                "required": [
+                  "id"
+                ],
                 "type": "object",
                 "properties": {
                   "id": {
@@ -1925,7 +2213,12 @@
                     "description": "The effective access role that the authenticated user has on the calendar.",
                     "readOnly": true,
                     "example": "freeBusyReader",
-                    "enum": ["freeBusyReader", "reader", "writer", "owner"]
+                    "enum": [
+                      "freeBusyReader",
+                      "reader",
+                      "writer",
+                      "owner"
+                    ]
                   },
                   "defaultReminders": {
                     "maxItems": 5,
@@ -1938,7 +2231,10 @@
                           "type": "string",
                           "description": "The method that this reminder uses.",
                           "example": "email",
-                          "enum": ["email", "popup"]
+                          "enum": [
+                            "email",
+                            "popup"
+                          ]
                         },
                         "minutes": {
                           "maximum": 40320,
@@ -1961,7 +2257,10 @@
                           "type": "string",
                           "description": "The method this reminder uses.",
                           "example": "email",
-                          "enum": ["email", "popup"]
+                          "enum": [
+                            "email",
+                            "popup"
+                          ]
                         },
                         "minutes": {
                           "maximum": 40320,
@@ -1998,7 +2297,9 @@
                               "type": "string",
                               "description": "The method to deliver the notification.",
                               "example": "email",
-                              "enum": ["email"]
+                              "enum": [
+                                "email"
+                              ]
                             }
                           }
                         }
@@ -2032,7 +2333,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["id"],
+                  "required": [
+                    "id"
+                  ],
                   "type": "object",
                   "properties": {
                     "kind": {
@@ -2103,7 +2406,12 @@
                       "description": "The effective access role that the authenticated user has on the calendar.",
                       "readOnly": true,
                       "example": "freeBusyReader",
-                      "enum": ["freeBusyReader", "reader", "writer", "owner"]
+                      "enum": [
+                        "freeBusyReader",
+                        "reader",
+                        "writer",
+                        "owner"
+                      ]
                     },
                     "defaultReminders": {
                       "maxItems": 5,
@@ -2116,7 +2424,10 @@
                             "type": "string",
                             "description": "The method this reminder uses.",
                             "example": "email",
-                            "enum": ["email", "popup"]
+                            "enum": [
+                              "email",
+                              "popup"
+                            ]
                           },
                           "minutes": {
                             "maximum": 40320,
@@ -2139,7 +2450,10 @@
                             "type": "string",
                             "description": "The method this reminder uses.",
                             "example": "email",
-                            "enum": ["email", "popup"]
+                            "enum": [
+                              "email",
+                              "popup"
+                            ]
                           },
                           "minutes": {
                             "maximum": 40320,
@@ -2176,7 +2490,9 @@
                                 "type": "string",
                                 "description": "The method that delivers the notification.",
                                 "example": "email",
-                                "enum": ["email"]
+                                "enum": [
+                                  "email"
+                                ]
                               }
                             }
                           }
@@ -2230,14 +2546,21 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
-          "x-granular-scopes": ["calendar:update:calendar_list"]
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
+          "x-granular-scopes": [
+            "calendar:update:calendar_list"
+          ]
         }
       }
     },
     "/calendars": {
       "post": {
-        "tags": ["calendars"],
+        "tags": [
+          "calendars"
+        ],
         "summary": "Create a new secondary calendar",
         "description": "Creates a secondary calendar.\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:write:calendar`,`calendar:write:calendar:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "Insertcalendar",
@@ -2245,7 +2568,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["summary"],
+                "required": [
+                  "summary"
+                ],
                 "type": "object",
                 "properties": {
                   "summary": {
@@ -2271,7 +2596,9 @@
                       "type": "string",
                       "description": "The type of resource.",
                       "example": "calendar#calendar",
-                      "enum": ["calendar#calendar"]
+                      "enum": [
+                        "calendar#calendar"
+                      ]
                     },
                     "etag": {
                       "type": "string",
@@ -2336,7 +2663,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
           "x-granular-scopes": [
             "calendar:write:calendar",
             "calendar:write:calendar:admin"
@@ -2346,7 +2676,9 @@
     },
     "/calendars/{calId}": {
       "get": {
-        "tags": ["calendars"],
+        "tags": [
+          "calendars"
+        ],
         "summary": "Get the specified calendar",
         "description": "Returns metadata for a calendar.\n\n**Scopes:** `calendar:read`,`calendar:read:admin`\n\n**Granular Scopes:** `calendar:read:calendar`,`calendar:read:calendar:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "Getcalendar",
@@ -2356,7 +2688,10 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           }
         ],
         "responses": {
@@ -2365,14 +2700,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["etag", "id", "kind", "summary", "timeZone"],
+                  "required": [
+                    "etag",
+                    "id",
+                    "kind",
+                    "summary",
+                    "timeZone"
+                  ],
                   "type": "object",
                   "properties": {
                     "kind": {
                       "type": "string",
                       "description": "The type of the resource.",
                       "example": "calendar#calendar",
-                      "enum": ["calendar#calendar"]
+                      "enum": [
+                        "calendar#calendar"
+                      ]
                     },
                     "etag": {
                       "type": "string",
@@ -2440,7 +2783,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:read", "calendar:read:admin"],
+          "x-macro-scopes": [
+            "calendar:read",
+            "calendar:read:admin"
+          ],
           "x-granular-scopes": [
             "calendar:read:calendar",
             "calendar:read:calendar:admin"
@@ -2448,7 +2794,9 @@
         }
       },
       "delete": {
-        "tags": ["calendars"],
+        "tags": [
+          "calendars"
+        ],
         "summary": "Delete a calendar owned by a user",
         "description": "Deletes a calendar\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:delete:calendar`,`calendar:delete:calendar:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "Deletecalendar",
@@ -2458,7 +2806,10 @@
             "in": "path",
             "description": "The calendar ID of the calendar to be removed.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           }
         ],
         "responses": {
@@ -2492,7 +2843,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
           "x-granular-scopes": [
             "calendar:delete:calendar",
             "calendar:delete:calendar:admin"
@@ -2500,7 +2854,9 @@
         }
       },
       "patch": {
-        "tags": ["calendars"],
+        "tags": [
+          "calendars"
+        ],
         "summary": "Update the specified calendar",
         "description": "Updates metadata for a calendar.\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:update:calendar`,`calendar:update:calendar:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "Patchcalendar",
@@ -2510,7 +2866,10 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           }
         ],
         "requestBody": {
@@ -2560,7 +2919,9 @@
                       "type": "string",
                       "description": "The type of the resource.",
                       "example": "calendar#calendar",
-                      "enum": ["calendar#calendar"]
+                      "enum": [
+                        "calendar#calendar"
+                      ]
                     },
                     "etag": {
                       "type": "string",
@@ -2631,7 +2992,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
           "x-granular-scopes": [
             "calendar:update:calendar",
             "calendar:update:calendar:admin"
@@ -2641,7 +3005,9 @@
     },
     "/calendars/colors": {
       "get": {
-        "tags": ["colors"],
+        "tags": [
+          "colors"
+        ],
         "summary": "Get the color definitions for calendars and events",
         "description": "Returns the color definitions for calendars and events.\n\n**Scopes:** `calendar:read`,`calendar:read:admin`\n\n**Granular Scopes:** `calendar:read:color`,`calendar:read:color:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "Getcolor",
@@ -2657,7 +3023,9 @@
                       "type": "string",
                       "description": "ThetType of the resource.",
                       "example": "\"calendar#colors\"",
-                      "enum": ["calendar#colors"]
+                      "enum": [
+                        "calendar#colors"
+                      ]
                     },
                     "updated": {
                       "type": "string",
@@ -2747,7 +3115,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:read", "calendar:read:admin"],
+          "x-macro-scopes": [
+            "calendar:read",
+            "calendar:read:admin"
+          ],
           "x-granular-scopes": [
             "calendar:read:color",
             "calendar:read:color:admin"
@@ -2757,7 +3128,9 @@
     },
     "/calendars/{calId}/events": {
       "get": {
-        "tags": ["events"],
+        "tags": [
+          "events"
+        ],
         "summary": "List events on the specified calendar",
         "description": "Returns events on the specified calendar.\n\n**Scopes:** `calendar:read`,`calendar:read:admin`\n\n**Granular Scopes:** `calendar:read:list_events`,`calendar:read:list_events:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Listevent",
@@ -2767,14 +3140,20 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           },
           {
             "name": "maxResults",
             "in": "query",
             "description": "The maximum number of events returned on one result page.",
             "required": false,
-            "schema": { "type": "integer", "example": 250 }
+            "schema": {
+              "type": "integer",
+              "example": 250
+            }
           },
           {
             "name": "orderBy",
@@ -2784,7 +3163,10 @@
             "schema": {
               "type": "string",
               "example": "updated",
-              "enum": ["startTime", "updated"]
+              "enum": [
+                "startTime",
+                "updated"
+              ]
             }
           },
           {
@@ -2792,14 +3174,20 @@
             "in": "query",
             "description": "Whether to include deleted events (with status equals \"cancelled\") in the result. Cancelled instances of recurring events (but not the underlying recurring event) will still be included if `showDeleted` and `singleEvents` are both False. If `showDeleted` and `singleEvents` are both True and only single instances of deleted events (but not the underlying recurring events) are returned. The default is False. Optional.",
             "required": false,
-            "schema": { "type": "boolean", "example": false }
+            "schema": {
+              "type": "boolean",
+              "example": false
+            }
           },
           {
             "name": "singleEvents",
             "in": "query",
             "description": "Whether to expand recurring events into instances and only return single one-off events and instances of recurring events, but not the underlying recurring events themselves.  The default is False. Optional.",
             "required": false,
-            "schema": { "type": "boolean", "example": false }
+            "schema": {
+              "type": "boolean",
+              "example": false
+            }
           },
           {
             "name": "pageToken",
@@ -2816,21 +3204,30 @@
             "in": "query",
             "description": "The upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. It must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but are ignored. If `timeMin` is set, `timeMax` must be greater than `timeMin`.",
             "required": false,
-            "schema": { "type": "string", "example": "2024-02-01T00:00:00Z" }
+            "schema": {
+              "type": "string",
+              "example": "2024-02-01T00:00:00Z"
+            }
           },
           {
             "name": "timeMin",
             "in": "query",
             "description": "The lower bound (exclusive) for an event's end time from which to filter. Optional. The default is not to filter by end time. It must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds can be provided but are ignored. If `timeMax` is set, `timeMin` must be smaller than `timeMax`.",
             "required": false,
-            "schema": { "type": "string", "example": "2024-01-01T00:00:00Z" }
+            "schema": {
+              "type": "string",
+              "example": "2024-01-01T00:00:00Z"
+            }
           },
           {
             "name": "timeZone",
             "in": "query",
             "description": "The time zone in the response. The default is the time zone of the calendar. Optional. ",
             "required": false,
-            "schema": { "type": "string", "example": "America/Los_Angeles" }
+            "schema": {
+              "type": "string",
+              "example": "America/Los_Angeles"
+            }
           }
         ],
         "responses": {
@@ -2894,7 +3291,10 @@
                             "type": "string",
                             "description": "The method this reminder uses.",
                             "example": "email",
-                            "enum": ["email", "popup"]
+                            "enum": [
+                              "email",
+                              "popup"
+                            ]
                           },
                           "minutes": {
                             "type": "integer",
@@ -2913,7 +3313,10 @@
                       "type": "array",
                       "description": "The list of events on the calendar.",
                       "items": {
-                        "required": ["end", "start"],
+                        "required": [
+                          "end",
+                          "start"
+                        ],
                         "type": "object",
                         "properties": {
                           "start": {
@@ -2966,7 +3369,9 @@
                             "type": "array",
                             "description": "The attendees of the event.",
                             "items": {
-                              "required": ["email"],
+                              "required": [
+                                "email"
+                              ],
                               "type": "object",
                               "properties": {
                                 "additionalGuests": {
@@ -3070,7 +3475,10 @@
                                       "type": "string",
                                       "description": "The method this reminder uses.",
                                       "example": "email",
-                                      "enum": ["email", "popup"]
+                                      "enum": [
+                                        "email",
+                                        "popup"
+                                      ]
                                     },
                                     "minutes": {
                                       "maximum": 40320,
@@ -3089,7 +3497,11 @@
                             "type": "string",
                             "description": "The status of the event.",
                             "example": "confirmed",
-                            "enum": ["confirmed", "tentative", "cancelled"]
+                            "enum": [
+                              "confirmed",
+                              "tentative",
+                              "cancelled"
+                            ]
                           },
                           "summary": {
                             "maxLength": 1024,
@@ -3101,13 +3513,20 @@
                             "type": "string",
                             "description": "Whether the event blocks time on the calendar.",
                             "example": "transparent",
-                            "enum": ["opaque", "transparent"]
+                            "enum": [
+                              "opaque",
+                              "transparent"
+                            ]
                           },
                           "visibility": {
                             "type": "string",
                             "description": "The visibility of the event.",
                             "example": "default",
-                            "enum": ["default", "public", "private"]
+                            "enum": [
+                              "default",
+                              "public",
+                              "private"
+                            ]
                           },
                           "id": {
                             "type": "string",
@@ -3184,7 +3603,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:read", "calendar:read:admin"],
+          "x-macro-scopes": [
+            "calendar:read",
+            "calendar:read:admin"
+          ],
           "x-granular-scopes": [
             "calendar:read:list_events",
             "calendar:read:list_events:admin"
@@ -3192,7 +3614,9 @@
         }
       },
       "post": {
-        "tags": ["events"],
+        "tags": [
+          "events"
+        ],
         "summary": "Insert a new event to the specified calendar",
         "description": "Creates an event.\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:write:event`,`calendar:write:event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "Insertevent",
@@ -3202,7 +3626,10 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           },
           {
             "name": "sendUpdates",
@@ -3212,7 +3639,11 @@
             "schema": {
               "type": "string",
               "example": "all",
-              "enum": ["all", "externalOnly", "none"]
+              "enum": [
+                "all",
+                "externalOnly",
+                "none"
+              ]
             }
           }
         ],
@@ -3220,7 +3651,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["end", "start"],
+                "required": [
+                  "end",
+                  "start"
+                ],
                 "type": "object",
                 "properties": {
                   "start": {
@@ -3273,7 +3707,9 @@
                     "type": "array",
                     "description": "The attendees of the event.",
                     "items": {
-                      "required": ["email"],
+                      "required": [
+                        "email"
+                      ],
                       "type": "object",
                       "properties": {
                         "additionalGuests": {
@@ -3377,7 +3813,10 @@
                               "type": "string",
                               "description": "The method that this reminder uses.",
                               "example": "email",
-                              "enum": ["email", "popup"]
+                              "enum": [
+                                "email",
+                                "popup"
+                              ]
                             },
                             "minutes": {
                               "maximum": 40320,
@@ -3396,7 +3835,11 @@
                     "type": "string",
                     "description": "The status of the event.",
                     "example": "confirmed",
-                    "enum": ["confirmed", "tentative", "cancelled"]
+                    "enum": [
+                      "confirmed",
+                      "tentative",
+                      "cancelled"
+                    ]
                   },
                   "summary": {
                     "maxLength": 1024,
@@ -3408,13 +3851,20 @@
                     "type": "string",
                     "description": "Whether the event blocks time on the calendar.",
                     "example": "transparent",
-                    "enum": ["opaque", "transparent"]
+                    "enum": [
+                      "opaque",
+                      "transparent"
+                    ]
                   },
                   "visibility": {
                     "type": "string",
                     "description": "The visibility of the event.",
                     "example": "default",
-                    "enum": ["default", "public", "private"]
+                    "enum": [
+                      "default",
+                      "public",
+                      "private"
+                    ]
                   }
                 }
               }
@@ -3479,7 +3929,9 @@
                       "type": "array",
                       "description": "The attendees of the event.",
                       "items": {
-                        "required": ["email"],
+                        "required": [
+                          "email"
+                        ],
                         "type": "object",
                         "properties": {
                           "additionalGuests": {
@@ -3593,7 +4045,10 @@
                                 "type": "string",
                                 "description": "The method that this reminder uses.",
                                 "example": "email",
-                                "enum": ["email", "popup"]
+                                "enum": [
+                                  "email",
+                                  "popup"
+                                ]
                               },
                               "minutes": {
                                 "maximum": 40320,
@@ -3612,7 +4067,11 @@
                       "type": "string",
                       "description": "The status of the event.",
                       "example": "confirmed",
-                      "enum": ["confirmed", "tentative", "cancelled"]
+                      "enum": [
+                        "confirmed",
+                        "tentative",
+                        "cancelled"
+                      ]
                     },
                     "summary": {
                       "maxLength": 1024,
@@ -3624,13 +4083,20 @@
                       "type": "string",
                       "description": "Whether the event blocks time on the calendar.",
                       "example": "transparent",
-                      "enum": ["opaque", "transparent"]
+                      "enum": [
+                        "opaque",
+                        "transparent"
+                      ]
                     },
                     "visibility": {
                       "type": "string",
                       "description": "The visibility of the event.",
                       "example": "default",
-                      "enum": ["default", "public", "private"]
+                      "enum": [
+                        "default",
+                        "public",
+                        "private"
+                      ]
                     },
                     "id": {
                       "type": "string",
@@ -3709,7 +4175,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
           "x-granular-scopes": [
             "calendar:write:event",
             "calendar:write:event:admin"
@@ -3719,7 +4188,9 @@
     },
     "/calendars/{calId}/events/import": {
       "post": {
-        "tags": ["events"],
+        "tags": [
+          "events"
+        ],
         "summary": "Import event to the specified calendar",
         "description": "Imports an event. This operation adds a private copy of an existing event to a calendar.\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:write:import_event`,`calendar:write:import_event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "Importevent",
@@ -3729,14 +4200,20 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": ["end", "start"],
+                "required": [
+                  "end",
+                  "start"
+                ],
                 "type": "object",
                 "properties": {
                   "start": {
@@ -3789,7 +4266,9 @@
                     "type": "array",
                     "description": "The attendees of the event.",
                     "items": {
-                      "required": ["email"],
+                      "required": [
+                        "email"
+                      ],
                       "type": "object",
                       "properties": {
                         "additionalGuests": {
@@ -3893,7 +4372,10 @@
                               "type": "string",
                               "description": "The method that this reminder uses.",
                               "example": "email",
-                              "enum": ["email", "popup"]
+                              "enum": [
+                                "email",
+                                "popup"
+                              ]
                             },
                             "minutes": {
                               "maximum": 40320,
@@ -3912,7 +4394,11 @@
                     "type": "string",
                     "description": "The status of the event.",
                     "example": "confirmed",
-                    "enum": ["confirmed", "tentative", "cancelled"]
+                    "enum": [
+                      "confirmed",
+                      "tentative",
+                      "cancelled"
+                    ]
                   },
                   "summary": {
                     "maxLength": 1024,
@@ -3924,13 +4410,20 @@
                     "type": "string",
                     "description": "Whether the event blocks time on the calendar.",
                     "example": "transparent",
-                    "enum": ["opaque", "transparent"]
+                    "enum": [
+                      "opaque",
+                      "transparent"
+                    ]
                   },
                   "visibility": {
                     "type": "string",
                     "description": "The visibility of the event.",
                     "example": "default",
-                    "enum": ["default", "public", "private"]
+                    "enum": [
+                      "default",
+                      "public",
+                      "private"
+                    ]
                   }
                 }
               }
@@ -3995,7 +4488,9 @@
                       "type": "array",
                       "description": "The attendees of the event.",
                       "items": {
-                        "required": ["email"],
+                        "required": [
+                          "email"
+                        ],
                         "type": "object",
                         "properties": {
                           "additionalGuests": {
@@ -4099,7 +4594,10 @@
                                 "type": "string",
                                 "description": "The method that this reminder uses/",
                                 "example": "email",
-                                "enum": ["email", "popup"]
+                                "enum": [
+                                  "email",
+                                  "popup"
+                                ]
                               },
                               "minutes": {
                                 "maximum": 40320,
@@ -4118,7 +4616,11 @@
                       "type": "string",
                       "description": "The status of the event.",
                       "example": "confirmed",
-                      "enum": ["confirmed", "tentative", "cancelled"]
+                      "enum": [
+                        "confirmed",
+                        "tentative",
+                        "cancelled"
+                      ]
                     },
                     "summary": {
                       "maxLength": 1024,
@@ -4130,13 +4632,20 @@
                       "type": "string",
                       "description": "Whether the event blocks time on the calendar.",
                       "example": "transparent",
-                      "enum": ["opaque", "transparent"]
+                      "enum": [
+                        "opaque",
+                        "transparent"
+                      ]
                     },
                     "visibility": {
                       "type": "string",
                       "description": "The visibility of the event.",
                       "example": "default",
-                      "enum": ["default", "public", "private"]
+                      "enum": [
+                        "default",
+                        "public",
+                        "private"
+                      ]
                     },
                     "id": {
                       "type": "string",
@@ -4215,7 +4724,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
           "x-granular-scopes": [
             "calendar:write:import_event",
             "calendar:write:import_event:admin"
@@ -4225,7 +4737,9 @@
     },
     "/calendars/{calId}/events/quickAdd": {
       "post": {
-        "tags": ["events"],
+        "tags": [
+          "events"
+        ],
         "summary": "Quick add an event to the specified calendar",
         "description": "Creates an event based on a simple text string.\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:write:quick_add_event`,`calendar:write:quick_add_event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "Quickaddevent",
@@ -4235,14 +4749,20 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           },
           {
             "name": "text",
             "in": "query",
             "description": "The text that describes the event to be created.",
             "required": true,
-            "schema": { "type": "string", "example": "event summary" }
+            "schema": {
+              "type": "string",
+              "example": "event summary"
+            }
           },
           {
             "name": "sendUpdates",
@@ -4252,14 +4772,23 @@
             "schema": {
               "type": "string",
               "example": "all",
-              "enum": ["all", "externalOnly", "none"]
+              "enum": [
+                "all",
+                "externalOnly",
+                "none"
+              ]
             }
           }
         ],
         "requestBody": {
           "description": "This field indicates not to supply a request body with this method.",
           "content": {
-            "undefined": { "schema": { "type": "object", "properties": {} } }
+            "undefined": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
           }
         },
         "responses": {
@@ -4320,7 +4849,9 @@
                       "type": "array",
                       "description": "The attendees of the event.",
                       "items": {
-                        "required": ["email"],
+                        "required": [
+                          "email"
+                        ],
                         "type": "object",
                         "properties": {
                           "additionalGuests": {
@@ -4424,7 +4955,10 @@
                                 "type": "string",
                                 "description": "The method that this reminder uses.",
                                 "example": "email",
-                                "enum": ["email", "popup"]
+                                "enum": [
+                                  "email",
+                                  "popup"
+                                ]
                               },
                               "minutes": {
                                 "maximum": 40320,
@@ -4443,7 +4977,11 @@
                       "type": "string",
                       "description": "The status of the event.",
                       "example": "confirmed",
-                      "enum": ["confirmed", "tentative", "cancelled"]
+                      "enum": [
+                        "confirmed",
+                        "tentative",
+                        "cancelled"
+                      ]
                     },
                     "summary": {
                       "maxLength": 1024,
@@ -4455,13 +4993,20 @@
                       "type": "string",
                       "description": "Whether the event blocks time on the calendar.",
                       "example": "transparent",
-                      "enum": ["opaque", "transparent"]
+                      "enum": [
+                        "opaque",
+                        "transparent"
+                      ]
                     },
                     "visibility": {
                       "type": "string",
                       "description": "The visibility of the event.",
                       "example": "default",
-                      "enum": ["default", "public", "private"]
+                      "enum": [
+                        "default",
+                        "public",
+                        "private"
+                      ]
                     },
                     "id": {
                       "type": "string",
@@ -4537,7 +5082,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
           "x-granular-scopes": [
             "calendar:write:quick_add_event",
             "calendar:write:quick_add_event:admin"
@@ -4547,7 +5095,9 @@
     },
     "/calendars/{calId}/events/{eventId}": {
       "get": {
-        "tags": ["events"],
+        "tags": [
+          "events"
+        ],
         "summary": "Get the specified event on the specified calendar",
         "description": "Returns a Zcalendar event.\n\n**Scopes:** `calendar:read`,`calendar:read:admin`\n\n**Granular Scopes:** `calendar:read:event`,`calendar:read:event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "Getevent",
@@ -4557,7 +5107,10 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           },
           {
             "name": "eventId",
@@ -4758,7 +5311,10 @@
                                 "type": "string",
                                 "description": "The method this reminder uses.",
                                 "example": "email",
-                                "enum": ["email", "popup"]
+                                "enum": [
+                                  "email",
+                                  "popup"
+                                ]
                               },
                               "minutes": {
                                 "maximum": 40320,
@@ -4805,7 +5361,11 @@
                       "type": "string",
                       "description": "The status of the event.",
                       "example": "confirmed",
-                      "enum": ["confirmed", "tentative", "cancelled"]
+                      "enum": [
+                        "confirmed",
+                        "tentative",
+                        "cancelled"
+                      ]
                     },
                     "summary": {
                       "maxLength": 1024,
@@ -4817,13 +5377,20 @@
                       "type": "string",
                       "description": "Whether the event blocks time on the calendar.",
                       "example": "transparent",
-                      "enum": ["opaque", "transparent"]
+                      "enum": [
+                        "opaque",
+                        "transparent"
+                      ]
                     },
                     "visibility": {
                       "type": "string",
                       "description": "The visibility of the event.",
                       "example": "default",
-                      "enum": ["default", "public", "private"]
+                      "enum": [
+                        "default",
+                        "public",
+                        "private"
+                      ]
                     },
                     "updated": {
                       "type": "string",
@@ -4862,7 +5429,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:read", "calendar:read:admin"],
+          "x-macro-scopes": [
+            "calendar:read",
+            "calendar:read:admin"
+          ],
           "x-granular-scopes": [
             "calendar:read:event",
             "calendar:read:event:admin"
@@ -4870,7 +5440,9 @@
         }
       },
       "delete": {
-        "tags": ["events"],
+        "tags": [
+          "events"
+        ],
         "summary": "Delete an existing event from the specified calendar",
         "description": "Deletes an event.\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:delete:event`,`calendar:delete:event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "Deleteevent",
@@ -4880,7 +5452,10 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           },
           {
             "name": "eventId",
@@ -4900,7 +5475,11 @@
             "schema": {
               "type": "string",
               "example": "all",
-              "enum": ["all", "externalOnly", "none"]
+              "enum": [
+                "all",
+                "externalOnly",
+                "none"
+              ]
             }
           }
         ],
@@ -4938,7 +5517,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
           "x-granular-scopes": [
             "calendar:delete:event",
             "calendar:delete:event:admin"
@@ -4946,7 +5528,9 @@
         }
       },
       "patch": {
-        "tags": ["events"],
+        "tags": [
+          "events"
+        ],
         "summary": "Update the specified event on the specified calendar",
         "description": "Updates an event.\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:update:event`,`calendar:update:event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "Patchevent",
@@ -4956,7 +5540,10 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           },
           {
             "name": "eventId",
@@ -4976,7 +5563,11 @@
             "schema": {
               "type": "string",
               "example": "all",
-              "enum": ["all", "externalOnly", "none"]
+              "enum": [
+                "all",
+                "externalOnly",
+                "none"
+              ]
             }
           }
         ],
@@ -4984,7 +5575,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["end", "start"],
+                "required": [
+                  "end",
+                  "start"
+                ],
                 "type": "object",
                 "properties": {
                   "start": {
@@ -5069,7 +5663,9 @@
                     "type": "array",
                     "description": "The attendees of the event.",
                     "items": {
-                      "required": ["email"],
+                      "required": [
+                        "email"
+                      ],
                       "type": "object",
                       "properties": {
                         "additionalGuests": {
@@ -5173,7 +5769,10 @@
                               "type": "string",
                               "description": "The method this reminder uses.",
                               "example": "email",
-                              "enum": ["email", "popup"]
+                              "enum": [
+                                "email",
+                                "popup"
+                              ]
                             },
                             "minutes": {
                               "maximum": 40320,
@@ -5192,7 +5791,11 @@
                     "type": "string",
                     "description": "The status of the event.",
                     "example": "confirmed",
-                    "enum": ["confirmed", "tentative", "cancelled"]
+                    "enum": [
+                      "confirmed",
+                      "tentative",
+                      "cancelled"
+                    ]
                   },
                   "summary": {
                     "maxLength": 1024,
@@ -5204,13 +5807,20 @@
                     "type": "string",
                     "description": "Whether the event blocks time on the calendar.",
                     "example": "transparent",
-                    "enum": ["opaque", "transparent"]
+                    "enum": [
+                      "opaque",
+                      "transparent"
+                    ]
                   },
                   "visibility": {
                     "type": "string",
                     "description": "The visibility of the event.",
                     "example": "default",
-                    "enum": ["default", "public", "private"]
+                    "enum": [
+                      "default",
+                      "public",
+                      "private"
+                    ]
                   }
                 }
               }
@@ -5271,7 +5881,9 @@
                       "type": "array",
                       "description": "The attendees of the event.",
                       "items": {
-                        "required": ["email"],
+                        "required": [
+                          "email"
+                        ],
                         "type": "object",
                         "properties": {
                           "additionalGuests": {
@@ -5375,7 +5987,10 @@
                                 "type": "string",
                                 "description": "The method this reminder uses.",
                                 "example": "email",
-                                "enum": ["email", "popup"]
+                                "enum": [
+                                  "email",
+                                  "popup"
+                                ]
                               },
                               "minutes": {
                                 "maximum": 40320,
@@ -5394,7 +6009,11 @@
                       "type": "string",
                       "description": "The status of the event.",
                       "example": "confirmed",
-                      "enum": ["confirmed", "tentative", "cancelled"]
+                      "enum": [
+                        "confirmed",
+                        "tentative",
+                        "cancelled"
+                      ]
                     },
                     "summary": {
                       "maxLength": 1024,
@@ -5406,13 +6025,20 @@
                       "type": "string",
                       "description": "Whether the event blocks time on the calendar.",
                       "example": "transparent",
-                      "enum": ["opaque", "transparent"]
+                      "enum": [
+                        "opaque",
+                        "transparent"
+                      ]
                     },
                     "visibility": {
                       "type": "string",
                       "description": "The visibility of the event.",
                       "example": "default",
-                      "enum": ["default", "public", "private"]
+                      "enum": [
+                        "default",
+                        "public",
+                        "private"
+                      ]
                     },
                     "id": {
                       "type": "string",
@@ -5491,7 +6117,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
           "x-granular-scopes": [
             "calendar:update:event",
             "calendar:update:event:admin"
@@ -5501,7 +6130,9 @@
     },
     "/calendars/{calId}/events/{eventId}/instances": {
       "get": {
-        "tags": ["events"],
+        "tags": [
+          "events"
+        ],
         "summary": "List all instances of the specified recurring event",
         "description": "Returns instances of the specified recurring event.\n\n**Scopes:** `calendar:read`,`calendar:read:admin`\n\n**Granular Scopes:** `calendar:read:instance_event`,`calendar:read:instance_event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Instanceevent",
@@ -5511,7 +6142,10 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           },
           {
             "name": "eventId",
@@ -5528,14 +6162,20 @@
             "in": "query",
             "description": "The maximum number of events returned on one result page.",
             "required": false,
-            "schema": { "type": "integer", "example": 250 }
+            "schema": {
+              "type": "integer",
+              "example": 250
+            }
           },
           {
             "name": "showDeleted",
             "in": "query",
             "description": "Whether to include deleted events (with status equals \"cancelled\") in the result. Cancelled instances of recurring events (but not the underlying recurring event) will still be included if `showDeleted` and `singleEvents` are both False. If `showDeleted` and `singleEvents` are both True, only single instances of deleted events (but not the underlying recurring events) are returned. Optional. The default is False.",
             "required": false,
-            "schema": { "type": "boolean", "example": false }
+            "schema": {
+              "type": "boolean",
+              "example": false
+            }
           },
           {
             "name": "pageToken",
@@ -5552,21 +6192,30 @@
             "in": "query",
             "description": "The upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. Must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but are ignored. If `timeMin` is set, `timeMax` must be greater than `timeMin`.",
             "required": false,
-            "schema": { "type": "string", "example": "2024-02-01T00:00:00Z" }
+            "schema": {
+              "type": "string",
+              "example": "2024-02-01T00:00:00Z"
+            }
           },
           {
             "name": "timeMin",
             "in": "query",
             "description": "The lower bound (exclusive) for an event's end time to filter by. Optional. The default is not to filter by end time. Must be an RFC3339 timestamp with mandatory time zone offset, for example, 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but are ignored. If `timeMax` is set, `timeMin` must be smaller than `timeMax`.",
             "required": false,
-            "schema": { "type": "string", "example": "2024-01-01T00:00:00Z" }
+            "schema": {
+              "type": "string",
+              "example": "2024-01-01T00:00:00Z"
+            }
           },
           {
             "name": "timeZone",
             "in": "query",
             "description": "The time zone in the response. Optional. The default is the time zone of the calendar.",
             "required": false,
-            "schema": { "type": "string", "example": "America/Los_Angeles" }
+            "schema": {
+              "type": "string",
+              "example": "America/Los_Angeles"
+            }
           }
         ],
         "responses": {
@@ -5630,7 +6279,10 @@
                             "type": "string",
                             "description": "The method this reminder uses.",
                             "example": "email",
-                            "enum": ["email", "popup"]
+                            "enum": [
+                              "email",
+                              "popup"
+                            ]
                           },
                           "minutes": {
                             "type": "integer",
@@ -5649,7 +6301,10 @@
                       "type": "array",
                       "description": "The list of instances of the event on the calendar.",
                       "items": {
-                        "required": ["end", "start"],
+                        "required": [
+                          "end",
+                          "start"
+                        ],
                         "type": "object",
                         "properties": {
                           "start": {
@@ -5702,7 +6357,9 @@
                             "type": "array",
                             "description": "The attendees of the event.",
                             "items": {
-                              "required": ["email"],
+                              "required": [
+                                "email"
+                              ],
                               "type": "object",
                               "properties": {
                                 "additionalGuests": {
@@ -5806,7 +6463,10 @@
                                       "type": "string",
                                       "description": "The method this reminder uses.",
                                       "example": "email",
-                                      "enum": ["email", "popup"]
+                                      "enum": [
+                                        "email",
+                                        "popup"
+                                      ]
                                     },
                                     "minutes": {
                                       "maximum": 40320,
@@ -5825,7 +6485,11 @@
                             "type": "string",
                             "description": "The status of the event.",
                             "example": "confirmed",
-                            "enum": ["confirmed", "tentative", "cancelled"]
+                            "enum": [
+                              "confirmed",
+                              "tentative",
+                              "cancelled"
+                            ]
                           },
                           "summary": {
                             "maxLength": 1024,
@@ -5837,13 +6501,20 @@
                             "type": "string",
                             "description": "Whether the event blocks time on the calendar.",
                             "example": "transparent",
-                            "enum": ["opaque", "transparent"]
+                            "enum": [
+                              "opaque",
+                              "transparent"
+                            ]
                           },
                           "visibility": {
                             "type": "string",
                             "description": "The visibility of the event.",
                             "example": "default",
-                            "enum": ["default", "public", "private"]
+                            "enum": [
+                              "default",
+                              "public",
+                              "private"
+                            ]
                           },
                           "id": {
                             "type": "string",
@@ -5920,7 +6591,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:read", "calendar:read:admin"],
+          "x-macro-scopes": [
+            "calendar:read",
+            "calendar:read:admin"
+          ],
           "x-granular-scopes": [
             "calendar:read:instance_event",
             "calendar:read:instance_event:admin"
@@ -5930,7 +6604,9 @@
     },
     "/calendars/{calId}/events/{eventId}/move": {
       "post": {
-        "tags": ["events"],
+        "tags": [
+          "events"
+        ],
         "summary": "Move the specified event from a calendar to another specified calendar",
         "description": "Moves an event to another calendar, such as changing an event's organizer.\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:write:move_event`,`calendar:write:move_event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "Moveevent",
@@ -5940,7 +6616,10 @@
             "in": "path",
             "description": "The calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method.",
             "required": true,
-            "schema": { "type": "string", "example": "abc.def@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "abc.def@zoom.com"
+            }
           },
           {
             "name": "eventId",
@@ -5957,7 +6636,10 @@
             "in": "query",
             "description": "The calendar identifier of the target calendar where the event is to be moved.",
             "required": true,
-            "schema": { "type": "string", "example": "fed.cba@zoom.com" }
+            "schema": {
+              "type": "string",
+              "example": "fed.cba@zoom.com"
+            }
           },
           {
             "name": "sendUpdates",
@@ -5967,7 +6649,11 @@
             "schema": {
               "type": "string",
               "example": "all",
-              "enum": ["all", "externalOnly", "none"]
+              "enum": [
+                "all",
+                "externalOnly",
+                "none"
+              ]
             }
           }
         ],
@@ -6029,7 +6715,9 @@
                       "type": "array",
                       "description": "The attendees of the event.",
                       "items": {
-                        "required": ["email"],
+                        "required": [
+                          "email"
+                        ],
                         "type": "object",
                         "properties": {
                           "additionalGuests": {
@@ -6133,7 +6821,10 @@
                                 "type": "string",
                                 "description": "The method used by this reminder.",
                                 "example": "email",
-                                "enum": ["email", "popup"]
+                                "enum": [
+                                  "email",
+                                  "popup"
+                                ]
                               },
                               "minutes": {
                                 "maximum": 40320,
@@ -6152,7 +6843,11 @@
                       "type": "string",
                       "description": "The status of the event.",
                       "example": "confirmed",
-                      "enum": ["confirmed", "tentative", "cancelled"]
+                      "enum": [
+                        "confirmed",
+                        "tentative",
+                        "cancelled"
+                      ]
                     },
                     "summary": {
                       "maxLength": 1024,
@@ -6164,13 +6859,20 @@
                       "type": "string",
                       "description": "Whether the event blocks time on the calendar.",
                       "example": "transparent",
-                      "enum": ["opaque", "transparent"]
+                      "enum": [
+                        "opaque",
+                        "transparent"
+                      ]
                     },
                     "visibility": {
                       "type": "string",
                       "description": "The visibility of the event.",
                       "example": "default",
-                      "enum": ["default", "public", "private"]
+                      "enum": [
+                        "default",
+                        "public",
+                        "private"
+                      ]
                     },
                     "id": {
                       "type": "string",
@@ -6246,7 +6948,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
           "x-granular-scopes": [
             "calendar:write:move_event",
             "calendar:write:move_event:admin"
@@ -6256,7 +6961,9 @@
     },
     "/calendars/freeBusy": {
       "post": {
-        "tags": ["freebusy"],
+        "tags": [
+          "freebusy"
+        ],
         "summary": "Query freebusy information for a set of calendars",
         "description": "Returns free or busy information for a set of calendars.\n\n**Scopes:** `calendar:read`,`calendar:read:admin`\n\n**Granular Scopes:** `calendar:read:list_events`,`calendar:read:list_events:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Queryfreebusy",
@@ -6264,7 +6971,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["timeMax", "timeMin"],
+                "required": [
+                  "timeMax",
+                  "timeMin"
+                ],
                 "type": "object",
                 "properties": {
                   "timeZone": {
@@ -6321,14 +7031,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["kind", "timeMax", "timeMin"],
+                  "required": [
+                    "kind",
+                    "timeMax",
+                    "timeMin"
+                  ],
                   "type": "object",
                   "properties": {
                     "kind": {
                       "type": "string",
                       "description": "The type of the resource.",
                       "example": "calendar#freeBusy",
-                      "enum": ["calendar#freeBusy"]
+                      "enum": [
+                        "calendar#freeBusy"
+                      ]
                     },
                     "timeMin": {
                       "type": "string",
@@ -6424,7 +7140,9 @@
                           "calendars": {
                             "type": "array",
                             "description": "The list of calendars included in the group.",
-                            "items": { "type": "string" }
+                            "items": {
+                              "type": "string"
+                            }
                           }
                         }
                       }
@@ -6452,7 +7170,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:read", "calendar:read:admin"],
+          "x-macro-scopes": [
+            "calendar:read",
+            "calendar:read:admin"
+          ],
           "x-granular-scopes": [
             "calendar:read:list_events",
             "calendar:read:list_events:admin"
@@ -6462,7 +7183,9 @@
     },
     "/calendars/users/{userIdentifier}/settings": {
       "get": {
-        "tags": ["settings"],
+        "tags": [
+          "settings"
+        ],
         "summary": "List all user calendar settings of the authenticated user",
         "description": "Returns all user settings for the authenticated user.\n\n**Scopes:** `calendar:read`,`calendar:read:admin`\n\n**Granular Scopes:** `calendar:read:list_settings`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Listsettings",
@@ -6472,21 +7195,30 @@
             "in": "path",
             "description": "The user identifier. It indicates Which user's calendarList to operate.",
             "required": true,
-            "schema": { "type": "string", "example": "me" }
+            "schema": {
+              "type": "string",
+              "example": "me"
+            }
           },
           {
             "name": "maxResults",
             "in": "query",
             "description": "The maximum number of entries returned on one result page.",
             "required": false,
-            "schema": { "type": "integer", "example": 100 }
+            "schema": {
+              "type": "integer",
+              "example": 100
+            }
           },
           {
             "name": "pageToken",
             "in": "query",
             "description": "The token that specifies which result page to return.",
             "required": false,
-            "schema": { "type": "string", "example": "format24HourTime" }
+            "schema": {
+              "type": "string",
+              "example": "format24HourTime"
+            }
           }
         ],
         "responses": {
@@ -6557,14 +7289,21 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:read", "calendar:read:admin"],
-          "x-granular-scopes": ["calendar:read:list_settings"]
+          "x-macro-scopes": [
+            "calendar:read",
+            "calendar:read:admin"
+          ],
+          "x-granular-scopes": [
+            "calendar:read:list_settings"
+          ]
         }
       }
     },
     "/calendars/users/{userIdentifier}/settings/{settingId}": {
       "get": {
-        "tags": ["settings"],
+        "tags": [
+          "settings"
+        ],
         "summary": "Get the specified user calendar settings of the authenticated user",
         "description": "Returns a single setting.\n\n**Scopes:** `calendar:read`,`calendar:read:admin`\n\n**Granular Scopes:** `calendar:read:setting`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "Getsetting",
@@ -6574,14 +7313,20 @@
             "in": "path",
             "description": "The user identifier. ",
             "required": true,
-            "schema": { "type": "string", "example": "me" }
+            "schema": {
+              "type": "string",
+              "example": "me"
+            }
           },
           {
             "name": "settingId",
             "in": "path",
             "description": "The identifier of the user setting. To retrieve calendar IDs, call the 'List all user settings' API.",
             "required": true,
-            "schema": { "type": "string", "example": "format24HourTime" }
+            "schema": {
+              "type": "string",
+              "example": "format24HourTime"
+            }
           }
         ],
         "responses": {
@@ -6592,7 +7337,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "required": ["id", "value"],
+                      "required": [
+                        "id",
+                        "value"
+                      ],
                       "type": "object",
                       "properties": {
                         "id": {
@@ -6614,18 +7362,26 @@
                           "type": "string",
                           "description": "The allowed values are `true` or `false`.",
                           "example": "false",
-                          "enum": ["true", "false"]
+                          "enum": [
+                            "true",
+                            "false"
+                          ]
                         }
                       }
                     },
                     {
-                      "required": ["id", "value"],
+                      "required": [
+                        "id",
+                        "value"
+                      ],
                       "type": "object",
                       "properties": {
                         "id": {
                           "type": "string",
                           "example": "defaultEventLength",
-                          "enum": ["defaultEventLength"]
+                          "enum": [
+                            "defaultEventLength"
+                          ]
                         },
                         "value": {
                           "pattern": "^[1-9][0-9]*$",
@@ -6636,43 +7392,68 @@
                       }
                     },
                     {
-                      "required": ["id", "value"],
+                      "required": [
+                        "id",
+                        "value"
+                      ],
                       "type": "object",
                       "properties": {
                         "id": {
                           "type": "string",
                           "description": "The combinations of \"Modify the event\", \"Invite others\" and \"See list of attendees\" in an event.",
                           "example": "defaultGuestPermissions",
-                          "enum": ["defaultGuestPermissions"]
+                          "enum": [
+                            "defaultGuestPermissions"
+                          ]
                         },
                         "value": {
                           "type": "string",
                           "description": "The allowed values are 0, 1, 2, 3, and 7. These values respesent as bitmap with three digits, from left to right are \"Modify the event\", \"Invite others\" and \"See list of attendees.\"",
                           "example": "0",
-                          "enum": ["0", "1", "2", "3", "7"]
+                          "enum": [
+                            "0",
+                            "1",
+                            "2",
+                            "3",
+                            "7"
+                          ]
                         }
                       }
                     },
                     {
-                      "required": ["id", "value"],
+                      "required": [
+                        "id",
+                        "value"
+                      ],
                       "type": "object",
                       "properties": {
                         "id": {
                           "type": "string",
                           "example": "locale",
-                          "enum": ["locale", "timezone"]
+                          "enum": [
+                            "locale",
+                            "timezone"
+                          ]
                         },
-                        "value": { "type": "string", "example": "ca" }
+                        "value": {
+                          "type": "string",
+                          "example": "ca"
+                        }
                       }
                     },
                     {
-                      "required": ["id", "value"],
+                      "required": [
+                        "id",
+                        "value"
+                      ],
                       "type": "object",
                       "properties": {
                         "id": {
                           "type": "string",
                           "example": "secondaryTimezone",
-                          "enum": ["secondaryTimezone"]
+                          "enum": [
+                            "secondaryTimezone"
+                          ]
                         },
                         "value": {
                           "type": "string",
@@ -6681,74 +7462,115 @@
                       }
                     },
                     {
-                      "required": ["id", "value"],
+                      "required": [
+                        "id",
+                        "value"
+                      ],
                       "type": "object",
                       "properties": {
                         "id": {
                           "type": "string",
                           "description": "Whether the week should start on Sunday (0), Monday (1), or Saturday (6).",
                           "example": "weekStart",
-                          "enum": ["weekStart"]
+                          "enum": [
+                            "weekStart"
+                          ]
                         },
                         "value": {
                           "type": "string",
                           "description": "The allowed values are 0, 1, and 6.",
                           "example": "0",
-                          "enum": ["0", "1", "6"]
+                          "enum": [
+                            "0",
+                            "1",
+                            "6"
+                          ]
                         }
                       }
                     },
                     {
-                      "required": ["id", "value"],
+                      "required": [
+                        "id",
+                        "value"
+                      ],
                       "type": "object",
                       "properties": {
                         "id": {
                           "type": "string",
                           "description": "The default `addon` type in an event: 1 as Zoom meeting, 2 as phone, and 3 as offline.",
                           "example": "defaultAddOnType",
-                          "enum": ["defaultAddOnType"]
+                          "enum": [
+                            "defaultAddOnType"
+                          ]
                         },
                         "value": {
                           "type": "string",
                           "description": "The allowed values are 1, 2, and 3.",
                           "example": "1",
-                          "enum": ["1", "2", "3"]
+                          "enum": [
+                            "1",
+                            "2",
+                            "3"
+                          ]
                         }
                       }
                     },
                     {
-                      "required": ["id", "value"],
+                      "required": [
+                        "id",
+                        "value"
+                      ],
                       "type": "object",
                       "properties": {
                         "id": {
                           "type": "string",
                           "description": "What should the order of day (D), month (M) and year (Y) be when displaying dates.",
                           "example": "dateFieldOrder",
-                          "enum": ["dateFieldOrder"]
+                          "enum": [
+                            "dateFieldOrder"
+                          ]
                         },
                         "value": {
                           "type": "string",
                           "description": "The allowed values are ”MDY”, “DMY”,and “YMD”.",
                           "example": "MDY",
-                          "enum": ["MDY", "DMY", "YMD"]
+                          "enum": [
+                            "MDY",
+                            "DMY",
+                            "YMD"
+                          ]
                         }
                       }
                     },
                     {
-                      "required": ["id", "value"],
+                      "required": [
+                        "id",
+                        "value"
+                      ],
                       "type": "object",
                       "properties": {
                         "id": {
                           "type": "string",
                           "description": "The view in the calendar: D as day, W as week, M as month, Y as year, A as schedule, X as 4 days, WW as work week, and N as no fix time.",
                           "example": "dateViewSelected",
-                          "enum": ["dateViewSelected"]
+                          "enum": [
+                            "dateViewSelected"
+                          ]
                         },
                         "value": {
                           "type": "string",
                           "description": "The allowed values are D, W, M, Y, A, X, WW, and N.",
                           "example": "W",
-                          "enum": ["D", "W", "M", "Y", "A", "X", "WW", "N"]
+                          "enum": [
+                            "D",
+                            "W",
+                            "M",
+                            "Y",
+                            "A",
+                            "X",
+                            "WW",
+                            "N"
+                          ]
                         }
                       }
                     }
@@ -6777,12 +7599,19 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:read", "calendar:read:admin"],
-          "x-granular-scopes": ["calendar:read:setting"]
+          "x-macro-scopes": [
+            "calendar:read",
+            "calendar:read:admin"
+          ],
+          "x-granular-scopes": [
+            "calendar:read:setting"
+          ]
         }
       },
       "patch": {
-        "tags": ["settings"],
+        "tags": [
+          "settings"
+        ],
         "summary": "Patch the specified user calendar settings of the authenticated user ",
         "description": "Patches a single setting.\n\n**Scopes:** `calendar:write`,`calendar:write:admin`\n\n**Granular Scopes:** `calendar:update:setting`,`calendar:update:setting:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "Patchsetting",
@@ -6792,21 +7621,30 @@
             "in": "path",
             "description": "The user identifier.",
             "required": true,
-            "schema": { "type": "string", "example": "me" }
+            "schema": {
+              "type": "string",
+              "example": "me"
+            }
           },
           {
             "name": "settingId",
             "in": "path",
             "description": "The ID of the setting to be patched.",
             "required": true,
-            "schema": { "type": "string", "example": "timezone" }
+            "schema": {
+              "type": "string",
+              "example": "timezone"
+            }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": ["id", "value"],
+                "required": [
+                  "id",
+                  "value"
+                ],
                 "type": "object",
                 "properties": {
                   "id": {
@@ -6861,7 +7699,10 @@
         "x-extensions": {
           "x-fixVersion": "1.0.0",
           "x-permissions": [],
-          "x-macro-scopes": ["calendar:write", "calendar:write:admin"],
+          "x-macro-scopes": [
+            "calendar:write",
+            "calendar:write:admin"
+          ],
           "x-granular-scopes": [
             "calendar:update:setting",
             "calendar:update:setting:admin"
@@ -6870,76 +7711,5 @@
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": {
-              "calendar:read": "calendar:read",
-              "calendar:read:admin": "calendar:read:admin",
-              "calendar:read:list_acl": "calendar:read:list_acl",
-              "calendar:read:list_acl:admin": "calendar:read:list_acl:admin",
-              "calendar:write": "calendar:write",
-              "calendar:write:admin": "calendar:write:admin",
-              "calendar:write:acl": "calendar:write:acl",
-              "calendar:write:acl:admin": "calendar:write:acl:admin",
-              "calendar:delete:acl": "calendar:delete:acl",
-              "calendar:delete:acl:admin": "calendar:delete:acl:admin",
-              "calendar:read:acl": "calendar:read:acl",
-              "calendar:read:acl:admin": "calendar:read:acl:admin",
-              "calendar:update:acl": "calendar:update:acl",
-              "calendar:update:acl:admin": "calendar:update:acl:admin",
-              "calendar:read:list_calendar_lists": "calendar:read:list_calendar_lists",
-              "calendar:write:calendar_list": "calendar:write:calendar_list",
-              "calendar:update:calendar_list": "calendar:update:calendar_list",
-              "calendar:delete:calendar_list": "calendar:delete:calendar_list",
-              "calendar:read:calendar_list": "calendar:read:calendar_list",
-              "calendar:write:calendar": "calendar:write:calendar",
-              "calendar:write:calendar:admin": "calendar:write:calendar:admin",
-              "calendar:read:calendar": "calendar:read:calendar",
-              "calendar:read:calendar:admin": "calendar:read:calendar:admin",
-              "calendar:update:calendar": "calendar:update:calendar",
-              "calendar:update:calendar:admin": "calendar:update:calendar:admin",
-              "calendar:delete:calendar": "calendar:delete:calendar",
-              "calendar:delete:calendar:admin": "calendar:delete:calendar:admin",
-              "calendar:read:color": "calendar:read:color",
-              "calendar:read:color:admin": "calendar:read:color:admin",
-              "calendar:read:list_events": "calendar:read:list_events",
-              "calendar:read:list_events:admin": "calendar:read:list_events:admin",
-              "calendar:write:event": "calendar:write:event",
-              "calendar:write:event:admin": "calendar:write:event:admin",
-              "calendar:write:import_event": "calendar:write:import_event",
-              "calendar:write:import_event:admin": "calendar:write:import_event:admin",
-              "calendar:write:quick_add_event": "calendar:write:quick_add_event",
-              "calendar:write:quick_add_event:admin": "calendar:write:quick_add_event:admin",
-              "calendar:read:event": "calendar:read:event",
-              "calendar:read:event:admin": "calendar:read:event:admin",
-              "calendar:delete:event": "calendar:delete:event",
-              "calendar:delete:event:admin": "calendar:delete:event:admin",
-              "calendar:update:event": "calendar:update:event",
-              "calendar:update:event:admin": "calendar:update:event:admin",
-              "calendar:read:instance_event": "calendar:read:instance_event",
-              "calendar:read:instance_event:admin": "calendar:read:instance_event:admin",
-              "calendar:write:move_event": "calendar:write:move_event",
-              "calendar:write:move_event:admin": "calendar:write:move_event:admin",
-              "calendar:read:list_settings": "calendar:read:list_settings",
-              "calendar:read:setting": "calendar:read:setting",
-              "calendar:update:setting": "calendar:update:setting",
-              "calendar:update:setting:admin": "calendar:update:setting:admin"
-            }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

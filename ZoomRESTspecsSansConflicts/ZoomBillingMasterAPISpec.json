@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us/v2"
+    }
+  ],
   "paths": {
     "/accounts/billing/invoice_reports": {
       "get": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "List sub accounts' billing invoice reports",
         "description": "Use this API to list sub accounts' invoice reports. \n\n This API can only be used by Master accounts that pay all billing charges of their associated Pro or higher sub accounts. Zoom only allows approved partners to use [Master account API](https://marketplace.zoom.us/docs/api-reference/zoom-api/ma) and manage sub accounts' billing information. Email the partner programs team at [**partner-success@zoom.us**](mailto:partner-success@zoom.us) for more details. \n\n **one** request to this API every **1 second**.\n**Prerequisites:** \n* A Pro or a higher plan with the **Master account** option enabled. \n* The sub account **must** be a paid account whose billing charges are paid by its Master account.\n\n**Scopes:** `billing:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Heavy`",
         "operationId": "listSubInvoiceReport",
@@ -83,7 +89,10 @@
                             "type": "string",
                             "description": "Status of the generated billing invoice report.",
                             "example": "Processing",
-                            "enum": ["Completed", "Processing"]
+                            "enum": [
+                              "Completed",
+                              "Processing"
+                            ]
                           }
                         }
                       }
@@ -95,15 +104,24 @@
           }
         },
         "security": [
-          { "openapi_oauth": ["billing:master"], "openapi_authorization": [] }
+          {
+            "openapi_oauth": [
+              "billing:master"
+            ],
+            "openapi_authorization": []
+          }
         ],
         "x-extensions": {
           "x-fixVersion": "InitFixVersion",
-          "x-macro-scopes": ["billing:master"]
+          "x-macro-scopes": [
+            "billing:master"
+          ]
         }
       },
       "post": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Generate sub accounts' billing invoice reports",
         "description": "Use this API to generate sub account invoice reports. \n\n This API can only be used by master accounts that pay all billing charges of their associated Pro or higher sub accounts. Zoom only allows approved partners to use [Master account API](https://marketplace.zoom.us/docs/api-reference/zoom-api/ma) and manage sub accounts' billing information. Email the partner programs team at [**partner-success@zoom.us**](mailto:partner-success@zoom.us) for more details. \n\n **one** request to this API every **3 minutes**.\n* This API has a daily limit of **100 requests per account**.\n   \n  **Prerequisites:** \n* A Pro or a higher plan with the **Master account** option enabled. \n* The sub account **must** be a paid account whose billing charges are paid by its Master account.\n\n**Scopes:** `billing:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Heavy`",
         "operationId": "generateSubInvoiceReport",
@@ -174,7 +192,10 @@
                       "type": "string",
                       "description": "Status of the invoice report:   \n * Processing   \n * Completed",
                       "example": "Processing",
-                      "enum": ["Processing", "Completed"]
+                      "enum": [
+                        "Processing",
+                        "Completed"
+                      ]
                     }
                   },
                   "description": "The viewable object of a sub accounts' billing invoice report."
@@ -187,17 +208,26 @@
           }
         },
         "security": [
-          { "openapi_oauth": ["billing:master"], "openapi_authorization": [] }
+          {
+            "openapi_oauth": [
+              "billing:master"
+            ],
+            "openapi_authorization": []
+          }
         ],
         "x-extensions": {
           "x-fixVersion": "InitFixVersion",
-          "x-macro-scopes": ["billing:master"]
+          "x-macro-scopes": [
+            "billing:master"
+          ]
         }
       }
     },
     "/accounts/billing/invoice_reports/{invoiceReportId}": {
       "get": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Download subaccounts' billing invoice reports",
         "description": "Download a Zoom subaccounts' billing invoice reports. Maximum of **one** request to this API **per second**.\n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:read:download_invoice_reports:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "downloadBillingInvoiceReport",
@@ -206,13 +236,19 @@
             "name": "invoiceReportId",
             "in": "path",
             "required": true,
-            "schema": { "type": "string", "example": "1648670915000" }
+            "schema": {
+              "type": "string",
+              "example": "1648670915000"
+            }
           },
           {
             "name": "download",
             "in": "query",
             "required": true,
-            "schema": { "type": "boolean", "example": true }
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           }
         ],
         "responses": {
@@ -254,7 +290,11 @@
                       "type": "string",
                       "description": "Status of the invoice report. \n * Processing   \n * Completed",
                       "example": "Processing",
-                      "enum": ["Available", "Processing", "Failed"]
+                      "enum": [
+                        "Available",
+                        "Processing",
+                        "Failed"
+                      ]
                     }
                   },
                   "description": "The viewable object of a subaccounts' billing invoice report."
@@ -278,12 +318,18 @@
         "x-extensions": {
           "x-fixVersion": "Web-2024-Mar",
           "x-permissions": [],
-          "x-macro-scopes": ["billing:master"],
-          "x-granular-scopes": ["billing:read:download_invoice_reports:master"]
+          "x-macro-scopes": [
+            "billing:master"
+          ],
+          "x-granular-scopes": [
+            "billing:read:download_invoice_reports:master"
+          ]
         }
       },
       "delete": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Delete subaccounts' billing invoice report",
         "description": "Delete Zoom subaccounts' billing invoice report.\n\n\n\n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:delete:invoice_report:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "deleteBillingInvoiceReport",
@@ -292,7 +338,10 @@
             "name": "invoiceReportId",
             "in": "path",
             "required": true,
-            "schema": { "type": "string", "example": "1648670915000" }
+            "schema": {
+              "type": "string",
+              "example": "1648670915000"
+            }
           }
         ],
         "responses": {
@@ -315,14 +364,20 @@
         "x-extensions": {
           "x-fixVersion": "Web-2024-Mar",
           "x-permissions": [],
-          "x-macro-scopes": ["billing:master"],
-          "x-granular-scopes": ["billing:delete:invoice_report:master"]
+          "x-macro-scopes": [
+            "billing:master"
+          ],
+          "x-granular-scopes": [
+            "billing:delete:invoice_report:master"
+          ]
         }
       }
     },
     "/accounts/billing/renewals": {
       "get": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "List upcoming renewal accounts",
         "description": "List sub accounts' upcoming renewal plans.\n\n**Scopes:** `billing:master`,`account:master`\n\n**Granular Scopes:** `billing:read:list_upcoming_renewal_accounts:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Getupcomingrenewalaccounts",
@@ -337,7 +392,11 @@
               "format": "int32",
               "example": 30,
               "default": 30,
-              "enum": [30, 60, 90]
+              "enum": [
+                30,
+                60,
+                90
+              ]
             }
           },
           {
@@ -385,7 +444,11 @@
                       "format": "int32",
                       "example": 30,
                       "default": 30,
-                      "enum": [30, 60, 90]
+                      "enum": [
+                        30,
+                        60,
+                        90
+                      ]
                     },
                     "page_size": {
                       "type": "integer",
@@ -529,8 +592,14 @@
         ],
         "x-extensions": {
           "x-fixVersion": "docfix-for-ZoomWorkplace",
-          "x-permissions": ["SubAccount:Edit", "SubAccount:Read"],
-          "x-macro-scopes": ["billing:master", "account:master"],
+          "x-permissions": [
+            "SubAccount:Edit",
+            "SubAccount:Read"
+          ],
+          "x-macro-scopes": [
+            "billing:master",
+            "account:master"
+          ],
           "x-granular-scopes": [
             "billing:read:list_upcoming_renewal_accounts:master"
           ]
@@ -539,7 +608,9 @@
     },
     "/api/download/billing/invoices/{invoiceId}": {
       "get": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Download an invoice file",
         "description": "Download a Zoom account's [billed](https://support.zoom.us/hc/en-us/articles/201363263-About-Billing) invoice file, in PDF format. To get an account's invoice ID, use the **[List billing invoices](https://developers.zoom.us/docs/api/rest/reference/billing/ma/#operation/ListBillingInvoices)** API.\n\n**one** request to this API every **30 minutes** until the daily limit is reached.\n* This API has a daily limit of **100 requests per account**.\n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:read:download_invoice_file:master`",
         "operationId": "downloadInvoicePDF",
@@ -548,7 +619,9 @@
             "name": "invoiceId",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -571,14 +644,20 @@
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jul",
           "x-permissions": [],
-          "x-macro-scopes": ["billing:master"],
-          "x-granular-scopes": ["billing:read:download_invoice_file:master"]
+          "x-macro-scopes": [
+            "billing:master"
+          ],
+          "x-granular-scopes": [
+            "billing:read:download_invoice_file:master"
+          ]
         }
       }
     },
     "/accounts/{accountId}/billing": {
       "get": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Get billing information",
         "description": "Get a subaccount's [billing information](https://support.zoom.us/hc/en-us/articles/201363263-About-Billing).  \n\n Only master accounts can use this API. Zoom allows only [approved partners](https://marketplace.zoom.us/docs/api-reference/master-account-apis) to use master APIs and manage subaccounts' billing information. Email the partner programs team at **partner-success@zoom.us** for more details.  \n \n\n**Prerequisites:**\n* Pro or a higher paid account with master account option enabled.   \n \n\n\n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:read:billing_information:master`,`billing:read:billing_information:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "GetBillingInformation",
@@ -588,7 +667,10 @@
             "in": "path",
             "description": "Unique identifier of the account.",
             "required": true,
-            "schema": { "type": "string", "example": "TQTvjT52Tmi_wrhASNNOEw" }
+            "schema": {
+              "type": "string",
+              "example": "TQTvjT52Tmi_wrhASNNOEw"
+            }
           }
         ],
         "responses": {
@@ -703,7 +785,9 @@
         "x-extensions": {
           "x-fixVersion": "Web-2024-Mar",
           "x-permissions": [],
-          "x-macro-scopes": ["billing:master"],
+          "x-macro-scopes": [
+            "billing:master"
+          ],
           "x-granular-scopes": [
             "billing:read:billing_information:master",
             "billing:read:billing_information:admin"
@@ -711,7 +795,9 @@
         }
       },
       "patch": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Update billing information",
         "description": "Update [billing information](https://support.zoom.us/hc/en-us/articles/201363263-About-Billing) of a sub account.  \n   \n \nThis API can only be used by master accounts that pay all billing charges of their associated sub accounts. Zoom allows only [approved partners](https://marketplace.zoom.us/docs/api-reference/master-account-apis) to use master APIs and manage sub accounts' billing information. Email the partner programs team at **partner-success@zoom.us** for more details.  \n   \n \n\n**Prerequisites:**\n* Pro or a higher paid account with master account option enabled.   \n \n\n\n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:update:billing_information:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "UpdateBillingInformation",
@@ -721,7 +807,10 @@
             "in": "path",
             "description": "Unique identifier of the account.",
             "required": true,
-            "schema": { "type": "string", "example": "TQTvjT52Tmi_wrhASNNOEw" }
+            "schema": {
+              "type": "string",
+              "example": "TQTvjT52Tmi_wrhASNNOEw"
+            }
           }
         ],
         "requestBody": {
@@ -809,14 +898,20 @@
         "x-extensions": {
           "x-fixVersion": "Web-2024-Mar",
           "x-permissions": [],
-          "x-macro-scopes": ["billing:master"],
-          "x-granular-scopes": ["billing:update:billing_information:master"]
+          "x-macro-scopes": [
+            "billing:master"
+          ],
+          "x-granular-scopes": [
+            "billing:update:billing_information:master"
+          ]
         }
       }
     },
     "/accounts/{accountId}/billing/invoices": {
       "get": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "List billing invoices",
         "description": "List a Zoom account's [invoices](https://support.zoom.us/hc/en-us/articles/207276556-Viewing-your-invoice-history#h_6710542f-23cc-4059-9cc7-ff02bec7314e). To list a regular Zoom account's invoices or a master account's invoices, provide `me` as the value of the `accountId` path parameter. To list a subaccount's invoices, provide the subaccount's account ID in the `accountId` path parameter. **Prerequisites:*** Account must be enrolled in Pro or a higher plan.   **Additional Rate Limit:** You can make **one** API request per account(`accountId`) every **200** minutes until the daily limit is reached. This API has a daily limit of **100000** requests per account(`accountId`).\n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:read:list_invoices:master`,`billing:read:list_invoices:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "ListBillingInvoices",
@@ -848,7 +943,10 @@
             "in": "path",
             "description": "Unique identifier of the account.",
             "required": true,
-            "schema": { "type": "string", "example": "TQTvjT52Tmi_wrhASNNOEw" }
+            "schema": {
+              "type": "string",
+              "example": "TQTvjT52Tmi_wrhASNNOEw"
+            }
           }
         ],
         "responses": {
@@ -942,8 +1040,13 @@
         ],
         "x-extensions": {
           "x-fixVersion": "Web-2024-Mar",
-          "x-permissions": ["SubAccount:Edit", "SubAccount:Read"],
-          "x-macro-scopes": ["billing:master"],
+          "x-permissions": [
+            "SubAccount:Edit",
+            "SubAccount:Read"
+          ],
+          "x-macro-scopes": [
+            "billing:master"
+          ],
           "x-granular-scopes": [
             "billing:read:list_invoices:master",
             "billing:read:list_invoices:admin"
@@ -953,7 +1056,9 @@
     },
     "/accounts/{accountId}/billing/invoices/{invoiceId}": {
       "get": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Get invoice details",
         "description": "Get detailed information about a specific [invoice](https://support.zoom.us/hc/en-us/articles/207276556-Viewing-your-invoice-history#h_6710542f-23cc-4059-9cc7-ff02bec7314e).   \n To retrieve a regular Zoom account's invoice details or a master account's invoice details, provide `me` as the value of `accountId` path parameter. To list a sub account's invoice details, provide the account ID of the sub account in the `accountId` path parameter. \n\n**Prerequisites:**\n* Account must be enrolled in Pro or a higher plan.   \n \n\n**Additional Rate Limit:** You can make **one** API request every **thirty** minutes until the daily limit is reached. This API has a daily limit of **100** requests per **account**.\n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:read:invoice_details:master`,`billing:read:invoice_details:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "GetInvoiceDetails",
@@ -962,14 +1067,19 @@
             "name": "invoiceId",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "accountId",
             "in": "path",
             "description": "Unique identifier of the account.",
             "required": true,
-            "schema": { "type": "string", "example": "TQTvjT52Tmi_wrhASNNOEw" }
+            "schema": {
+              "type": "string",
+              "example": "TQTvjT52Tmi_wrhASNNOEw"
+            }
           }
         ],
         "responses": {
@@ -1118,7 +1228,9 @@
         "x-extensions": {
           "x-fixVersion": "Web-2024-Mar",
           "x-permissions": [],
-          "x-macro-scopes": ["billing:master"],
+          "x-macro-scopes": [
+            "billing:master"
+          ],
           "x-granular-scopes": [
             "billing:read:invoice_details:master",
             "billing:read:invoice_details:admin"
@@ -1128,7 +1240,9 @@
     },
     "/accounts/{accountId}/plans": {
       "get": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Get account plan information",
         "description": "Lets master accounts retrieve subaccounts' plan information. \n\n**Prerequisite**: This API can only be used by master accounts that pay all billing charges of their associated Pro or higher subaccounts. \n\nZoom only allows approved partners to use [master account APIs](https://developers.zoom.us/docs/api/rest/master-account-apis/) and manage subaccounts' billing information. Email the partner programs team at [partner-success@zoom.us](mailto:partner-success@zoom.us) for more details. \n\n \n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:read:plan_information:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "GetAccountPlanInformation",
@@ -1138,7 +1252,10 @@
             "in": "path",
             "description": "Unique identifier of the account.",
             "required": true,
-            "schema": { "type": "string", "example": "TQTvjT52Tmi_wrhASNNOEw" }
+            "schema": {
+              "type": "string",
+              "example": "TQTvjT52Tmi_wrhASNNOEw"
+            }
           }
         ],
         "responses": {
@@ -1181,7 +1298,11 @@
                           "type": "string",
                           "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                           "example": "active",
-                          "enum": ["active", "cancelled", "expired"]
+                          "enum": [
+                            "active",
+                            "cancelled",
+                            "expired"
+                          ]
                         },
                         "tollfree_countries": {
                           "type": "string",
@@ -1235,7 +1356,11 @@
                           "type": "string",
                           "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                           "example": "active",
-                          "enum": ["active", "cancelled", "expired"]
+                          "enum": [
+                            "active",
+                            "cancelled",
+                            "expired"
+                          ]
                         },
                         "type": {
                           "type": "string",
@@ -1270,7 +1395,11 @@
                             "type": "string",
                             "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                             "example": "active",
-                            "enum": ["active", "cancelled", "expired"]
+                            "enum": [
+                              "active",
+                              "cancelled",
+                              "expired"
+                            ]
                           },
                           "type": {
                             "type": "string",
@@ -1305,7 +1434,11 @@
                               "type": "string",
                               "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                               "example": "active",
-                              "enum": ["active", "cancelled", "expired"]
+                              "enum": [
+                                "active",
+                                "cancelled",
+                                "expired"
+                              ]
                             },
                             "type": {
                               "type": "string",
@@ -1340,7 +1473,11 @@
                                 "type": "string",
                                 "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                                 "example": "active",
-                                "enum": ["active", "cancelled", "expired"]
+                                "enum": [
+                                  "active",
+                                  "cancelled",
+                                  "expired"
+                                ]
                               },
                               "type": {
                                 "type": "string",
@@ -1375,7 +1512,11 @@
                                 "type": "string",
                                 "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                                 "example": "active",
-                                "enum": ["active", "cancelled", "expired"]
+                                "enum": [
+                                  "active",
+                                  "cancelled",
+                                  "expired"
+                                ]
                               },
                               "type": {
                                 "type": "string",
@@ -1413,7 +1554,11 @@
                               "type": "string",
                               "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                               "example": "active",
-                              "enum": ["active", "cancelled", "expired"]
+                              "enum": [
+                                "active",
+                                "cancelled",
+                                "expired"
+                              ]
                             },
                             "type": {
                               "type": "string",
@@ -1441,7 +1586,11 @@
                               "type": "string",
                               "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                               "example": "active",
-                              "enum": ["active", "cancelled", "expired"]
+                              "enum": [
+                                "active",
+                                "cancelled",
+                                "expired"
+                              ]
                             },
                             "type": {
                               "type": "string",
@@ -1473,7 +1622,11 @@
                               "type": "string",
                               "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                               "example": "active",
-                              "enum": ["active", "cancelled", "expired"]
+                              "enum": [
+                                "active",
+                                "cancelled",
+                                "expired"
+                              ]
                             },
                             "type": {
                               "type": "string",
@@ -1508,7 +1661,11 @@
                                 "type": "string",
                                 "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                                 "example": "active",
-                                "enum": ["active", "cancelled", "expired"]
+                                "enum": [
+                                  "active",
+                                  "cancelled",
+                                  "expired"
+                                ]
                               },
                               "type": {
                                 "type": "string",
@@ -1543,7 +1700,11 @@
                                 "type": "string",
                                 "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                                 "example": "active",
-                                "enum": ["active", "cancelled", "expired"]
+                                "enum": [
+                                  "active",
+                                  "cancelled",
+                                  "expired"
+                                ]
                               },
                               "type": {
                                 "type": "string",
@@ -1575,7 +1736,11 @@
                       "type": "string",
                       "description": "The account's Cloud Recording plan status. \n* `active` - Active. \n* `cancelled` - Cancelled. \n* `expired` - Expired.",
                       "example": "active",
-                      "enum": ["active", "cancelled", "expired"]
+                      "enum": [
+                        "active",
+                        "cancelled",
+                        "expired"
+                      ]
                     },
                     "plan_room_connector": {
                       "type": "object",
@@ -1599,7 +1764,11 @@
                           "type": "string",
                           "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                           "example": "active",
-                          "enum": ["active", "cancelled", "expired"]
+                          "enum": [
+                            "active",
+                            "cancelled",
+                            "expired"
+                          ]
                         },
                         "type": {
                           "type": "string",
@@ -1634,7 +1803,11 @@
                             "type": "string",
                             "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                             "example": "active",
-                            "enum": ["active", "cancelled", "expired"]
+                            "enum": [
+                              "active",
+                              "cancelled",
+                              "expired"
+                            ]
                           },
                           "type": {
                             "type": "string",
@@ -1669,7 +1842,11 @@
                             "type": "string",
                             "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                             "example": "active",
-                            "enum": ["active", "cancelled", "expired"]
+                            "enum": [
+                              "active",
+                              "cancelled",
+                              "expired"
+                            ]
                           },
                           "type": {
                             "type": "string",
@@ -1701,7 +1878,11 @@
                           "type": "string",
                           "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                           "example": "active",
-                          "enum": ["active", "cancelled", "expired"]
+                          "enum": [
+                            "active",
+                            "cancelled",
+                            "expired"
+                          ]
                         },
                         "type": {
                           "type": "string",
@@ -1744,7 +1925,11 @@
                           "type": "string",
                           "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                           "example": "active",
-                          "enum": ["active", "cancelled", "expired"]
+                          "enum": [
+                            "active",
+                            "cancelled",
+                            "expired"
+                          ]
                         },
                         "hosts": {
                           "type": "integer",
@@ -1776,7 +1961,11 @@
                           "type": "string",
                           "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                           "example": "active",
-                          "enum": ["active", "cancelled", "expired"]
+                          "enum": [
+                            "active",
+                            "cancelled",
+                            "expired"
+                          ]
                         },
                         "hosts": {
                           "type": "integer",
@@ -1840,7 +2029,11 @@
                           "type": "string",
                           "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                           "example": "active",
-                          "enum": ["active", "cancelled", "expired"]
+                          "enum": [
+                            "active",
+                            "cancelled",
+                            "expired"
+                          ]
                         },
                         "type": {
                           "type": "string",
@@ -1875,7 +2068,11 @@
                             "type": "string",
                             "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                             "example": "active",
-                            "enum": ["active", "cancelled", "expired"]
+                            "enum": [
+                              "active",
+                              "cancelled",
+                              "expired"
+                            ]
                           },
                           "type": {
                             "type": "string",
@@ -1910,7 +2107,11 @@
                             "type": "string",
                             "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                             "example": "active",
-                            "enum": ["active", "cancelled", "expired"]
+                            "enum": [
+                              "active",
+                              "cancelled",
+                              "expired"
+                            ]
                           },
                           "type": {
                             "type": "string",
@@ -1942,7 +2143,11 @@
                           "type": "string",
                           "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                           "example": "active",
-                          "enum": ["active", "cancelled", "expired"]
+                          "enum": [
+                            "active",
+                            "cancelled",
+                            "expired"
+                          ]
                         },
                         "type": {
                           "type": "string",
@@ -1977,7 +2182,11 @@
                             "type": "string",
                             "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                             "example": "active",
-                            "enum": ["active", "cancelled", "expired"]
+                            "enum": [
+                              "active",
+                              "cancelled",
+                              "expired"
+                            ]
                           },
                           "type": {
                             "type": "string",
@@ -2017,7 +2226,11 @@
                               "type": "string",
                               "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                               "example": "active",
-                              "enum": ["active", "cancelled", "expired"]
+                              "enum": [
+                                "active",
+                                "cancelled",
+                                "expired"
+                              ]
                             }
                           },
                           "description": "Information about the account's Zoom Node base plan."
@@ -2049,7 +2262,11 @@
                               "type": "string",
                               "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                               "example": "active",
-                              "enum": ["active", "cancelled", "expired"]
+                              "enum": [
+                                "active",
+                                "cancelled",
+                                "expired"
+                              ]
                             }
                           },
                           "description": "Information about the account's Zoom Node Phone Hybrid plan."
@@ -2081,7 +2298,11 @@
                               "type": "string",
                               "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                               "example": "active",
-                              "enum": ["active", "cancelled", "expired"]
+                              "enum": [
+                                "active",
+                                "cancelled",
+                                "expired"
+                              ]
                             }
                           },
                           "description": "Information about the account's Zoom Node Meeting Hybrid plan."
@@ -2113,7 +2334,11 @@
                               "type": "string",
                               "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                               "example": "active",
-                              "enum": ["active", "cancelled", "expired"]
+                              "enum": [
+                                "active",
+                                "cancelled",
+                                "expired"
+                              ]
                             }
                           },
                           "description": "Information about the account's Zoom Node Meeting Connector plan."
@@ -2145,7 +2370,11 @@
                               "type": "string",
                               "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                               "example": "active",
-                              "enum": ["active", "cancelled", "expired"]
+                              "enum": [
+                                "active",
+                                "cancelled",
+                                "expired"
+                              ]
                             }
                           },
                           "description": "The information about the account's Zoom Node Recording Connector plan."
@@ -2180,7 +2409,11 @@
                           "type": "string",
                           "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                           "example": "active",
-                          "enum": ["active", "cancelled", "expired"]
+                          "enum": [
+                            "active",
+                            "cancelled",
+                            "expired"
+                          ]
                         }
                       },
                       "description": "Information about the account's Zoom Mesh plan."
@@ -2212,7 +2445,11 @@
                           "type": "string",
                           "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                           "example": "active",
-                          "enum": ["active", "cancelled", "expired"]
+                          "enum": [
+                            "active",
+                            "cancelled",
+                            "expired"
+                          ]
                         }
                       },
                       "description": "Information about the account's Zoom workforce management."
@@ -2244,7 +2481,11 @@
                           "type": "string",
                           "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                           "example": "active",
-                          "enum": ["active", "cancelled", "expired"]
+                          "enum": [
+                            "active",
+                            "cancelled",
+                            "expired"
+                          ]
                         }
                       },
                       "description": "Information about the account's Audio Conferencing plan."
@@ -2274,7 +2515,11 @@
                             "type": "string",
                             "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                             "example": "active",
-                            "enum": ["active", "cancelled", "expired"]
+                            "enum": [
+                              "active",
+                              "cancelled",
+                              "expired"
+                            ]
                           },
                           "type": {
                             "type": "string",
@@ -2314,7 +2559,11 @@
                             "type": "string",
                             "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                             "example": "active",
-                            "enum": ["active", "cancelled", "expired"]
+                            "enum": [
+                              "active",
+                              "cancelled",
+                              "expired"
+                            ]
                           }
                         }
                       }
@@ -2349,7 +2598,11 @@
                             "type": "string",
                             "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                             "example": "active",
-                            "enum": ["active", "cancelled", "expired"]
+                            "enum": [
+                              "active",
+                              "cancelled",
+                              "expired"
+                            ]
                           }
                         }
                       }
@@ -2381,7 +2634,11 @@
                           "type": "string",
                           "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                           "example": "active",
-                          "enum": ["active", "cancelled", "expired"]
+                          "enum": [
+                            "active",
+                            "cancelled",
+                            "expired"
+                          ]
                         }
                       },
                       "description": "Information about the account's Zoom One for Education: Enterprise Higher Ed Student plan."
@@ -2413,7 +2670,11 @@
                           "type": "string",
                           "description": "The account plan's status. \n* `active` &mdash; Active. \n* `cancelled` &mdash; Cancelled. \n* `expired` &mdash; Expired.",
                           "example": "active",
-                          "enum": ["active", "cancelled", "expired"]
+                          "enum": [
+                            "active",
+                            "cancelled",
+                            "expired"
+                          ]
                         }
                       },
                       "description": "Information about the account's Zoom Visitor management plan."
@@ -2435,13 +2696,22 @@
         ],
         "x-extensions": {
           "x-fixVersion": "Web-Billing-2024-Jun-20",
-          "x-permissions": ["SubAccount:Edit", "SubAccount:Read"],
-          "x-macro-scopes": ["billing:master"],
-          "x-granular-scopes": ["billing:read:plan_information:master"]
+          "x-permissions": [
+            "SubAccount:Edit",
+            "SubAccount:Read"
+          ],
+          "x-macro-scopes": [
+            "billing:master"
+          ],
+          "x-granular-scopes": [
+            "billing:read:plan_information:master"
+          ]
         }
       },
       "post": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Subscribe an account to a plan",
         "description": "Lets master accounts subscribe to a Zoom plan's subaccount.  \n\n**Prerequisites:** \nThis API can only be used by master accounts that pay all billing charges of their associated Pro or higher subaccounts. \n\n Zoom only allows [approved partners](https://developers.zoom.us/docs/api/rest/master-account-apis/) to use master account APIs and manage subaccounts' billing information. Email the partner programs team at [**partner-success@zoom.us**](mailto:partner-success@zoom.us) for more details.  \n \n **Note:** To subscribe to an add-on plan **after** subscribing to a base plan, use the [**Subscribe account to an additional plan**](https://developers.zoom.us/docs/api/rest/reference/zoom-api/ma#operation/accountPlanAddonCreate) API.\n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:write:subscribe_plan:master`",
         "operationId": "SubscribeAccountToAPlan",
@@ -2451,7 +2721,10 @@
             "in": "path",
             "description": "Unique identifier of the account.",
             "required": true,
-            "schema": { "type": "string", "example": "TQTvjT52Tmi_wrhASNNOEw" }
+            "schema": {
+              "type": "string",
+              "example": "TQTvjT52Tmi_wrhASNNOEw"
+            }
           }
         ],
         "requestBody": {
@@ -2460,7 +2733,9 @@
               "schema": {
                 "allOf": [
                   {
-                    "required": ["contact"],
+                    "required": [
+                      "contact"
+                    ],
                     "type": "object",
                     "properties": {
                       "contact": {
@@ -2538,7 +2813,9 @@
                     }
                   },
                   {
-                    "required": ["plan_base"],
+                    "required": [
+                      "plan_base"
+                    ],
                     "type": "object",
                     "properties": {
                       "subscription_options": {
@@ -2569,7 +2846,17 @@
                             "description": "Contract term.",
                             "example": 36,
                             "enum": [
-                              1, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120
+                              1,
+                              12,
+                              24,
+                              36,
+                              48,
+                              60,
+                              72,
+                              84,
+                              96,
+                              108,
+                              120
                             ]
                           }
                         }
@@ -2606,7 +2893,9 @@
                         "description": "The information about the account's Audio Conferencing plan."
                       },
                       "plan_base": {
-                        "required": ["type"],
+                        "required": [
+                          "type"
+                        ],
                         "type": "object",
                         "properties": {
                           "hosts": {
@@ -3341,7 +3630,9 @@
                       "description": "The account's audio conferencing plan."
                     },
                     "plan_base": {
-                      "required": ["type"],
+                      "required": [
+                        "type"
+                      ],
                       "type": "object",
                       "properties": {
                         "hosts": {
@@ -3692,7 +3983,9 @@
                                 "description": "The account plan's number of hosts.",
                                 "example": 88
                               },
-                              "type": { "type": "string" },
+                              "type": {
+                                "type": "string"
+                              },
                               "partner_sku": {
                                 "type": "string",
                                 "description": "The partner SKU.",
@@ -4626,15 +4919,24 @@
         ],
         "x-extensions": {
           "x-fixVersion": "Web-Billing-2024-Jun-20",
-          "x-permissions": ["SubAccount:Edit", "SubAccount:Read"],
-          "x-macro-scopes": ["billing:master"],
-          "x-granular-scopes": ["billing:write:subscribe_plan:master"]
+          "x-permissions": [
+            "SubAccount:Edit",
+            "SubAccount:Read"
+          ],
+          "x-macro-scopes": [
+            "billing:master"
+          ],
+          "x-granular-scopes": [
+            "billing:write:subscribe_plan:master"
+          ]
         }
       }
     },
     "/accounts/{accountId}/plans/addons": {
       "put": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Update an account's additional plan",
         "description": "Update a subaccount's additional plan. \n\n This API can only be used by Master accounts that pay all billing charges of their associated Pro or higher subaccounts. \n Zoom only allows approved partners to use [Master APIs](https://marketplace.zoom.us/docs/api-reference/master-account-apis) and manage subaccounts' billing information. \n \n For more information, contact the partner programs team at [**partner-success@zoom.us**](mailto:partner-success@zoom.us). \n\n **Prerequisites:** \n* A Pro or a higher plan with the **Master account** option enabled. \n* The subaccount **must** be a paid account whose billing charges are paid by its Master account.\n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:update:additional_plans:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "UpdateAnAccount'sAdditionalPlan",
@@ -4644,14 +4946,20 @@
             "in": "path",
             "description": "Unique identifier of the account.",
             "required": true,
-            "schema": { "type": "string", "example": "TQTvjT52Tmi_wrhASNNOEw" }
+            "schema": {
+              "type": "string",
+              "example": "TQTvjT52Tmi_wrhASNNOEw"
+            }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": ["hosts", "type"],
+                "required": [
+                  "hosts",
+                  "type"
+                ],
                 "type": "object",
                 "properties": {
                   "hosts": {
@@ -4703,12 +5011,18 @@
         "x-extensions": {
           "x-fixVersion": "Web-2024-Mar",
           "x-permissions": [],
-          "x-macro-scopes": ["billing:master"],
-          "x-granular-scopes": ["billing:update:additional_plans:master"]
+          "x-macro-scopes": [
+            "billing:master"
+          ],
+          "x-granular-scopes": [
+            "billing:update:additional_plans:master"
+          ]
         }
       },
       "post": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Subscribe subaccount to an additional plan",
         "description": "Subscribe a subaccount to a Zoom add-on plan. \n\nOnly master accounts that pay all billing charges of their associated Pro or higher subaccounts can use this API.\n\nZoom only allows approved partners to use [master APIs](https://developers.zoom.us/docs/api/rest/master-account-apis/) and to manage billing information for subaccounts. Email the partner programs team at [**partner-success@zoom.us**](mailto:partner-success@zoom.us) for more details. \n\n **Prerequisites:** \n* A Pro or a higher plan with the **Master account** option enabled. \n* The subaccount **must** be a paid account whose billing charges are paid by its master account.\n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:write:subscribe_additional_plans:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "SubscribeAccountToAnAdditionalPlan",
@@ -4718,7 +5032,10 @@
             "in": "path",
             "description": "Unique identifier of the account.",
             "required": true,
-            "schema": { "type": "string", "example": "TQTvjT52Tmi_wrhASNNOEw" }
+            "schema": {
+              "type": "string",
+              "example": "TQTvjT52Tmi_wrhASNNOEw"
+            }
           }
         ],
         "requestBody": {
@@ -4727,7 +5044,10 @@
               "schema": {
                 "oneOf": [
                   {
-                    "required": ["hosts", "type"],
+                    "required": [
+                      "hosts",
+                      "type"
+                    ],
                     "type": "object",
                     "properties": {
                       "hosts": {
@@ -4754,7 +5074,10 @@
                     "description": "Information about the account's plan."
                   },
                   {
-                    "required": ["plan_details", "type"],
+                    "required": [
+                      "plan_details",
+                      "type"
+                    ],
                     "type": "object",
                     "properties": {
                       "plan_details": {
@@ -4996,7 +5319,9 @@
                       "description": "Information about the account's audio conferencing plan."
                     },
                     "plan_base": {
-                      "required": ["type"],
+                      "required": [
+                        "type"
+                      ],
                       "type": "object",
                       "properties": {
                         "hosts": {
@@ -5657,8 +5982,13 @@
         ],
         "x-extensions": {
           "x-fixVersion": "docfix-for-ZoomWorkplace",
-          "x-permissions": ["SubAccount:Edit", "SubAccount:Read"],
-          "x-macro-scopes": ["billing:master"],
+          "x-permissions": [
+            "SubAccount:Edit",
+            "SubAccount:Read"
+          ],
+          "x-macro-scopes": [
+            "billing:master"
+          ],
           "x-granular-scopes": [
             "billing:write:subscribe_additional_plans:master"
           ]
@@ -5667,7 +5997,9 @@
     },
     "/accounts/{accountId}/plans/addons/status": {
       "patch": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Cancel additional plans",
         "description": "Use this API to [cancel a sub account's add-on plan](https://support.zoom.us/hc/en-us/articles/203634215-How-Do-I-Cancel-My-Subscription-). The cancellation does not provide refund for the current subscription. The service remains active for the current session.\n\nThis API can only be used by master accounts that pay all billing charges of their associated Pro or higher sub accounts. Zoom allows only [approved partners](https://marketplace.zoom.us/docs/api-reference/master-account-apis) to use master APIs and manage sub accounts' subscriptions. Email the partner programs team at **partner-success@zoom.us** for more details.  \n   \n \n\n**Prerequisites:**  \n \n* Pro or a higher plan with master account option enabled.\n* The sub account must be a paid account.  \n \n\n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:update:cancel_additional_plans:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "CancelAdditionalPlans",
@@ -5677,7 +6009,10 @@
             "in": "path",
             "description": "Unique identifier of the account.",
             "required": true,
-            "schema": { "type": "string", "example": "TQTvjT52Tmi_wrhASNNOEw" }
+            "schema": {
+              "type": "string",
+              "example": "TQTvjT52Tmi_wrhASNNOEw"
+            }
           }
         ],
         "requestBody": {
@@ -5690,7 +6025,9 @@
                     "type": "string",
                     "description": "The action to take for the sub account: \n* `cancel` &mdash; Cancel the add-on plan.",
                     "example": "cancel",
-                    "enum": ["cancel"]
+                    "enum": [
+                      "cancel"
+                    ]
                   },
                   "comment": {
                     "type": "string",
@@ -5701,7 +6038,14 @@
                     "type": "integer",
                     "description": "The reason for the add-on plan's cancellation: \n* `1` &mdash; I am no longer working remote. \n* `2` &mdash; I had challenges getting the support I needed. \n* `3` &mdash; Features in the Basic Free Plan are sufficient. \n* `4` &mdash; The expense is too high. \n* `5` &mdash; I purchased the wrong product. \n* `6` &mdash; Paid purchase not needed right now, will repurchase in the future.",
                     "example": 6,
-                    "enum": [1, 2, 3, 4, 5, 6]
+                    "enum": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6
+                    ]
                   },
                   "type": {
                     "type": "string",
@@ -5737,14 +6081,20 @@
         "x-extensions": {
           "x-fixVersion": "Web-2024-Mar",
           "x-permissions": [],
-          "x-macro-scopes": ["billing:master"],
-          "x-granular-scopes": ["billing:update:cancel_additional_plans:master"]
+          "x-macro-scopes": [
+            "billing:master"
+          ],
+          "x-granular-scopes": [
+            "billing:update:cancel_additional_plans:master"
+          ]
         }
       }
     },
     "/accounts/{accountId}/plans/base": {
       "put": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Update a base plan",
         "description": "Update a subaccount's base plan. \n\nThis API can only be used by master accounts that pay all billing charges of their associated Pro or higher subaccounts. Zoom allows only [approved partners](https://marketplace.zoom.us/docs/api-reference/master-account-apis) to use master APIs and manage subaccounts' subscriptions. Email the partner programs team at **partner-success@zoom.us** for more details.\n\n**Prerequisites:**  \n \n* The subaccount must have a Pro or a higher plan.\n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:update:plan:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "UpdateABasePlan",
@@ -5754,14 +6104,19 @@
             "in": "path",
             "description": "Unique identifier of the account.",
             "required": true,
-            "schema": { "type": "string", "example": "TQTvjT52Tmi_wrhASNNOEw" }
+            "schema": {
+              "type": "string",
+              "example": "TQTvjT52Tmi_wrhASNNOEw"
+            }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": ["type"],
+                "required": [
+                  "type"
+                ],
                 "type": "object",
                 "properties": {
                   "hosts": {
@@ -5813,21 +6168,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["billing:master", "billing:update:plan:master"],
+            "openapi_oauth": [
+              "billing:master",
+              "billing:update:plan:master"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "docfix-for-ZoomWorkplace",
           "x-permissions": [],
-          "x-macro-scopes": ["billing:master"],
-          "x-granular-scopes": ["billing:update:plan:master"]
+          "x-macro-scopes": [
+            "billing:master"
+          ],
+          "x-granular-scopes": [
+            "billing:update:plan:master"
+          ]
         }
       }
     },
     "/accounts/{accountId}/plans/base/status": {
       "patch": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Cancel a base plan",
         "description": "[Cancel a base plan](https://support.zoom.us/hc/en-us/articles/203634215-How-Do-I-Cancel-My-Subscription-) for a sub account.\n\nThis API can only be used by master accounts that pay all billing charges of their associated Pro or higher sub accounts. Zoom allows only [approved partners](https://marketplace.zoom.us/docs/api-reference/master-account-apis) to use master APIs and manage sub accounts' subscriptions. Email the partner programs team at **partner-success@zoom.us** for more details.  \n   \n \n\n**Prerequisites:**  \n \n* The sub account must have a Pro or a higher plan.\n \n\n**Scopes:** `billing:master`\n\n**Granular Scopes:** `billing:update:cancel_plan:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "CancelABasePlan",
@@ -5837,14 +6201,19 @@
             "in": "path",
             "description": "Unique identifier of the account.",
             "required": true,
-            "schema": { "type": "string", "example": "TQTvjT52Tmi_wrhASNNOEw" }
+            "schema": {
+              "type": "string",
+              "example": "TQTvjT52Tmi_wrhASNNOEw"
+            }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": ["action"],
+                "required": [
+                  "action"
+                ],
                 "type": "object",
                 "properties": {
                   "action": {
@@ -5861,7 +6230,14 @@
                     "type": "integer",
                     "description": "The reason for the cancellation of plan. Reason options:  \n `1` - I am no longer working remote.  \n `2` - I had challenges getting the support I needed.  \n `3` - Features in the Basic Free Plan are sufficient.  \n `4` - The expense is too high.  \n `5` - I purchased the wrong product.  \n  `6` - Paid purchase not needed right now, will repurchase in the future.",
                     "example": 6,
-                    "enum": [1, 2, 3, 4, 5, 6]
+                    "enum": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6
+                    ]
                   }
                 }
               }
@@ -5891,14 +6267,20 @@
         "x-extensions": {
           "x-fixVersion": "Web-2024-Mar",
           "x-permissions": [],
-          "x-macro-scopes": ["billing:master"],
-          "x-granular-scopes": ["billing:update:cancel_plan:master"]
+          "x-macro-scopes": [
+            "billing:master"
+          ],
+          "x-granular-scopes": [
+            "billing:update:cancel_plan:master"
+          ]
         }
       }
     },
     "/accounts/{accountId}/plans/usage": {
       "get": {
-        "tags": ["Billing"],
+        "tags": [
+          "Billing"
+        ],
         "summary": "Get plan usage",
         "description": "Returns information on [plan usage](https://developers.zoom.us/docs/api/rest/other-references/plans/) for an account. This API supports standard and master accounts and subaccounts. \n\n* To get a standard account's plan usage, use the `account:read:admin` scope. Enter `me` as the value of the `accountId` path parameter. \n* To get a master account's plan usage, use use the `billing:master` scope. Enter  `me` as the value of the `accountId` path parameter. \n* To get a subaccount's plan usage, use use the `billing:master` scope. Enter the subaccount's actual account ID as the value of the `accountId` path parameter. \n\n**Prerequisite** \n* Master account on a paid Pro, Business or Enterprise plan.   \n\n\n**Scopes:** `billing:master`,`account:master`\n\n**Granular Scopes:** `billing:read:plan_usage:master`,`billing:read:plan_usage:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "GetPlanUsage",
@@ -5908,7 +6290,10 @@
             "in": "path",
             "description": "Unique identifier of the account.",
             "required": true,
-            "schema": { "type": "string", "example": "TQTvjT52Tmi_wrhASNNOEw" }
+            "schema": {
+              "type": "string",
+              "example": "TQTvjT52Tmi_wrhASNNOEw"
+            }
           }
         ],
         "responses": {
@@ -6661,8 +7046,14 @@
         ],
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jul",
-          "x-permissions": ["SubAccount:Edit", "SubAccount:Read"],
-          "x-macro-scopes": ["billing:master", "account:master"],
+          "x-permissions": [
+            "SubAccount:Edit",
+            "SubAccount:Read"
+          ],
+          "x-macro-scopes": [
+            "billing:master",
+            "account:master"
+          ],
           "x-granular-scopes": [
             "billing:read:plan_usage:master",
             "billing:read:plan_usage:admin"
@@ -6671,47 +7062,5 @@
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": {
-              "billing:master": "billing:master",
-              "billing:read:download_invoice_reports:master": "billing:read:download_invoice_reports:master",
-              "billing:delete:invoice_report:master": "billing:delete:invoice_report:master",
-              "account:master": "account:master",
-              "billing:read:list_upcoming_renewal_accounts:master": "billing:read:list_upcoming_renewal_accounts:master",
-              "billing:read:download_invoice_file:master": "billing:read:download_invoice_file:master",
-              "billing:update:billing_information:master": "billing:update:billing_information:master",
-              "billing:read:billing_information:master": "billing:read:billing_information:master",
-              "billing:read:billing_information:admin": "billing:read:billing_information:admin",
-              "billing:read:list_invoices:master": "billing:read:list_invoices:master",
-              "billing:read:list_invoices:admin": "billing:read:list_invoices:admin",
-              "billing:read:invoice_details:master": "billing:read:invoice_details:master",
-              "billing:read:invoice_details:admin": "billing:read:invoice_details:admin",
-              "billing:read:plan_information:master": "billing:read:plan_information:master",
-              "billing:write:subscribe_plan:master": "billing:write:subscribe_plan:master",
-              "billing:update:additional_plans:master": "billing:update:additional_plans:master",
-              "billing:write:subscribe_additional_plans:master": "billing:write:subscribe_additional_plans:master",
-              "billing:update:cancel_additional_plans:master": "billing:update:cancel_additional_plans:master",
-              "billing:update:plan:master": "billing:update:plan:master",
-              "billing:update:cancel_plan:master": "billing:update:cancel_plan:master",
-              "billing:read:plan_usage:master": "billing:read:plan_usage:master",
-              "billing:read:plan_usage:admin": "billing:read:plan_usage:admin"
-            }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

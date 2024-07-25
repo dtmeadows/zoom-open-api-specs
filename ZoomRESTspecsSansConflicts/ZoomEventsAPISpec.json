@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us/v2"
+    }
+  ],
   "paths": {
     "/zoom_events/events/{eventId}/attendee_action": {
       "get": {
-        "tags": ["Attendee Actions"],
+        "tags": [
+          "Attendee Actions"
+        ],
         "summary": "List Event Attendee Actions",
         "description": "Retrieves the attendee actions performed by host for an event.\n\n**Scopes:** `zoom_events_attendee_actions:read`,`zoom_events_attendee_actions:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_attendee_actions`,`zoom_events:read:list_attendee_actions:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "ListEventAttendeeActions",
@@ -28,14 +34,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "email",
             "in": "query",
             "description": "The email of attendee.\n",
             "required": false,
-            "schema": { "type": "string", "example": "test@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "test@example.com"
+            }
           },
           {
             "name": "next_page_token",
@@ -98,7 +110,9 @@
                             "type": "string",
                             "description": "The action name.",
                             "example": "Check-in",
-                            "enum": ["check-in"]
+                            "enum": [
+                              "check-in"
+                            ]
                           }
                         },
                         "description": "The attendee and the action performed."
@@ -138,7 +152,9 @@
         }
       },
       "patch": {
-        "tags": ["Attendee Actions"],
+        "tags": [
+          "Attendee Actions"
+        ],
         "summary": "Update Event Attendee Actions",
         "description": "Retrieves attendee onsite action for an event. You can perform actions such as onsite check-in for a single attendee or up to 300 attendees in a batch operation. In the case of a batch operation, the API response can be partial success.  Any errors are returned in the **errors** object.\n\n**Scopes:** `zoom_events_attendee_actions:write`,`zoom_events_attendee_actions:write:admin`\n\n**Granular Scopes:** `zoom_events:update:batch_attendee_actions`,`zoom_events:update:batch_attendee_actions:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "UpdateEventAttendeeActions",
@@ -148,7 +164,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "requestBody": {
@@ -160,7 +179,10 @@
                   "attendees": {
                     "type": "array",
                     "items": {
-                      "required": ["action", "email"],
+                      "required": [
+                        "action",
+                        "email"
+                      ],
                       "type": "object",
                       "properties": {
                         "email": {
@@ -172,7 +194,9 @@
                           "type": "string",
                           "description": "The action name.",
                           "example": "check-in",
-                          "enum": ["check-in"]
+                          "enum": [
+                            "check-in"
+                          ]
                         }
                       },
                       "description": "The attendee and the action performed."
@@ -252,7 +276,9 @@
     },
     "/zoom_events/events/{eventId}/sessions/{sessionId}/attendee_action": {
       "get": {
-        "tags": ["Attendee Actions"],
+        "tags": [
+          "Attendee Actions"
+        ],
         "summary": "List Session Attendee Actions",
         "description": "Retrieves the attendee actions performed by host for an event session.\n\n**Scopes:** `zoom_events_attendee_actions:read`,`zoom_events_attendee_actions:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_session_attendee_actions`,`zoom_events:read:list_session_attendee_actions:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "ListSessionAttendeeActions",
@@ -262,21 +288,30 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "sessionId",
             "in": "path",
             "description": "The ID of the session.",
             "required": true,
-            "schema": { "type": "string", "example": "4uzfv3JwTeyR5QpC3PXwMg" }
+            "schema": {
+              "type": "string",
+              "example": "4uzfv3JwTeyR5QpC3PXwMg"
+            }
           },
           {
             "name": "email",
             "in": "query",
             "description": "The email of attendee.\n",
             "required": false,
-            "schema": { "type": "string", "example": "test@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "test@example.com"
+            }
           },
           {
             "name": "next_page_token",
@@ -339,7 +374,9 @@
                             "type": "string",
                             "description": "The action name.",
                             "example": "Check-in",
-                            "enum": ["check-in"]
+                            "enum": [
+                              "check-in"
+                            ]
                           }
                         },
                         "description": "The attendee and the action performed."
@@ -379,7 +416,9 @@
         }
       },
       "patch": {
-        "tags": ["Attendee Actions"],
+        "tags": [
+          "Attendee Actions"
+        ],
         "summary": "Update Session Attendee Actions",
         "description": "Use this API to perform attendee onsite action for an event session. You can perform actions such as onsite check-in for a single attendee or up to 300 attendees in a batch operation.In the case of a batch operation, the API response can be partial success.  Any errors are returned in the **errors** object.\n\n**Scopes:** `zoom_events_attendee_actions:write`,`zoom_events_attendee_actions:write:admin`\n\n**Granular Scopes:** `zoom_events:update:batch_session_attendee_actions`,`zoom_events:update:batch_session_attendee_actions:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "UpdateSessionAttendeeActions",
@@ -389,14 +428,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "sessionId",
             "in": "path",
             "description": "The ID of the session.",
             "required": true,
-            "schema": { "type": "string", "example": "4uzfv3JwTeyR5QpC3PXwMg" }
+            "schema": {
+              "type": "string",
+              "example": "4uzfv3JwTeyR5QpC3PXwMg"
+            }
           }
         ],
         "requestBody": {
@@ -408,7 +453,10 @@
                   "attendees": {
                     "type": "array",
                     "items": {
-                      "required": ["action", "email"],
+                      "required": [
+                        "action",
+                        "email"
+                      ],
                       "type": "object",
                       "properties": {
                         "email": {
@@ -420,7 +468,9 @@
                           "type": "string",
                           "description": "The action name.",
                           "example": "Check-in",
-                          "enum": ["check-in"]
+                          "enum": [
+                            "check-in"
+                          ]
                         }
                       },
                       "description": "The attendee and the action performed."
@@ -500,7 +550,9 @@
     },
     "/zoom_events/events/{eventId}/coeditors": {
       "get": {
-        "tags": ["Co Editors"],
+        "tags": [
+          "Co Editors"
+        ],
         "summary": "  List coeditors",
         "description": "Retrieves the list of co-editors and their edit permissions for an event.   Co-editors can make changes to the event details. Co-editors have view permission to all sections of the event.\n\n**Scopes:** `zoom_events_coeditors:read`,`zoom_events_coeditors:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_coeditors`,`zoom_events:read:list_coeditors:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getCoEditors",
@@ -510,7 +562,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -601,7 +656,9 @@
     },
     "/zoom_events/events/{eventId}/access_links": {
       "get": {
-        "tags": ["Event Access"],
+        "tags": [
+          "Event Access"
+        ],
         "summary": "List event access links",
         "description": "Retrieves a list of all the event's access links associated with the event.\n\n**Scopes:** `zoom_events_access_links:read:admin`,`zoom_events_access_links:read`\n\n**Granular Scopes:** `zoom_events:read:list_access_links`,`zoom_events:read:list_access_links:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getEventAccessLinks",
@@ -611,7 +668,10 @@
             "in": "path",
             "description": "The event ID.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -644,7 +704,10 @@
                             "type": "string",
                             "description": "The type of access link of the event. \n * `registration` - Attendees will be required to authenticate with the email that was used at registration when joining. \n * `group-join` - The attendee group specified by the chosen authentication will join without registration.",
                             "example": "registration",
-                            "enum": ["registration", "group-join"]
+                            "enum": [
+                              "registration",
+                              "group-join"
+                            ]
                           },
                           "is_default": {
                             "type": "boolean",
@@ -671,7 +734,10 @@
                           "allow_domain_list": {
                             "type": "array",
                             "description": "The registration restricted to these specific domains. This array returns a maximum of 50 domains.",
-                            "items": { "type": "string", "example": "zoom.us" }
+                            "items": {
+                              "type": "string",
+                              "example": "zoom.us"
+                            }
                           },
                           "email_restrict_list": {
                             "uniqueItems": true,
@@ -742,7 +808,9 @@
         }
       },
       "post": {
-        "tags": ["Event Access"],
+        "tags": [
+          "Event Access"
+        ],
         "summary": "Create event access link",
         "description": "Create an access link for an event.\n\n**Scopes:** `zoom_events_access_links:write`,`zoom_events_access_links:write:admin`\n\n**Granular Scopes:** `zoom_events:write:access_links`,`zoom_events:write:access_links:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "createEventAccessLink",
@@ -752,7 +820,10 @@
             "in": "path",
             "description": "The event ID.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "requestBody": {
@@ -760,7 +831,11 @@
             "application/json": {
               "schema": {
                 "title": "Event Access",
-                "required": ["authentication_method", "name", "type"],
+                "required": [
+                  "authentication_method",
+                  "name",
+                  "type"
+                ],
                 "type": "object",
                 "properties": {
                   "name": {
@@ -772,7 +847,10 @@
                     "type": "string",
                     "description": "The type of access link of the event. \n * `registration` - Attendees will be required to authenticate with the email that was used at registration when joining. \n * `group-join` - The attendee group specified by the chosen authentication will join without registration.",
                     "example": "registration",
-                    "enum": ["registration", "group-join"]
+                    "enum": [
+                      "registration",
+                      "group-join"
+                    ]
                   },
                   "is_default": {
                     "type": "boolean",
@@ -795,7 +873,10 @@
                     "maxItems": 50,
                     "type": "array",
                     "description": "The registration restricted to these specific domains. This array returns a maximum of 50 domains.",
-                    "items": { "type": "string", "example": "zoom.us" }
+                    "items": {
+                      "type": "string",
+                      "example": "zoom.us"
+                    }
                   },
                   "email_restrict_list": {
                     "maxItems": 50000,
@@ -856,7 +937,10 @@
                       "type": "string",
                       "description": "The type of access link of the event. \n * `registration` - Attendees will be required to authenticate with the email that was used at registration when joining. \n * `group-join` - The attendee group specified by the chosen authentication will join without registration.",
                       "example": "registration",
-                      "enum": ["registration", "group-join"]
+                      "enum": [
+                        "registration",
+                        "group-join"
+                      ]
                     },
                     "is_default": {
                       "type": "boolean",
@@ -878,7 +962,10 @@
                     "allow_domain_list": {
                       "type": "array",
                       "description": "The registration restricted to these specific domains. This array returns a maximum of 50 domains.",
-                      "items": { "type": "string", "example": "zoom.us" }
+                      "items": {
+                        "type": "string",
+                        "example": "zoom.us"
+                      }
                     },
                     "email_restrict_list": {
                       "uniqueItems": true,
@@ -950,7 +1037,9 @@
     },
     "/zoom_events/events/{eventId}/access_links/{accessLinkId}": {
       "get": {
-        "tags": ["Event Access"],
+        "tags": [
+          "Event Access"
+        ],
         "summary": "Get event access link",
         "description": "Get event access link information.\n\n**Scopes:** `zoom_events_access_links:read`,`zoom_events_access_links:read:admin`\n\n**Granular Scopes:** `zoom_events:read:access_links`,`zoom_events:read:access_links:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "GetEventAccessLink",
@@ -960,14 +1049,20 @@
             "in": "path",
             "description": "The event ID.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "accessLinkId",
             "in": "path",
             "description": "The event access link ID.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -993,7 +1088,10 @@
                       "type": "string",
                       "description": "The type of access link of the event. \n * `registration` - Attendees will be required to authenticate with the email that was used at registration when joining. \n * `group-join` - The attendee group specified by the chosen authentication will join without registration.",
                       "example": "registration",
-                      "enum": ["registration", "group-join"]
+                      "enum": [
+                        "registration",
+                        "group-join"
+                      ]
                     },
                     "is_default": {
                       "type": "boolean",
@@ -1015,7 +1113,10 @@
                     "allow_domain_list": {
                       "type": "array",
                       "description": "The registration restricted to these specific domains. This array returns a maximum of 50 domains.",
-                      "items": { "type": "string", "example": "zoom.us" }
+                      "items": {
+                        "type": "string",
+                        "example": "zoom.us"
+                      }
                     },
                     "email_restrict_list": {
                       "uniqueItems": true,
@@ -1082,7 +1183,9 @@
         }
       },
       "delete": {
-        "tags": ["Event Access"],
+        "tags": [
+          "Event Access"
+        ],
         "summary": "Delete event access link",
         "description": "Deletes an event access link.\n\n**Scopes:** `zoom_events_access_links:write`,`zoom_events_access_links:write:admin`\n\n**Granular Scopes:** `zoom_events:delete:access_links`,`zoom_events:delete:access_links:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "deleteEventAccessLink",
@@ -1092,14 +1195,20 @@
             "in": "path",
             "description": "The event ID.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "accessLinkId",
             "in": "path",
             "description": "The event access link ID.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -1135,7 +1244,9 @@
         }
       },
       "patch": {
-        "tags": ["Event Access"],
+        "tags": [
+          "Event Access"
+        ],
         "summary": "Update Event Access",
         "description": "Updates the event access for an event ID.\n\n**Scopes:** `zoom_events_access_links:write`,`zoom_events_access_links:write:admin`\n\n**Granular Scopes:** `zoom_events:update:access_links`,`zoom_events:update:access_links:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "updateEventAccess",
@@ -1145,14 +1256,20 @@
             "in": "path",
             "description": "The event ID.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "accessLinkId",
             "in": "path",
             "description": "The event access link ID.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "requestBody": {
@@ -1267,7 +1384,9 @@
     },
     "/zoom_events/events": {
       "get": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "summary": "List events",
         "description": "Retrieves all events associated with the user.\n\n\n\n**Scopes:** `zoom_events_basic:read`,`zoom_events_basic:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_events`,`zoom_events:read:list_events:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getEvents",
@@ -1281,7 +1400,10 @@
               "type": "string",
               "example": "host",
               "default": "attendee",
-              "enum": ["host", "attendee"]
+              "enum": [
+                "host",
+                "attendee"
+              ]
             }
           },
           {
@@ -1293,7 +1415,12 @@
               "type": "string",
               "example": "upcoming",
               "default": "upcoming",
-              "enum": ["upcoming", "past", "draft", "cancelled"]
+              "enum": [
+                "upcoming",
+                "past",
+                "draft",
+                "cancelled"
+              ]
             }
           },
           {
@@ -1375,7 +1502,11 @@
                               "type": {
                                 "type": "integer",
                                 "description": "The type of recurring session: \n* `1` — Daily. \n* `2` — Weekly. \n* `3` — Monthly.",
-                                "enum": [1, 2, 3]
+                                "enum": [
+                                  1,
+                                  2,
+                                  3
+                                ]
                               },
                               "repeat_interval": {
                                 "type": "integer",
@@ -1394,7 +1525,15 @@
                               "monthly_week_day": {
                                 "type": "integer",
                                 "description": "The day of the week on which the recurring monthly session is scheduled: \n* `1` — Sunday \n* `2` — Monday \n* `3` — Tuesday \n* `4` — Wednesday \n* `5` — Thursday \n* `6` — Friday \n* `7` — Saturday",
-                                "enum": [1, 2, 3, 4, 5, 6, 7]
+                                "enum": [
+                                  1,
+                                  2,
+                                  3,
+                                  4,
+                                  5,
+                                  6,
+                                  7
+                                ]
                               },
                               "end_times": {
                                 "type": "integer",
@@ -1408,7 +1547,13 @@
                               "monthly_week": {
                                 "type": "integer",
                                 "description": "The week of the month on which a recurring session occurs: \n* `-1` — The last week of the month. \n* `1` — The first week. \n* `2` — The second week. \n* `3` — The third week. \n* `4` — The fourth week.",
-                                "enum": [-1, 1, 2, 3, 4]
+                                "enum": [
+                                  -1,
+                                  1,
+                                  2,
+                                  3,
+                                  4
+                                ]
                               },
                               "duration": {
                                 "type": "integer",
@@ -1523,7 +1668,11 @@
                             "type": "string",
                             "description": "The type of attendee experience for the event. \n * `virtual`  virtual attendees only \n * `in-person` in-person attendees only \n * `hybrid`  both in-person and virtual attendees",
                             "example": "hybrid",
-                            "enum": ["virtual", "in-person", "hybrid"]
+                            "enum": [
+                              "virtual",
+                              "in-person",
+                              "hybrid"
+                            ]
                           },
                           "physical_location": {
                             "type": "string",
@@ -1575,7 +1724,9 @@
         }
       },
       "post": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "summary": "Create an event",
         "description": "Creates an event.\n\n**Scopes:** `zoom_events_basic:write`,`zoom_events_basic:write:admin`\n\n**Granular Scopes:** `zoom_events:write:event`,`zoom_events:write:event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "createEvent",
@@ -1614,7 +1765,11 @@
                     "type": "string",
                     "description": "The event types as enum:\n * `CONFERENCE` - Multi session events.\n * `SIMPLE_EVENT` - Single session event.\n * `RECURRING` - Recurring sessions event.\n",
                     "example": "CONFERENCE",
-                    "enum": ["SIMPLE_EVENT", "CONFERENCE", "RECURRING"]
+                    "enum": [
+                      "SIMPLE_EVENT",
+                      "CONFERENCE",
+                      "RECURRING"
+                    ]
                   },
                   "recurrence": {
                     "type": "object",
@@ -1623,7 +1778,11 @@
                         "type": "integer",
                         "description": "The type of recurring session: \n* `1` — Daily. \n* `2` — Weekly. \n* `3` — Monthly.",
                         "example": 1,
-                        "enum": [1, 2, 3]
+                        "enum": [
+                          1,
+                          2,
+                          3
+                        ]
                       },
                       "repeat_interval": {
                         "type": "integer",
@@ -1646,7 +1805,15 @@
                         "type": "integer",
                         "description": "The day of the week on which the recurring monthly session is scheduled: \n* `1` — Sunday \n* `2` — Monday \n* `3` — Tuesday \n* `4` — Wednesday \n* `5` — Thursday \n* `6` — Friday \n* `7` — Saturday",
                         "example": 1,
-                        "enum": [1, 2, 3, 4, 5, 6, 7]
+                        "enum": [
+                          1,
+                          2,
+                          3,
+                          4,
+                          5,
+                          6,
+                          7
+                        ]
                       },
                       "end_times": {
                         "type": "integer",
@@ -1663,7 +1830,13 @@
                         "type": "integer",
                         "description": "The week of the month on which a recurring session occurs: \n* `-1` — The last week of the month. \n* `1` — The first week. \n* `2` — The second week. \n* `3` — The third week. \n* `4` — The fourth week.",
                         "example": 1,
-                        "enum": [-1, 1, 2, 3, 4]
+                        "enum": [
+                          -1,
+                          1,
+                          2,
+                          3,
+                          4
+                        ]
                       },
                       "duration": {
                         "type": "integer",
@@ -1686,7 +1859,10 @@
                   "categories": {
                     "type": "array",
                     "description": "The category of the event.\n* Education & Family.\n* Business & Networking.\n* Entertainment & Visual Arts.\n* Food & Drinks. \n* Fitness & Health. \n* Home & Lifestyle \n* Community & Spirituality. \n* Other",
-                    "items": { "type": "string", "example": "Food & Drink" },
+                    "items": {
+                      "type": "string",
+                      "example": "Food & Drink"
+                    },
                     "enum": [
                       "Education & Family",
                       "Business & Networking",
@@ -1701,13 +1877,19 @@
                   "tags": {
                     "type": "array",
                     "description": "The tags for the event.",
-                    "items": { "type": "string", "example": "Event tag1" }
+                    "items": {
+                      "type": "string",
+                      "example": "Event tag1"
+                    }
                   },
                   "calendar": {
                     "type": "array",
                     "description": "The start and end time of the event in UTC. The format should be `yyyy-MM-dd`T`HH:mm:ssZ`.",
                     "items": {
-                      "required": ["end_time", "start_time"],
+                      "required": [
+                        "end_time",
+                        "start_time"
+                      ],
                       "type": "object",
                       "properties": {
                         "start_time": {
@@ -1775,7 +1957,11 @@
                     "type": "string",
                     "description": "The type of attendee experience for the event. \n * `VIRTUAL` - virtual attendees only. \n * `IN-PERSON` - in-person attendees only.\n * `HYBRID` - both in-person and virtual attendees.",
                     "example": "hybrid",
-                    "enum": ["virtual", "in-person", "hybrid"]
+                    "enum": [
+                      "virtual",
+                      "in-person",
+                      "hybrid"
+                    ]
                   },
                   "physical_location": {
                     "type": "string",
@@ -1833,7 +2019,11 @@
                         "type": {
                           "type": "integer",
                           "description": "The type of recurring session: \n* `1` — Daily. \n* `2` — Weekly. \n* `3` — Monthly.",
-                          "enum": [1, 2, 3]
+                          "enum": [
+                            1,
+                            2,
+                            3
+                          ]
                         },
                         "repeat_interval": {
                           "type": "integer",
@@ -1852,7 +2042,15 @@
                         "monthly_week_day": {
                           "type": "integer",
                           "description": "The day of the week on which the recurring monthly session is scheduled: \n* `1` — Sunday \n* `2` — Monday \n* `3` — Tuesday \n* `4` — Wednesday \n* `5` — Thursday \n* `6` — Friday \n* `7` — Saturday",
-                          "enum": [1, 2, 3, 4, 5, 6, 7]
+                          "enum": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7
+                          ]
                         },
                         "end_times": {
                           "type": "integer",
@@ -1866,7 +2064,13 @@
                         "monthly_week": {
                           "type": "integer",
                           "description": "The week of the month on which a recurring session occurs: \n* `-1` — The last week of the month. \n* `1` — The first week. \n* `2` — The second week. \n* `3` — The third week. \n* `4` — The fourth week.",
-                          "enum": [-1, 1, 2, 3, 4]
+                          "enum": [
+                            -1,
+                            1,
+                            2,
+                            3,
+                            4
+                          ]
                         },
                         "duration": {
                           "type": "integer",
@@ -1896,7 +2100,10 @@
                     "tags": {
                       "type": "array",
                       "description": "The tags for the event.",
-                      "items": { "type": "string", "example": "Event tag1" }
+                      "items": {
+                        "type": "string",
+                        "example": "Event tag1"
+                      }
                     },
                     "calendar": {
                       "type": "array",
@@ -1973,7 +2180,11 @@
                       "type": "string",
                       "description": "The type of attendee experience for the event. \n * `VIRTUAL` - virtual attendees only. \n * `IN-PERSON` - in-person attendees only. \n * `HYBRID` - both in-person and virtual attendees.",
                       "example": "hybrid",
-                      "enum": ["virtual", "in-person", "hybrid"]
+                      "enum": [
+                        "virtual",
+                        "in-person",
+                        "hybrid"
+                      ]
                     },
                     "physical_location": {
                       "type": "string",
@@ -2025,7 +2236,9 @@
     },
     "/zoom_events/events/{eventId}": {
       "get": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "summary": "Get an event",
         "description": "Returns information on a specified event.\n\n \n\n**Scopes:** `zoom_events_basic:read`,`zoom_events_basic:read:admin`\n\n**Granular Scopes:** `zoom_events:read:event`,`zoom_events:read:event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getEventInfo",
@@ -2035,7 +2248,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -2078,7 +2294,11 @@
                         "type": {
                           "type": "integer",
                           "description": "The type of recurring session: \n* `1` — Daily. \n* `2` — Weekly. \n* `3` — Monthly.",
-                          "enum": [1, 2, 3]
+                          "enum": [
+                            1,
+                            2,
+                            3
+                          ]
                         },
                         "repeat_interval": {
                           "type": "integer",
@@ -2097,7 +2317,15 @@
                         "monthly_week_day": {
                           "type": "integer",
                           "description": "The day of the week on which the recurring monthly session is scheduled: \n* `1` — Sunday \n* `2` — Monday \n* `3` — Tuesday \n* `4` — Wednesday \n* `5` — Thursday \n* `6` — Friday \n* `7` — Saturday",
-                          "enum": [1, 2, 3, 4, 5, 6, 7]
+                          "enum": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7
+                          ]
                         },
                         "end_times": {
                           "type": "integer",
@@ -2111,7 +2339,13 @@
                         "monthly_week": {
                           "type": "integer",
                           "description": "The week of the month on which a recurring session occurs: \n* `-1` — The last week of the month. \n* `1` — The first week. \n* `2` — The second week. \n* `3` — The third week. \n* `4` — The fourth week.",
-                          "enum": [-1, 1, 2, 3, 4]
+                          "enum": [
+                            -1,
+                            1,
+                            2,
+                            3,
+                            4
+                          ]
                         },
                         "duration": {
                           "type": "integer",
@@ -2141,7 +2375,10 @@
                     "tags": {
                       "type": "array",
                       "description": "The tags for the event.",
-                      "items": { "type": "string", "example": "Event tag1" }
+                      "items": {
+                        "type": "string",
+                        "example": "Event tag1"
+                      }
                     },
                     "calendar": {
                       "type": "array",
@@ -2223,7 +2460,11 @@
                       "type": "string",
                       "description": "The type of attendee experience for the event. \n * `VIRTUAL` - virtual attendees only. \n * `IN-PERSON` - in-person attendees only. \n * `HYBRID` - both in-person and virtual attendees.",
                       "example": "hybrid",
-                      "enum": ["virtual", "in-person", "hybrid"]
+                      "enum": [
+                        "virtual",
+                        "in-person",
+                        "hybrid"
+                      ]
                     },
                     "physical_location": {
                       "type": "string",
@@ -2270,7 +2511,9 @@
         }
       },
       "delete": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "summary": "Delete an event",
         "description": "Delete a draft event.\n\n**Scopes:** `zoom_events_basic:write`,`zoom_events_basic:write:admin`\n\n**Granular Scopes:** `zoom_events:delete:event`,`zoom_events:delete:event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "deleteEvent",
@@ -2280,7 +2523,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -2316,7 +2562,9 @@
         }
       },
       "patch": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "summary": "Update an event",
         "description": "Updates an event.\n\n**Scopes:** `zoom_events_basic:write`,`zoom_events_basic:write:admin`\n\n**Granular Scopes:** `zoom_events:update:event`,`zoom_events:update:event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "updateEvent",
@@ -2326,7 +2574,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "requestBody": {
@@ -2355,7 +2606,11 @@
                     "type": "string",
                     "description": "The event types as enum:\n * `CONFERENCE` &mdash; Multi session events.\n * `SIMPLE_EVENT` &mdash; Single session event.\n * `RECURRING` &mdash; Recurring Sessions event.\n",
                     "example": "CONFERENCE",
-                    "enum": ["SIMPLE_EVENT", "CONFERENCE", "RECURRING"]
+                    "enum": [
+                      "SIMPLE_EVENT",
+                      "CONFERENCE",
+                      "RECURRING"
+                    ]
                   },
                   "recurrence": {
                     "type": "object",
@@ -2364,7 +2619,11 @@
                         "type": "integer",
                         "description": "The type of recurring session: \n* `1` — Daily. \n* `2` — Weekly. \n* `3` — Monthly.",
                         "example": 3,
-                        "enum": [1, 2, 3]
+                        "enum": [
+                          1,
+                          2,
+                          3
+                        ]
                       },
                       "repeat_interval": {
                         "type": "integer",
@@ -2386,7 +2645,15 @@
                       "monthly_week_day": {
                         "type": "integer",
                         "description": "The day of the week on which the recurring monthly session is scheduled: \n* `1` — Sunday \n* `2` — Monday \n* `3` — Tuesday \n* `4` — Wednesday \n* `5` — Thursday \n* `6` — Friday \n* `7` — Saturday",
-                        "enum": [1, 2, 3, 4, 5, 6, 7]
+                        "enum": [
+                          1,
+                          2,
+                          3,
+                          4,
+                          5,
+                          6,
+                          7
+                        ]
                       },
                       "end_times": {
                         "type": "integer",
@@ -2403,7 +2670,13 @@
                         "type": "integer",
                         "description": "The week of the month on which a recurring session occurs: \n* `-1` — The last week of the month. \n* `1` — The first week. \n* `2` — The second week. \n* `3` — The third week. \n* `4` — The fourth week.",
                         "example": 3,
-                        "enum": [-1, 1, 2, 3, 4]
+                        "enum": [
+                          -1,
+                          1,
+                          2,
+                          3,
+                          4
+                        ]
                       },
                       "duration": {
                         "type": "integer",
@@ -2427,12 +2700,18 @@
                   "categories": {
                     "type": "array",
                     "description": "The category of the event.\n\n**Example:**\n* Education and Family.\n* Business and Networking.\n* Entertainment and Visual Arts.\n* Food and Drinks.\n",
-                    "items": { "type": "string", "example": "Food and Drinks" }
+                    "items": {
+                      "type": "string",
+                      "example": "Food and Drinks"
+                    }
                   },
                   "tags": {
                     "type": "array",
                     "description": "The tags for the event.",
-                    "items": { "type": "string", "example": "Event tag1" }
+                    "items": {
+                      "type": "string",
+                      "example": "Event tag1"
+                    }
                   },
                   "calendar": {
                     "type": "array",
@@ -2503,7 +2782,11 @@
                     "type": "string",
                     "description": "The type of attendee experience for the event:\n * `VIRTUAL` &mdash; virtual attendees only. \n * `IN-PERSON` &mdash; in-person attendees only. \n * `HYBRID` &mdash; both in-person and virtual attendees.",
                     "example": "hybrid",
-                    "enum": ["virtual", "in-person", "hybrid"]
+                    "enum": [
+                      "virtual",
+                      "in-person",
+                      "hybrid"
+                    ]
                   },
                   "physical_location": {
                     "type": "string",
@@ -2559,7 +2842,9 @@
     },
     "/zoom_events/events/{eventId}/event_actions": {
       "post": {
-        "tags": ["Events"],
+        "tags": [
+          "Events"
+        ],
         "summary": "Event Actions",
         "description": "Updates the event actions that the host performs for an event.\n\n**Scopes:** `zoom_events_basic:write`,`zoom_events_basic:write:admin`\n\n**Granular Scopes:** `zoom_events:write:event`,`zoom_events:write:event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "EventActions",
@@ -2569,7 +2854,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "requestBody": {
@@ -2582,7 +2870,11 @@
                     "type": "string",
                     "description": "The host actions for the event. \n* `Publish` &mdash; Publish the event.\n* `Duplicate` &mdash; Duplicate existing event.\n* `Cancel` &mdash; Cancel the published  event.",
                     "example": "publish",
-                    "enum": ["publish", "duplicate", "cancel"]
+                    "enum": [
+                      "publish",
+                      "duplicate",
+                      "cancel"
+                    ]
                   },
                   "cancel_message": {
                     "type": "string",
@@ -2628,7 +2920,11 @@
                       "type": "string",
                       "description": "Status of the event operation. \n* `Duplicated`  &mdash; Duplicated the event from source event.\n* `Published` &mdash; Event successfully published.\n* `Cancelled` &mdash; Event successfully cancelled.",
                       "example": "Duplicated",
-                      "enum": ["duplicated", "published", "cancelled"]
+                      "enum": [
+                        "duplicated",
+                        "published",
+                        "cancelled"
+                      ]
                     },
                     "event_id": {
                       "type": "string",
@@ -2674,7 +2970,9 @@
     },
     "/zoom_events/events/{eventId}/exhibitors": {
       "get": {
-        "tags": ["Exhibitors"],
+        "tags": [
+          "Exhibitors"
+        ],
         "summary": "List Exhibitors",
         "description": "Lists all exhibitors associated with an event.\n\n\n\n**Scopes:** `zoom_events_exhibitors:read:admin`,`zoom_events_exhibitors:read`\n\n**Granular Scopes:** `zoom_events:read:list_exhibitors`,`zoom_events:read:list_exhibitors:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getExhibitors",
@@ -2684,7 +2982,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -2829,7 +3130,9 @@
         }
       },
       "post": {
-        "tags": ["Exhibitors"],
+        "tags": [
+          "Exhibitors"
+        ],
         "summary": "Create a Exhibitor",
         "description": "Creates an exhibitor for a multi-session and conference type event.\n\n**Scopes:** `zoom_events_exhibitors:write`,`zoom_events_exhibitors:write:admin`\n\n**Granular Scopes:** `zoom_events:write:exhibitor`,`zoom_events:write:exhibitor:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "createExhibitor",
@@ -2839,7 +3142,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "requestBody": {
@@ -3063,7 +3369,9 @@
     },
     "/zoom_events/events/{eventId}/exhibitors/{exhibitorId}": {
       "get": {
-        "tags": ["Exhibitors"],
+        "tags": [
+          "Exhibitors"
+        ],
         "summary": "Get an Exhibitor",
         "description": "Returns the exhibitor information of a specified event.\n\n \n\n**Scopes:** `zoom_events_exhibitors:read`,`zoom_events_exhibitors:read:admin`\n\n**Granular Scopes:** `zoom_events:read:exhibitor`,`zoom_events:read:exhibitor:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getExhibitorInfo",
@@ -3073,14 +3381,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "exhibitorId",
             "in": "path",
             "description": "The ID of the exhibitor.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -3210,7 +3524,9 @@
         }
       },
       "delete": {
-        "tags": ["Exhibitors"],
+        "tags": [
+          "Exhibitors"
+        ],
         "summary": "Delete an exhibitor",
         "description": "Deletes an exhibitor.\n\n\n\n**Scopes:** `zoom_events_exhibitors:write`,`zoom_events_exhibitors:write:admin`\n\n**Granular Scopes:** `zoom_events:delete:exhibitor`,`zoom_events:delete:exhibitor:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "deleteExhibitor",
@@ -3220,14 +3536,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "exhibitorId",
             "in": "path",
             "description": "The ID of the exhibitor.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -3269,7 +3591,9 @@
         }
       },
       "patch": {
-        "tags": ["Exhibitors"],
+        "tags": [
+          "Exhibitors"
+        ],
         "summary": "Update exhibitor for an event",
         "description": "Updates the exhibitor for an event ID. This operation is only allowed for multi session event type.\n\n**Scopes:** `zoom_events_exhibitors:write`,`zoom_events_exhibitors:write:admin`\n\n**Granular Scopes:** `zoom_events:update:exhibitor`,`zoom_events:update:exhibitor:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "updateExhibitor",
@@ -3279,14 +3603,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "exhibitorId",
             "in": "path",
             "description": "The ID of the exhibitor.",
             "required": true,
-            "schema": { "type": "string", "example": "W38C8g0_SfmIzp5toOLoLQ" }
+            "schema": {
+              "type": "string",
+              "example": "W38C8g0_SfmIzp5toOLoLQ"
+            }
           }
         ],
         "requestBody": {
@@ -3415,7 +3745,9 @@
     },
     "/zoom_events/events/{eventId}/sponsor_tiers": {
       "get": {
-        "tags": ["Exhibitors"],
+        "tags": [
+          "Exhibitors"
+        ],
         "summary": "List Sponsor Tiers",
         "description": "Lists all sponsor tiers associated with an event.\n\n\n**Scopes:** `zoom_events_exhibitors:read:admin`,`zoom_events_exhibitors:read`\n\n**Granular Scopes:** `zoom_events:read:list_sponsor_tiers`,`zoom_events:read:list_sponsor_tiers:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "ListSponsorTiers",
@@ -3425,7 +3757,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -3509,7 +3844,9 @@
     },
     "/zoom_events/hubs": {
       "get": {
-        "tags": ["Hubs"],
+        "tags": [
+          "Hubs"
+        ],
         "summary": "List hubs",
         "description": "Retrieve a list of event hubs.\n\n**Scopes:** `zoom_events_hubs:read`,`zoom_events_hubs:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_hubs`,`zoom_events:read:list_hubs:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getHubList",
@@ -3523,7 +3860,10 @@
               "type": "string",
               "example": "host",
               "default": "host",
-              "enum": ["host", "attendee"]
+              "enum": [
+                "host",
+                "attendee"
+              ]
             }
           }
         ],
@@ -3556,7 +3896,10 @@
                             "type": "string",
                             "description": "The access level of the hub. \n*  `INTERNAL` -  internal organization\n* `PUBLIC` - the public hub ",
                             "example": "PUBLIC",
-                            "enum": ["INTERNAL", "PUBLIC"]
+                            "enum": [
+                              "INTERNAL",
+                              "PUBLIC"
+                            ]
                           },
                           "name": {
                             "type": "string",
@@ -3635,7 +3978,9 @@
     },
     "/zoom_events/events/{eventId}/registrants": {
       "get": {
-        "tags": ["Registrants"],
+        "tags": [
+          "Registrants"
+        ],
         "summary": "List registrants",
         "description": "Retrieves event registrants.\n\n**Scopes:** `zoom_events_registrants:read`,`zoom_events_registrants:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_registrants`,`zoom_events:read:list_registrants:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getRegistrants",
@@ -3645,7 +3990,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "page_size",
@@ -3796,7 +4144,9 @@
     },
     "/zoom_events/events/{eventId}/sessions/{sessionId}/attendees": {
       "get": {
-        "tags": ["Registrants"],
+        "tags": [
+          "Registrants"
+        ],
         "summary": "List session attendees",
         "description": "Retrieves session attendees.\n\n**Scopes:** `zoom_events_registrants:read`,`zoom_events_registrants:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_session_attendees`,`zoom_events:read:list_session_attendees:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getSessionAttendeeList",
@@ -3806,14 +4156,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "sessionId",
             "in": "path",
             "description": "The ID of the session.",
             "required": true,
-            "schema": { "type": "string", "example": "4uzfv3JwTeyR5QpC3PXwMg" }
+            "schema": {
+              "type": "string",
+              "example": "4uzfv3JwTeyR5QpC3PXwMg"
+            }
           },
           {
             "name": "page_size",
@@ -3920,7 +4276,9 @@
     },
     "/zoom_events/events/{eventId}/reports/chat_transcripts": {
       "get": {
-        "tags": ["Reports"],
+        "tags": [
+          "Reports"
+        ],
         "summary": "Get chat transcripts report",
         "description": "Retrieves the chat transcripts report for an event.  \n At this present time, this API returns data only for users who enabled [meeting and webinar cloud archiving feature](https://support.zoom.us/hc/en-us/articles/360061037572-Configuring-archival-settings-for-meetings-and-webinars).  \n Whether users can download in-meeting, private 1:1 and private group chats depends on the meeting and webinar cloud archiving feature.  \n Below chat types data is returned based on the event type and the archiving feature.  \n  * `If cloud archiving is enabled`:  \n **For multi-session events** - Lobby Chat, Private Lobby Chat, Event Staff Chat, Exhibitor Chat, Expo Booth Chat, Private 1: 1 Chat, Private Group Chat, In-meeting and webinar Chat .  \n  **For single session & recurring events** - In-meeting or webinar chat.  \n  * `If cloud archiving is not enabled`  :\n **For multi-session events** - Lobby Chat, Private Lobby Chat, Event Staff Chat, Exhibitor Chat, Expo Booth Chat.  \n  **For single session & recurring events** - None. \n \n\n**Scopes:** `zoom_events_reports:read`,`zoom_events_reports:read:admin`\n\n**Granular Scopes:** `zoom_events:read:chat_transcripts`,`zoom_events:read:chat_transcripts:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "ChatTranscriptsReport",
@@ -3930,7 +4288,10 @@
             "in": "path",
             "description": "The event ID.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "page_size",
@@ -4085,7 +4446,9 @@
     },
     "/zoom_events/events/{eventId}/reports/event_attendance": {
       "get": {
-        "tags": ["Reports"],
+        "tags": [
+          "Reports"
+        ],
         "summary": "Event Attendance Report",
         "description": "Retrieves event attendance report.\n\n**Scopes:** `zoom_events_reports:read`,`zoom_events_reports:read:admin`\n\n**Granular Scopes:** `zoom_events:read:event_attendance`,`zoom_events:read:event_attendance:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "EventAttendanceReport",
@@ -4095,7 +4458,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "page_size",
@@ -4169,19 +4535,29 @@
                             "type": "number",
                             "description": "The marketing Opt in flag \n * `1. Opted for marketing`  \n *  `0 - Not opted for marketing` ",
                             "example": 1,
-                            "enum": [1, 0]
+                            "enum": [
+                              1,
+                              0
+                            ]
                           },
                           "marketing_consent_prechecked": {
                             "type": "number",
                             "description": "The marketing consent is pre-checked? \n * `1 - pre-checked`  \n *  `0 - Not pre-checked `\n *  `-1 - Not avaialable `",
                             "example": 1,
-                            "enum": [1, 0, -1]
+                            "enum": [
+                              1,
+                              0,
+                              -1
+                            ]
                           },
                           "event_attendance": {
                             "type": "string",
                             "description": "The registrant event attendance status \n * `attended - Attended`  \n *  `absent - Not attended `",
                             "example": "attended",
-                            "enum": ["attended", "absent"]
+                            "enum": [
+                              "attended",
+                              "absent"
+                            ]
                           },
                           "attendance_type": {
                             "type": "array",
@@ -4189,14 +4565,21 @@
                               "type": "string",
                               "description": "The registrant attendance type. \n * hybrid|virtual|in_person ",
                               "example": "hybrid",
-                              "enum": ["hybrid", "virtual", "in_person"]
+                              "enum": [
+                                "hybrid",
+                                "virtual",
+                                "in_person"
+                              ]
                             }
                           },
                           "lobby_attendance": {
                             "type": "string",
                             "description": "The registrant lobby Attendance status. \n * `attended - Attended`  \n *  `absent - Not attended `",
                             "example": "attended",
-                            "enum": ["attended", "absent"]
+                            "enum": [
+                              "attended",
+                              "absent"
+                            ]
                           },
                           "lobby_chat_sent": {
                             "type": "number",
@@ -4304,7 +4687,10 @@
                                   "type": "string",
                                   "description": "The session attendance status. \n * attended \n * absent",
                                   "example": "attended",
-                                  "enum": ["absent", "attended"]
+                                  "enum": [
+                                    "absent",
+                                    "attended"
+                                  ]
                                 },
                                 "duration_spent_in_session": {
                                   "type": "number",
@@ -4400,7 +4786,9 @@
     },
     "/zoom_events/events/{eventId}/reports/survey": {
       "get": {
-        "tags": ["Reports"],
+        "tags": [
+          "Reports"
+        ],
         "summary": "Event Survey Report",
         "description": "Retrieves event and session survey information.\n\n**Scopes:** `zoom_events_reports:read`,`zoom_events_reports:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_session_surveys`,`zoom_events:read:list_session_surveys:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "EventSurveyReportApi",
@@ -4410,7 +4798,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": false,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "page_size",
@@ -4539,7 +4930,9 @@
     },
     "/zoom_events/events/{eventId}/reports/ticket_registration": {
       "get": {
-        "tags": ["Reports"],
+        "tags": [
+          "Reports"
+        ],
         "summary": "Event Registrations Report",
         "description": "Retrieves event ticket registrations.\n\n**Scopes:** `zoom_events_reports:read`,`zoom_events_reports:read:admin`\n\n**Granular Scopes:** `zoom_events:read:event_registration`,`zoom_events:read:event_registration:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "EventRegistrationsReport",
@@ -4549,7 +4942,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "page_size",
@@ -4623,13 +5019,20 @@
                             "type": "number",
                             "description": "Marketing Opt in \n * `1. Opted for marketing`  \n *  `0 - Not opted for marketing` ",
                             "example": 0,
-                            "enum": [1, 0]
+                            "enum": [
+                              1,
+                              0
+                            ]
                           },
                           "marketing_consent_prechecked": {
                             "type": "number",
                             "description": "The marketing Opt is flag \n * `1. Opted for marketing`  \n *  `0 - Not opted for marketing` \n `-1 not available` ",
                             "example": 0,
-                            "enum": [1, 0, -1]
+                            "enum": [
+                              1,
+                              0,
+                              -1
+                            ]
                           },
                           "register_date": {
                             "type": "string",
@@ -4641,7 +5044,10 @@
                             "type": "string",
                             "description": "The registrant attendance status.\n * `attended - Attended`  \n *  `absent - Not attended `",
                             "example": "attended",
-                            "enum": ["attended", "absent"]
+                            "enum": [
+                              "attended",
+                              "absent"
+                            ]
                           },
                           "attendance_type": {
                             "type": "array",
@@ -4649,14 +5055,21 @@
                               "type": "string",
                               "description": "The registrant attendance type. \n * hybrid|virtual|in_person ",
                               "example": "hybrid",
-                              "enum": ["hybrid", "virtual", "in_person"]
+                              "enum": [
+                                "hybrid",
+                                "virtual",
+                                "in_person"
+                              ]
                             }
                           },
                           "registration_method": {
                             "type": "string",
                             "description": "The registration method. \n * self-registration \n * Other ",
                             "example": "Self-registration",
-                            "enum": ["self-registration", "other"]
+                            "enum": [
+                              "self-registration",
+                              "other"
+                            ]
                           },
                           "tickets": {
                             "type": "array",
@@ -4759,7 +5172,9 @@
     },
     "/zoom_events/events/{eventId}/sessions": {
       "get": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "List sessions",
         "description": "Retrieves the sessions in an event.\n\n**Scopes:** `zoom_events_sessions:read`,`zoom_events_sessions:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_sessions`,`zoom_events:read:list_sessions:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getEventSessionList",
@@ -4769,7 +5184,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -4805,7 +5223,10 @@
                                 "description": "The type of session:\n * `0` meeting\n * `2` webinar",
                                 "format": "int32",
                                 "example": 2,
-                                "enum": [0, 2]
+                                "enum": [
+                                  0,
+                                  2
+                                ]
                               },
                               "meeting_id": {
                                 "type": "integer",
@@ -4886,7 +5307,11 @@
                                       "description": "The role of the speaker in a meeting:\n * `0` ALTERNATIVE_HOST\n * `1` ATTENDEE\n * `2` PANELIST\n",
                                       "format": "int32",
                                       "example": 2,
-                                      "enum": [0, 1, 2]
+                                      "enum": [
+                                        0,
+                                        1,
+                                        2
+                                      ]
                                     },
                                     "name": {
                                       "type": "string",
@@ -5041,7 +5466,11 @@
                                 "type": "string",
                                 "description": "The type of attendee experience for the event. \n * `virtual`  virtual attendees only \n * `in-person` in-person attendees only \n * `hybrid`  both in-person and virtual attendees",
                                 "example": "hybrid",
-                                "enum": ["virtual", "in-person", "hybrid"]
+                                "enum": [
+                                  "virtual",
+                                  "in-person",
+                                  "hybrid"
+                                ]
                               },
                               "physical_location": {
                                 "type": "string",
@@ -5091,7 +5520,9 @@
         }
       },
       "post": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Create a session",
         "description": "Creates a session. This operation is not available for single session event type.\n\n**Scopes:** `zoom_events_sessions:write:admin`,`zoom_events_sessions:write`\n\n**Granular Scopes:** `zoom_events:write:session`,`zoom_events:write:session:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "createEventSession",
@@ -5101,7 +5532,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "requestBody": {
@@ -5150,7 +5584,10 @@
                     "description": "The type of session:\n * `0`- meeting.\n * `2`- webinar.",
                     "format": "int32",
                     "example": 2,
-                    "enum": [0, 2]
+                    "enum": [
+                      0,
+                      2
+                    ]
                   },
                   "session_speakers": {
                     "maxItems": 200,
@@ -5230,22 +5667,34 @@
                   "track_labels": {
                     "type": "array",
                     "description": "The track or classification that separates events into different categories. Tickets for these tracks link to specific sessions. Only ticket holders can join these sessions.",
-                    "items": { "type": "string", "example": "Technical Track" }
+                    "items": {
+                      "type": "string",
+                      "example": "Technical Track"
+                    }
                   },
                   "audience_labels": {
                     "type": "array",
                     "description": "The list of audience type tags for the session.",
-                    "items": { "type": "string", "example": "Family" }
+                    "items": {
+                      "type": "string",
+                      "example": "Family"
+                    }
                   },
                   "product_labels": {
                     "type": "array",
                     "description": "The list of product type tags for the session.",
-                    "items": { "type": "string", "example": "zoomMeeting" }
+                    "items": {
+                      "type": "string",
+                      "example": "zoomMeeting"
+                    }
                   },
                   "level": {
                     "type": "array",
                     "description": "The list of level type tags for the session.",
-                    "items": { "type": "string", "example": "Level-1" }
+                    "items": {
+                      "type": "string",
+                      "example": "Level-1"
+                    }
                   },
                   "alternative_host": {
                     "type": "array",
@@ -5269,7 +5718,11 @@
                     "type": "string",
                     "description": "The type of attendee experience for the event. \n * `Virtual` &mdash; virtual attendees only. \n * `In-person` &mdash; in-person attendees only. \n * `Hybrid` &mdash; both in-person and virtual attendees.",
                     "example": "hybrid",
-                    "enum": ["virtual", "in-person", "hybrid"]
+                    "enum": [
+                      "virtual",
+                      "in-person",
+                      "hybrid"
+                    ]
                   },
                   "physical_location": {
                     "type": "string",
@@ -5304,7 +5757,10 @@
                           "description": "The type of session:\nEnum:\n * `0` - meeting.\n * `2`- webinar.",
                           "format": "int32",
                           "example": 2,
-                          "enum": [0, 2]
+                          "enum": [
+                            0,
+                            2
+                          ]
                         }
                       }
                     },
@@ -5373,7 +5829,11 @@
                                 "description": "The role of the speaker in a meeting:\nEnum:\n * `0` ALTERNATIVE_HOST\n * `1` ATTENDEE\n * `2` PANELIST\n",
                                 "format": "int32",
                                 "example": 2,
-                                "enum": [0, 1, 2]
+                                "enum": [
+                                  0,
+                                  1,
+                                  2
+                                ]
                               },
                               "name": {
                                 "type": "string",
@@ -5445,7 +5905,10 @@
                         "audience_labels": {
                           "type": "array",
                           "description": "The list of audience type tags for the session.",
-                          "items": { "type": "string", "example": "Family" }
+                          "items": {
+                            "type": "string",
+                            "example": "Family"
+                          }
                         },
                         "product_labels": {
                           "type": "array",
@@ -5458,7 +5921,10 @@
                         "level": {
                           "type": "array",
                           "description": "The list of level type tags for the session.",
-                          "items": { "type": "string", "example": "Level-1" }
+                          "items": {
+                            "type": "string",
+                            "example": "Level-1"
+                          }
                         },
                         "alternative_host": {
                           "type": "array",
@@ -5482,7 +5948,11 @@
                           "type": "string",
                           "description": "The type of attendee experience for the event. \n * `virtual`  virtual attendees only \n * `in-person` in-person attendees only \n * `hybrid`  both in-person and virtual attendees",
                           "example": "hybrid",
-                          "enum": ["virtual", "in-person", "hybrid"]
+                          "enum": [
+                            "virtual",
+                            "in-person",
+                            "hybrid"
+                          ]
                         },
                         "physical_location": {
                           "type": "string",
@@ -5531,7 +6001,9 @@
     },
     "/zoom_events/events/{eventId}/sessions/{sessionId}": {
       "get": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Get the session information",
         "description": "Returns the session information.\n\n\n\n**Scopes:** `zoom_events_sessions:read`,`zoom_events_sessions:read:admin`\n\n**Granular Scopes:** `zoom_events:read:session`,`zoom_events:read:session:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getEventSessionInfo",
@@ -5541,14 +6013,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "sessionId",
             "in": "path",
             "description": "The ID of the session.",
             "required": true,
-            "schema": { "type": "string", "example": "4uzfv3JwTeyR5QpC3PXwMg" }
+            "schema": {
+              "type": "string",
+              "example": "4uzfv3JwTeyR5QpC3PXwMg"
+            }
           }
         ],
         "responses": {
@@ -5573,7 +6051,10 @@
                           "description": "The type of session:\n * `0` Meeting\n * `2` Webinar",
                           "format": "int32",
                           "example": 2,
-                          "enum": [0, 2]
+                          "enum": [
+                            0,
+                            2
+                          ]
                         },
                         "meeting_id": {
                           "type": "integer",
@@ -5654,7 +6135,11 @@
                                 "description": "The role of the speaker in a meeting:\n * `0` ALTERNATIVE_HOST\n * `1` ATTENDEE\n * `2` PANELIST\n",
                                 "format": "int32",
                                 "example": 2,
-                                "enum": [0, 1, 2]
+                                "enum": [
+                                  0,
+                                  1,
+                                  2
+                                ]
                               },
                               "name": {
                                 "type": "string",
@@ -5728,7 +6213,10 @@
                         "audience_labels": {
                           "type": "array",
                           "description": "The list of audience type tags for the session.",
-                          "items": { "type": "string", "example": "Family" }
+                          "items": {
+                            "type": "string",
+                            "example": "Family"
+                          }
                         },
                         "product_labels": {
                           "type": "array",
@@ -5741,7 +6229,10 @@
                         "level": {
                           "type": "array",
                           "description": "The list of level type tags for the session.",
-                          "items": { "type": "string", "example": "Level-1" }
+                          "items": {
+                            "type": "string",
+                            "example": "Level-1"
+                          }
                         },
                         "alternative_host": {
                           "type": "array",
@@ -5805,7 +6296,11 @@
                           "type": "string",
                           "description": "The type of attendee experience for the event. \n * `virtual`  virtual attendees only \n * `in-person` in-person attendees only \n * `hybrid`  both in-person and virtual attendees",
                           "example": "hybrid",
-                          "enum": ["virtual", "in-person", "hybrid"]
+                          "enum": [
+                            "virtual",
+                            "in-person",
+                            "hybrid"
+                          ]
                         },
                         "physical_location": {
                           "type": "string",
@@ -5852,7 +6347,9 @@
         }
       },
       "delete": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Delete a session",
         "description": "Deletes a session. This API is not allowed for single session event type.\n\n**Scopes:** `zoom_events_sessions:write`,`zoom_events_sessions:write:admin`\n\n**Granular Scopes:** `zoom_events:delete:session`,`zoom_events:delete:session:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "deleteEventSession",
@@ -5862,14 +6359,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "sessionId",
             "in": "path",
             "description": "The ID of the session.",
             "required": true,
-            "schema": { "type": "string", "example": "4uzfv3JwTeyR5QpC3PXwMg" }
+            "schema": {
+              "type": "string",
+              "example": "4uzfv3JwTeyR5QpC3PXwMg"
+            }
           }
         ],
         "responses": {
@@ -5911,7 +6414,9 @@
         }
       },
       "patch": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Update a session",
         "description": "Updates an existing session in an event. \n\n**Scopes:** `zoom_events_sessions:write`,`zoom_events_sessions:write:admin`\n\n**Granular Scopes:** `zoom_events:update:session`,`zoom_events:update:session:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "updateEventSession",
@@ -5921,14 +6426,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "sessionId",
             "in": "path",
             "description": "The ID of the session.",
             "required": true,
-            "schema": { "type": "string", "example": "4uzfv3JwTeyR5QpC3PXwMg" }
+            "schema": {
+              "type": "string",
+              "example": "4uzfv3JwTeyR5QpC3PXwMg"
+            }
           }
         ],
         "requestBody": {
@@ -6038,22 +6549,34 @@
                   "track_labels": {
                     "type": "array",
                     "description": "The track or classification that separates events into different categories. Tickets for these tracks link to specific sessions. Only ticket holders can join these sessions. This is not applicable for single session event type.",
-                    "items": { "type": "string", "example": "Technical Track" }
+                    "items": {
+                      "type": "string",
+                      "example": "Technical Track"
+                    }
                   },
                   "audience_labels": {
                     "type": "array",
                     "description": "The list of audience type tags for the session. This is not applicable for single session event type.",
-                    "items": { "type": "string", "example": "Family" }
+                    "items": {
+                      "type": "string",
+                      "example": "Family"
+                    }
                   },
                   "product_labels": {
                     "type": "array",
                     "description": "The list of product type tags for the session. This is not applicable for single session event type.",
-                    "items": { "type": "string", "example": "zoomMeeting" }
+                    "items": {
+                      "type": "string",
+                      "example": "zoomMeeting"
+                    }
                   },
                   "level": {
                     "type": "array",
                     "description": "The list of level type tags for the session. This is not applicable for single session event type.",
-                    "items": { "type": "string", "example": "Level-1" }
+                    "items": {
+                      "type": "string",
+                      "example": "Level-1"
+                    }
                   },
                   "alternative_host": {
                     "type": "array",
@@ -6077,7 +6600,11 @@
                     "type": "string",
                     "description": "The type of attendee experience for the event:\n * `Virtual` &mdash; virtual attendees only \n * `In-person` &mdash; in-person attendees only \n * `Hybrid` &mdash; both in-person and virtual attendees.  \n\n  *In case of single session event type, It inherits event's attendance type.",
                     "example": "hybrid",
-                    "enum": ["virtual", "in-person", "hybrid"]
+                    "enum": [
+                      "virtual",
+                      "in-person",
+                      "hybrid"
+                    ]
                   },
                   "physical_location": {
                     "type": "string",
@@ -6131,7 +6658,9 @@
     },
     "/zoom_events/events/{eventId}/sessions/{sessionId}/interpreters": {
       "get": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "List session interpreters",
         "description": "Retrieves interpreters in a session.\n\n**Scopes:** `zoom_events_sessions:read`,`zoom_events_sessions:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_session_interpreters`,`zoom_events:read:list_session_interpreters:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getSessionInterpreterList",
@@ -6141,14 +6670,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "sessionId",
             "in": "path",
             "description": "The ID of the session.",
             "required": true,
-            "schema": { "type": "string", "example": "4uzfv3JwTeyR5QpC3PXwMg" }
+            "schema": {
+              "type": "string",
+              "example": "4uzfv3JwTeyR5QpC3PXwMg"
+            }
           }
         ],
         "responses": {
@@ -6181,7 +6716,10 @@
                             "description": "The interpreter type:\nEnum:\n * `1` language_interpreter\n * `2` sign_language_interpreter\n",
                             "format": "int32",
                             "example": 1,
-                            "enum": [1, 2]
+                            "enum": [
+                              1,
+                              2
+                            ]
                           },
                           "source_language_id": {
                             "allOf": [
@@ -6201,7 +6739,9 @@
                                   "KR"
                                 ]
                               },
-                              { "example": "US" }
+                              {
+                                "example": "US"
+                              }
                             ]
                           },
                           "source_language_display_name": {
@@ -6229,7 +6769,9 @@
                                       "KR"
                                     ]
                                   },
-                                  { "example": "JP" }
+                                  {
+                                    "example": "JP"
+                                  }
                                 ]
                               },
                               {
@@ -6311,7 +6853,9 @@
         }
       },
       "put": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Create or update session interpreters.",
         "description": "Creates or update the list of interpreters for the session.\n\n**Scopes:** `zoom_events_sessions:write`,`zoom_events_sessions:write:admin`\n\n**Granular Scopes:** `zoom_events:update:session_interpreter`,`zoom_events:update:session_interpreter:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "updateSessionInterpreters",
@@ -6321,14 +6865,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "sessionId",
             "in": "path",
             "description": "The ID of the session.",
             "required": true,
-            "schema": { "type": "string", "example": "4uzfv3JwTeyR5QpC3PXwMg" }
+            "schema": {
+              "type": "string",
+              "example": "4uzfv3JwTeyR5QpC3PXwMg"
+            }
           }
         ],
         "requestBody": {
@@ -6354,7 +6904,10 @@
                           "description": "The interpreter type:\nEnum:\n * `1` language_interpreter\n * `2` sign_language_interpreter\n",
                           "format": "int32",
                           "example": 1,
-                          "enum": [1, 2]
+                          "enum": [
+                            1,
+                            2
+                          ]
                         },
                         "source_language_id": {
                           "type": "string",
@@ -6453,7 +7006,9 @@
     },
     "/zoom_events/events/{eventId}/sessions/{sessionId}/join_token": {
       "get": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Get ticket session join token by Event ID and Session ID",
         "description": "Retrieves the join token to join an event session.\n\n\n\n**Scopes:** `zoom_events_sessions:read`,`zoom_events_sessions:read:admin`\n\n**Granular Scopes:** `zoom_events:read:session_token`,`zoom_events:read:session_token:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getSessionJoinToken",
@@ -6463,14 +7018,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "sessionId",
             "in": "path",
             "description": "The ID of the session.",
             "required": true,
-            "schema": { "type": "string", "example": "4uzfv3JwTeyR5QpC3PXwMg" }
+            "schema": {
+              "type": "string",
+              "example": "4uzfv3JwTeyR5QpC3PXwMg"
+            }
           }
         ],
         "responses": {
@@ -6487,7 +7048,13 @@
                       "description": "The join token error code:\nEnum:\n * `0` &mdash; SUCCESS\n * `1120` &mdash; BAD_REQUEST\n * `1130` &mdash; ERROR_TICKET_NOT_FOUND\n * `1140` &mdash; INTERNAL_SERVER_ERROR\n * `1150` &mdash; ERROR_CODE_TICKET_REVOKE\n",
                       "format": "int32",
                       "example": 0,
-                      "enum": [0, 1120, 1130, 1140, 1150]
+                      "enum": [
+                        0,
+                        1120,
+                        1130,
+                        1140,
+                        1150
+                      ]
                     },
                     "error_message": {
                       "type": "string",
@@ -6538,7 +7105,9 @@
     },
     "/zoom_events/events/{eventId}/sessions/{sessionId}/polls": {
       "get": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "List session polls",
         "description": "List all the polls of a session.\n\n\n\n**Scopes:** `zoom_events_sessions:read`,`zoom_events_sessions:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_session_polls`,`zoom_events:read:list_session_polls:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getSessionPolls",
@@ -6548,14 +7117,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "sessionId",
             "in": "path",
             "description": "The ID of the session.",
             "required": true,
-            "schema": { "type": "string", "example": "4uzfv3JwTeyR5QpC3PXwMg" }
+            "schema": {
+              "type": "string",
+              "example": "4uzfv3JwTeyR5QpC3PXwMg"
+            }
           }
         ],
         "responses": {
@@ -6576,7 +7151,11 @@
                       "type": "array",
                       "items": {
                         "title": "Session Polling Object",
-                        "required": ["anonymous", "poll_type", "title"],
+                        "required": [
+                          "anonymous",
+                          "poll_type",
+                          "title"
+                        ],
                         "type": "object",
                         "properties": {
                           "id": {
@@ -6588,7 +7167,10 @@
                             "type": "string",
                             "description": "Status of the Session Poll:  \n `active` - Poll is active   \n `inactive` - Poll is deactivated",
                             "example": "active",
-                            "enum": ["active", "inactive"],
+                            "enum": [
+                              "active",
+                              "inactive"
+                            ],
                             "x-enum-descriptions": [
                               "Poll Active",
                               "Poll Inactive"
@@ -6603,13 +7185,20 @@
                             "type": "integer",
                             "description": "The type of poll. \n* `1` &mdash; Basic Poll. Only single and multiple choice questions are allowed. \n* `2` &mdash; Advanced Poll. This feature must be enabled in your Zoom account.  \n* `3` &mdash; Quiz. This feature must be enabled in your Zoom account.",
                             "example": 2,
-                            "enum": [1, 2, 3]
+                            "enum": [
+                              1,
+                              2,
+                              3
+                            ]
                           },
                           "questions": {
                             "type": "array",
                             "description": "Information about the poll's questions.",
                             "items": {
-                              "required": ["name", "type"],
+                              "required": [
+                                "name",
+                                "type"
+                              ],
                               "type": "object",
                               "properties": {
                                 "answer_max_character": {
@@ -6778,7 +7367,9 @@
         }
       },
       "put": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Create or update session polls.",
         "description": "Create or update the list of polls for the session.\n\n**Scopes:** `zoom_events_sessions:write`,`zoom_events_sessions:write:admin`\n\n**Granular Scopes:** `zoom_events:update:session_poll`,`zoom_events:update:session_poll:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "updateSessionPolls",
@@ -6788,14 +7379,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "sessionId",
             "in": "path",
             "description": "The ID of the session.",
             "required": true,
-            "schema": { "type": "string", "example": "4uzfv3JwTeyR5QpC3PXwMg" }
+            "schema": {
+              "type": "string",
+              "example": "4uzfv3JwTeyR5QpC3PXwMg"
+            }
           }
         ],
         "requestBody": {
@@ -6809,7 +7406,11 @@
                     "type": "array",
                     "items": {
                       "title": "Session Polling Object",
-                      "required": ["anonymous", "poll_type", "title"],
+                      "required": [
+                        "anonymous",
+                        "poll_type",
+                        "title"
+                      ],
                       "type": "object",
                       "properties": {
                         "id": {
@@ -6821,7 +7422,10 @@
                           "type": "string",
                           "description": "Status of the Session Poll:  \n `active` - Poll is active   \n `inactive` - Poll is deactivated",
                           "example": "active",
-                          "enum": ["active", "inactive"],
+                          "enum": [
+                            "active",
+                            "inactive"
+                          ],
                           "x-enum-descriptions": [
                             "Poll Active",
                             "Poll Inactive"
@@ -6836,13 +7440,20 @@
                           "type": "integer",
                           "description": "The type of poll. \n* `1` &mdash; Basic Poll. Only single and multiple choice questions are allowed. \n* `2` &mdash; Advanced Poll. This feature must be enabled in your Zoom account.  \n* `3` &mdash; Quiz. This feature must be enabled in your Zoom account.",
                           "example": 2,
-                          "enum": [1, 2, 3]
+                          "enum": [
+                            1,
+                            2,
+                            3
+                          ]
                         },
                         "questions": {
                           "type": "array",
                           "description": "Information about the poll's questions.",
                           "items": {
-                            "required": ["name", "type"],
+                            "required": [
+                              "name",
+                              "type"
+                            ],
                             "type": "object",
                             "properties": {
                               "answer_max_character": {
@@ -6894,7 +7505,10 @@
                               "prompt_right_answers": {
                                 "type": "array",
                                 "description": "The question prompt's correct answers. \n* For `matching` polls, you must provide a minimum of two correct answers, up to a maximum of 10 correct answers. \n* For `rank_order` polls, you can only provide one correct answer.",
-                                "items": { "type": "string", "example": "Good" }
+                                "items": {
+                                  "type": "string",
+                                  "example": "Good"
+                                }
                               },
                               "rating_max_label": {
                                 "type": "string",
@@ -6922,7 +7536,10 @@
                                 "minItems": 1,
                                 "type": "array",
                                 "description": "The poll question's correct answer(s). This field is **required** if the poll's `type` value is `3` (Quiz). \n\n For `single` and `matching` polls, this field only accepts one answer.",
-                                "items": { "type": "string", "example": "Good" }
+                                "items": {
+                                  "type": "string",
+                                  "example": "Good"
+                                }
                               },
                               "show_as_dropdown": {
                                 "type": "boolean",
@@ -7008,7 +7625,9 @@
     },
     "/zoom_events/events/{eventId}/speakers": {
       "get": {
-        "tags": ["Speakers"],
+        "tags": [
+          "Speakers"
+        ],
         "summary": "List speakers",
         "description": "Retrieves a list of speakers for an event.\n\n**Scopes:** `zoom_events_speakers:read`,`zoom_events_speakers:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_speakers`,`zoom_events:read:list_speakers:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getSpeakers",
@@ -7018,7 +7637,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -7153,7 +7775,9 @@
         }
       },
       "post": {
-        "tags": ["Speakers"],
+        "tags": [
+          "Speakers"
+        ],
         "summary": "Create a speaker",
         "description": "Creates a speaker for an event.\n\n**Scopes:** `zoom_events_speakers:write`,`zoom_events_speakers:write:admin`\n\n**Granular Scopes:** `zoom_events:write:speaker`,`zoom_events:write:speaker:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "createSpeaker",
@@ -7163,7 +7787,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "requestBody": {
@@ -7171,7 +7798,9 @@
             "application/json": {
               "schema": {
                 "title": "Speaker",
-                "required": ["name"],
+                "required": [
+                  "name"
+                ],
                 "type": "object",
                 "properties": {
                   "name": {
@@ -7369,7 +7998,9 @@
     },
     "/zoom_events/events/{eventId}/speakers/{speakerId}": {
       "get": {
-        "tags": ["Speakers"],
+        "tags": [
+          "Speakers"
+        ],
         "summary": "Get a speaker",
         "description": "Returns information on a specific speaker.\n\n\n\n**Scopes:** `zoom_events_speakers:read`,`zoom_events_speakers:read:admin`\n\n**Granular Scopes:** `zoom_events:read:speaker`,`zoom_events:read:speaker:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getSpeaker",
@@ -7379,14 +8010,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "speakerId",
             "in": "path",
             "description": "The ID of the speaker.",
             "required": true,
-            "schema": { "type": "string", "example": "HvjxfFGdRYCL2_ZIbq2Mvg" }
+            "schema": {
+              "type": "string",
+              "example": "HvjxfFGdRYCL2_ZIbq2Mvg"
+            }
           }
         ],
         "responses": {
@@ -7507,7 +8144,9 @@
         }
       },
       "delete": {
-        "tags": ["Speakers"],
+        "tags": [
+          "Speakers"
+        ],
         "summary": "Delete a speaker",
         "description": "Deletes a speaker.\n\n\n\n**Scopes:** `zoom_events_speakers:write`,`zoom_events_speakers:write:admin`\n\n**Granular Scopes:** `zoom_events:delete:speaker`,`zoom_events:delete:speaker:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "deleteSpeaker",
@@ -7517,14 +8156,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "speakerId",
             "in": "path",
             "description": "The ID of the speaker.",
             "required": true,
-            "schema": { "type": "string", "example": "HvjxfFGdRYCL2_ZIbq2Mvg" }
+            "schema": {
+              "type": "string",
+              "example": "HvjxfFGdRYCL2_ZIbq2Mvg"
+            }
           }
         ],
         "responses": {
@@ -7566,7 +8211,9 @@
         }
       },
       "patch": {
-        "tags": ["Speakers"],
+        "tags": [
+          "Speakers"
+        ],
         "summary": "Update a speaker",
         "description": "Updates the speaker information.\n\n**Scopes:** `zoom_events_speakers:write`,`zoom_events_speakers:write:admin`\n\n**Granular Scopes:** `zoom_events:update:speaker`,`zoom_events:update:speaker:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "updateSpeaker",
@@ -7576,14 +8223,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "speakerId",
             "in": "path",
             "description": "The ID of the speaker.",
             "required": true,
-            "schema": { "type": "string", "example": "HvjxfFGdRYCL2_ZIbq2Mvg" }
+            "schema": {
+              "type": "string",
+              "example": "HvjxfFGdRYCL2_ZIbq2Mvg"
+            }
           }
         ],
         "requestBody": {
@@ -7706,7 +8359,9 @@
     },
     "/zoom_events/events/{eventId}/questions": {
       "get": {
-        "tags": ["Ticket Types"],
+        "tags": [
+          "Ticket Types"
+        ],
         "summary": "List registration questions for an event",
         "description": "List registration questions and fields that are to be answered by users while registering for an event. These questions are setup during the event level.\n\n**Scopes:** `zoom_events_ticket_types:read`,`zoom_events_ticket_types:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_registration_questions`,`zoom_events:read:list_registration_questions:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getRegistrationQuestionsForEvent",
@@ -7716,7 +8371,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -7796,7 +8454,10 @@
                               "options": {
                                 "type": "array",
                                 "description": "An array of answer choices. Can't be used for short or long answer type.",
-                                "items": { "type": "string", "example": "Good" }
+                                "items": {
+                                  "type": "string",
+                                  "example": "Good"
+                                }
                               },
                               "required": {
                                 "type": "boolean",
@@ -7882,7 +8543,9 @@
         }
       },
       "put": {
-        "tags": ["Ticket Types"],
+        "tags": [
+          "Ticket Types"
+        ],
         "summary": "Update registration questions for an event",
         "description": "Updates registration questions and fields that are to be answered by users while registering for an event. These questions are setup at event level.\n\n**Scopes:** `zoom_events_ticket_types:write`,`zoom_events_ticket_types:write:admin`\n\n**Granular Scopes:** `zoom_events:update:registraion_question`,`zoom_events:update:registraion_question:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "updateRegistrationQuestionsForEvent",
@@ -7892,7 +8555,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "requestBody": {
@@ -7968,7 +8634,10 @@
                         "options": {
                           "type": "array",
                           "description": "An array of answer choices. Can't be used for short or long answer type.",
-                          "items": { "type": "string", "example": "Good" }
+                          "items": {
+                            "type": "string",
+                            "example": "Good"
+                          }
                         },
                         "required": {
                           "type": "boolean",
@@ -8058,7 +8727,9 @@
     },
     "/zoom_events/events/{eventId}/ticket_types": {
       "get": {
-        "tags": ["Ticket Types"],
+        "tags": [
+          "Ticket Types"
+        ],
         "summary": "List ticket types",
         "description": "Lists all ticket types associated with an event.\n\n\n\n**Scopes:** `zoom_events_ticket_types:read`,`zoom_events_ticket_types:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_ticket_types`,`zoom_events:read:list_ticket_types:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getEventTicketTypes",
@@ -8068,7 +8739,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "responses": {
@@ -8145,12 +8819,18 @@
                           "sessions": {
                             "type": "array",
                             "description": "The list of session IDs allowed for this ticket type or *ALL* \n *ALL* refer all the sessions in the event.",
-                            "items": { "type": "string", "example": "ALL" }
+                            "items": {
+                              "type": "string",
+                              "example": "ALL"
+                            }
                           },
                           "bookmarked_sessions": {
                             "type": "array",
                             "description": "Pre-bookmark sessions for your attendees. This is list of session IDs to be bookmarked for this ticket type. Its values could be comma seperated session IDs or can have value *ALL* \n.  *ALL* refer all the sessions in the event.",
-                            "items": { "type": "string", "example": "ALL" }
+                            "items": {
+                              "type": "string",
+                              "example": "ALL"
+                            }
                           },
                           "private_visibility_rules": {
                             "type": "object",
@@ -8181,7 +8861,11 @@
                                 "type": "string",
                                 "description": "The type of attendee experience for the event. \n * `virtual`  virtual attendees only \n * `in-person` in-person attendees only \n * `hybrid`  both in-person and virtual attendees.",
                                 "example": "hybrid",
-                                "enum": ["virtual", "in-person", "hybrid"]
+                                "enum": [
+                                  "virtual",
+                                  "in-person",
+                                  "hybrid"
+                                ]
                               }
                             },
                             "description": "The private visibility settings"
@@ -8226,7 +8910,9 @@
         }
       },
       "post": {
-        "tags": ["Ticket Types"],
+        "tags": [
+          "Ticket Types"
+        ],
         "summary": "Create an event ticket type",
         "description": "Creates a ticket type for the event ID. This API is not allowed for single session and recurring event type.\n\n**Scopes:** `zoom_events_ticket_types:write`,`zoom_events_ticket_types:write:admin`\n\n**Granular Scopes:** `zoom_events:write:ticket_type`,`zoom_events:write:ticket_type:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "createTicketType",
@@ -8236,7 +8922,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "requestBody": {
@@ -8245,7 +8934,12 @@
             "application/json": {
               "schema": {
                 "title": "Ticket type information",
-                "required": ["currency", "end_time", "name", "start_time"],
+                "required": [
+                  "currency",
+                  "end_time",
+                  "name",
+                  "start_time"
+                ],
                 "type": "object",
                 "properties": {
                   "name": {
@@ -8296,12 +8990,18 @@
                   "sessions": {
                     "type": "array",
                     "description": "The list of session IDs allowed for this ticket type or *ALL* \n *ALL* refer all the sessions in the event.",
-                    "items": { "type": "string", "example": "ALL" }
+                    "items": {
+                      "type": "string",
+                      "example": "ALL"
+                    }
                   },
                   "bookmarked_sessions": {
                     "type": "array",
                     "description": "The list of sessions that display in the main lobby. The value is an array of session IDs or *ALL* . \n *ALL* refer all the sessions in the event.",
-                    "items": { "type": "string", "example": "ALL" }
+                    "items": {
+                      "type": "string",
+                      "example": "ALL"
+                    }
                   },
                   "private_visibility_rules": {
                     "type": "object",
@@ -8334,7 +9034,11 @@
                         "type": "string",
                         "description": "The type of attendee experience for the event. \n * `virtual`  virtual attendees only \n * `in-person` in-person attendees only \n * `hybrid`  both in-person and virtual attendees",
                         "example": "hybrid",
-                        "enum": ["virtual", "in-person", "hybrid"]
+                        "enum": [
+                          "virtual",
+                          "in-person",
+                          "hybrid"
+                        ]
                       }
                     },
                     "description": "The private visibility settings."
@@ -8397,7 +9101,9 @@
     },
     "/zoom_events/events/{eventId}/ticket_types/{ticketTypeId}": {
       "delete": {
-        "tags": ["Ticket Types"],
+        "tags": [
+          "Ticket Types"
+        ],
         "summary": "Delete a ticket type",
         "description": "Deletes a ticket type of an event. This API is not allowed for single session event type.\n\n**Scopes:** `zoom_events_ticket_types:write`,`zoom_events_ticket_types:write:admin`\n\n**Granular Scopes:** `zoom_events:delete:ticket_type`,`zoom_events:delete:ticket_type:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "deleteEventTicketType",
@@ -8407,14 +9113,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "ticketTypeId",
             "in": "path",
             "description": "The ID of the ticket type.",
             "required": true,
-            "schema": { "type": "string", "example": "W38C8g0_SfmIzp5toOLoLQ" }
+            "schema": {
+              "type": "string",
+              "example": "W38C8g0_SfmIzp5toOLoLQ"
+            }
           }
         ],
         "responses": {
@@ -8456,7 +9168,9 @@
         }
       },
       "patch": {
-        "tags": ["Ticket Types"],
+        "tags": [
+          "Ticket Types"
+        ],
         "summary": "Update ticket type for an event",
         "description": "Updates the ticket type for an event ID. This API is not allowed for single session event type.\n\n**Scopes:** `zoom_events_ticket_types:write`,`zoom_events_ticket_types:write:admin`\n\n**Granular Scopes:** `zoom_events:update:ticket_type`,`zoom_events:update:ticket_type:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "updateTicketType",
@@ -8466,14 +9180,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "ticketTypeId",
             "in": "path",
             "description": "The ID of the ticket type.",
             "required": true,
-            "schema": { "type": "string", "example": "W38C8g0_SfmIzp5toOLoLQ" }
+            "schema": {
+              "type": "string",
+              "example": "W38C8g0_SfmIzp5toOLoLQ"
+            }
           }
         ],
         "requestBody": {
@@ -8531,12 +9251,18 @@
                   "sessions": {
                     "type": "array",
                     "description": "The list of session IDs allowed for this ticket type or *ALL* \n *ALL* refer all the sessions in the event.",
-                    "items": { "type": "string", "example": "ALL" }
+                    "items": {
+                      "type": "string",
+                      "example": "ALL"
+                    }
                   },
                   "bookmarked_sessions": {
                     "type": "array",
                     "description": "The list of sessions that display in the main lobby. The value is an array of session IDs or *ALL* . \n *ALL* refer all the sessions in the event.",
-                    "items": { "type": "string", "example": "ALL" }
+                    "items": {
+                      "type": "string",
+                      "example": "ALL"
+                    }
                   },
                   "private_visibility_rules": {
                     "title": "The private visibility settings",
@@ -8570,7 +9296,11 @@
                         "type": "string",
                         "description": "The type of attendee experience for the event. \n * `virtual`  virtual attendees only \n * `in-person` in-person attendees only \n * `hybrid`  both in-person and virtual attendees.",
                         "example": "hybrid",
-                        "enum": ["virtual", "in-person", "hybrid"]
+                        "enum": [
+                          "virtual",
+                          "in-person",
+                          "hybrid"
+                        ]
                       }
                     }
                   }
@@ -8620,7 +9350,9 @@
     },
     "/zoom_events/events/{eventId}/ticket_types/{ticketTypeId}/questions": {
       "get": {
-        "tags": ["Ticket Types"],
+        "tags": [
+          "Ticket Types"
+        ],
         "summary": "List registration questions for ticket type",
         "description": "List registration questions and fields that are to be answered by users while registering for an event. These questions are setup at ticket_type level.\n\n**Scopes:** `zoom_events_ticket_types:read`,`zoom_events_ticket_types:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_registration_questions`,`zoom_events:read:list_registration_questions:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getRegistrationQuestionsForTicketType",
@@ -8630,14 +9362,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "ticketTypeId",
             "in": "path",
             "description": "The ID of the ticket type.",
             "required": true,
-            "schema": { "type": "string", "example": "W38C8g0_SfmIzp5toOLoLQ" }
+            "schema": {
+              "type": "string",
+              "example": "W38C8g0_SfmIzp5toOLoLQ"
+            }
           }
         ],
         "responses": {
@@ -8717,7 +9455,10 @@
                               "options": {
                                 "type": "array",
                                 "description": "An array of answer choices. Can't be used for short or long answer type.",
-                                "items": { "type": "string", "example": "Good" }
+                                "items": {
+                                  "type": "string",
+                                  "example": "Good"
+                                }
                               },
                               "required": {
                                 "type": "boolean",
@@ -8803,7 +9544,9 @@
         }
       },
       "put": {
-        "tags": ["Ticket Types"],
+        "tags": [
+          "Ticket Types"
+        ],
         "summary": "Update registration questions for ticket type",
         "description": "Updates registration questions and fields that are to be answered by users while registering for an event. These questions are setup at ticket_type level. This API is not allowed for single session event type.\n\n**Scopes:** `zoom_events_ticket_types:write`,`zoom_events_ticket_types:write:admin`\n\n**Granular Scopes:** `zoom_events:update:registraion_question`,`zoom_events:update:registraion_question:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "updateRegistrationQuestionsForTicketType",
@@ -8813,14 +9556,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "ticketTypeId",
             "in": "path",
             "description": "The ID of the ticket type.",
             "required": true,
-            "schema": { "type": "string", "example": "W38C8g0_SfmIzp5toOLoLQ" }
+            "schema": {
+              "type": "string",
+              "example": "W38C8g0_SfmIzp5toOLoLQ"
+            }
           }
         ],
         "requestBody": {
@@ -8896,7 +9645,10 @@
                         "options": {
                           "type": "array",
                           "description": "An array of answer choices. Can't be used for short or long answer type.",
-                          "items": { "type": "string", "example": "Good" }
+                          "items": {
+                            "type": "string",
+                            "example": "Good"
+                          }
                         },
                         "required": {
                           "type": "boolean",
@@ -8989,7 +9741,9 @@
     },
     "/zoom_events/events/{eventId}/tickets": {
       "get": {
-        "tags": ["Tickets"],
+        "tags": [
+          "Tickets"
+        ],
         "summary": "List tickets",
         "description": "Retrieves the ticket information of an event.\n\n**Scopes:** `zoom_events_tickets:read`,`zoom_events_tickets:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_tickets`,`zoom_events:read:list_tickets:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getTickets",
@@ -8999,28 +9753,40 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "external_ticket_id",
             "in": "query",
             "description": "The ID of the external ticket.",
             "required": false,
-            "schema": { "type": "string", "example": "W38C8g0_SfmIzp5toOLoLQ" }
+            "schema": {
+              "type": "string",
+              "example": "W38C8g0_SfmIzp5toOLoLQ"
+            }
           },
           {
             "name": "email",
             "in": "query",
             "description": "The email of registrant.\n",
             "required": false,
-            "schema": { "type": "string", "example": "test@example.com" }
+            "schema": {
+              "type": "string",
+              "example": "test@example.com"
+            }
           },
           {
             "name": "ticket_type_id",
             "in": "query",
             "description": "The ID of the ticket type.",
             "required": false,
-            "schema": { "type": "string", "example": "W38C8g0_SfmIzp5toOLoLQ" }
+            "schema": {
+              "type": "string",
+              "example": "W38C8g0_SfmIzp5toOLoLQ"
+            }
           },
           {
             "name": "next_page_token",
@@ -9279,7 +10045,9 @@
         }
       },
       "post": {
-        "tags": ["Tickets"],
+        "tags": [
+          "Tickets"
+        ],
         "summary": "Create tickets",
         "description": "Create tickets for an event. You can add a single ticket or up to 30 tickets in a batch operation. Please note that this request uses the [`pre-registration`](https://support.zoom.us/hc/en-us/articles/13475985512973-Pre-registering-Zoom-Events-guests) flow. \n\n**Scopes:** `zoom_events_tickets:write`,`zoom_events_tickets:write:admin`\n\n**Granular Scopes:** `zoom_events:write:ticket`,`zoom_events:write:ticket:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "createTickets",
@@ -9289,7 +10057,10 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           }
         ],
         "requestBody": {
@@ -9312,7 +10083,10 @@
                       "description": "The name of the attendee who is registered for the event.",
                       "allOf": [
                         {
-                          "required": ["email", "ticket_type_id"],
+                          "required": [
+                            "email",
+                            "ticket_type_id"
+                          ],
                           "type": "object",
                           "properties": {
                             "email": {
@@ -9464,7 +10238,10 @@
                     "tickets": {
                       "type": "array",
                       "items": {
-                        "required": ["email", "ticket_type_id"],
+                        "required": [
+                          "email",
+                          "ticket_type_id"
+                        ],
                         "type": "object",
                         "properties": {
                           "ticket_id": {
@@ -9536,7 +10313,9 @@
     },
     "/zoom_events/events/{eventId}/tickets/{ticketId}": {
       "get": {
-        "tags": ["Tickets"],
+        "tags": [
+          "Tickets"
+        ],
         "summary": "Get a ticket",
         "description": "Retrieves information on a specific ticket.\n\n**Scopes:** `zoom_events_tickets:read`,`zoom_events_tickets:read:admin`\n\n**Granular Scopes:** `zoom_events:read:ticket`,`zoom_events:read:ticket:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getTicketDetails",
@@ -9546,14 +10325,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "ticketId",
             "in": "path",
             "description": "The ID of the registered ticket.",
             "required": true,
-            "schema": { "type": "string", "example": "W38C8g0_SfmIzp5toOLoLQ" }
+            "schema": {
+              "type": "string",
+              "example": "W38C8g0_SfmIzp5toOLoLQ"
+            }
           }
         ],
         "responses": {
@@ -9562,7 +10347,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["email", "ticket_type_id"],
+                  "required": [
+                    "email",
+                    "ticket_type_id"
+                  ],
                   "description": "The name of the attendee who is registered for the event.",
                   "allOf": [
                     {
@@ -9771,7 +10559,9 @@
         }
       },
       "delete": {
-        "tags": ["Tickets"],
+        "tags": [
+          "Tickets"
+        ],
         "summary": "Delete a ticket",
         "description": "Deletes a ticket.\n\n**Scopes:** `zoom_events_tickets:write`,`zoom_events_tickets:write:admin`\n\n**Granular Scopes:** `zoom_events:delete:ticket`,`zoom_events:delete:ticket:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "deleteTicket",
@@ -9781,14 +10571,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "ticketId",
             "in": "path",
             "description": "The ID of the registered ticket.",
             "required": true,
-            "schema": { "type": "string", "example": "W38C8g0_SfmIzp5toOLoLQ" }
+            "schema": {
+              "type": "string",
+              "example": "W38C8g0_SfmIzp5toOLoLQ"
+            }
           }
         ],
         "responses": {
@@ -9830,7 +10626,9 @@
         }
       },
       "patch": {
-        "tags": ["Tickets"],
+        "tags": [
+          "Tickets"
+        ],
         "summary": "Update ticket",
         "description": "Updates ticket questions for the given ticket ID and event ID.\n\n**Scopes:** `zoom_events_tickets:write`,`zoom_events_tickets:write:admin`\n\n**Granular Scopes:** `zoom_events:write:ticket`,`zoom_events:write:ticket:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "Updateticket",
@@ -9840,14 +10638,20 @@
             "in": "path",
             "description": "The ID of the event.",
             "required": false,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "ticketId",
             "in": "path",
             "description": "The ID of the ticket.",
             "required": false,
-            "schema": { "type": "string", "example": "kNqDPC6hSFiZ9NpgjA782" }
+            "schema": {
+              "type": "string",
+              "example": "kNqDPC6hSFiZ9NpgjA782"
+            }
           }
         ],
         "requestBody": {
@@ -9988,7 +10792,9 @@
     },
     "/zoom_events/hubs/{hubId}/vod_channels": {
       "get": {
-        "tags": ["Video On-Demand"],
+        "tags": [
+          "Video On-Demand"
+        ],
         "summary": "List channels",
         "description": "Retrieves the channel information for a hub.\n\n**Scopes:** `zoom_events_vod_channels:read`,`zoom_events_vod_channels:read:admin`\n\n**Granular Scopes:** `zoom_events:read:list_all_vod_channels`,`zoom_events:read:list_all_vod_channels:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "getVODChannels",
@@ -9998,7 +10804,10 @@
             "in": "path",
             "description": "The ID of the hub.",
             "required": true,
-            "schema": { "type": "string", "example": "kNqLPC6hSFiZ9NpgjA549w" }
+            "schema": {
+              "type": "string",
+              "example": "kNqLPC6hSFiZ9NpgjA549w"
+            }
           },
           {
             "name": "next_page_token",
@@ -10123,175 +10932,5 @@
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": {
-              "zoom_events_attendee_actions:read": "zoom_events_attendee_actions:read",
-              "zoom_events_attendee_actions:read:admin": "zoom_events_attendee_actions:read:admin",
-              "zoom_events:read:list_attendee_actions": "zoom_events:read:list_attendee_actions",
-              "zoom_events:read:list_attendee_actions:admin": "zoom_events:read:list_attendee_actions:admin",
-              "zoom_events_attendee_actions:write": "zoom_events_attendee_actions:write",
-              "zoom_events_attendee_actions:write:admin": "zoom_events_attendee_actions:write:admin",
-              "zoom_events:update:batch_attendee_actions": "zoom_events:update:batch_attendee_actions",
-              "zoom_events:update:batch_attendee_actions:admin": "zoom_events:update:batch_attendee_actions:admin",
-              "zoom_events:read:list_session_attendee_actions": "zoom_events:read:list_session_attendee_actions",
-              "zoom_events:read:list_session_attendee_actions:admin": "zoom_events:read:list_session_attendee_actions:admin",
-              "zoom_events:update:batch_session_attendee_actions": "zoom_events:update:batch_session_attendee_actions",
-              "zoom_events:update:batch_session_attendee_actions:admin": "zoom_events:update:batch_session_attendee_actions:admin",
-              "zoom_events_coeditors:read": "zoom_events_coeditors:read",
-              "zoom_events_coeditors:read:admin": "zoom_events_coeditors:read:admin",
-              "zoom_events:read:list_coeditors": "zoom_events:read:list_coeditors",
-              "zoom_events:read:list_coeditors:admin": "zoom_events:read:list_coeditors:admin",
-              "zoom_events_access_links:write": "zoom_events_access_links:write",
-              "zoom_events_access_links:write:admin": "zoom_events_access_links:write:admin",
-              "zoom_events:write:access_links": "zoom_events:write:access_links",
-              "zoom_events:write:access_links:admin": "zoom_events:write:access_links:admin",
-              "zoom_events_access_links:read:admin": "zoom_events_access_links:read:admin",
-              "zoom_events_access_links:read": "zoom_events_access_links:read",
-              "zoom_events:read:list_access_links": "zoom_events:read:list_access_links",
-              "zoom_events:read:list_access_links:admin": "zoom_events:read:list_access_links:admin",
-              "zoom_events:read:access_links": "zoom_events:read:access_links",
-              "zoom_events:read:access_links:admin": "zoom_events:read:access_links:admin",
-              "zoom_events:update:access_links": "zoom_events:update:access_links",
-              "zoom_events:update:access_links:admin": "zoom_events:update:access_links:admin",
-              "zoom_events:delete:access_links": "zoom_events:delete:access_links",
-              "zoom_events:delete:access_links:admin": "zoom_events:delete:access_links:admin",
-              "zoom_events_basic:write": "zoom_events_basic:write",
-              "zoom_events_basic:write:admin": "zoom_events_basic:write:admin",
-              "zoom_events:write:event": "zoom_events:write:event",
-              "zoom_events:write:event:admin": "zoom_events:write:event:admin",
-              "zoom_events_basic:read": "zoom_events_basic:read",
-              "zoom_events_basic:read:admin": "zoom_events_basic:read:admin",
-              "zoom_events:read:list_events": "zoom_events:read:list_events",
-              "zoom_events:read:list_events:admin": "zoom_events:read:list_events:admin",
-              "zoom_events:delete:event": "zoom_events:delete:event",
-              "zoom_events:delete:event:admin": "zoom_events:delete:event:admin",
-              "zoom_events:read:event": "zoom_events:read:event",
-              "zoom_events:read:event:admin": "zoom_events:read:event:admin",
-              "zoom_events:update:event": "zoom_events:update:event",
-              "zoom_events:update:event:admin": "zoom_events:update:event:admin",
-              "zoom_events_exhibitors:write": "zoom_events_exhibitors:write",
-              "zoom_events_exhibitors:write:admin": "zoom_events_exhibitors:write:admin",
-              "zoom_events:write:exhibitor": "zoom_events:write:exhibitor",
-              "zoom_events:write:exhibitor:admin": "zoom_events:write:exhibitor:admin",
-              "zoom_events_exhibitors:read:admin": "zoom_events_exhibitors:read:admin",
-              "zoom_events_exhibitors:read": "zoom_events_exhibitors:read",
-              "zoom_events:read:list_exhibitors": "zoom_events:read:list_exhibitors",
-              "zoom_events:read:list_exhibitors:admin": "zoom_events:read:list_exhibitors:admin",
-              "zoom_events:delete:exhibitor": "zoom_events:delete:exhibitor",
-              "zoom_events:delete:exhibitor:admin": "zoom_events:delete:exhibitor:admin",
-              "zoom_events:update:exhibitor": "zoom_events:update:exhibitor",
-              "zoom_events:update:exhibitor:admin": "zoom_events:update:exhibitor:admin",
-              "zoom_events:read:exhibitor": "zoom_events:read:exhibitor",
-              "zoom_events:read:exhibitor:admin": "zoom_events:read:exhibitor:admin",
-              "zoom_events:read:list_sponsor_tiers": "zoom_events:read:list_sponsor_tiers",
-              "zoom_events:read:list_sponsor_tiers:admin": "zoom_events:read:list_sponsor_tiers:admin",
-              "zoom_events_hubs:read": "zoom_events_hubs:read",
-              "zoom_events_hubs:read:admin": "zoom_events_hubs:read:admin",
-              "zoom_events:read:list_hubs": "zoom_events:read:list_hubs",
-              "zoom_events:read:list_hubs:admin": "zoom_events:read:list_hubs:admin",
-              "zoom_events_registrants:read": "zoom_events_registrants:read",
-              "zoom_events_registrants:read:admin": "zoom_events_registrants:read:admin",
-              "zoom_events:read:list_registrants": "zoom_events:read:list_registrants",
-              "zoom_events:read:list_registrants:admin": "zoom_events:read:list_registrants:admin",
-              "zoom_events:read:list_session_attendees": "zoom_events:read:list_session_attendees",
-              "zoom_events:read:list_session_attendees:admin": "zoom_events:read:list_session_attendees:admin",
-              "zoom_events_reports:read": "zoom_events_reports:read",
-              "zoom_events_reports:read:admin": "zoom_events_reports:read:admin",
-              "zoom_events:read:chat_transcripts": "zoom_events:read:chat_transcripts",
-              "zoom_events:read:chat_transcripts:admin": "zoom_events:read:chat_transcripts:admin",
-              "zoom_events:read:event_attendance": "zoom_events:read:event_attendance",
-              "zoom_events:read:event_attendance:admin": "zoom_events:read:event_attendance:admin",
-              "zoom_events:read:list_session_surveys": "zoom_events:read:list_session_surveys",
-              "zoom_events:read:list_session_surveys:admin": "zoom_events:read:list_session_surveys:admin",
-              "zoom_events:read:event_registration": "zoom_events:read:event_registration",
-              "zoom_events:read:event_registration:admin": "zoom_events:read:event_registration:admin",
-              "zoom_events_sessions:read": "zoom_events_sessions:read",
-              "zoom_events_sessions:read:admin": "zoom_events_sessions:read:admin",
-              "zoom_events:read:list_sessions": "zoom_events:read:list_sessions",
-              "zoom_events:read:list_sessions:admin": "zoom_events:read:list_sessions:admin",
-              "zoom_events_sessions:write:admin": "zoom_events_sessions:write:admin",
-              "zoom_events_sessions:write": "zoom_events_sessions:write",
-              "zoom_events:write:session": "zoom_events:write:session",
-              "zoom_events:write:session:admin": "zoom_events:write:session:admin",
-              "zoom_events:read:session": "zoom_events:read:session",
-              "zoom_events:read:session:admin": "zoom_events:read:session:admin",
-              "zoom_events:delete:session": "zoom_events:delete:session",
-              "zoom_events:delete:session:admin": "zoom_events:delete:session:admin",
-              "zoom_events:update:session": "zoom_events:update:session",
-              "zoom_events:update:session:admin": "zoom_events:update:session:admin",
-              "zoom_events:read:list_session_interpreters": "zoom_events:read:list_session_interpreters",
-              "zoom_events:read:list_session_interpreters:admin": "zoom_events:read:list_session_interpreters:admin",
-              "zoom_events:update:session_interpreter": "zoom_events:update:session_interpreter",
-              "zoom_events:update:session_interpreter:admin": "zoom_events:update:session_interpreter:admin",
-              "zoom_events:read:session_token": "zoom_events:read:session_token",
-              "zoom_events:read:session_token:admin": "zoom_events:read:session_token:admin",
-              "zoom_events:update:session_poll": "zoom_events:update:session_poll",
-              "zoom_events:update:session_poll:admin": "zoom_events:update:session_poll:admin",
-              "zoom_events:read:list_session_polls": "zoom_events:read:list_session_polls",
-              "zoom_events:read:list_session_polls:admin": "zoom_events:read:list_session_polls:admin",
-              "zoom_events_speakers:write": "zoom_events_speakers:write",
-              "zoom_events_speakers:write:admin": "zoom_events_speakers:write:admin",
-              "zoom_events:write:speaker": "zoom_events:write:speaker",
-              "zoom_events:write:speaker:admin": "zoom_events:write:speaker:admin",
-              "zoom_events_speakers:read": "zoom_events_speakers:read",
-              "zoom_events_speakers:read:admin": "zoom_events_speakers:read:admin",
-              "zoom_events:read:list_speakers": "zoom_events:read:list_speakers",
-              "zoom_events:read:list_speakers:admin": "zoom_events:read:list_speakers:admin",
-              "zoom_events:update:speaker": "zoom_events:update:speaker",
-              "zoom_events:update:speaker:admin": "zoom_events:update:speaker:admin",
-              "zoom_events:read:speaker": "zoom_events:read:speaker",
-              "zoom_events:read:speaker:admin": "zoom_events:read:speaker:admin",
-              "zoom_events:delete:speaker": "zoom_events:delete:speaker",
-              "zoom_events:delete:speaker:admin": "zoom_events:delete:speaker:admin",
-              "zoom_events_ticket_types:read": "zoom_events_ticket_types:read",
-              "zoom_events_ticket_types:read:admin": "zoom_events_ticket_types:read:admin",
-              "zoom_events:read:list_registration_questions": "zoom_events:read:list_registration_questions",
-              "zoom_events:read:list_registration_questions:admin": "zoom_events:read:list_registration_questions:admin",
-              "zoom_events_ticket_types:write": "zoom_events_ticket_types:write",
-              "zoom_events_ticket_types:write:admin": "zoom_events_ticket_types:write:admin",
-              "zoom_events:update:registraion_question": "zoom_events:update:registraion_question",
-              "zoom_events:update:registraion_question:admin": "zoom_events:update:registraion_question:admin",
-              "zoom_events:read:list_ticket_types": "zoom_events:read:list_ticket_types",
-              "zoom_events:read:list_ticket_types:admin": "zoom_events:read:list_ticket_types:admin",
-              "zoom_events:write:ticket_type": "zoom_events:write:ticket_type",
-              "zoom_events:write:ticket_type:admin": "zoom_events:write:ticket_type:admin",
-              "zoom_events:update:ticket_type": "zoom_events:update:ticket_type",
-              "zoom_events:update:ticket_type:admin": "zoom_events:update:ticket_type:admin",
-              "zoom_events:delete:ticket_type": "zoom_events:delete:ticket_type",
-              "zoom_events:delete:ticket_type:admin": "zoom_events:delete:ticket_type:admin",
-              "zoom_events_tickets:write": "zoom_events_tickets:write",
-              "zoom_events_tickets:write:admin": "zoom_events_tickets:write:admin",
-              "zoom_events:write:ticket": "zoom_events:write:ticket",
-              "zoom_events:write:ticket:admin": "zoom_events:write:ticket:admin",
-              "zoom_events_tickets:read": "zoom_events_tickets:read",
-              "zoom_events_tickets:read:admin": "zoom_events_tickets:read:admin",
-              "zoom_events:read:list_tickets": "zoom_events:read:list_tickets",
-              "zoom_events:read:list_tickets:admin": "zoom_events:read:list_tickets:admin",
-              "zoom_events:read:ticket": "zoom_events:read:ticket",
-              "zoom_events:read:ticket:admin": "zoom_events:read:ticket:admin",
-              "zoom_events:delete:ticket": "zoom_events:delete:ticket",
-              "zoom_events:delete:ticket:admin": "zoom_events:delete:ticket:admin",
-              "zoom_events_vod_channels:read": "zoom_events_vod_channels:read",
-              "zoom_events_vod_channels:read:admin": "zoom_events_vod_channels:read:admin",
-              "zoom_events:read:list_all_vod_channels": "zoom_events:read:list_all_vod_channels",
-              "zoom_events:read:list_all_vod_channels:admin": "zoom_events:read:list_all_vod_channels:admin"
-            }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

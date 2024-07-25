@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://zoom.us/" }],
+  "servers": [
+    {
+      "url": "https://zoom.us/"
+    }
+  ],
   "paths": {
     "/clips/files": {
       "post": {
-        "tags": ["Clips"],
+        "tags": [
+          "Clips"
+        ],
         "summary": "Upload clip file",
         "description": "Uploads a file to Zoom Revenue Acclerator. \n\n **Note:**  \n* Base URL: `https://fileapi.zoom.us/v2/`.  \n* Rate limit: 20 requests per second per user or 2000 requests per second per IP address.\n* The caller must support HTTP 30x redirects. \n* The caller must retain the Authorization header when redirected to a different hostname. \n* Supported video formats: `.mp4`, `.webm`.\n* When your object size reaches 2 GB, you should use multipart uploads instead of uploading the object in a single operation.\n* For an **account-level** [OAuth app](https://developers.zoom.us/docs/integrations/create/), this API can only be used on behalf of a user who is assigned with a [role](https://support.zoom.us/hc/en-us/articles/115001078646-Using-role-management#:~:text=Each%20user%20in%20a%20Zoom,owner%2C%20administrator%2C%20or%20member.&amp;text=Role%2Dbased%20access%20control%20enables,needs%20to%20view%20or%20edit.) with **Edit** permission for **Zoom Clips**.\n\n**Scopes:** `clips:write`,`clips:write:admin`",
         "operationId": "UploadClipFile",
@@ -26,7 +32,9 @@
           "content": {
             "multipart/form-data": {
               "schema": {
-                "required": ["file"],
+                "required": [
+                  "file"
+                ],
                 "type": "object",
                 "properties": {
                   "file": {
@@ -60,20 +68,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["clips:write", "clips:write:admin"],
+            "openapi_oauth": [
+              "clips:write",
+              "clips:write:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "WebMarvel-2024-02-19",
-          "x-permissions": ["Clip:Edit"],
-          "x-macro-scopes": ["clips:write", "clips:write:admin"]
+          "x-permissions": [
+            "Clip:Edit"
+          ],
+          "x-macro-scopes": [
+            "clips:write",
+            "clips:write:admin"
+          ]
         }
       }
     },
     "/clips/files/multipart": {
       "post": {
-        "tags": ["Clips"],
+        "tags": [
+          "Clips"
+        ],
         "summary": "Upload clip multipart files",
         "description": "Uploads a multipart file. \n\n **Note:** \n* The base URL for this API is `https://fileapi.zoom.us/v2/`. \n* The rate limit of this API is 20 requests per second or 2000 requests per second per IP address. \n* The caller must support HTTP 30x redirects. \n* The caller must retain the authorization header when redirected to a different hostname. \n* Video can be in `.mp4`, `.webm` format.\n* In general, when your object size reaches 2 GB, you should use multipart uploads instead of uploading the object in a single operation.\n* For an **account-level** [OAuth app](https://marketplace.zoom.us/docs/guides/getting-started/app-types/create-oauth-app), this API can only be used on behalf of a user who is assigned with a [role](https://support.zoom.us/hc/en-us/articles/115001078646-Using-role-management#:~:text=Each%20user%20in%20a%20Zoom,owner%2C%20administrator%2C%20or%20member.&amp;text=Role%2Dbased%20access%20control%20enables,needs%20to%20view%20or%20edit.) that has the **Edit** permission for **Zoom Clips**. \n\n**Scopes:** `clips:write`,`clips:write:admin`",
         "operationId": "UploadIqMultipartClipFile",
@@ -81,7 +99,11 @@
           "content": {
             "multipart/form-data": {
               "schema": {
-                "required": ["file", "part_number", "upload_context"],
+                "required": [
+                  "file",
+                  "part_number",
+                  "upload_context"
+                ],
                 "type": "object",
                 "properties": {
                   "file": {
@@ -136,20 +158,30 @@
         },
         "security": [
           {
-            "openapi_oauth": ["clips:write", "clips:write:admin"],
+            "openapi_oauth": [
+              "clips:write",
+              "clips:write:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "WebMarvel-2024-02-19",
-          "x-permissions": ["Clip:Edit"],
-          "x-macro-scopes": ["clips:write", "clips:write:admin"]
+          "x-permissions": [
+            "Clip:Edit"
+          ],
+          "x-macro-scopes": [
+            "clips:write",
+            "clips:write:admin"
+          ]
         }
       }
     },
     "/clips/files/multipart/upload_events": {
       "post": {
-        "tags": ["Clips"],
+        "tags": [
+          "Clips"
+        ],
         "summary": "Initiate and complete the multipart file upload for a clip",
         "description": "Initiates or completes a multipart upload. \n\n **Note:** \n* The base URL for this API is `https://fileapi.zoom.us/v2/`. \n* The rate limit is 20 requests per second or 2000 requests per second per IP address.\n* The caller must support HTTP 30x redirects. \n* The caller must retain the authorization header when redirected to a different hostname. \n* Once initiated, the multipart upload must complete within 7 days. \n* For **account-level** [OAuth apps](https://marketplace.zoom.us/docs/guides/getting-started/app-types/create-oauth-app), this API can only be used on behalf of a user who is assigned with a [role](https://support.zoom.us/hc/en-us/articles/115001078646-Using-role-management#:~:text=Each%20user%20in%20a%20Zoom,owner%2C%20administrator%2C%20or%20member.&amp;text=Role%2Dbased%20access%20control%20enables,needs%20to%20view%20or%20edit.) with **Edit** permission for **Zoom Clips**.\n\n**Scopes:** `clips:write`,`clips:write:admin`",
         "operationId": "InitiateAndCompleteAClipMultipartUpload.",
@@ -159,14 +191,18 @@
               "schema": {
                 "oneOf": [
                   {
-                    "required": ["method"],
+                    "required": [
+                      "method"
+                    ],
                     "type": "object",
                     "properties": {
                       "method": {
                         "type": "string",
                         "description": "The method to upload events: \n* `CreateMultipartUpload` — Create a multipart upload.",
                         "example": "CreateMultipartUpload",
-                        "enum": ["CreateMultipartUpload"]
+                        "enum": [
+                          "CreateMultipartUpload"
+                        ]
                       },
                       "params": {
                         "type": "object",
@@ -182,14 +218,18 @@
                     }
                   },
                   {
-                    "required": ["method"],
+                    "required": [
+                      "method"
+                    ],
                     "type": "object",
                     "properties": {
                       "method": {
                         "type": "string",
                         "description": "The method to upload events: \n* `CompleteMultipartUpload` — Complete a multipart upload.",
                         "example": "CompleteMultipartUpload",
-                        "enum": ["CompleteMultipartUpload"]
+                        "enum": [
+                          "CompleteMultipartUpload"
+                        ]
                       },
                       "params": {
                         "type": "object",
@@ -263,39 +303,25 @@
         },
         "security": [
           {
-            "openapi_oauth": ["clips:write", "clips:write:admin"],
+            "openapi_oauth": [
+              "clips:write",
+              "clips:write:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "WebMarvel-2024-02-19",
-          "x-permissions": ["Clip:Edit"],
-          "x-macro-scopes": ["clips:write", "clips:write:admin"]
+          "x-permissions": [
+            "Clip:Edit"
+          ],
+          "x-macro-scopes": [
+            "clips:write",
+            "clips:write:admin"
+          ]
         }
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": {
-              "clips:write": "clips:write",
-              "clips:write:admin": "clips:write:admin"
-            }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

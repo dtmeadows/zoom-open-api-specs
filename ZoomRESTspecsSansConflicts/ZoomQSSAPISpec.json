@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us/v2"
+    }
+  ],
   "paths": {
     "/metrics/meetings/{meetingId}/participants/qos_summary": {
       "get": {
-        "tags": ["Dashboards"],
+        "tags": [
+          "Dashboards"
+        ],
         "summary": "List meeting participants QoS Summary",
         "description": "Return a list of meeting participants from past meetings and the summary their quality of service received during the meeting. The data returned indicates the connection quality for sending or receiving video, audio, and shared content. \n\n**Note:** \n\nThis API may return empty values for participants' `user_name` and `email` responses when the account calling this API. \n* Does **not** have a signed HIPAA business associate agreement (BAA). \n* Is a [**legacy** HIPAA BAA account](https://developers.zoom.us/docs/api/rest/other-references/legacy-business-associate-agreements/). \n* Displays data for any users who are **not** part of the host's account (external users) unless they meet certain conditions. See [Email address display rules](https://developers.zoom.us/docs/api/rest/using-zoom-apis/#email-address-display-rules) for details. \n\n**Prerequisites:** \n* A Business or a higher plan. \n* Developers must subscribe to the QSS summary event to receive data from this API.\n\n**Scopes:** `dashboard_meetings:read:admin`,`dashboard:read:admin`\n\n**Granular Scopes:** `dashboard:read:list_meeting_participants_qos:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "dashboardMeetingParticipantsQOSSummary",
@@ -28,7 +34,9 @@
             "in": "path",
             "description": "The meeting's ID or universally unique ID (UUID). \n* If you provide a meeting ID, the API will return a response for the latest meeting instance. \n* If you provide a meeting UUID that begins with a `/` character or contains the `//` characters, you **must** double-encode the meeting UUID before making an API request.",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "page_size",
@@ -295,7 +303,9 @@
     },
     "/metrics/webinars/{webinarId}/participants/qos_summary": {
       "get": {
-        "tags": ["Dashboards"],
+        "tags": [
+          "Dashboards"
+        ],
         "summary": "List webinar participants QoS Summary",
         "description": "Use this API to return a list of webinar participants from live or past webinars and the quality of service they received during the webinar. The data returned indicates the connection quality for sending/receiving video, audio, and shared content. \n\n**Note:** \n\nThis API may return empty values for participants' `user_name` and `email` responses when the account calling this API: \n* Does **not** have a signed HIPAA business associate agreement (BAA). \n* Is a [**legacy** HIPAA BAA account](https://marketplace.zoom.us/docs/api-reference/other-references/legacy-business-associate-agreements). \n* Displays data for any users who are **not** part of the host's account (external users) unless they meet certain conditions. See [Email address display rules](https://marketplace.zoom.us/docs/api-reference/using-zoom-apis#email-address) for details. \n\n**Prerequisites:** \n* A Business, Education, or API Plan with Webinar add-on.\n* Developers must subscribe to the QSS summary event to receive data from this API.\n\n**Scopes:** `dashboard_webinars:read:admin`,`dashboard:read:admin`\n\n**Granular Scopes:** `dashboard:read:list_webinar_participants_qos:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Heavy`",
         "operationId": "dashboardWebinarParticipantsQOSSummary",
@@ -573,7 +583,9 @@
     },
     "/videosdk/sessions/{sessionId}/users/qos_summary": {
       "get": {
-        "tags": ["Video SDK Sessions"],
+        "tags": [
+          "Video SDK Sessions"
+        ],
         "summary": "List session users QoS Summary",
         "description": "Use this API to return a list of users from past sessions and a summary of their quality of service received during the session. The data returned indicates the connection quality for sending and receiving video, audio, and shared content. \n\n**Note:** \n\nThis API may return empty values for users' `name` responses when the account calling this API: \n* Does **not** have a signed HIPAA business associate agreement (BAA). \n* Is a [**legacy** HIPAA BAA account](https://developers.zoom.us/docs/api/rest/other-references/legacy-business-associate-agreements/). \n* Displays data for any users who are **not** part of the host's account (external users) unless they meet certain conditions. \n\n**Prerequisites:** \n* A Business or a higher plan. \n* Developers must subscribe to the QSS summary event to receive data from this API.\n\n**Scopes:** `dashboard_meetings:read:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "sessionUsersQOSSummary",
@@ -818,42 +830,21 @@
         },
         "security": [
           {
-            "openapi_oauth": ["dashboard_meetings:read:admin"],
+            "openapi_oauth": [
+              "dashboard_meetings:read:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "docfix-DEVELOPERS-4870yg",
           "x-permissions": [],
-          "x-macro-scopes": ["dashboard_meetings:read:admin"]
+          "x-macro-scopes": [
+            "dashboard_meetings:read:admin"
+          ]
         }
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": {
-              "dashboard_meetings:read:admin": "dashboard_meetings:read:admin",
-              "dashboard:read:admin": "dashboard:read:admin",
-              "dashboard:read:list_meeting_participants_qos:admin": "dashboard:read:list_meeting_participants_qos:admin",
-              "dashboard_webinars:read:admin": "dashboard_webinars:read:admin",
-              "dashboard:read:list_webinar_participants_qos:admin": "dashboard:read:list_webinar_participants_qos:admin"
-            }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

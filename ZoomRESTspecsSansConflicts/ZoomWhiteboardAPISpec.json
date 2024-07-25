@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us/v2"
+    }
+  ],
   "paths": {
     "/whiteboards/sessions": {
       "get": {
-        "tags": ["Archiving"],
+        "tags": [
+          "Archiving"
+        ],
         "summary": "List whiteboards sessions",
         "description": "Lists archived sessions under current account.\n\n**Scopes:** `whiteboard_content:read:admin`,`whiteboard_content:read`\n\n**Granular Scopes:** `whiteboard:read:list_sessions`,`whiteboard:read:list_sessions:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Createwhiteboardsarchivefiles",
@@ -74,7 +80,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["from", "next_page_token", "page_size", "to"],
+                  "required": [
+                    "from",
+                    "next_page_token",
+                    "page_size",
+                    "to"
+                  ],
                   "type": "object",
                   "properties": {
                     "from": {
@@ -202,7 +213,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.14.0",
-          "x-permissions": ["WhiteboardContent:Read"],
+          "x-permissions": [
+            "WhiteboardContent:Read"
+          ],
           "x-macro-scopes": [
             "whiteboard_content:read:admin",
             "whiteboard_content:read"
@@ -216,7 +229,9 @@
     },
     "/whiteboards/sessions/activity/download/{path}": {
       "get": {
-        "tags": ["Archiving"],
+        "tags": [
+          "Archiving"
+        ],
         "summary": "Download Whiteboards activity file",
         "description": "Use this API to download the Whiteboard archival file.\n\n**Scopes:** `whiteboard_content:read`,`whiteboard_content:read:admin`\n\n**Granular Scopes:** `whiteboard:read:archived_file`,`whiteboard:read:archived_file:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Downloadwhiteboardsactivityfile",
@@ -255,7 +270,10 @@
               "Content-Length": {
                 "description": "Content-Length.",
                 "required": false,
-                "schema": { "type": "string", "example": "102400" }
+                "schema": {
+                  "type": "string",
+                  "example": "102400"
+                }
               }
             }
           },
@@ -279,7 +297,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.14.0",
-          "x-permissions": ["WhiteboardContent:Read"],
+          "x-permissions": [
+            "WhiteboardContent:Read"
+          ],
           "x-macro-scopes": [
             "whiteboard_content:read",
             "whiteboard_content:read:admin"
@@ -293,7 +313,9 @@
     },
     "/whiteboards/sessions/{seesionId}": {
       "get": {
-        "tags": ["Archiving"],
+        "tags": [
+          "Archiving"
+        ],
         "summary": "List whiteboard sessions activities",
         "description": "Lists a session's activity information.\n\n**Scopes:** `whiteboard_content:read`,`whiteboard_content:read:admin`\n\n**Granular Scopes:** `whiteboard:read:session`,`whiteboard:read:session:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Listwhiteboardsessionsarchivedfiles",
@@ -337,7 +359,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["page_size", "total_records"],
+                  "required": [
+                    "page_size",
+                    "total_records"
+                  ],
                   "type": "object",
                   "properties": {
                     "page_size": {
@@ -456,7 +481,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.15.0",
-          "x-permissions": ["WhiteboardContent:Read"],
+          "x-permissions": [
+            "WhiteboardContent:Read"
+          ],
           "x-macro-scopes": [
             "whiteboard_content:read",
             "whiteboard_content:read:admin"
@@ -470,7 +497,9 @@
     },
     "/whiteboards/{whiteboardId}/collaborator": {
       "get": {
-        "tags": ["Collaborator"],
+        "tags": [
+          "Collaborator"
+        ],
         "summary": "Get collaborators of a whiteboard",
         "description": "Returns a list of a whiteboard collaborators. \n\n**Scopes:** `whiteboard_collaborator:read:admin`\n\n**Granular Scopes:** `whiteboard:read:list_collaborators:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "GetAWhiteboardCollaborator",
@@ -480,7 +509,10 @@
             "in": "path",
             "description": "The ID of the whiteboard.",
             "required": true,
-            "schema": { "type": "string", "example": "HY8-AC_HSou4SXY1S-OmOg" }
+            "schema": {
+              "type": "string",
+              "example": "HY8-AC_HSou4SXY1S-OmOg"
+            }
           }
         ],
         "responses": {
@@ -522,7 +554,13 @@
                         "type": "integer",
                         "description": "The collaborator role type. \nEnum: \n* `0` - OWNER \n* `1` - CO_OWNER \n* `2` - EDITOR \n* `3` - COMMENTER \n* `4` - VIEWER \n",
                         "example": 0,
-                        "enum": [0, 1, 2, 3, 4],
+                        "enum": [
+                          0,
+                          1,
+                          2,
+                          3,
+                          4
+                        ],
                         "x-enum-descriptions": [
                           "OWNER",
                           "CO_OWNER",
@@ -535,7 +573,11 @@
                         "type": "integer",
                         "description": "The collaborator type. \nEnum: \n* `0` - SAME_ACCOUNT_USER \n* `1` - EXTERNAL_USER \n* `2` - CHANNEL \n",
                         "example": 0,
-                        "enum": [0, 1, 2],
+                        "enum": [
+                          0,
+                          1,
+                          2
+                        ],
                         "x-enum-descriptions": [
                           "SAME_ACCOUNT_USER",
                           "EXTERNAL_USER",
@@ -564,13 +606,21 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.14.0",
-          "x-permissions": ["WhiteboardManagement:Read"],
-          "x-macro-scopes": ["whiteboard_collaborator:read:admin"],
-          "x-granular-scopes": ["whiteboard:read:list_collaborators:admin"]
+          "x-permissions": [
+            "WhiteboardManagement:Read"
+          ],
+          "x-macro-scopes": [
+            "whiteboard_collaborator:read:admin"
+          ],
+          "x-granular-scopes": [
+            "whiteboard:read:list_collaborators:admin"
+          ]
         }
       },
       "post": {
-        "tags": ["Collaborator"],
+        "tags": [
+          "Collaborator"
+        ],
         "summary": "Share a whiteboard to new users or team chat channels.",
         "description": "Use this API to add collaborators to a whiteboard.\n\n**Scopes:** `whiteboard_collaborator:write:admin`\n\n**Granular Scopes:** `whiteboard:write:collaborator:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "AddAWhiteboardCollaborator",
@@ -580,7 +630,10 @@
             "in": "path",
             "description": "The ID of the whiteboard.",
             "required": true,
-            "schema": { "type": "string", "example": "HY8-AC_HSou4SXY1S-OmOg" }
+            "schema": {
+              "type": "string",
+              "example": "HY8-AC_HSou4SXY1S-OmOg"
+            }
           }
         ],
         "requestBody": {
@@ -609,7 +662,13 @@
                           "type": "integer",
                           "description": "Collaborator role type. \nEnum: \n* `0` - OWNER \n* `1` - CO_OWNER \n* `2` - EDITOR \n* `3` - COMMENTER \n* `4` - VIEWER \n",
                           "example": 1,
-                          "enum": [0, 1, 2, 3, 4],
+                          "enum": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4
+                          ],
                           "x-enum-descriptions": [
                             "OWNER",
                             "CO_OWNER",
@@ -667,7 +726,13 @@
                         "type": "integer",
                         "description": "Collaborator role type. \nEnum: \n* `0` - OWNER \n* `1` - CO_OWNER \n* `2` - EDITOR \n* `3` - COMMENTER \n* `4` - VIEWER \n",
                         "example": 0,
-                        "enum": [0, 1, 2, 3, 4],
+                        "enum": [
+                          0,
+                          1,
+                          2,
+                          3,
+                          4
+                        ],
                         "x-enum-descriptions": [
                           "OWNER",
                           "CO_OWNER",
@@ -680,7 +745,11 @@
                         "type": "integer",
                         "description": "Collaborator type. \nEnum: \n* `0` - SAME_ACCOUNT_USER \n* `1` - EXTERNAL_USER \n* `2` - CHANNEL \n",
                         "example": 0,
-                        "enum": [0, 1, 2],
+                        "enum": [
+                          0,
+                          1,
+                          2
+                        ],
                         "x-enum-descriptions": [
                           "SAME_ACCOUNT_USER",
                           "EXTERNAL_USER",
@@ -712,13 +781,21 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.14.0",
-          "x-permissions": ["WhiteboardManagement:Edit"],
-          "x-macro-scopes": ["whiteboard_collaborator:write:admin"],
-          "x-granular-scopes": ["whiteboard:write:collaborator:admin"]
+          "x-permissions": [
+            "WhiteboardManagement:Edit"
+          ],
+          "x-macro-scopes": [
+            "whiteboard_collaborator:write:admin"
+          ],
+          "x-granular-scopes": [
+            "whiteboard:write:collaborator:admin"
+          ]
         }
       },
       "patch": {
-        "tags": ["Collaborator"],
+        "tags": [
+          "Collaborator"
+        ],
         "summary": "Update whiteboard collaborators",
         "description": "Use this API to update whiteboard collaborators. \n\n\n\n**Scopes:** `whiteboard_collaborator:write:admin`\n\n**Granular Scopes:** `whiteboard:update:collaborator:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "UpdateAWhiteboardCollaborator",
@@ -728,7 +805,10 @@
             "in": "path",
             "description": "The ID of the whiteboard.",
             "required": true,
-            "schema": { "type": "string", "example": "HY8-AC_HSou4SXY1S-OmOg" }
+            "schema": {
+              "type": "string",
+              "example": "HY8-AC_HSou4SXY1S-OmOg"
+            }
           }
         ],
         "requestBody": {
@@ -752,7 +832,13 @@
                           "type": "integer",
                           "description": "The collaborator role type. \nEnum: \n* `0` - OWNER \n* `1` - CO_OWNER \n* `2` - EDITOR \n* `3` - COMMENTER \n* `4` - VIEWER \n",
                           "example": 0,
-                          "enum": [0, 1, 2, 3, 4],
+                          "enum": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4
+                          ],
                           "x-enum-descriptions": [
                             "OWNER",
                             "CO_OWNER",
@@ -792,15 +878,23 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.14.0",
-          "x-permissions": ["WhiteboardManagement:Edit"],
-          "x-macro-scopes": ["whiteboard_collaborator:write:admin"],
-          "x-granular-scopes": ["whiteboard:update:collaborator:admin"]
+          "x-permissions": [
+            "WhiteboardManagement:Edit"
+          ],
+          "x-macro-scopes": [
+            "whiteboard_collaborator:write:admin"
+          ],
+          "x-granular-scopes": [
+            "whiteboard:update:collaborator:admin"
+          ]
         }
       }
     },
     "/whiteboards/{whiteboardId}/collaborator/{collaboratorId}": {
       "delete": {
-        "tags": ["Collaborator"],
+        "tags": [
+          "Collaborator"
+        ],
         "summary": "Remove the collaborator from a whiteboard",
         "description": "Removes a collaborator from a whiteboard. \n\n\n\n**Scopes:** `whiteboard_collaborator:write:admin`\n\n**Granular Scopes:** `whiteboard:delete:collaborator:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "DeleteAWhiteboardCollaborator",
@@ -810,7 +904,10 @@
             "in": "path",
             "description": "The ID of the whiteboard.",
             "required": true,
-            "schema": { "type": "string", "example": "HY8-AC_HSou4SXY1S-OmOg" }
+            "schema": {
+              "type": "string",
+              "example": "HY8-AC_HSou4SXY1S-OmOg"
+            }
           },
           {
             "name": "collaboratorId",
@@ -845,15 +942,23 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.14.0",
-          "x-permissions": ["WhiteboardManagement:Edit"],
-          "x-macro-scopes": ["whiteboard_collaborator:write:admin"],
-          "x-granular-scopes": ["whiteboard:delete:collaborator:admin"]
+          "x-permissions": [
+            "WhiteboardManagement:Edit"
+          ],
+          "x-macro-scopes": [
+            "whiteboard_collaborator:write:admin"
+          ],
+          "x-granular-scopes": [
+            "whiteboard:delete:collaborator:admin"
+          ]
         }
       }
     },
     "/whiteboards": {
       "get": {
-        "tags": ["Document"],
+        "tags": [
+          "Document"
+        ],
         "summary": "List all whiteboards",
         "description": "Use this API to list whiteboards of current user (**Required Scopes**: `whiteboard:read`) or list all whiteboards under the account (**Required Scopes**: `whiteboard:read:admin`).\n\n**Note:** `user_id` can intake `Zoom user ID` or `email` which only applies when scope = `whiteboard:read:admin`. Otherwise, the `user_id` can only intake `me`.\n\n**Scopes:** `whiteboard:read:admin`,`whiteboard:read`\n\n**Granular Scopes:** `whiteboard:read:list_whiteboards:admin`,`whiteboard:read:list_whiteboards`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "ListWhiteboards",
@@ -863,14 +968,20 @@
             "in": "query",
             "description": "The name of a whiteboard. If this parameter is provided, only the matched whiteboard will be returned. Otherwise, all whiteboards will be returned.",
             "required": false,
-            "schema": { "type": "string", "example": "PGsQ3nwITmyTG4JkFNWJcg" }
+            "schema": {
+              "type": "string",
+              "example": "PGsQ3nwITmyTG4JkFNWJcg"
+            }
           },
           {
             "name": "user_id",
             "in": "query",
             "description": "The email address or user ID of the whiteboard owner. If this parameter is provided, only the whiteboard owned by the provided user will be returned. \nIf set to `me`, will return the matched whiteboards of current user.",
             "required": false,
-            "schema": { "type": "string", "example": "me" }
+            "schema": {
+              "type": "string",
+              "example": "me"
+            }
           },
           {
             "name": "date_filter_type",
@@ -881,7 +992,10 @@
               "type": "string",
               "example": "modified_date",
               "default": "modified_date",
-              "enum": ["created_date", "modified_date"],
+              "enum": [
+                "created_date",
+                "modified_date"
+              ],
               "x-enum-descriptions": [
                 "Whiteboard creation date in `yyyy-MM-dd'T'HH:mm:ss'Z'` UTC(Coordinated Universal Time) format",
                 "Whiteboard  modification date in `yyyy-MM-dd'T'HH:mm:ss'Z'` UTC(Coordinated Universal Time) format"
@@ -1007,7 +1121,12 @@
                                         "description": "The access type of whiteboard share link. \n* Enum: \n* `0` - `Restricted`, Only people added can open with this link \n* `1` - `Same account` \n* `2` - Anyone \n* `3` - SAME_ACCOUNT_EXTERNAL_AUTH \n",
                                         "example": 0,
                                         "default": 0,
-                                        "enum": [0, 1, 2, 3],
+                                        "enum": [
+                                          0,
+                                          1,
+                                          2,
+                                          3
+                                        ],
                                         "x-enum-descriptions": [
                                           "Restricted. Only people added can open with this link",
                                           "Same account",
@@ -1019,7 +1138,11 @@
                                         "type": "integer",
                                         "description": "The access level of whiteboard share link. This field need to used with `share_scope`. If `share_scope` set `0` - `Restricted`, this field is null. If `share_scope` set `1` - `Same account` or `2` - `Anyone`, this filed can be `2` - `Editor`, `3` - `Commenter` or `4` - `Viewer`. \n* Enum: \n* `2` - `Editor`\n* `3` - `Commenter` \n* `4` - Viewer \n",
                                         "example": 2,
-                                        "enum": [2, 3, 4],
+                                        "enum": [
+                                          2,
+                                          3,
+                                          4
+                                        ],
                                         "x-enum-descriptions": [
                                           "Editor",
                                           "Commenter",
@@ -1095,8 +1218,13 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.17.0",
-          "x-permissions": ["WhiteboardManagement:Read"],
-          "x-macro-scopes": ["whiteboard:read:admin", "whiteboard:read"],
+          "x-permissions": [
+            "WhiteboardManagement:Read"
+          ],
+          "x-macro-scopes": [
+            "whiteboard:read:admin",
+            "whiteboard:read"
+          ],
           "x-granular-scopes": [
             "whiteboard:read:list_whiteboards:admin",
             "whiteboard:read:list_whiteboards"
@@ -1104,7 +1232,9 @@
         }
       },
       "post": {
-        "tags": ["Document"],
+        "tags": [
+          "Document"
+        ],
         "summary": "Create a new whiteboard",
         "description": "Use this API to create a new whiteboard for a user.\n\n\n\n**Scopes:** `whiteboard:write`\n\n**Granular Scopes:** `whiteboard:write:whiteboard`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "newWhiteboardCreate",
@@ -1189,7 +1319,12 @@
                           "description": "The access type of whiteboard share link. \n* Enum: \n* `0` - `Restricted`, Only people added can open with this link \n* `1` - `Same account` \n* `2` - Anyone \n* `3` - SAME_ACCOUNT_EXTERNAL_AUTH \n",
                           "example": 0,
                           "default": 0,
-                          "enum": [0, 1, 2, 3],
+                          "enum": [
+                            0,
+                            1,
+                            2,
+                            3
+                          ],
                           "x-enum-descriptions": [
                             "Restricted. Only people added can open with this link",
                             "Same account",
@@ -1201,7 +1336,11 @@
                           "type": "integer",
                           "description": "The access level of whiteboard share link. This field need to used with `share_scope`. If `share_scope` set `0` - `Restricted`, this field is null. If `share_scope` set `1` - `Same account` or `2` - `Anyone`, this filed can be `2` - `Editor`, `3` - `Commenter` or `4` - `Viewer`. \n* Enum: \n* `2` - `Editor`\n* `3` - `Commenter` \n* `4` - Viewer \n",
                           "example": 2,
-                          "enum": [2, 3, 4],
+                          "enum": [
+                            2,
+                            3,
+                            4
+                          ],
                           "x-enum-descriptions": [
                             "Editor",
                             "Commenter",
@@ -1254,14 +1393,20 @@
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.14.0",
           "x-permissions": [],
-          "x-macro-scopes": ["whiteboard:write"],
-          "x-granular-scopes": ["whiteboard:write:whiteboard"]
+          "x-macro-scopes": [
+            "whiteboard:write"
+          ],
+          "x-granular-scopes": [
+            "whiteboard:write:whiteboard"
+          ]
         }
       }
     },
     "/whiteboards/{whiteboardId}": {
       "get": {
-        "tags": ["Document"],
+        "tags": [
+          "Document"
+        ],
         "summary": "Get a whiteboard",
         "description": "Retrieve a whiteboard's information.\n\n**Scopes:** `whiteboard:read:admin`,`whiteboard:read`\n\n**Granular Scopes:** `whiteboard:read:whiteboard:admin`,`whiteboard:read:whiteboard`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "GetAWhiteboard",
@@ -1271,7 +1416,10 @@
             "in": "path",
             "description": "The whiteboard's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "HY8-AC_HSou4SXY1S-OmOg" }
+            "schema": {
+              "type": "string",
+              "example": "HY8-AC_HSou4SXY1S-OmOg"
+            }
           }
         ],
         "responses": {
@@ -1337,7 +1485,12 @@
                           "description": "The access type of whiteboard sharing link. \n* Enum: \n* `0` - `Restricted`. Only people added can open with this link. \n* `1` - `Same account` \n* `2` - Anyone \n* `3` - `SAME_ACCOUNT_EXTERNAL_AUTH` \n",
                           "example": 0,
                           "default": 0,
-                          "enum": [0, 1, 2, 3],
+                          "enum": [
+                            0,
+                            1,
+                            2,
+                            3
+                          ],
                           "x-enum-descriptions": [
                             "Restricted. Only people added can open with this link",
                             "Same account",
@@ -1349,7 +1502,11 @@
                           "type": "integer",
                           "description": "The access level of whiteboard share link. This field need to used with `share_scope`. If `share_scope` set `0` - `Restricted`. This field is null. If `share_scope` set `1` - `Same account` or `2` - `Anyone`, this field can be `2` - `Editor`, `3` - `Commenter` or `4` - `Viewer`. \n* Enum: \n* `2` - `Editor`\n* `3` - `Commenter` \n* `4` - Viewer \n",
                           "example": 2,
-                          "enum": [2, 3, 4],
+                          "enum": [
+                            2,
+                            3,
+                            4
+                          ],
                           "x-enum-descriptions": [
                             "Editor",
                             "Commenter",
@@ -1423,8 +1580,13 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.15.0",
-          "x-permissions": ["WhiteboardManagement:Read"],
-          "x-macro-scopes": ["whiteboard:read:admin", "whiteboard:read"],
+          "x-permissions": [
+            "WhiteboardManagement:Read"
+          ],
+          "x-macro-scopes": [
+            "whiteboard:read:admin",
+            "whiteboard:read"
+          ],
           "x-granular-scopes": [
             "whiteboard:read:whiteboard:admin",
             "whiteboard:read:whiteboard"
@@ -1432,7 +1594,9 @@
         }
       },
       "put": {
-        "tags": ["Document"],
+        "tags": [
+          "Document"
+        ],
         "summary": "Update whiteboard basic information",
         "description": "Use this API to rename a whiteboard, update whiteboard status (locked or unlocked). \n\n**Scopes:** `whiteboard:write:admin`\n\n**Granular Scopes:** `whiteboard:update:whiteboard:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "UpdateAWhiteboardMetadata",
@@ -1442,7 +1606,10 @@
             "in": "path",
             "description": "The ID of the whiteboard.",
             "required": true,
-            "schema": { "type": "string", "example": "HY8-AC_HSou4SXY1S-OmOg" }
+            "schema": {
+              "type": "string",
+              "example": "HY8-AC_HSou4SXY1S-OmOg"
+            }
           }
         ],
         "requestBody": {
@@ -1491,13 +1658,21 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.14.0",
-          "x-permissions": ["WhiteboardManagement:Edit"],
-          "x-macro-scopes": ["whiteboard:write:admin"],
-          "x-granular-scopes": ["whiteboard:update:whiteboard:admin"]
+          "x-permissions": [
+            "WhiteboardManagement:Edit"
+          ],
+          "x-macro-scopes": [
+            "whiteboard:write:admin"
+          ],
+          "x-granular-scopes": [
+            "whiteboard:update:whiteboard:admin"
+          ]
         }
       },
       "delete": {
-        "tags": ["Document"],
+        "tags": [
+          "Document"
+        ],
         "summary": "Delete a whiteboard",
         "description": "Deletes a whiteboard.\n\n**Scopes:** `whiteboard:write:admin`,`whiteboard:write`\n\n**Granular Scopes:** `whiteboard:delete:whiteboard:admin`,`whiteboard:delete:whiteboard`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "DeleteAWhiteboard",
@@ -1507,7 +1682,10 @@
             "in": "path",
             "description": "The ID of the whiteboard.",
             "required": true,
-            "schema": { "type": "string", "example": "HY8-AC_HSou4SXY1S-OmOg" }
+            "schema": {
+              "type": "string",
+              "example": "HY8-AC_HSou4SXY1S-OmOg"
+            }
           }
         ],
         "responses": {
@@ -1531,8 +1709,13 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.14.0",
-          "x-permissions": ["WhiteboardManagement:Edit"],
-          "x-macro-scopes": ["whiteboard:write:admin", "whiteboard:write"],
+          "x-permissions": [
+            "WhiteboardManagement:Edit"
+          ],
+          "x-macro-scopes": [
+            "whiteboard:write:admin",
+            "whiteboard:write"
+          ],
           "x-granular-scopes": [
             "whiteboard:delete:whiteboard:admin",
             "whiteboard:delete:whiteboard"
@@ -1542,7 +1725,9 @@
     },
     "/whiteboards/export": {
       "post": {
-        "tags": ["Export"],
+        "tags": [
+          "Export"
+        ],
         "summary": "Create whiteboard export",
         "description": " Generates the export for the provided whiteboards. This process will generate a PDF of whiteboard projects along with an audit log, bundling them into a zip file.\n\n**Scopes:** `whiteboard_export:write:admin`,`whiteboard_export:write`\n\n**Granular Scopes:** `whiteboard:write:export`,`whiteboard:write:export:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Createwhiteboardsexport",
@@ -1550,7 +1735,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["whiteboard_ids"],
+                "required": [
+                  "whiteboard_ids"
+                ],
                 "type": "object",
                 "properties": {
                   "whiteboard_ids": {
@@ -1575,7 +1762,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["task_id"],
+                  "required": [
+                    "task_id"
+                  ],
                   "type": "object",
                   "properties": {
                     "task_id": {
@@ -1608,7 +1797,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.14.0",
-          "x-permissions": ["WhiteboardContent:Read"],
+          "x-permissions": [
+            "WhiteboardContent:Read"
+          ],
           "x-macro-scopes": [
             "whiteboard_export:write:admin",
             "whiteboard_export:write"
@@ -1622,7 +1813,9 @@
     },
     "/whiteboards/export/task/{taskId}": {
       "get": {
-        "tags": ["Export"],
+        "tags": [
+          "Export"
+        ],
         "summary": "Download whiteboard export",
         "description": "Use this API to download the whiteboard export.\n\n**Scopes:** `whiteboard_content:read:admin`,`whiteboard_content:read`\n\n**Granular Scopes:** `whiteboard:read:export`,`whiteboard:read:export:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Downloadwhiteboardexport",
@@ -1659,7 +1852,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.14.0",
-          "x-permissions": ["WhiteboardContent:Read"],
+          "x-permissions": [
+            "WhiteboardContent:Read"
+          ],
           "x-macro-scopes": [
             "whiteboard_content:read:admin",
             "whiteboard_content:read"
@@ -1673,7 +1868,9 @@
     },
     "/whiteboards/export/task/{taskId}/status": {
       "get": {
-        "tags": ["Export"],
+        "tags": [
+          "Export"
+        ],
         "summary": "Get whiteboard export generation status",
         "description": "Use this API to query the status of the whiteboard export generation. Before using this API, confirm that you have invoked the interface for generating the whiteboard file  [**Create whiteboard export**](https://developers.zoom.us/docs/zoom-whiteboard/apis/#operation/Createwhiteboardsexport) and obtained the `task_id`.\n\n**Scopes:** `whiteboard_content:read:admin`,`whiteboard_content:read`\n\n**Granular Scopes:** `whiteboard:read:export`,`whiteboard:read:export:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Getwhiteboardexportdatagenerationstatus",
@@ -1695,7 +1892,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["status", "total"],
+                  "required": [
+                    "status",
+                    "total"
+                  ],
                   "type": "object",
                   "properties": {
                     "processed": {
@@ -1711,7 +1911,11 @@
                       "type": "string",
                       "description": "Whiteboard export generation status. \n* Enum:\n* `processing` - Generating whiteboard export\n* `successed` - Whiteboard export generated successfully(as long as one is successful, it counts as a success)\n* `failed` - Whiteboard export generation failed",
                       "example": "processing",
-                      "enum": ["processing", "successed", "failed"],
+                      "enum": [
+                        "processing",
+                        "successed",
+                        "failed"
+                      ],
                       "x-enum-descriptions": [
                         "Generating whiteboard file",
                         "Whiteboard file generated successfully.",
@@ -1763,7 +1967,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.14.0",
-          "x-permissions": ["WhiteboardContent:Read"],
+          "x-permissions": [
+            "WhiteboardContent:Read"
+          ],
           "x-macro-scopes": [
             "whiteboard_content:read:admin",
             "whiteboard_content:read"
@@ -1777,7 +1983,9 @@
     },
     "/whiteboards/{whiteboardId}/share_setting": {
       "patch": {
-        "tags": ["Settings"],
+        "tags": [
+          "Settings"
+        ],
         "summary": "Update whiteboard share setting",
         "description": "Updates the whiteboard share setting. \n\n\n\n**Scopes:** `whiteboard_share_setting:write:admin`,`whiteboard_share_setting:write`\n\n**Granular Scopes:** `whiteboard:update:share_setting:admin`,`whiteboard:update:share_setting`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "UpdateAWhiteboardShareSetting",
@@ -1787,7 +1995,10 @@
             "in": "path",
             "description": "The ID of the whiteboard.",
             "required": true,
-            "schema": { "type": "string", "example": "HY8-AC_HSou4SXY1S-OmOg" }
+            "schema": {
+              "type": "string",
+              "example": "HY8-AC_HSou4SXY1S-OmOg"
+            }
           }
         ],
         "requestBody": {
@@ -1804,7 +2015,12 @@
                         "description": "The access type of whiteboard share link. \n* Enum: \n* `0` - `Restricted`, Only people added can open with this link \n* `1` - `Same account` \n* `2` - Anyone \n* `3` - SAME_ACCOUNT_EXTERNAL_AUTH \n",
                         "example": 0,
                         "default": 0,
-                        "enum": [0, 1, 2, 3],
+                        "enum": [
+                          0,
+                          1,
+                          2,
+                          3
+                        ],
                         "x-enum-descriptions": [
                           "Restricted. Only people added can open with this link.",
                           "Same account",
@@ -1816,8 +2032,16 @@
                         "type": "integer",
                         "description": "The access level of a whiteboard share link. Use this field with `share_scope`. If `share_scope` set `0` - `Restricted`, this field is null. If `share_scope` set `1` - `Same account` or `2` - `Anyone`, this filed can be `2` - `Editor`, `3` - `Commenter` or `4` - `Viewer`. \n* Enum: \n* `2` - `Editor`\n* `3` - `Commenter` \n* `4` - Viewer \n",
                         "example": 2,
-                        "enum": [2, 3, 4],
-                        "x-enum-descriptions": ["Editor", "Commenter", "Viewer"]
+                        "enum": [
+                          2,
+                          3,
+                          4
+                        ],
+                        "x-enum-descriptions": [
+                          "Editor",
+                          "Commenter",
+                          "Viewer"
+                        ]
                       }
                     },
                     "description": "The access level and access type of a current whiteboard's share link."
@@ -1852,7 +2076,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "ZDC-DAS 1.14.0",
-          "x-permissions": ["WhiteboardManagement:Edit"],
+          "x-permissions": [
+            "WhiteboardManagement:Edit"
+          ],
           "x-macro-scopes": [
             "whiteboard_share_setting:write:admin",
             "whiteboard_share_setting:write"
@@ -1865,61 +2091,5 @@
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": {
-              "whiteboard_content:read:admin": "whiteboard_content:read:admin",
-              "whiteboard_content:read": "whiteboard_content:read",
-              "whiteboard:read:list_sessions": "whiteboard:read:list_sessions",
-              "whiteboard:read:list_sessions:admin": "whiteboard:read:list_sessions:admin",
-              "whiteboard:read:archived_file": "whiteboard:read:archived_file",
-              "whiteboard:read:archived_file:admin": "whiteboard:read:archived_file:admin",
-              "whiteboard:read:session": "whiteboard:read:session",
-              "whiteboard:read:session:admin": "whiteboard:read:session:admin",
-              "whiteboard_collaborator:write:admin": "whiteboard_collaborator:write:admin",
-              "whiteboard:write:collaborator:admin": "whiteboard:write:collaborator:admin",
-              "whiteboard:update:collaborator:admin": "whiteboard:update:collaborator:admin",
-              "whiteboard_collaborator:read:admin": "whiteboard_collaborator:read:admin",
-              "whiteboard:read:list_collaborators:admin": "whiteboard:read:list_collaborators:admin",
-              "whiteboard:delete:collaborator:admin": "whiteboard:delete:collaborator:admin",
-              "whiteboard:read:admin": "whiteboard:read:admin",
-              "whiteboard:read": "whiteboard:read",
-              "whiteboard:read:list_whiteboards:admin": "whiteboard:read:list_whiteboards:admin",
-              "whiteboard:read:list_whiteboards": "whiteboard:read:list_whiteboards",
-              "whiteboard:write": "whiteboard:write",
-              "whiteboard:write:whiteboard": "whiteboard:write:whiteboard",
-              "whiteboard:read:whiteboard:admin": "whiteboard:read:whiteboard:admin",
-              "whiteboard:read:whiteboard": "whiteboard:read:whiteboard",
-              "whiteboard:write:admin": "whiteboard:write:admin",
-              "whiteboard:update:whiteboard:admin": "whiteboard:update:whiteboard:admin",
-              "whiteboard:delete:whiteboard:admin": "whiteboard:delete:whiteboard:admin",
-              "whiteboard:delete:whiteboard": "whiteboard:delete:whiteboard",
-              "whiteboard_export:write:admin": "whiteboard_export:write:admin",
-              "whiteboard_export:write": "whiteboard_export:write",
-              "whiteboard:write:export": "whiteboard:write:export",
-              "whiteboard:write:export:admin": "whiteboard:write:export:admin",
-              "whiteboard:read:export": "whiteboard:read:export",
-              "whiteboard:read:export:admin": "whiteboard:read:export:admin",
-              "whiteboard_share_setting:write:admin": "whiteboard_share_setting:write:admin",
-              "whiteboard_share_setting:write": "whiteboard_share_setting:write",
-              "whiteboard:update:share_setting:admin": "whiteboard:update:share_setting:admin",
-              "whiteboard:update:share_setting": "whiteboard:update:share_setting"
-            }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

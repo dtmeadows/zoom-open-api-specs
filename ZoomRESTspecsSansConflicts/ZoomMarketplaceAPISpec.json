@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us/v2"
+    }
+  ],
   "paths": {
     "/app/notifications": {
       "post": {
-        "tags": ["App"],
+        "tags": [
+          "App"
+        ],
         "summary": "Send app notifications",
         "description": "Send app notifications to the Zoom \"Activity Center\". (Note: This API only supports OAuth 2.0.)\n\n**Scopes:** `app:notification:read`,`app:notification:write`\n\n**Granular Scopes:** `marketplace:write:notifications`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Sendappnotifications",
@@ -54,7 +60,9 @@
           }
         },
         "responses": {
-          "202": { "description": "Success" },
+          "202": {
+            "description": "Success"
+          },
           "401": {
             "description": "**HTTP Status Code:** `401` <br>\n Unauthorized  \n\n **Error Code:** `124` <br>\n Invalid access token. <br>\n"
           },
@@ -78,14 +86,21 @@
         "x-extensions": {
           "x-fixVersion": "Web-2024-Jun",
           "x-permissions": [],
-          "x-macro-scopes": ["app:notification:read", "app:notification:write"],
-          "x-granular-scopes": ["marketplace:write:notifications"]
+          "x-macro-scopes": [
+            "app:notification:read",
+            "app:notification:write"
+          ],
+          "x-granular-scopes": [
+            "marketplace:write:notifications"
+          ]
         }
       }
     },
     "/marketplace/apps": {
       "get": {
-        "tags": ["App"],
+        "tags": [
+          "App"
+        ],
         "summary": "List apps",
         "description": "Use this API to list all active and past app requests, or list all public and private apps. \n\n\n\n**Scopes:** `marketplace_app:read:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Medium`",
         "operationId": "ListApps",
@@ -178,21 +193,31 @@
                                 "description": "The type of app: \n* `ZoomApp` &mdash; A Zoom app. \n* `ChatBotApp` &mdash; A ChatBot app. \n* `OAuthApp` &mdash; A OAuth app.",
                                 "example": "ZoomApp",
                                 "default": "OAuthApp",
-                                "enum": ["ZoomApp", "ChatBotApp", "OAuthApp"]
+                                "enum": [
+                                  "ZoomApp",
+                                  "ChatBotApp",
+                                  "OAuthApp"
+                                ]
                               },
                               "app_usage": {
                                 "type": "integer",
                                 "description": "The app's usage categorization: \n* `1` &mdash; The app is under admin management. \n* `2` &mdash; Users have access to the app.",
                                 "example": 1,
                                 "default": 1,
-                                "enum": [1, 2]
+                                "enum": [
+                                  1,
+                                  2
+                                ]
                               },
                               "app_status": {
                                 "type": "string",
                                 "description": "The app's publication status: \n* `PUBLISHED` &mdash; The app is published. \n* `UNPUBLISHED` &mdash; The app is not published.",
                                 "example": "PUBLISHED",
                                 "default": "PUBLISHED",
-                                "enum": ["PUBLISHED", "UNPUBLISHED"]
+                                "enum": [
+                                  "PUBLISHED",
+                                  "UNPUBLISHED"
+                                ]
                               },
                               "request_id": {
                                 "type": "string",
@@ -249,19 +274,25 @@
         },
         "security": [
           {
-            "openapi_oauth": ["marketplace_app:read:admin"],
+            "openapi_oauth": [
+              "marketplace_app:read:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "InitFixVersion",
-          "x-macro-scopes": ["marketplace_app:read:admin"]
+          "x-macro-scopes": [
+            "marketplace_app:read:admin"
+          ]
         }
       }
     },
     "/marketplace/apps/{appId}": {
       "get": {
-        "tags": ["App"],
+        "tags": [
+          "App"
+        ],
         "summary": "Get information about an app",
         "description": "Use this API to get app information. \n\n\n\n**Scopes:** `marketplace_app:read`,`marketplace_app:read:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Medium`",
         "operationId": "getAppInfo",
@@ -271,7 +302,10 @@
             "in": "path",
             "description": "The app's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "nqSreNVsQ2eGzUMGnA8AHA" }
+            "schema": {
+              "type": "string",
+              "example": "nqSreNVsQ2eGzUMGnA8AHA"
+            }
           }
         ],
         "responses": {
@@ -302,21 +336,31 @@
                       "description": "The type of app: \n* `ZoomApp` &mdash; A Zoom app. \n* `ChatBotApp` &mdash; A ChatBot app. \n* `OAuthApp` &mdash; A OAuth app.",
                       "example": "ZoomApp",
                       "default": "OAuthApp",
-                      "enum": ["ZoomApp", "ChatBotApp", "OAuthApp"]
+                      "enum": [
+                        "ZoomApp",
+                        "ChatBotApp",
+                        "OAuthApp"
+                      ]
                     },
                     "app_usage": {
                       "type": "integer",
                       "description": "The app's usage categorization: \n* `1` &mdash; The app is under admin management. \n* `2` &mdash; Users have access to the app.",
                       "example": 1,
                       "default": 1,
-                      "enum": [1, 2]
+                      "enum": [
+                        1,
+                        2
+                      ]
                     },
                     "app_status": {
                       "type": "string",
                       "description": "The app's publication status: \n* `PUBLISHED` &mdash; The app is published. \n* `UNPUBLISHED` &mdash; The app is not published.",
                       "example": "PUBLISHED",
                       "default": "PUBLISHED",
-                      "enum": ["PUBLISHED", "UNPUBLISHED"]
+                      "enum": [
+                        "PUBLISHED",
+                        "UNPUBLISHED"
+                      ]
                     },
                     "app_links": {
                       "type": "object",
@@ -386,7 +430,10 @@
                           "type": "string",
                           "description": "The user roles required to authorize or add the app: \n* `admin` &mdash; The user needs to have the ADMIN_MANAGEMENT role. \n* `user` &mdash; Every user can add this app.",
                           "example": "admin",
-                          "enum": ["admin", "user"]
+                          "enum": [
+                            "admin",
+                            "user"
+                          ]
                         },
                         "min_client_version": {
                           "type": "string",
@@ -468,7 +515,9 @@
     },
     "/marketplace/apps/{appId}/requests": {
       "get": {
-        "tags": ["App"],
+        "tags": [
+          "App"
+        ],
         "summary": "Get an app's user requests",
         "description": "Use this API to get an app's user requests and the status of their approval. \n\n\n\n**Scopes:** `marketplace_app:read:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Medium`",
         "operationId": "getAppUserRequests",
@@ -500,7 +549,10 @@
             "in": "path",
             "description": "The app's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "nqSreNVsQ2eGzUMGnA8AHA" }
+            "schema": {
+              "type": "string",
+              "example": "nqSreNVsQ2eGzUMGnA8AHA"
+            }
           },
           {
             "name": "status",
@@ -511,7 +563,11 @@
               "type": "string",
               "example": "pending",
               "default": "pending",
-              "enum": ["pending", "approved", "rejected"]
+              "enum": [
+                "pending",
+                "approved",
+                "rejected"
+              ]
             }
           }
         ],
@@ -586,7 +642,11 @@
                                 "description": "The status of the user's app request: \n* `pending` &mdash; The request is pending approval. \n* `approved` - The request is approved. \n* `rejected` - The request is rejected.",
                                 "example": "pending",
                                 "default": "pending",
-                                "enum": ["pending", "approved", "rejected"]
+                                "enum": [
+                                  "pending",
+                                  "approved",
+                                  "rejected"
+                                ]
                               }
                             }
                           }
@@ -604,17 +664,23 @@
         },
         "security": [
           {
-            "openapi_oauth": ["marketplace_app:read:admin"],
+            "openapi_oauth": [
+              "marketplace_app:read:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "InitFixVersion",
-          "x-macro-scopes": ["marketplace_app:read:admin"]
+          "x-macro-scopes": [
+            "marketplace_app:read:admin"
+          ]
         }
       },
       "post": {
-        "tags": ["App"],
+        "tags": [
+          "App"
+        ],
         "summary": "Add app allow requests for users",
         "description": "Use this API to add app allow requests for all users, groups of users, or specific users. \n\n \n\n**Scopes:** `marketplace_app:write:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
         "operationId": "AddAppAllowRequestsForUsers",
@@ -624,21 +690,30 @@
             "in": "path",
             "description": "The app's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "nqSreNVsQ2eGzUMGnA8AHA" }
+            "schema": {
+              "type": "string",
+              "example": "nqSreNVsQ2eGzUMGnA8AHA"
+            }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": ["action"],
+                "required": [
+                  "action"
+                ],
                 "type": "object",
                 "properties": {
                   "action": {
                     "type": "string",
                     "description": "The action with which to take with the app: \n* `add_all` &mdash; Add all user for the app. \n* `add_user` &mdash; Add specified user for the app. \n* `add_group` &mdash; Add specified group of user for the app.  ",
                     "example": "add_all",
-                    "enum": ["add_all", "add_user", "add_group"]
+                    "enum": [
+                      "add_all",
+                      "add_user",
+                      "add_group"
+                    ]
                   },
                   "user_ids": {
                     "type": "array",
@@ -702,17 +777,23 @@
         },
         "security": [
           {
-            "openapi_oauth": ["marketplace_app:write:admin"],
+            "openapi_oauth": [
+              "marketplace_app:write:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "InitFixVersion",
-          "x-macro-scopes": ["marketplace_app:write:admin"]
+          "x-macro-scopes": [
+            "marketplace_app:write:admin"
+          ]
         }
       },
       "patch": {
-        "tags": ["App"],
+        "tags": [
+          "App"
+        ],
         "summary": "Update app's request status",
         "description": "Use this API to update an app's request status or update app status. Administrators can only agree to user-level apps.\n\n \n\n**Scopes:** `marketplace_app:write:admin`\n\n**Granular Scopes:** `marketplace:update:app_request:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "updateAppRequestStatus",
@@ -722,14 +803,19 @@
             "in": "path",
             "description": "The app's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "nqSreNVsQ2eGzUMGnA8AHA" }
+            "schema": {
+              "type": "string",
+              "example": "nqSreNVsQ2eGzUMGnA8AHA"
+            }
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "required": ["action"],
+                "required": [
+                  "action"
+                ],
                 "type": "object",
                 "properties": {
                   "action": {
@@ -776,15 +862,23 @@
         ],
         "x-extensions": {
           "x-fixVersion": "Marketplace-2024-Jun",
-          "x-permissions": ["MarketPlace:Edit"],
-          "x-macro-scopes": ["marketplace_app:write:admin"],
-          "x-granular-scopes": ["marketplace:update:app_request:admin"]
+          "x-permissions": [
+            "MarketPlace:Edit"
+          ],
+          "x-macro-scopes": [
+            "marketplace_app:write:admin"
+          ],
+          "x-granular-scopes": [
+            "marketplace:update:app_request:admin"
+          ]
         }
       }
     },
     "/marketplace/apps/{appId}/webhook_logs": {
       "get": {
-        "tags": ["App"],
+        "tags": [
+          "App"
+        ],
         "summary": "Get webhook logs",
         "description": "Get users' webhook call logs and query records from the past 7 days. \n\n\n\n**Scopes:** `marketplace_app:read:admin`,`marketplace_app:read`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getWebhookLogs",
@@ -794,7 +888,10 @@
             "in": "path",
             "description": "The app's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "nqSreNVsQ2eGzUMGnA8AHA" }
+            "schema": {
+              "type": "string",
+              "example": "nqSreNVsQ2eGzUMGnA8AHA"
+            }
           },
           {
             "name": "next_page_token",
@@ -823,21 +920,30 @@
             "in": "query",
             "description": "Start date in format: `yyyy-MM-dd'T'HH:mm:ss'Z'`. The &quot;from&quot; and &quot;to&quot; date range must be within 7 days.",
             "required": false,
-            "schema": { "type": "string", "example": "2020-05-01T19:13:02Z" }
+            "schema": {
+              "type": "string",
+              "example": "2020-05-01T19:13:02Z"
+            }
           },
           {
             "name": "to",
             "in": "query",
             "description": "End date.",
             "required": false,
-            "schema": { "type": "string", "example": "2020-05-02T19:13:05Z" }
+            "schema": {
+              "type": "string",
+              "example": "2020-05-02T19:13:05Z"
+            }
           },
           {
             "name": "event",
             "in": "query",
             "description": "The event name. All types of events are queried if the parameter is not passed.",
             "required": false,
-            "schema": { "type": "string", "example": "meeting.created" }
+            "schema": {
+              "type": "string",
+              "example": "meeting.created"
+            }
           },
           {
             "name": "type",
@@ -848,7 +954,11 @@
               "type": "integer",
               "example": 1,
               "default": 2,
-              "enum": [1, 2, 3]
+              "enum": [
+                1,
+                2,
+                3
+              ]
             }
           }
         ],
@@ -890,7 +1000,21 @@
                             "description": "The reason type for connection error messages: \n* `1` &mdash; read time out. \n* `2` &mdash; connection refused. \n* `3` &mdash; hystrix fallback. \n* `4` &mdash; hystrix timeout. \n* `5` &mdash; async error. \n* `6` &mdash; DNS forbidden. \n* `7` &mdash; remote error. \n* `8` &mdash; in delegate white list. \n* `9` &mdash; cert error. \n* `10` &mdash; need instant retry. \n* `11` &mdash; host name verify failed. \n* `12` &mdash; TLS verify failed. \n* `13` &mdash; DNS resolve time out. \n* `14` &mdash; no client. \n* `15` &mdash; resource not found. \n* `16` &mdash; too many requests.",
                             "example": 1,
                             "enum": [
-                              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+                              1,
+                              2,
+                              3,
+                              4,
+                              5,
+                              6,
+                              7,
+                              8,
+                              9,
+                              10,
+                              11,
+                              12,
+                              13,
+                              14,
+                              15,
                               16
                             ]
                           },
@@ -966,7 +1090,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "Marketplace-2023-Jun",
-          "x-permissions": ["MarketPlace:Read"],
+          "x-permissions": [
+            "MarketPlace:Read"
+          ],
           "x-macro-scopes": [
             "marketplace_app:read:admin",
             "marketplace_app:read"
@@ -976,7 +1102,9 @@
     },
     "/marketplace/monetization/entitlements": {
       "get": {
-        "tags": ["App"],
+        "tags": [
+          "App"
+        ],
         "summary": "Get app user entitlements",
         "description": "Get the app user's entitlements information.\n\n**Scopes:** `marketplace_entitlement:read:admin`,`marketplace_entitlement:read`\n\n**Granular Scopes:** `marketplace:read:list_user_entitlements`,`marketplace:read:list_user_entitlements:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "getAppUserEntitlementRequests",
@@ -986,7 +1114,10 @@
             "in": "query",
             "description": "The user ID of the user who's requesting entitlement information.",
             "required": false,
-            "schema": { "type": "string", "example": "f1sTWCMaTmOIZxLMlmHvEQ" }
+            "schema": {
+              "type": "string",
+              "example": "f1sTWCMaTmOIZxLMlmHvEQ"
+            }
           }
         ],
         "responses": {
@@ -1041,7 +1172,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "Marketplace-2024-Jun",
-          "x-permissions": ["Marketplace:Edit"],
+          "x-permissions": [
+            "Marketplace:Edit"
+          ],
           "x-macro-scopes": [
             "marketplace_entitlement:read:admin",
             "marketplace_entitlement:read"
@@ -1055,7 +1188,9 @@
     },
     "/marketplace/users/{userId}/apps": {
       "get": {
-        "tags": ["App"],
+        "tags": [
+          "App"
+        ],
         "summary": "Get a user's app requests",
         "description": "Use this API to get all of a user's app requests. \n\n\n\n**Scopes:** `marketplace_app:read`,`marketplace_app:read:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Medium`",
         "operationId": "getUserAppRequests",
@@ -1087,7 +1222,10 @@
             "in": "path",
             "description": "The user's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "f1sTWCMaTmOIZxLMlmHvEQ" }
+            "schema": {
+              "type": "string",
+              "example": "f1sTWCMaTmOIZxLMlmHvEQ"
+            }
           },
           {
             "name": "type",
@@ -1098,7 +1236,10 @@
               "type": "string",
               "example": "active_requests",
               "default": "active_requests",
-              "enum": ["active_requests", "past_requests"]
+              "enum": [
+                "active_requests",
+                "past_requests"
+              ]
             }
           }
         ],
@@ -1149,21 +1290,31 @@
                                 "description": "The type of app: \n* `ZoomApp` &mdash; A Zoom app. \n* `ChatBotApp` &mdash; A ChatBot app. \n* `OAuthApp` &mdash; A OAuth app.",
                                 "example": "ZoomApp",
                                 "default": "OAuthApp",
-                                "enum": ["ZoomApp", "ChatBotApp", "OAuthApp"]
+                                "enum": [
+                                  "ZoomApp",
+                                  "ChatBotApp",
+                                  "OAuthApp"
+                                ]
                               },
                               "app_usage": {
                                 "type": "integer",
                                 "description": "The app's usage categorization: \n* `1` &mdash; The app is under admin management. \n* `2` &mdash; Users have access to the app.",
                                 "example": 1,
                                 "default": 1,
-                                "enum": [1, 2]
+                                "enum": [
+                                  1,
+                                  2
+                                ]
                               },
                               "app_status": {
                                 "type": "string",
                                 "description": "The app's publication status: \n* `PUBLISHED` &mdash; The app is published. \n* `UNPUBLISHED` &mdash; The app is not published.",
                                 "example": "PUBLISHED",
                                 "default": "PUBLISHED",
-                                "enum": ["PUBLISHED", "UNPUBLISHED"]
+                                "enum": [
+                                  "PUBLISHED",
+                                  "UNPUBLISHED"
+                                ]
                               },
                               "request_id": {
                                 "type": "string",
@@ -1181,7 +1332,11 @@
                                 "description": "The status of the user's app request: \n* `pending` &mdash; The request is pending approval. \n* `approved` - The request is approved. \n* `rejected` - The request is rejected.",
                                 "example": "pending",
                                 "default": "pending",
-                                "enum": ["pending", "approved", "rejected"]
+                                "enum": [
+                                  "pending",
+                                  "approved",
+                                  "rejected"
+                                ]
                               }
                             }
                           }
@@ -1218,7 +1373,9 @@
     },
     "/marketplace/users/{userId}/entitlements": {
       "get": {
-        "tags": ["App"],
+        "tags": [
+          "App"
+        ],
         "summary": "Get a user's entitlements",
         "description": "Get a user's entitlements. \n\n\n\n**Scopes:** `marketplace_entitlement:read`,`marketplace_entitlement:read:admin`\n\n**Granular Scopes:** `marketplace:read:list_user_entitlements`,`marketplace:read:list_user_entitlements:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "getUserEntitlementRequests",
@@ -1228,7 +1385,10 @@
             "in": "path",
             "description": "The user's user ID or email address. For user-level apps, pass the `me` value.",
             "required": true,
-            "schema": { "type": "string", "example": "f1sTWCMaTmOIZxLMlmHvEQ" }
+            "schema": {
+              "type": "string",
+              "example": "f1sTWCMaTmOIZxLMlmHvEQ"
+            }
           }
         ],
         "responses": {
@@ -1282,7 +1442,9 @@
         ],
         "x-extensions": {
           "x-fixVersion": "Marketplace-2024-Jun",
-          "x-permissions": ["MarketPlace:Edit"],
+          "x-permissions": [
+            "MarketPlace:Edit"
+          ],
           "x-macro-scopes": [
             "marketplace_entitlement:read",
             "marketplace_entitlement:read:admin"
@@ -1296,7 +1458,9 @@
     },
     "/zoomapp/deeplink": {
       "post": {
-        "tags": ["Apps"],
+        "tags": [
+          "Apps"
+        ],
         "summary": "Generate an app deeplink",
         "description": "Create an app deeplink. \n\n \n\n**Scopes:** `app:deeplink:write`,`app:deeplink:write:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Medium`",
         "operationId": "generateAppDeeplink",
@@ -1310,7 +1474,10 @@
                     "type": "integer",
                     "description": "The type of deeplink. \n* `1` &mdash; Generate a deeplink that opens Zoom App in-meeting if the meeting is in progress, if not opens Zoom App in Apps Tab. \\n* `2` &mdash;  Generate a deeplink that refreshes Chat App Webview. \n\n This value defaults to `1`.",
                     "example": 1,
-                    "enum": [1, 2]
+                    "enum": [
+                      1,
+                      2
+                    ]
                   },
                   "user_id": {
                     "type": "string",
@@ -1355,49 +1522,22 @@
         },
         "security": [
           {
-            "openapi_oauth": ["app:deeplink:write", "app:deeplink:write:admin"],
+            "openapi_oauth": [
+              "app:deeplink:write",
+              "app:deeplink:write:admin"
+            ],
             "openapi_authorization": []
           }
         ],
         "x-extensions": {
           "x-fixVersion": "InitFixVersion",
-          "x-macro-scopes": ["app:deeplink:write", "app:deeplink:write:admin"]
+          "x-macro-scopes": [
+            "app:deeplink:write",
+            "app:deeplink:write:admin"
+          ]
         }
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": {
-              "app:notification:read": "app:notification:read",
-              "app:notification:write": "app:notification:write",
-              "marketplace:write:notifications": "marketplace:write:notifications",
-              "marketplace_app:read:admin": "marketplace_app:read:admin",
-              "marketplace_app:read": "marketplace_app:read",
-              "marketplace_app:write:admin": "marketplace_app:write:admin",
-              "marketplace:update:app_request:admin": "marketplace:update:app_request:admin",
-              "marketplace_entitlement:read:admin": "marketplace_entitlement:read:admin",
-              "marketplace_entitlement:read": "marketplace_entitlement:read",
-              "marketplace:read:list_user_entitlements": "marketplace:read:list_user_entitlements",
-              "marketplace:read:list_user_entitlements:admin": "marketplace:read:list_user_entitlements:admin",
-              "app:deeplink:write": "app:deeplink:write",
-              "app:deeplink:write:admin": "app:deeplink:write:admin"
-            }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

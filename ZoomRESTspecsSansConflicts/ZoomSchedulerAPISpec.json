@@ -14,11 +14,17 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us/v2"
+    }
+  ],
   "paths": {
     "/scheduler/availability": {
       "get": {
-        "tags": ["availability"],
+        "tags": [
+          "availability"
+        ],
         "summary": "List availability",
         "description": "Returns the availability schedules of the given user.\n\n**Scopes:** `scheduler:read:admin`,`scheduler:read`\n\n**Granular Scopes:** `scheduler:read:list_availability`,`scheduler:read:list_availability:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "list_availability",
@@ -28,7 +34,10 @@
             "in": "query",
             "description": "The maximum number of availability returned on one result page.",
             "required": false,
-            "schema": { "type": "integer", "example": 250 }
+            "schema": {
+              "type": "integer",
+              "example": 250
+            }
           },
           {
             "name": "next_page_token",
@@ -74,7 +83,10 @@
                             "type": "string",
                             "example": "x3h1u4id4liffdyszsp8kpxl80"
                           },
-                          "default": { "type": "boolean", "example": true },
+                          "default": {
+                            "type": "boolean",
+                            "example": true
+                          },
                           "name": {
                             "type": "string",
                             "example": "Working hours"
@@ -265,7 +277,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:read:admin", "scheduler:read"],
+          "x-macro-scopes": [
+            "scheduler:read:admin",
+            "scheduler:read"
+          ],
           "x-granular-scopes": [
             "scheduler:read:list_availability",
             "scheduler:read:list_availability:admin"
@@ -273,7 +288,9 @@
         }
       },
       "post": {
-        "tags": ["availability"],
+        "tags": [
+          "availability"
+        ],
         "summary": "Insert availability",
         "description": "Inserts a user availability schedule. \n\n**Scopes:** `scheduler:write:admin`,`scheduler:write`\n\n**Granular Scopes:** `scheduler:write:availability`,`scheduler:write:availability:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "insert_availability",
@@ -282,7 +299,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["name", "time_zone"],
+                "required": [
+                  "name",
+                  "time_zone"
+                ],
                 "type": "object",
                 "properties": {
                   "availability_id": {
@@ -316,7 +336,10 @@
                     "type": "array",
                     "description": "The date on which the rule needs to be applied outside of the availability rule.",
                     "items": {
-                      "required": ["end", "start"],
+                      "required": [
+                        "end",
+                        "start"
+                      ],
                       "type": "object",
                       "properties": {
                         "end": {
@@ -694,7 +717,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:write:admin", "scheduler:write"],
+          "x-macro-scopes": [
+            "scheduler:write:admin",
+            "scheduler:write"
+          ],
           "x-granular-scopes": [
             "scheduler:write:availability",
             "scheduler:write:availability:admin"
@@ -704,7 +730,9 @@
     },
     "/scheduler/availability/{availabilityId}": {
       "get": {
-        "tags": ["availability"],
+        "tags": [
+          "availability"
+        ],
         "summary": "Get availability ",
         "description": "Returns the availability schedule of the given UUID.\n\n**Scopes:** `scheduler:read:admin`,`scheduler:read`\n\n**Granular Scopes:** `scheduler:read:availability`,`scheduler:read:availability:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "get_availability",
@@ -932,7 +960,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:read:admin", "scheduler:read"],
+          "x-macro-scopes": [
+            "scheduler:read:admin",
+            "scheduler:read"
+          ],
           "x-granular-scopes": [
             "scheduler:read:availability",
             "scheduler:read:availability:admin"
@@ -940,7 +971,9 @@
         }
       },
       "delete": {
-        "tags": ["availability"],
+        "tags": [
+          "availability"
+        ],
         "summary": "Delete availability",
         "description": "Removes a user's availability.\n\n**Scopes:** `scheduler:write:admin`,`scheduler:write`\n\n**Granular Scopes:** `scheduler:delete:availability`,`scheduler:delete:availability:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "delete_availability",
@@ -984,7 +1017,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:write:admin", "scheduler:write"],
+          "x-macro-scopes": [
+            "scheduler:write:admin",
+            "scheduler:write"
+          ],
           "x-granular-scopes": [
             "scheduler:delete:availability",
             "scheduler:delete:availability:admin"
@@ -992,7 +1028,9 @@
         }
       },
       "patch": {
-        "tags": ["availability"],
+        "tags": [
+          "availability"
+        ],
         "summary": "Patch availability",
         "description": "Adjusts the availability schedule content of the given UUID.\n\n**Scopes:** `scheduler:write:admin`,`scheduler:write`\n\n**Granular Scopes:** `scheduler:update:availability`,`scheduler:update:availability:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "patch_availability",
@@ -1013,7 +1051,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["name", "time_zone"],
+                "required": [
+                  "name",
+                  "time_zone"
+                ],
                 "type": "object",
                 "properties": {
                   "default": {
@@ -1035,7 +1076,10 @@
                     "type": "array",
                     "description": "The date on which the rule needs to be applied outside of the availability rule.",
                     "items": {
-                      "required": ["end", "start"],
+                      "required": [
+                        "end",
+                        "start"
+                      ],
                       "type": "object",
                       "properties": {
                         "end": {
@@ -1234,7 +1278,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:write:admin", "scheduler:write"],
+          "x-macro-scopes": [
+            "scheduler:write:admin",
+            "scheduler:write"
+          ],
           "x-granular-scopes": [
             "scheduler:update:availability",
             "scheduler:update:availability:admin"
@@ -1244,7 +1291,9 @@
     },
     "/scheduler/events": {
       "get": {
-        "tags": ["scheduled events"],
+        "tags": [
+          "scheduled events"
+        ],
         "summary": "List scheduled events",
         "description": "Returns a list of all scheduled events.\n\n**Scopes:** `scheduler:read:admin`,`scheduler:read`\n\n**Granular Scopes:** `scheduler:read:list_scheduled_events`,`scheduler:read:list_scheduled_events:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "list_scheduled_events",
@@ -1274,21 +1323,30 @@
             "in": "query",
             "description": "The maximum number of events returned on one result page.",
             "required": false,
-            "schema": { "type": "integer", "example": 250 }
+            "schema": {
+              "type": "integer",
+              "example": 250
+            }
           },
           {
             "name": "order_by",
             "in": "query",
             "description": "This field indicates the start time or the time when the event has been updated.",
             "required": false,
-            "schema": { "type": "string", "example": "startTime" }
+            "schema": {
+              "type": "string",
+              "example": "startTime"
+            }
           },
           {
             "name": "time_zone",
             "in": "query",
             "description": "The time zone in the response.",
             "required": false,
-            "schema": { "type": "string", "example": "UTC" }
+            "schema": {
+              "type": "string",
+              "example": "UTC"
+            }
           },
           {
             "name": "next_page_token",
@@ -1305,7 +1363,10 @@
             "in": "query",
             "description": "Whether to include deleted events (with status equals `cancelled`) in the result.",
             "required": false,
-            "schema": { "type": "boolean", "example": true }
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           },
           {
             "name": "event_type",
@@ -1315,7 +1376,9 @@
             "schema": {
               "type": "string",
               "example": "pending",
-              "enum": ["pending"]
+              "enum": [
+                "pending"
+              ]
             }
           }
         ],
@@ -1439,7 +1502,10 @@
                             "type": "string",
                             "description": "The status of event: confirmed or cancelled.",
                             "example": "confirmed",
-                            "enum": ["confirmed", "cancelled"]
+                            "enum": [
+                              "confirmed",
+                              "cancelled"
+                            ]
                           },
                           "summary": {
                             "maxLength": 256,
@@ -1463,7 +1529,10 @@
                             "description": "This field indicates the type is default(scheduled) or pending event.",
                             "readOnly": true,
                             "example": "default",
-                            "enum": ["default", "pending"]
+                            "enum": [
+                              "default",
+                              "pending"
+                            ]
                           }
                         }
                       }
@@ -1497,7 +1566,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:read:admin", "scheduler:read"],
+          "x-macro-scopes": [
+            "scheduler:read:admin",
+            "scheduler:read"
+          ],
           "x-granular-scopes": [
             "scheduler:read:list_scheduled_events",
             "scheduler:read:list_scheduled_events:admin"
@@ -1507,7 +1579,9 @@
     },
     "/scheduler/events/{eventId}": {
       "get": {
-        "tags": ["scheduled events"],
+        "tags": [
+          "scheduled events"
+        ],
         "summary": "Get scheduled events ",
         "description": "Returns a scheduled event.\n\n**Scopes:** `scheduler:read:admin`,`scheduler:read`\n\n**Granular Scopes:** `scheduler:read:scheduled_event`,`scheduler:read:scheduled_event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "get_scheduled_events",
@@ -1516,7 +1590,9 @@
             "name": "eventId",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1629,7 +1705,10 @@
                       "type": "string",
                       "description": "The status of event: confirmed or cancelled.",
                       "example": "confirmed",
-                      "enum": ["confirmed", "cancelled"]
+                      "enum": [
+                        "confirmed",
+                        "cancelled"
+                      ]
                     },
                     "summary": {
                       "maxLength": 256,
@@ -1653,7 +1732,10 @@
                       "description": "Indicate the type is default(scheduled) or pending event.",
                       "readOnly": true,
                       "example": "default",
-                      "enum": ["default", "pending"]
+                      "enum": [
+                        "default",
+                        "pending"
+                      ]
                     }
                   }
                 }
@@ -1687,7 +1769,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:read:admin", "scheduler:read"],
+          "x-macro-scopes": [
+            "scheduler:read:admin",
+            "scheduler:read"
+          ],
           "x-granular-scopes": [
             "scheduler:read:scheduled_event",
             "scheduler:read:scheduled_event:admin"
@@ -1695,7 +1780,9 @@
         }
       },
       "delete": {
-        "tags": ["scheduled events"],
+        "tags": [
+          "scheduled events"
+        ],
         "summary": "Delete scheduled events ",
         "description": "Deletes a scheduled event.\n\n**Scopes:** `scheduler:write:admin`,`scheduler:write`\n\n**Granular Scopes:** `scheduler:delete:scheduled_event`,`scheduler:delete:scheduled_event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "delete_scheduled_events",
@@ -1704,7 +1791,9 @@
             "name": "eventId",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1741,7 +1830,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:write:admin", "scheduler:write"],
+          "x-macro-scopes": [
+            "scheduler:write:admin",
+            "scheduler:write"
+          ],
           "x-granular-scopes": [
             "scheduler:delete:scheduled_event",
             "scheduler:delete:scheduled_event:admin"
@@ -1749,7 +1841,9 @@
         }
       },
       "patch": {
-        "tags": ["scheduled events"],
+        "tags": [
+          "scheduled events"
+        ],
         "summary": "Patch scheduled events",
         "description": "Patches a scheduled event.\n\n**Scopes:** `scheduler:write:admin`,`scheduler:write`\n\n**Granular Scopes:** `scheduler:update:scheduled_event`,`scheduler:update:scheduled_event:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "patch_scheduled_events",
@@ -1800,7 +1894,10 @@
                     "type": "string",
                     "description": "The status of event: confirmed or cancelled.",
                     "example": "confirmed",
-                    "enum": ["confirmed", "cancelled"]
+                    "enum": [
+                      "confirmed",
+                      "cancelled"
+                    ]
                   },
                   "meeting_notes": {
                     "maxLength": 1024,
@@ -1845,7 +1942,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:write:admin", "scheduler:write"],
+          "x-macro-scopes": [
+            "scheduler:write:admin",
+            "scheduler:write"
+          ],
           "x-granular-scopes": [
             "scheduler:update:scheduled_event",
             "scheduler:update:scheduled_event:admin"
@@ -1855,7 +1955,9 @@
     },
     "/scheduler/schedules": {
       "get": {
-        "tags": ["schedules"],
+        "tags": [
+          "schedules"
+        ],
         "summary": "List schedules",
         "description": "Returns a list of all schedules.\n\n**Scopes:** `scheduler:read:admin`,`scheduler:read`\n\n**Granular Scopes:** `scheduler:read:list_schedule`,`scheduler:read:list_schedule:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "list_schedules",
@@ -1885,7 +1987,10 @@
             "in": "query",
             "description": "The maximum number of the schedule returned on one result page.",
             "required": false,
-            "schema": { "type": "integer", "example": 250 }
+            "schema": {
+              "type": "integer",
+              "example": 250
+            }
           },
           {
             "name": "next_page_token",
@@ -1902,14 +2007,20 @@
             "in": "query",
             "description": "Whether to include the deleted schedule (with status equals \"cancelled\") in the result.",
             "required": false,
-            "schema": { "type": "boolean", "example": true }
+            "schema": {
+              "type": "boolean",
+              "example": true
+            }
           },
           {
             "name": "time_zone",
             "in": "query",
             "description": "The time zone in the response.",
             "required": false,
-            "schema": { "type": "string", "example": "America/Los_Angeles" }
+            "schema": {
+              "type": "string",
+              "example": "America/Los_Angeles"
+            }
           }
         ],
         "responses": {
@@ -1939,7 +2050,11 @@
                             "type": "string",
                             "description": "The method of the type of `addOn`, such as Zoom meeting, Zoom phone, or offline.",
                             "example": "zoomMeeting",
-                            "enum": ["zoomMeeting", "zoomPhone", "offline"]
+                            "enum": [
+                              "zoomMeeting",
+                              "zoomPhone",
+                              "offline"
+                            ]
                           },
                           "availability_override": {
                             "type": "boolean",
@@ -2518,13 +2633,19 @@
                             "type": "string",
                             "description": "The status of schedule: confirmed or cancelled.",
                             "example": "confirmed",
-                            "enum": ["confirmed", "cancelled"]
+                            "enum": [
+                              "confirmed",
+                              "cancelled"
+                            ]
                           },
                           "interval_type": {
                             "type": "string",
                             "description": "The schedule time range. Unlimited means forever and fixed means using `startDate` and `endDate`.",
                             "example": "fixed",
-                            "enum": ["unlimited", "fixed"]
+                            "enum": [
+                              "unlimited",
+                              "fixed"
+                            ]
                           },
                           "summary": {
                             "maxLength": 256,
@@ -2536,7 +2657,10 @@
                             "type": "string",
                             "description": "This field indicates if the schedule type is \"one\" (belongs to an individual user) or \"multiple\".",
                             "example": "one",
-                            "enum": ["one", "multiple"]
+                            "enum": [
+                              "one",
+                              "multiple"
+                            ]
                           },
                           "updated": {
                             "type": "string",
@@ -2584,7 +2708,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:read:admin", "scheduler:read"],
+          "x-macro-scopes": [
+            "scheduler:read:admin",
+            "scheduler:read"
+          ],
           "x-granular-scopes": [
             "scheduler:read:list_schedule",
             "scheduler:read:list_schedule:admin"
@@ -2592,7 +2719,9 @@
         }
       },
       "post": {
-        "tags": ["schedules"],
+        "tags": [
+          "schedules"
+        ],
         "summary": "Insert schedules",
         "description": "Creates a schedule\n\n**Scopes:** `scheduler:write:admin`,`scheduler:write`\n\n**Granular Scopes:** `scheduler:write:insert_schedule`,`scheduler:write:insert_schedule:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "insert_schedule",
@@ -2615,7 +2744,11 @@
                     "type": "string",
                     "description": "The method of the type of `addOn`, such as Zoom meeting, Zoom phone, or offline.",
                     "example": "zoomMeeting",
-                    "enum": ["zoomMeeting", "zoomPhone", "offline"]
+                    "enum": [
+                      "zoomMeeting",
+                      "zoomPhone",
+                      "offline"
+                    ]
                   },
                   "availability_override": {
                     "type": "boolean",
@@ -3119,7 +3252,10 @@
                     "type": "string",
                     "description": "The schedule time range. Unlimited means forever and fixed means using `startDate` and `endDate`.",
                     "example": "fixed",
-                    "enum": ["unlimited", "fixed"]
+                    "enum": [
+                      "unlimited",
+                      "fixed"
+                    ]
                   },
                   "secret": {
                     "type": "boolean",
@@ -3155,7 +3291,10 @@
                     "type": "string",
                     "description": "This field indicates if the schedule type is \"one\" (belongs to an individual user) or \"multiple\".",
                     "example": "one",
-                    "enum": ["one", "multiple"]
+                    "enum": [
+                      "one",
+                      "multiple"
+                    ]
                   },
                   "active": {
                     "type": "boolean",
@@ -3184,7 +3323,11 @@
                       "type": "string",
                       "description": "The method of the type of `addOn`, such as Zoom meeting, Zoom phone, or offline.",
                       "example": "zoomMeeting",
-                      "enum": ["zoomMeeting", "zoomPhone", "offline"]
+                      "enum": [
+                        "zoomMeeting",
+                        "zoomPhone",
+                        "offline"
+                      ]
                     },
                     "availability_override": {
                       "type": "boolean",
@@ -3763,13 +3906,19 @@
                       "type": "string",
                       "description": "The status of schedule: confirmed or cancelled.",
                       "example": "confirmed",
-                      "enum": ["confirmed", "cancelled"]
+                      "enum": [
+                        "confirmed",
+                        "cancelled"
+                      ]
                     },
                     "interval_type": {
                       "type": "string",
                       "description": "The schedule time range. Unlimited means forever and fixed means using `startDate` and `endDate`.",
                       "example": "fixed",
-                      "enum": ["unlimited", "fixed"]
+                      "enum": [
+                        "unlimited",
+                        "fixed"
+                      ]
                     },
                     "summary": {
                       "maxLength": 256,
@@ -3781,7 +3930,10 @@
                       "type": "string",
                       "description": "This field indicates if the schedule type is \"one\" (belongs to an individual user) or \"multiple\".",
                       "example": "one",
-                      "enum": ["one", "multiple"]
+                      "enum": [
+                        "one",
+                        "multiple"
+                      ]
                     },
                     "updated": {
                       "type": "string",
@@ -3826,7 +3978,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:write:admin", "scheduler:write"],
+          "x-macro-scopes": [
+            "scheduler:write:admin",
+            "scheduler:write"
+          ],
           "x-granular-scopes": [
             "scheduler:write:insert_schedule",
             "scheduler:write:insert_schedule:admin"
@@ -3836,7 +3991,9 @@
     },
     "/scheduler/schedules/{scheduleId}": {
       "get": {
-        "tags": ["schedules"],
+        "tags": [
+          "schedules"
+        ],
         "summary": "Get schedules",
         "description": "Returns a schedule.\n\n**Scopes:** `scheduler:read:admin`,`scheduler:read`\n\n**Granular Scopes:** `scheduler:read:get_schedule`,`scheduler:read:get_schedule:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "get_schedule",
@@ -3869,7 +4026,11 @@
                       "type": "string",
                       "description": "The method of the type of `addOn`, such as Zoom meeting, Zoom phone, or offline.",
                       "example": "zoomMeeting",
-                      "enum": ["zoomMeeting", "zoomPhone", "offline"]
+                      "enum": [
+                        "zoomMeeting",
+                        "zoomPhone",
+                        "offline"
+                      ]
                     },
                     "availability_override": {
                       "type": "boolean",
@@ -4448,13 +4609,19 @@
                       "type": "string",
                       "description": "The status of schedule: confirmed or cancelled.",
                       "example": "confirmed",
-                      "enum": ["confirmed", "cancelled"]
+                      "enum": [
+                        "confirmed",
+                        "cancelled"
+                      ]
                     },
                     "interval_type": {
                       "type": "string",
                       "description": "The schedule time range. Unlimited means forever and fixed means using `startDate` and `endDate`.",
                       "example": "fixed",
-                      "enum": ["unlimited", "fixed"]
+                      "enum": [
+                        "unlimited",
+                        "fixed"
+                      ]
                     },
                     "summary": {
                       "maxLength": 256,
@@ -4466,7 +4633,10 @@
                       "type": "string",
                       "description": "This field indicates if the schedule type is **one** (belongs to an individual user) or **multiple**.",
                       "example": "one",
-                      "enum": ["one", "multiple"]
+                      "enum": [
+                        "one",
+                        "multiple"
+                      ]
                     },
                     "updated": {
                       "type": "string",
@@ -4511,7 +4681,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:read:admin", "scheduler:read"],
+          "x-macro-scopes": [
+            "scheduler:read:admin",
+            "scheduler:read"
+          ],
           "x-granular-scopes": [
             "scheduler:read:get_schedule",
             "scheduler:read:get_schedule:admin"
@@ -4519,7 +4692,9 @@
         }
       },
       "delete": {
-        "tags": ["schedules"],
+        "tags": [
+          "schedules"
+        ],
         "summary": "Delete schedules",
         "description": "Deletes a schedule.\n\n**Scopes:** `scheduler:write:admin`,`scheduler:write`\n\n**Granular Scopes:** `scheduler:delete:delete_schedule`,`scheduler:delete:delete_schedule:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "delete_schedules",
@@ -4569,7 +4744,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:write:admin", "scheduler:write"],
+          "x-macro-scopes": [
+            "scheduler:write:admin",
+            "scheduler:write"
+          ],
           "x-granular-scopes": [
             "scheduler:delete:delete_schedule",
             "scheduler:delete:delete_schedule:admin"
@@ -4577,7 +4755,9 @@
         }
       },
       "patch": {
-        "tags": ["schedules"],
+        "tags": [
+          "schedules"
+        ],
         "summary": "Patch schedules",
         "description": "Patches a schedule. \n\n**Scopes:** `scheduler:write:admin`,`scheduler:write`\n\n**Granular Scopes:** `scheduler:update:patch_schedule`,`scheduler:update:patch_schedule:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "patch_schedule",
@@ -4604,7 +4784,11 @@
                     "type": "string",
                     "description": "The method of `addOn`, such as Zoom meeting, Zoom phone, and offline.",
                     "example": "zoomMeeting",
-                    "enum": ["zoomMeeting", "zoomPhone", "offline"]
+                    "enum": [
+                      "zoomMeeting",
+                      "zoomPhone",
+                      "offline"
+                    ]
                   },
                   "availability_override": {
                     "type": "boolean",
@@ -5132,13 +5316,19 @@
                     "type": "string",
                     "description": "The status of schedule, confirmed or cancelled.",
                     "example": "confirmed",
-                    "enum": ["confirmed", "cancelled"]
+                    "enum": [
+                      "confirmed",
+                      "cancelled"
+                    ]
                   },
                   "interval_type": {
                     "type": "string",
                     "description": "The schedule time range. Unlimited means forever and fixed means using `startDate` and `endDate`.",
                     "example": "fixed",
-                    "enum": ["unlimited", "fixed"]
+                    "enum": [
+                      "unlimited",
+                      "fixed"
+                    ]
                   },
                   "summary": {
                     "maxLength": 256,
@@ -5190,7 +5380,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:write:admin", "scheduler:write"],
+          "x-macro-scopes": [
+            "scheduler:write:admin",
+            "scheduler:write"
+          ],
           "x-granular-scopes": [
             "scheduler:update:patch_schedule",
             "scheduler:update:patch_schedule:admin"
@@ -5200,7 +5393,9 @@
     },
     "/scheduler/schedules/single_use_link": {
       "post": {
-        "tags": ["scheduling links"],
+        "tags": [
+          "scheduling links"
+        ],
         "summary": "Single use link",
         "description": "Creates a single-use scheduling link.\n\n**Scopes:** `scheduler:write:admin`,`scheduler:write`\n\n**Granular Scopes:** `scheduler:write:single_use_link`,`scheduler:write:single_use_link:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "single_use_link",
@@ -5208,7 +5403,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["schedule_id"],
+                "required": [
+                  "schedule_id"
+                ],
                 "type": "object",
                 "properties": {
                   "schedule_id": {
@@ -5227,7 +5424,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["scheduling_url"],
+                  "required": [
+                    "scheduling_url"
+                  ],
                   "type": "object",
                   "properties": {
                     "scheduling_url": {
@@ -5270,7 +5469,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:write:admin", "scheduler:write"],
+          "x-macro-scopes": [
+            "scheduler:write:admin",
+            "scheduler:write"
+          ],
           "x-granular-scopes": [
             "scheduler:write:single_use_link",
             "scheduler:write:single_use_link:admin"
@@ -5280,7 +5482,9 @@
     },
     "/scheduler/users/{userId}": {
       "get": {
-        "tags": ["users"],
+        "tags": [
+          "users"
+        ],
         "summary": "Get user",
         "description": "Returns information about the user.\n\n**Scopes:** `scheduler:read:admin`,`scheduler:read`\n\n**Granular Scopes:** `scheduler:read:user`,`scheduler:read:user:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "get_user",
@@ -5289,7 +5493,9 @@
             "name": "userId",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5363,7 +5569,10 @@
         "x-extensions": {
           "x-fixVersion": "ZmailServer-May-2024",
           "x-permissions": [],
-          "x-macro-scopes": ["scheduler:read:admin", "scheduler:read"],
+          "x-macro-scopes": [
+            "scheduler:read:admin",
+            "scheduler:read"
+          ],
           "x-granular-scopes": [
             "scheduler:read:user",
             "scheduler:read:user:admin"
@@ -5372,61 +5581,5 @@
       }
     }
   },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": {
-              "scheduler:write:admin": "scheduler:write:admin",
-              "scheduler:write": "scheduler:write",
-              "scheduler:write:availability": "scheduler:write:availability",
-              "scheduler:write:availability:admin": "scheduler:write:availability:admin",
-              "scheduler:read:admin": "scheduler:read:admin",
-              "scheduler:read": "scheduler:read",
-              "scheduler:read:list_availability": "scheduler:read:list_availability",
-              "scheduler:read:list_availability:admin": "scheduler:read:list_availability:admin",
-              "scheduler:delete:availability": "scheduler:delete:availability",
-              "scheduler:delete:availability:admin": "scheduler:delete:availability:admin",
-              "scheduler:read:availability": "scheduler:read:availability",
-              "scheduler:read:availability:admin": "scheduler:read:availability:admin",
-              "scheduler:update:availability": "scheduler:update:availability",
-              "scheduler:update:availability:admin": "scheduler:update:availability:admin",
-              "scheduler:read:list_scheduled_events": "scheduler:read:list_scheduled_events",
-              "scheduler:read:list_scheduled_events:admin": "scheduler:read:list_scheduled_events:admin",
-              "scheduler:delete:scheduled_event": "scheduler:delete:scheduled_event",
-              "scheduler:delete:scheduled_event:admin": "scheduler:delete:scheduled_event:admin",
-              "scheduler:read:scheduled_event": "scheduler:read:scheduled_event",
-              "scheduler:read:scheduled_event:admin": "scheduler:read:scheduled_event:admin",
-              "scheduler:update:scheduled_event": "scheduler:update:scheduled_event",
-              "scheduler:update:scheduled_event:admin": "scheduler:update:scheduled_event:admin",
-              "scheduler:read:list_schedule": "scheduler:read:list_schedule",
-              "scheduler:read:list_schedule:admin": "scheduler:read:list_schedule:admin",
-              "scheduler:write:insert_schedule": "scheduler:write:insert_schedule",
-              "scheduler:write:insert_schedule:admin": "scheduler:write:insert_schedule:admin",
-              "scheduler:read:get_schedule": "scheduler:read:get_schedule",
-              "scheduler:read:get_schedule:admin": "scheduler:read:get_schedule:admin",
-              "scheduler:update:patch_schedule": "scheduler:update:patch_schedule",
-              "scheduler:update:patch_schedule:admin": "scheduler:update:patch_schedule:admin",
-              "scheduler:delete:delete_schedule": "scheduler:delete:delete_schedule",
-              "scheduler:delete:delete_schedule:admin": "scheduler:delete:delete_schedule:admin",
-              "scheduler:write:single_use_link": "scheduler:write:single_use_link",
-              "scheduler:write:single_use_link:admin": "scheduler:write:single_use_link:admin",
-              "scheduler:read:user": "scheduler:read:user",
-              "scheduler:read:user:admin": "scheduler:read:user:admin"
-            }
-          }
-        }
-      }
-    }
-  }
+  "components": {}
 }

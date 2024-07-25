@@ -14,14 +14,20 @@
     "description": "Find out more about Swagger",
     "url": "https://swagger.io"
   },
-  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "servers": [
+    {
+      "url": "https://api.zoom.us/v2"
+    }
+  ],
   "paths": {
     "/videosdk/recordings": {
       "get": {
-        "tags": ["Cloud Recording"],
+        "tags": [
+          "Cloud Recording"
+        ],
         "summary": "List recordings of an account",
         "description": "List **Video SDK Cloud Recordings** available on an Account.\n\n To access a password protected cloud recording, add an `access_token` parameter to the download URL and provide your [Video SDK API JWT](https://marketplace.zoom.us/docs/guides/build/video-sdk-app/#video-sdk-and-api-credentials) as the value of the `access_token`.\n  \n \n\n \n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
-        "operationId": "recordingsListVideoSDKAPI",
+        "operationId": "recordingsList",
         "parameters": [
           {
             "name": "page_size",
@@ -50,7 +56,11 @@
             "in": "query",
             "description": "Query trash.\n`true`: List recordings from trash.  \n  `false`: Do not list recordings from the trash.  \n  The default value is `false`. If you set it to `true`, you can use the `trash_type` property to indicate the type of Cloud recording that you need to retrieve. ",
             "required": false,
-            "schema": { "type": "boolean", "example": false, "default": false }
+            "schema": {
+              "type": "boolean",
+              "example": false,
+              "default": false
+            }
           },
           {
             "name": "trash_type",
@@ -225,7 +235,9 @@
                                                   "type": "string",
                                                   "description": "The recording status.",
                                                   "example": "completed",
-                                                  "enum": ["completed"]
+                                                  "enum": [
+                                                    "completed"
+                                                  ]
                                                 },
                                                 "deleted_time": {
                                                   "type": "string",
@@ -318,7 +330,9 @@
                                                   "type": "string",
                                                   "description": "The recording file's status.",
                                                   "example": "completed",
-                                                  "enum": ["completed"]
+                                                  "enum": [
+                                                    "completed"
+                                                  ]
                                                 },
                                                 "user_id": {
                                                   "type": "string",
@@ -354,7 +368,12 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found  \n\n **Error Code:** `1001` <br>\n User {userId} not exist or not belong to this account. <br>\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
         "x-extensions": {
           "x-fixVersion": "docfix-DEVELOPERS-4870yg",
           "x-permissions": []
@@ -363,10 +382,12 @@
     },
     "/videosdk/sessions/{sessionId}/recordings": {
       "get": {
-        "tags": ["Cloud Recording"],
+        "tags": [
+          "Cloud Recording"
+        ],
         "summary": "List session's recordings",
         "description": "Get all the **recordings** from a session instance. The recording files can be downloaded via the `download_url` property listed in the response.\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
-        "operationId": "recordingGetVideoSDKAPI",
+        "operationId": "recordingGet",
         "parameters": [
           {
             "name": "sessionId",
@@ -383,7 +404,10 @@
             "in": "query",
             "description": "Get the `download_access_token` field for downloading session recordings.",
             "required": false,
-            "schema": { "type": "string", "example": "download_access_token" }
+            "schema": {
+              "type": "string",
+              "example": "download_access_token"
+            }
           },
           {
             "name": "ttl",
@@ -502,7 +526,9 @@
                                             "type": "string",
                                             "description": "The recording status.",
                                             "example": "completed",
-                                            "enum": ["completed"]
+                                            "enum": [
+                                              "completed"
+                                            ]
                                           },
                                           "deleted_time": {
                                             "type": "string",
@@ -595,7 +621,9 @@
                                             "type": "string",
                                             "description": "The recording file's status.",
                                             "example": "completed",
-                                            "enum": ["completed"]
+                                            "enum": [
+                                              "completed"
+                                            ]
                                           }
                                         },
                                         "description": "The recording file object."
@@ -682,7 +710,9 @@
                                         "type": "string",
                                         "description": "The recording file's status.",
                                         "example": "completed",
-                                        "enum": ["completed"]
+                                        "enum": [
+                                          "completed"
+                                        ]
                                       },
                                       "user_id": {
                                         "type": "string",
@@ -775,7 +805,9 @@
                                         "type": "string",
                                         "description": "The recording file's status.",
                                         "example": "completed",
-                                        "enum": ["completed"]
+                                        "enum": [
+                                          "completed"
+                                        ]
                                       },
                                       "user_id": {
                                         "type": "string",
@@ -809,17 +841,24 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found  \n\n **Error Code:** `3301` <br>\n There is no recording for this session. <br>\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
         "x-extensions": {
           "x-fixVersion": "docfix-DEVELOPERS-4870yg",
           "x-permissions": []
         }
       },
       "delete": {
-        "tags": ["Cloud Recording"],
+        "tags": [
+          "Cloud Recording"
+        ],
         "summary": "Delete session's recordings",
         "description": "Delete all recording files of a session.  \n   \n \n\n **Prerequisites**:\n* Cloud Recording should be enabled on the user's account.  \n \n\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "recordingDeleteVideoSDKAPI",
+        "operationId": "recordingDelete",
         "parameters": [
           {
             "name": "sessionId",
@@ -840,7 +879,10 @@
               "type": "string",
               "example": "trash",
               "default": "trash",
-              "enum": ["trash", "delete"],
+              "enum": [
+                "trash",
+                "delete"
+              ],
               "x-enum-descriptions": [
                 "move recording to trash",
                 "delete recording permanently"
@@ -862,16 +904,25 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found\n\n**Error Code:** `3301` <br>\nThere is no recording for this session.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
+        }
       }
     },
     "/videosdk/sessions/{sessionId}/recordings/status": {
       "put": {
-        "tags": ["Cloud Recording"],
+        "tags": [
+          "Cloud Recording"
+        ],
         "summary": "Recover session's recordings",
         "description": "Zoom allows users to recover recordings from trash for up to 30 days from the deletion date.\n \n **Prerequisites**:  \n \n* Video SDK account with Cloud Recording enabled.\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "recordingStatusUpdateVideoSDKAPI",
+        "operationId": "recordingStatusUpdate",
         "parameters": [
           {
             "name": "sessionId",
@@ -892,8 +943,12 @@
                   "action": {
                     "type": "string",
                     "example": "recover",
-                    "enum": ["recover"],
-                    "x-enum-descriptions": ["recover session recording"]
+                    "enum": [
+                      "recover"
+                    ],
+                    "x-enum-descriptions": [
+                      "recover session recording"
+                    ]
                   }
                 }
               }
@@ -914,16 +969,25 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found\n\n**Error Code:** `1001` <br>\nUser does not exist: {userId}.<br>\n\n**Error Code:** `3301` <br>\nThere is no recording for this session.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
+        }
       }
     },
     "/videosdk/sessions/{sessionId}/recordings/{recordingId}": {
       "delete": {
-        "tags": ["Cloud Recording"],
+        "tags": [
+          "Cloud Recording"
+        ],
         "summary": "Delete session's recording file",
         "description": "Delete a specific recording file from a session. **Note:** To use this API, you must enable the **The host can delete cloud recordings** setting.\n\n\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "recordingDeleteOneVideoSDKAPI",
+        "operationId": "recordingDeleteOne",
         "parameters": [
           {
             "name": "sessionId",
@@ -954,7 +1018,10 @@
               "type": "string",
               "example": "trash",
               "default": "trash",
-              "enum": ["trash", "delete"],
+              "enum": [
+                "trash",
+                "delete"
+              ],
               "x-enum-descriptions": [
                 "move recording to trash",
                 "delete recording permanently"
@@ -976,16 +1043,25 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found\n\n**Error Code:** `3301` <br>\nThere is no recording for this session.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
+        }
       }
     },
     "/videosdk/sessions/{sessionId}/recordings/{recordingId}/status": {
       "put": {
-        "tags": ["Cloud Recording"],
+        "tags": [
+          "Cloud Recording"
+        ],
         "summary": "Recover a single recording",
         "description": "Zoom allows users to recover recordings from trash for up to 30 days from the deletion date. Use this API to recover a single recording file from the session.  \n \n \n \n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
-        "operationId": "recordingStatusUpdateOneVideoSDKAPI",
+        "operationId": "recordingStatusUpdateOne",
         "parameters": [
           {
             "name": "sessionId",
@@ -1016,8 +1092,12 @@
                   "action": {
                     "type": "string",
                     "example": "recover",
-                    "enum": ["recover"],
-                    "x-enum-descriptions": ["recover session recording"]
+                    "enum": [
+                      "recover"
+                    ],
+                    "x-enum-descriptions": [
+                      "recover session recording"
+                    ]
                   }
                 }
               }
@@ -1035,13 +1115,22 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found\n\n**Error Code:** `3301` <br>\nThere is no recording for this session.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
+        }
       }
     },
     "/videosdk/sessions": {
       "get": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "List sessions",
         "description": "Use this API to display the total live or past sessions that occurred during a specified period of time. You can specify a monthly date range for this data using the `from` and `to` query parameters. The month should fall within the last six months.\n\nThe response displays whether features such as audio, video, screen sharing, and recording were used during the session.\n\n**Prerequisites:** \n* A Video SDK account\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `RESOURCE-INTENSIVE`",
         "operationId": "sessions",
@@ -1055,8 +1144,14 @@
               "type": "string",
               "example": "past",
               "default": "live",
-              "enum": ["past", "live"],
-              "x-enum-descriptions": ["past sessions", "live sessions"]
+              "enum": [
+                "past",
+                "live"
+              ],
+              "x-enum-descriptions": [
+                "past sessions",
+                "live sessions"
+              ]
             }
           },
           {
@@ -1108,14 +1203,20 @@
             "in": "query",
             "description": "A value that identifies the session. See [Video SDK Authorization session payload](https://developers.zoom.us/docs/video-sdk/auth/#payload) for details.",
             "required": false,
-            "schema": { "type": "string", "example": "my_session_key" }
+            "schema": {
+              "type": "string",
+              "example": "my_session_key"
+            }
           },
           {
             "name": "session_name",
             "in": "query",
             "description": "The session's name.",
             "required": false,
-            "schema": { "type": "string", "example": "My session" }
+            "schema": {
+              "type": "string",
+              "example": "My session"
+            }
           }
         ],
         "responses": {
@@ -1234,11 +1335,21 @@
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request \n\n **Error Code:** `200` <br>\n This API is only available for Video SDK accounts. <br>\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "Web-2023-Oct", "x-permissions": [] }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "Web-2023-Oct",
+          "x-permissions": []
+        }
       },
       "post": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Create a session",
         "description": "Create a session.\n\n**Prerequisites:** \n* A Video SDK account.\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "Createasession",
@@ -1247,7 +1358,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["session_name"],
+                "required": [
+                  "session_name"
+                ],
                 "type": "object",
                 "properties": {
                   "session_name": {
@@ -1264,7 +1377,10 @@
                         "description": "The automatic recording settings. \n* `cloud` - Record the session to the cloud. \n* `none` - Auto-recording disabled.",
                         "example": "cloud",
                         "default": "none",
-                        "enum": ["cloud", "none"]
+                        "enum": [
+                          "cloud",
+                          "none"
+                        ]
                       }
                     },
                     "description": "Information about the session's settings."
@@ -1281,7 +1397,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["session_name"],
+                  "required": [
+                    "session_name"
+                  ],
                   "type": "object",
                   "properties": {
                     "session_id": {
@@ -1321,12 +1439,18 @@
                           "description": "The automatic recording settings. \n* `cloud` - Record the session to the cloud. \n* `none` - Auto-recording disabled.",
                           "example": "cloud",
                           "default": "none",
-                          "enum": ["cloud", "none"]
+                          "enum": [
+                            "cloud",
+                            "none"
+                          ]
                         },
                         "global_dial_in_countries": {
                           "type": "array",
                           "description": "A list of available global dial-in countries.",
-                          "items": { "type": "string", "example": "US" }
+                          "items": {
+                            "type": "string",
+                            "example": "US"
+                          }
                         },
                         "global_dial_in_numbers": {
                           "type": "array",
@@ -1353,7 +1477,11 @@
                                 "type": "string",
                                 "description": "Type of number.",
                                 "example": "toll",
-                                "enum": ["toll", "tollfree", "premium"]
+                                "enum": [
+                                  "toll",
+                                  "tollfree",
+                                  "premium"
+                                ]
                               }
                             }
                           }
@@ -1371,7 +1499,12 @@
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request  \n\n **Error Code:** `3000` <br>\n Session name already exists. Try a different session name. <br>\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
         "x-extensions": {
           "x-fixVersion": "docfix-DEVELOPERS-4833yg0703",
           "x-permissions": []
@@ -1380,7 +1513,9 @@
     },
     "/videosdk/sessions/{sessionId}": {
       "get": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Get session details",
         "description": "Get information about scheduled, live, or past sessions. \n\nThe overview response displays whether features such as audio, video, screen sharing, and recording were used during the session.\n\n**Prerequisites:** \n* A Video SDK account\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "sessionDetail",
@@ -1404,7 +1539,11 @@
               "type": "string",
               "example": "past",
               "default": "live",
-              "enum": ["past", "live", "scheduled"]
+              "enum": [
+                "past",
+                "live",
+                "scheduled"
+              ]
             }
           }
         ],
@@ -1509,12 +1648,18 @@
                           "description": "The automatic recording settings. \n* `cloud` - Record the session to the cloud. \n* `none` - Auto-recording disabled.",
                           "example": "cloud",
                           "default": "none",
-                          "enum": ["cloud", "none"]
+                          "enum": [
+                            "cloud",
+                            "none"
+                          ]
                         },
                         "global_dial_in_countries": {
                           "type": "array",
                           "description": "A list of available global dial-in countries.",
-                          "items": { "type": "string", "example": "US" }
+                          "items": {
+                            "type": "string",
+                            "example": "US"
+                          }
                         },
                         "global_dial_in_numbers": {
                           "type": "array",
@@ -1541,7 +1686,11 @@
                                 "type": "string",
                                 "description": "Type of number.",
                                 "example": "toll",
-                                "enum": ["toll", "tollfree", "premium"]
+                                "enum": [
+                                  "toll",
+                                  "tollfree",
+                                  "premium"
+                                ]
                               }
                             }
                           }
@@ -1562,11 +1711,21 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found  \n\n **Error Code:** `3001` <br>\n Session does not exist. <br>\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "Web-2024-Jul", "x-permissions": [] }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "Web-2024-Jul",
+          "x-permissions": []
+        }
       },
       "delete": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Delete a session",
         "description": "Delete a session.\n\n**Prerequisites:** \n* A Video SDK account.\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "sessionDelete",
@@ -1593,13 +1752,23 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found  \n\n **Error Code:** `3001` <br>\n Session does not exist: {sessionId}. <br>\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "Web-2024-Jul", "x-permissions": [] }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "Web-2024-Jul",
+          "x-permissions": []
+        }
       }
     },
     "/videosdk/sessions/{sessionId}/events": {
       "patch": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Use in-session events controls",
         "description": "Use this API to control in-session events such as the **recording controls** to start a recording, stop a recording, pause a recording, and resume a recording, and **invitation control** to invite participants. The recording controls only work for cloud recordings and not for local recordings.\n\n\n**Prerequisite:**\n* The session must be a live session.\n* Cloud recording must be enabled for recording controls.\n* The user using this API must either be the host or alternative host of the session.\n* You must have a Conference Room Connector add-on plan to invite users to the session using a room system callout.\n\n \n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
         "operationId": "inSessionEventsControl",
@@ -1773,7 +1942,12 @@
             "description": "**HTTP Status Code:** `429` <br>\n Too Many Requests  \n\n "
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
         "x-extensions": {
           "x-fixVersion": "Web-EP-20240706",
           "x-permissions": []
@@ -1782,7 +1956,9 @@
     },
     "/videosdk/sessions/{sessionId}/livestream": {
       "get": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Get session live stream details",
         "description": "Use this API to return a session's live stream configuration details, such as the stream's URL, key, and page URL.\n\n**Prerequisites:** \n* A Video SDK account\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
         "operationId": "getLiveStreamDetails",
@@ -1840,11 +2016,20 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found\n\n**Error Code:** `3001` <br>\nSession does not exist: {sessionId}.<br>\n\n**Error Code:** `1001` <br>\nUser does not exist: {0}.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
+        }
       },
       "patch": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Update a session live stream",
         "description": "Use this API to update a session's live stream information.\n\n**Prerequisites:** \n* A Video SDK account\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
         "operationId": "sessionLiveStreamUpdate",
@@ -1866,7 +2051,11 @@
             "application/json": {
               "schema": {
                 "title": "Session Live Stream Object",
-                "required": ["page_url", "stream_key", "stream_url"],
+                "required": [
+                  "page_url",
+                  "stream_key",
+                  "stream_url"
+                ],
                 "type": "object",
                 "properties": {
                   "stream_url": {
@@ -1911,13 +2100,22 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found\n\n**Error Code:** `3001` <br>\nSession does not exist: {sessionId}.<br>\n\n**Error Code:** `1001` <br>\nUser does not exist: {0}.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
+        }
       }
     },
     "/videosdk/sessions/{sessionId}/livestream/status": {
       "patch": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Update session livestream status",
         "description": "Update a session's livestream status.\n\n**Prerequisites:**\n* A Video SDK account\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
         "operationId": "sessionLiveStreamStatusUpdate",
@@ -1944,7 +2142,11 @@
                     "type": "string",
                     "description": "The session's livestream status:\n* `start` - Start a livestream.\n* `stop` - Stop an ongoing livestream.\n* `mode` - Control a livestream view at runtime.",
                     "example": "start",
-                    "enum": ["start", "stop", "mode"]
+                    "enum": [
+                      "start",
+                      "stop",
+                      "mode"
+                    ]
                   },
                   "settings": {
                     "type": "object",
@@ -1966,14 +2168,21 @@
                         "description": "The layout of the session's livestream. Use this field if you pass the `start` or `mode` value for the `action` field.\r\n* `gallery_view` - Gallery view.\r\n* `speaker_view` - Speaker view.",
                         "example": "speaker_view",
                         "default": "speaker_view",
-                        "enum": ["gallery_view", "speaker_view"]
+                        "enum": [
+                          "gallery_view",
+                          "speaker_view"
+                        ]
                       },
                       "close_caption": {
                         "type": "string",
                         "description": "The closed caption type of the session's livestream. Use this field if you pass the `start` or `mode` value for the `action` field.\r\n* `burnt-in` - Burnt-In Captions.\r\n* `embedded` - Embedded Captions.\r\n* `off` - Turn off Captions.",
                         "example": "burnt-in",
                         "default": "burnt-in",
-                        "enum": ["burnt-in", "embedded", "off"]
+                        "enum": [
+                          "burnt-in",
+                          "embedded",
+                          "off"
+                        ]
                       }
                     },
                     "description": "The session's livestreaming settings."
@@ -1998,7 +2207,12 @@
             "description": "**HTTP Status Code:** `429` <br>\n Too Many Requests  \n\n "
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
         "x-extensions": {
           "x-fixVersion": "Web-EP-20240323",
           "x-permissions": []
@@ -2007,7 +2221,9 @@
     },
     "/videosdk/sessions/{sessionId}/status": {
       "put": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Update session status",
         "description": "Use this API to update a session's status.\n\n**Prerequisites:** \n* A Video SDK account\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`",
         "operationId": "sessionStatus",
@@ -2034,7 +2250,9 @@
                     "type": "string",
                     "description": "The session's type: \n* `end` &mdash; End the session.",
                     "example": "end",
-                    "enum": ["end"]
+                    "enum": [
+                      "end"
+                    ]
                   }
                 }
               }
@@ -2052,13 +2270,22 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found\n\n**Error Code:** `3001` <br>\nSession does not exist: {sessionId}.<br>\n\n**Error Code:** `1001` <br>\nUser does not exist: {0}.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
+        }
       }
     },
     "/videosdk/sessions/{sessionId}/users": {
       "get": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "List session users",
         "description": "Use this API to return a list of users from live or past sessions. You can specify a monthly date range for this data using the `from` and `to` query parameters. The month should fall within the last six months.\n\n* If you do **not** provide the `type` query parameter, the API defaults to the `live` value and the API will only return metrics for users in a live session, if a session is currently in progress.\n* To view metrics on past session users, provide the `past` value for the `type` query parameter.\n\n**Prerequisites:** \n* A Video SDK account.\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `HEAVY`",
         "operationId": "sessionUsers",
@@ -2082,7 +2309,10 @@
               "type": "string",
               "example": "past",
               "default": "live",
-              "enum": ["past", "live"]
+              "enum": [
+                "past",
+                "live"
+              ]
             }
           },
           {
@@ -2266,7 +2496,12 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found  \n\n **Error Code:** `3001` <br>\n Session ID is invalid or has not ended. <br>\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
         "x-extensions": {
           "x-fixVersion": "Web-EP-20240706",
           "x-permissions": []
@@ -2275,7 +2510,9 @@
     },
     "/videosdk/sessions/{sessionId}/users/qos": {
       "get": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "List session users QoS",
         "description": "Use this API to return a list of session users from live or past sessions along with the quality of service (QoS) they received during the session. For example, connection quality for sending and receiving video, audio, and shared content. You can specify a monthly date range for the dashboard data using the `from` and `to` query parameters. The month should fall within the last six months.\n\n* If you do **not** provide the `type` query parameter, the API defaults to the `live` value and the API will only return metrics for users in a live session, if a session is currently in progress.\n* To view metrics on past session users, provide the `past` value for the `type` query parameter.\n\n**Prerequisites:** \n* A Video SDK Account\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Heavy`",
         "operationId": "sessionUsersQOS",
@@ -2299,8 +2536,14 @@
               "type": "string",
               "example": "past",
               "default": "live",
-              "enum": ["past", "live"],
-              "x-enum-descriptions": ["past session", "live session"]
+              "enum": [
+                "past",
+                "live"
+              ],
+              "x-enum-descriptions": [
+                "past session",
+                "live session"
+              ]
             }
           },
           {
@@ -2958,13 +3201,22 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found\n\n**Error Code:** `3001` <br>\nThis session's detail info is not available.<br>The Session ID is not valid or the session has not ended yet.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
+        }
       }
     },
     "/videosdk/sessions/{sessionId}/users/sharing": {
       "get": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Get sharing/recording details",
         "description": "Retrieve the sharing and recording details of participants from live or past sessions.  \n \n **Prerequisites:**   \n \n* A Video SDK Account.\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Heavy`",
         "operationId": "sessionParticipantShare",
@@ -2988,8 +3240,14 @@
               "type": "string",
               "example": "past",
               "default": "live",
-              "enum": ["past", "live"],
-              "x-enum-descriptions": ["past session", "live session"]
+              "enum": [
+                "past",
+                "live"
+              ],
+              "x-enum-descriptions": [
+                "past session",
+                "live session"
+              ]
             }
           },
           {
@@ -3106,13 +3364,22 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found\n\n**Error Code:** `3001` <br>\nThis session's detail info is not available.<br>This session has not ended yet or the Session ID is invalid.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
+        }
       }
     },
     "/videosdk/sessions/{sessionId}/users/{userId}/qos": {
       "get": {
-        "tags": ["Sessions"],
+        "tags": [
+          "Sessions"
+        ],
         "summary": "Get session user QoS",
         "description": "Use this API to retrieve the quality of service (QoS) for users from live or past sessions. The data returned indicates the connection quality for sending and receiving video, audio, and shared content. The API returns this data for either the API request or when the API request was last received.\n* This API will **not** return data if there is no data being sent or received at the time of request.\n\n\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Heavy`",
         "operationId": "sessionUserQOS",
@@ -3132,7 +3399,10 @@
             "in": "path",
             "description": "The user's ID.",
             "required": true,
-            "schema": { "type": "string", "example": "DYHrdpjrS3uaOf7dPkkg8w" }
+            "schema": {
+              "type": "string",
+              "example": "DYHrdpjrS3uaOf7dPkkg8w"
+            }
           },
           {
             "name": "type",
@@ -3143,8 +3413,14 @@
               "type": "string",
               "example": "past",
               "default": "live",
-              "enum": ["past", "live"],
-              "x-enum-descriptions": ["past session", "live session"]
+              "enum": [
+                "past",
+                "live"
+              ],
+              "x-enum-descriptions": [
+                "past session",
+                "live session"
+              ]
             }
           }
         ],
@@ -3194,7 +3470,13 @@
                       "type": "string",
                       "description": "The user's network type:\n\n* `Wired`\n* `Wifi`\n* `PPP` &mdash; Point-to-Point.\n* `Cellular` &mdash; 3G, 4G, and 5G cellular.\n* `Others` &mdash; An unknown device.",
                       "example": "Wifi",
-                      "enum": ["Wired", "Wifi", "PPP", "Cellular", "Others"]
+                      "enum": [
+                        "Wired",
+                        "Wifi",
+                        "PPP",
+                        "Cellular",
+                        "Others"
+                      ]
                     },
                     "microphone": {
                       "type": "string",
@@ -3751,13 +4033,22 @@
             "description": "**HTTP Status Code:** `404` <br>\n Not Found\n\n**Error Code:** `3001` <br>\nThis session's detail info is not available.<br>This session has not ended yet or the Session ID is invalid.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
+        }
       }
     },
     "/videosdk/report/cloud_recording": {
       "get": {
-        "tags": ["Video SDK Reports"],
+        "tags": [
+          "Video SDK Reports"
+        ],
         "summary": "Get cloud recording usage report",
         "description": "Retrieve cloud recording usage report for a specified period. You can only get cloud recording reports for up to 6 months prior to the current date. The date gap between from and to dates should be smaller or equal to 30 days.    \n   \n \n**Prerequisites**  \n \n* A Video SDK account.  \n \n \n \n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Heavy`",
         "operationId": "vsdkReportCloudRecording",
@@ -3843,13 +4134,22 @@
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request\n\n**Error Code:** `300` <br>\nDaily report can only be provided within 6 months prior to the current date.\n\n**Error Code:** `200` <br>\nThis API is only available for Video SDK accounts.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
+        }
       }
     },
     "/videosdk/report/daily": {
       "get": {
-        "tags": ["Video SDK Reports"],
+        "tags": [
+          "Video SDK Reports"
+        ],
         "summary": "Get daily usage report",
         "description": "Retrieve daily report to access the account-wide usage of Zoom services for each day in a given month. It lists the number of sessions, users, and session minutes.  \n \n**Prerequisites**  \n \n* A Video SDK account.  \n \n \n \n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Heavy`",
         "operationId": "vsdkReportDaily",
@@ -3859,14 +4159,20 @@
             "in": "query",
             "description": "Year for this report.",
             "required": false,
-            "schema": { "type": "integer", "example": 2022 }
+            "schema": {
+              "type": "integer",
+              "example": 2022
+            }
           },
           {
             "name": "month",
             "in": "query",
             "description": "Month for this report.",
             "required": false,
-            "schema": { "type": "integer", "example": 3 }
+            "schema": {
+              "type": "integer",
+              "example": 3
+            }
           }
         ],
         "responses": {
@@ -3926,13 +4232,22 @@
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request\n\n**Error Code:** `300` <br>\nDaily report can only be provided within 6 months prior to the current date.\n\n**Error Code:** `200` <br>\nThis API is only available for Video SDK accounts.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
+        }
       }
     },
     "/videosdk/report/operationlogs": {
       "get": {
-        "tags": ["Video SDK Reports"],
+        "tags": [
+          "Video SDK Reports"
+        ],
         "summary": "Get operation logs report",
         "description": "The operations logs report allows you to audit admin and user activity, such as changing account settings, and deleting recordings.  \n  Use this API to retrieve operation logs report for a specified period of time. See [Using Admin Activity Logs](https://support.zoom.us/hc/en-us/articles/360032748331-Operation-Logs) for similar usage in Zoom Meetings.   \n   \n \n**Prerequisites**  \n \n* A Video SDK account.  \n \n \n \n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Heavy`",
         "operationId": "vsdkReportOperationLogs",
@@ -4082,13 +4397,22 @@
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request\n\n**Error Code:** `300` <br>\nDaily report can only be provided within 6 months prior to the current date.\n\n**Error Code:** `200` <br>\nThis API is only available for Video SDK accounts.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
+        }
       }
     },
     "/videosdk/report/telephone": {
       "get": {
-        "tags": ["Video SDK Reports"],
+        "tags": [
+          "Video SDK Reports"
+        ],
         "summary": "Get telephone report",
         "description": "The telephone report allows you to view who dialed into sessions via phone (Audio Conferencing or SIP Connected Audio), which number they dialed into, and other details. Use this API to get the telephone report for a specified period of time. See [Accessing audio conferencing reports](https://support.zoom.us/hc/en-us/articles/206514816-Telephone-reports) for similar usage in Zoom Meetings.   \n   \n \n**Prerequisites**  \n \n* A Video SDK account.  \n \n \n \n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Heavy`",
         "operationId": "vsdkReportTelephone",
@@ -4146,8 +4470,14 @@
               "type": "string",
               "example": "1",
               "default": "1",
-              "enum": ["1", "2", "3"],
-              "x-enum-descriptions": ["Toll-free Call-in & Call-out"]
+              "enum": [
+                "1",
+                "2",
+                "3"
+              ],
+              "x-enum-descriptions": [
+                "Toll-free Call-in & Call-out"
+              ]
             }
           },
           {
@@ -4165,7 +4495,9 @@
                 "session_start_time",
                 "session_end_time"
               ],
-              "x-enum-descriptions": ["Query Date Type"]
+              "x-enum-descriptions": [
+                "Query Date Type"
+              ]
             }
           }
         ],
@@ -4285,29 +4617,17 @@
             "description": "**HTTP Status Code:** `400` <br>\n Bad Request\n\n**Error Code:** `300` <br>\nDaily report can only be provided within 6 months prior to the current date.\n\n**Error Code:** `200` <br>\nThis API is only available for Video SDK accounts.\n\n"
           }
         },
-        "security": [{ "openapi_oauth": [], "openapi_authorization": [] }],
-        "x-extensions": { "x-fixVersion": "InitFixVersion" }
-      }
-    }
-  },
-  "components": {
-    "securitySchemes": {
-      "openapi_authorization": {
-        "type": "apiKey",
-        "name": "Authorization",
-        "in": "header"
-      },
-      "openapi_oauth": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "/",
-            "tokenUrl": "",
-            "refreshUrl": "",
-            "scopes": {}
+        "security": [
+          {
+            "openapi_oauth": [],
+            "openapi_authorization": []
           }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "InitFixVersion"
         }
       }
     }
-  }
+  },
+  "components": {}
 }
