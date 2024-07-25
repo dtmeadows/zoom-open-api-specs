@@ -1,0 +1,646 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Conference Room Connector (CRC) API",
+    "description": "Conference Room Connector",
+    "termsOfService": "https://zoom.us/docs/en-us/zoom_api_license_and_tou.html",
+    "contact": {
+      "name": "Zoom Developers",
+      "url": "https://developer.zoom.us/"
+    },
+    "version": "2"
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "https://swagger.io"
+  },
+  "servers": [{ "url": "https://api.zoom.us/v2" }],
+  "paths": {
+    "/crc/api_connectors": {
+      "get": {
+        "tags": ["Api Connector"],
+        "summary": "List API Connectors",
+        "description": "Returns the Enhanced API Connectors for Cisco or Polycom Rooms.\n\n**Scopes:** `apiconnector:read:admin`\n\n**Granular Scopes:** `crc:read:list_apiconnectors:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
+        "operationId": "GetListAPIConnectors",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "example": 1 }
+          },
+          {
+            "name": "next_page_token",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "IAfJX3jsOLW7w3dokmFl84zOa0MAVGyMEB2"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "**HTTP Status Code:** `200`   List API Connectors returned.  ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_records": {
+                      "type": "integer",
+                      "description": "The total number of records returned.",
+                      "example": 10
+                    },
+                    "next_page_token": {
+                      "type": "string",
+                      "description": "The next page token paginates through a large set of results. A next page token returns whenever the set of available results exceeds the current page size. The expiration period for this token is 15 minutes.",
+                      "example": "IAfJX3jsOLW7w3dokmFl84zOa0MAVGyMEB2"
+                    },
+                    "page_size": {
+                      "type": "integer",
+                      "description": "The number of records returned within a single API call.  Constraints: Max 300 Default: 30",
+                      "example": 1
+                    },
+                    "api_connectors": {
+                      "type": "array",
+                      "description": "The information about the API connectors.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "The ID of the Enhanced API Connector.",
+                            "example": "e4d89238-7a58-4003-b45b-dfd892e9b11b"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "The description of the Enhanced API Connector.",
+                            "example": "my connector"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "The status of the Enhanced API Connector.",
+                            "example": "online"
+                          },
+                          "networks": {
+                            "type": "string",
+                            "description": "The private IPv4 networks that the API connector manages. To enter them use the slash notation.  Use a comma (,) to separate multiple networks.",
+                            "example": "10.100.209.10"
+                          },
+                          "enable_automatic_update": {
+                            "type": "boolean",
+                            "description": "When enabled, the Enhanced API Connector will automatically update to new software versions.",
+                            "example": true
+                          },
+                          "version": {
+                            "type": "string",
+                            "description": "The current version of software used by this Enhanced API Connector.",
+                            "example": "5.8.1"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "**HTTP Status Code:** `401` <br>\n Unauthorized \n\n "
+          }
+        },
+        "security": [
+          {
+            "openapi_oauth": [
+              "apiconnector:read:admin",
+              "crc:read:list_apiconnectors:admin"
+            ],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "ZURM-2024-Mar",
+          "x-permissions": ["RoomConnector:Read"],
+          "x-macro-scopes": ["apiconnector:read:admin"],
+          "x-granular-scopes": ["crc:read:list_apiconnectors:admin"]
+        }
+      },
+      "post": {
+        "tags": ["Api Connector"],
+        "summary": "Create an API Connector",
+        "description": "Creates an Enhanced API Connector.\n\n**Scopes:** `apiconnector:write:admin`\n\n**Granular Scopes:** `crc:write:apiconnector:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
+        "operationId": "CreateAPIConnector",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string",
+                    "description": "The description of the Enhanced API Connector.",
+                    "example": "my connector"
+                  },
+                  "networks": {
+                    "type": "string",
+                    "description": "The private IPv4 networks that the API connector manages. Use the slash notation to enter them.  Use a comma (,) to separate multiple networks.",
+                    "example": "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
+                  },
+                  "log_level": {
+                    "type": "string",
+                    "description": "The Enhanced API Connector logging level. Valid values: [OFF | ERROR | WARN | INFO | DEBUG].",
+                    "example": "DEBUG"
+                  },
+                  "enable_automatic_update": {
+                    "type": "boolean",
+                    "description": "When enabled, the Enhanced API Connector will automatically update to a new software version.",
+                    "example": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "**HTTP Status Code:** `201`  API Connector created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "connector_id": {
+                      "type": "string",
+                      "description": "The enhanced API connector's ID.",
+                      "example": "e4d89238-7a58-4003-b45b-dfd892e9b11b"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "**HTTP Status Code:** `400` <br>\n Bad Request \n\n **Error Code:** `60071011` <br>\n Invalid Parameter <br>\n**Error Code:** `60071007` <br>\n Ip Range Overlaps <br>\n**Error Code:** `60067099` <br>\n Unknown Error <br>\n"
+          },
+          "401": {
+            "description": "**HTTP Status Code:** `401` <br>\n Unauthorized \n\n "
+          }
+        },
+        "security": [
+          {
+            "openapi_oauth": [
+              "apiconnector:write:admin",
+              "crc:write:apiconnector:admin"
+            ],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "ZURM-2024-Mar",
+          "x-permissions": ["RoomConnector:Edit"],
+          "x-macro-scopes": ["apiconnector:write:admin"],
+          "x-granular-scopes": ["crc:write:apiconnector:admin"]
+        }
+      }
+    },
+    "/crc/api_connectors/{connectorId}": {
+      "get": {
+        "tags": ["Api Connector"],
+        "summary": "Get an API Connector",
+        "description": "Returns the details of an enhanced API connector.\n\n**Scopes:** `apiconnector:read:admin`\n\n**Granular Scopes:** `crc:read:apiconnector:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
+        "operationId": "GetAPIConnector",
+        "parameters": [
+          {
+            "name": "connectorId",
+            "in": "path",
+            "description": "The enhanced API connector's ID.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "26e2847b-df3c-4407-9c6a-842987cd47de"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "**HTTP Status Code:** `200`   An API connector returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The enhanced API connector's ID.",
+                      "example": "e4d89238-7a58-4003-b45b-dfd892e9b11b"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The enhanced API connector's description.",
+                      "example": "my connector"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "The status of the enhanced API connector. Valid values are `offline` or `online`.",
+                      "example": "online"
+                    },
+                    "networks": {
+                      "type": "string",
+                      "description": "The private IPv4 networks that the API connector manages. Use slash notation to enter them. Separate multiple networks with commas (,).",
+                      "example": "10.100.209.10"
+                    },
+                    "log_level": {
+                      "type": "string",
+                      "description": "The enhanced API connector logging level. Valid values are `OFF`, `ERROR`, `WARN`, `INFO`, or `DEBUG`.",
+                      "example": "DEBUG"
+                    },
+                    "managed_rooms": {
+                      "type": "array",
+                      "description": "The IDs of Cisco or Polycom rooms that are directly and manually assigned to this enhanced API connector.",
+                      "items": {
+                        "type": "string",
+                        "description": "The ID of Cisco or Polycom rooms.",
+                        "example": "598fe412-dee4-4439-bd9a-9f864cab38e2"
+                      }
+                    },
+                    "enable_automatic_update": {
+                      "type": "boolean",
+                      "description": "When enabled, the enhanced API connector will automatically update to new software versions.",
+                      "example": true
+                    },
+                    "version": {
+                      "type": "string",
+                      "description": "The current version of software used by this enhanced API connector.",
+                      "example": "5.8.1"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "**HTTP Status Code:** `401` <br>\n Unauthorized  \n\n "
+          },
+          "404": {
+            "description": "**HTTP Status Code:** `404` <br>\n Not Found  \n\n **Error Code:** `60071008` <br>\n Connector does not exist. <br>\n"
+          }
+        },
+        "security": [
+          {
+            "openapi_oauth": [
+              "apiconnector:read:admin",
+              "crc:read:apiconnector:admin"
+            ],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "ZURM-OnD-2024-Jun",
+          "x-permissions": ["RoomConnector:Read"],
+          "x-macro-scopes": ["apiconnector:read:admin"],
+          "x-granular-scopes": ["crc:read:apiconnector:admin"]
+        }
+      },
+      "delete": {
+        "tags": ["Api Connector"],
+        "summary": "Delete an API Connector",
+        "description": "Deletes an enhanced API connector.\n\n**Scopes:** `apiconnector:write:admin`\n\n**Granular Scopes:** `crc:delete:apiconnector:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
+        "operationId": "DeleteAPIConnector",
+        "parameters": [
+          {
+            "name": "connectorId",
+            "in": "path",
+            "description": "The enhanced API connector's ID.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "26e2847b-df3c-4407-9c6a-842987cd47de"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "**HTTP Status Code:** `204`   Successfully deleted."
+          },
+          "401": {
+            "description": "**HTTP Status Code:** `401` <br>\n Unauthorized  \n\n "
+          },
+          "404": {
+            "description": "**HTTP Status Code:** `404` <br>\n Not Found  \n\n **Error Code:** `60071008` <br>\n Connector does not exist. <br>\n"
+          }
+        },
+        "security": [
+          {
+            "openapi_oauth": [
+              "apiconnector:write:admin",
+              "crc:delete:apiconnector:admin"
+            ],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "ZURM-OnD-2024-Jun",
+          "x-permissions": ["RoomConnector:Edit"],
+          "x-macro-scopes": ["apiconnector:write:admin"],
+          "x-granular-scopes": ["crc:delete:apiconnector:admin"]
+        }
+      },
+      "patch": {
+        "tags": ["Api Connector"],
+        "summary": "Update an API Connector",
+        "description": "Updates the settings of an Enhanced API Connector.\n\n**Scopes:** `apiconnector:write:admin`\n\n**Granular Scopes:** `crc:update:apiconnector:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
+        "operationId": "UpdateAPIConnector",
+        "parameters": [
+          {
+            "name": "connectorId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string",
+                    "description": "The description of the Enhanced API Connector.",
+                    "example": "my connector"
+                  },
+                  "networks": {
+                    "type": "string",
+                    "description": "The private IPv4 networks that the API connector manages. Use the slash notation to enter them.  Use a comma (,) to separate multiple networks.",
+                    "example": "10.100.209.10"
+                  },
+                  "log_level": {
+                    "type": "string",
+                    "description": "The Enhanced API Connector logging level. Valid values: [OFF | ERROR | WARN | INFO | DEBUG].",
+                    "example": "DEBUG"
+                  },
+                  "managed_rooms": {
+                    "type": "array",
+                    "description": "The IDs of Cisco or Polycom Rooms directly and manually assigned to this Enhanced API Connector.",
+                    "items": {
+                      "type": "string",
+                      "description": "The ID of Cisco or Polycom Rooms.",
+                      "example": "598fe412-dee4-4439-bd9a-9f864cab38e2"
+                    }
+                  },
+                  "enable_automatic_update": {
+                    "type": "boolean",
+                    "description": "When enabled, the Enhanced API Connector will automatically update to a new software version.",
+                    "example": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "**HTTP Status Code:** `204`   No content. "
+          },
+          "400": {
+            "description": "**HTTP Status Code:** `400` <br>\n Bad Request  \n\n **Error Code:** `60071011` <br>\n Invalid parameter. <br>\n**Error Code:** `60071007` <br>\n IP range overlaps. <br>\n**Error Code:** `60067099` <br>\n Unknown Error <br>\n"
+          },
+          "401": {
+            "description": "**HTTP Status Code:** `401` <br>\n Unauthorized  \n\n "
+          },
+          "404": {
+            "description": "**HTTP Status Code:** `404` <br>\n Not Found  \n\n **Error Code:** `60061003` <br>\n Device does not exist. <br>\n"
+          }
+        },
+        "security": [
+          {
+            "openapi_oauth": [
+              "apiconnector:write:admin",
+              "crc:update:apiconnector:admin"
+            ],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "ZURM-OnD-2024-Jun",
+          "x-permissions": ["RoomConnector:Edit"],
+          "x-macro-scopes": ["apiconnector:write:admin"],
+          "x-granular-scopes": ["crc:update:apiconnector:admin"]
+        }
+      }
+    },
+    "/crc/api_connectors/{connectorId}/private_key": {
+      "get": {
+        "tags": ["Api Connector"],
+        "summary": "Get an API Connector's private key",
+        "description": "Retrieves the private key of an Enhanced API Connector.\n\n**Scopes:** `apiconnector:read:admin`\n\n**Granular Scopes:** `crc:read:apiconnector_private_key:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
+        "operationId": "GetanAPIConnector'sprivatekey",
+        "parameters": [
+          {
+            "name": "connectorId",
+            "in": "path",
+            "description": "The enhanced API connector's ID.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "26e2847b-df3c-4407-9c6a-842987cd47de"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "**HTTP Status Code:** `200`   A private key returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "private_key": {
+                      "type": "string",
+                      "description": "The private key used by the Enhanced API Connector to authenticate to Zoom services.",
+                      "example": "q3dgdj1mln9x0pne8kjb9y122qatlqoe3k4czeu85fgdgkkq237mhpqe9uh3xam8f7syv1rrm9xb7xute0gzekndn9oy98n3cen4l2t63gggxlivnzsdgcovsy6kwwk3"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "**HTTP Status Code:** `401` <br>\n Unauthorized  \n\n "
+          },
+          "404": {
+            "description": "**HTTP Status Code:** `404` <br>\n Not Found  \n\n **Error Code:** `60071008` <br>\n Connector does not exist. <br>\n"
+          }
+        },
+        "security": [
+          {
+            "openapi_oauth": [
+              "apiconnector:read:admin",
+              "crc:read:apiconnector_private_key:admin"
+            ],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "ZURM-OnD-2024-Jun",
+          "x-permissions": ["RoomConnector:Read"],
+          "x-macro-scopes": ["apiconnector:read:admin"],
+          "x-granular-scopes": ["crc:read:apiconnector_private_key:admin"]
+        }
+      },
+      "patch": {
+        "tags": ["Api Connector"],
+        "summary": "Update an API Connector's private key",
+        "description": "Regenerates the enhanced API connector's private key.\n\n**Scopes:** `apiconnector:write:admin`\n\n**Granular Scopes:** `crc:update:apiconnector_private_key:admin`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `MEDIUM`",
+        "operationId": "UpdateAPIConnectorPrivateKey",
+        "parameters": [
+          {
+            "name": "connectorId",
+            "in": "path",
+            "description": "The enhanced API connector's ID.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "26e2847b-df3c-4407-9c6a-842987cd47de"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "**HTTP Status Code:** `200`   A private key returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "private_key": {
+                      "type": "string",
+                      "description": "The private key the enhanced API connector uses to authenticate to Zoom services.",
+                      "example": "q3dgdj1mln9x0pne8kjb9y122qatlqoe3k4czeu85fgdgkkq237mhpqe9uh3xam8f7syv1rrm9xb7xute0gzekndn9oy98n3cen4l2t63gggxlivnzsdgcovsy6kwwk3"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "**HTTP Status Code:** `404` <br>\n Not Found  \n\n **Error Code:** `60071008` <br>\n Connector does not exist. <br>\n"
+          }
+        },
+        "security": [
+          {
+            "openapi_oauth": [
+              "apiconnector:write:admin",
+              "crc:update:apiconnector_private_key:admin"
+            ],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "ZURM-OnD-2024-Jun",
+          "x-permissions": ["RoomConnector:Edit"],
+          "x-macro-scopes": ["apiconnector:write:admin"],
+          "x-granular-scopes": ["crc:update:apiconnector_private_key:admin"]
+        }
+      }
+    },
+    "/crc/participant_identifier_code": {
+      "get": {
+        "tags": ["Participant"],
+        "summary": "Get participant identifier code",
+        "description": "Authenticate CRC meetings.\n\n**Scopes:** `crc:read:admin`,`crc:master`\n\n**Granular Scopes:** `crc:read:participant_identifier_code:admin`,`crc:read:participant_identifier_code:master`\n\n**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `LIGHT`",
+        "operationId": "get_participant_identifier_code",
+        "responses": {
+          "200": {
+            "description": "Identifier code details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "participant_identifier_code": {
+                      "type": "string",
+                      "description": "Identifier code.",
+                      "example": "41bc4gfs3"
+                    },
+                    "expire_in": {
+                      "type": "number",
+                      "description": "Expiry time of identifier code in seconds.",
+                      "example": 7200
+                    },
+                    "paid_crc_plan_participant": {
+                      "type": "boolean",
+                      "description": "CRC plan status of the api caller.",
+                      "example": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "**HTTP Status Code:** `401` <br>\n Unauthorized  \n\n "
+          },
+          "403": {
+            "description": "**HTTP Status Code:** `403` <br>\n Forbidden  \n\n "
+          }
+        },
+        "security": [
+          {
+            "openapi_oauth": [
+              "crc:read:admin",
+              "crc:master",
+              "crc:read:participant_identifier_code:admin",
+              "crc:read:participant_identifier_code:master"
+            ],
+            "openapi_authorization": []
+          }
+        ],
+        "x-extensions": {
+          "x-fixVersion": "ZURM-2024-Mar",
+          "x-permissions": [],
+          "x-macro-scopes": ["crc:read:admin", "crc:master"],
+          "x-granular-scopes": [
+            "crc:read:participant_identifier_code:admin",
+            "crc:read:participant_identifier_code:master"
+          ]
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "openapi_authorization": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      },
+      "openapi_oauth": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "/",
+            "tokenUrl": "",
+            "refreshUrl": "",
+            "scopes": {
+              "apiconnector:read:admin": "apiconnector:read:admin",
+              "crc:read:list_apiconnectors:admin": "crc:read:list_apiconnectors:admin",
+              "apiconnector:write:admin": "apiconnector:write:admin",
+              "crc:write:apiconnector:admin": "crc:write:apiconnector:admin",
+              "crc:read:apiconnector:admin": "crc:read:apiconnector:admin",
+              "crc:delete:apiconnector:admin": "crc:delete:apiconnector:admin",
+              "crc:update:apiconnector:admin": "crc:update:apiconnector:admin",
+              "crc:update:apiconnector_private_key:admin": "crc:update:apiconnector_private_key:admin",
+              "crc:read:apiconnector_private_key:admin": "crc:read:apiconnector_private_key:admin",
+              "crc:read:admin": "crc:read:admin",
+              "crc:master": "crc:master",
+              "crc:read:participant_identifier_code:admin": "crc:read:participant_identifier_code:admin",
+              "crc:read:participant_identifier_code:master": "crc:read:participant_identifier_code:master"
+            }
+          }
+        }
+      }
+    }
+  }
+}
